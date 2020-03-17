@@ -7,10 +7,6 @@
   SPI SCK     SCK          13 / ICSP-3
 
 */
-
-
-
-
 #include <SPI.h>
 #include <MFRC522.h>
 #include <Keypad.h>
@@ -21,13 +17,10 @@ MFRC522 mfrc522(SS_PIN, RST_PIN);
 
 const int password_length = 4;
 
-
 String tagHRO = "8A 16 F8 0A";             //Hardcoded tagUID
-char passwordHRO[password_length] = {'1', '2', '3', '4'}; //Hardcoded password
+char correct_pin[password_length] = {'1', '2', '3', '4'}; //Hardcoded password
 char passwordOpslag[password_length];
-byte data_index = 0;
-
-
+int data_index = 0;
 
 bool rfidMode = true;
 bool keyPad = false;
@@ -61,15 +54,14 @@ void setup() {
   SPI.begin();
   Serial.println("Scan uw pas");
 
-  pinMode(led,OUTPUT);
+  pinMode(led, OUTPUT);
 }
 
 void loop() {
 
   if (rfidMode == true && pasHRO == true )  //Zoekt naar pas mode
   {
-
-
+    Serial.println("Scan uw pas");
     // Look for new cards
     if ( ! mfrc522.PICC_IsNewCardPresent()) {
       return;
@@ -112,21 +104,20 @@ void loop() {
       Serial.println(key);
     }
 
-
-    if ((key >= '0' && key <= '9') && key != '#' ) {
+    if ((key >= '0' && key <= '9')) {
       if (data_index <= password_length) {
         {
-          passwordOpslag[data_index++] = key;
+          passwordOpslag[data_index] = key;
+          data_index++;
         }
-      } else {
-
-
-        Serial.println("lang");
+      } else
+      {
+        Serial.println("Pincode is te lang");
       }
     } else if (key == '#')
     {
       delay(200);
-      if (!(strncmp(passwordOpslag, passwordHRO, password_length))) // If password is matched
+      if (cmpArray()) // If password is matched
       {
         if ( pasHRO == true)
         {
@@ -142,37 +133,61 @@ void loop() {
         Serial.println("Wrong Password");
         clearData();
         attemptCounter++;  //Telt ééntje bij de attemptcounter
+        Serial.println( attemptCounter);
+
       }
     } else if (key == '*') {
       backspace();
     }
-  }
-  if (attemptCounter == 3)
-  {
-    rfidMode = true;
-    pasHRO = true;
-    Serial.println("je pas is geblokkeerd");
-    delay(500);
-    Serial.println("Scan uw pas");
-    clearData();
-    //      break;
-  }
 
+    if (attemptCounter == 3)
+    {
+      rfidMode = true;
+      pasHRO = false;
+      keyPad = false;
+      Serial.println("je pas is geblokkeerd");
+      delay(500);
+      Serial.println("Neem uw pas uit");
+      clearData();
+      //      break;
+    }
+
+    if (pasHRO == false)
+    {
+      Serial.println("Uw pas is geblokkeerd");
+    }
+  }
+}
+
+bool cmpArray()
+{
+  for (int i = 0; i < password_length; i++)
+  {
+    if (passwordOpslag[i] != correct_pin[i])
+    {
+      return false;
+    }
+  }
+  
+  return true;
 }
 
 void clearData()
 {
-  while (data_index != 0)
-  {
-    passwordOpslag[data_index--] = '\0';
+  // Serial.println("arraaaaaaaay");
+  //  for (int j = 0; j < 5; j++ ) {
+  //    Serial.println(passwordOpslag[j]);
+  //  }
+
+  for (int i = 0; i < 5; i++) {
+    data_index = 0;
+    passwordOpslag[i] = 0;
   }
   return;
 }
 
 void backspace()
 {
-  if (data_index != 0) {
-    passwordOpslag[data_index--] = '\0';
-  }
+  data_index--;
   return;
 }
