@@ -22,9 +22,13 @@ char correct_pin[password_length] = {'1', '2', '3', '4'}; //Hardcoded password
 char passwordOpslag[password_length];
 int data_index = 0;
 
+int bedrag = 200;
+
+
 bool rfidMode = true;
 bool keyPad = false;
 bool pasHRO = true;
+
 
 int attemptCounter = 0;     //Telt het aantal inlog pogingen
 
@@ -126,6 +130,8 @@ void loop() {
           digitalWrite(led, HIGH);
           delay(250);
           clearData();
+          Serial.print("Uw saldo is: €");
+          Serial.println(bedrag);
           break;
         }
       }  else    // If password is not matched
@@ -147,17 +153,13 @@ void loop() {
       keyPad = false;
       Serial.println("je pas is geblokkeerd");
       delay(500);
-      Serial.println("Neem uw pas uit");
+      Serial.println("Neem uw pas uit. Neem contact met de klantenservice");
       clearData();
       //      break;
     }
-
-    if (pasHRO == false)
-    {
-      Serial.println("Uw pas is geblokkeerd");
-    }
   }
 }
+
 
 bool cmpArray()
 {
@@ -168,7 +170,7 @@ bool cmpArray()
       return false;
     }
   }
-  
+
   return true;
 }
 
