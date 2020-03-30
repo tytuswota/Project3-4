@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="146c25f1-6282-46a5-94cb-596b7aae4d31" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="FxmlFile" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1ZitstYKm03QTlBQZfvjggN1LqD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/fotos" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\gui\applicatie\src\main\fotos" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\gui\applicatie\src\main\fotos" />
+      <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\gui\applicatie\src\main\style" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.openjfx.App" />
+      <module name="applicatie" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.openjfx.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="showServicesTree" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="146c25f1-6282-46a5-94cb-596b7aae4d31" name="Default Changelist" comment="" />
+      <created>1585333951487</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1585333951487</updated>
+      <workItem from="1585333952895" duration="3927000" />
+      <workItem from="1585412747521" duration="11578000" />
+      <workItem from="1585491605766" duration="11656000" />
+      <workItem from="1585504875442" duration="137000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="278" y="216" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1585334145623">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="278" y="216" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585334145623" />
+    <state x="1051" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585497950737">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="1051" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585497950737" />
+    <state x="740" y="266" key="FileChooserDialogImpl" timestamp="1585336459307">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="740" y="266" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1585336459307" />
+    <state width="1124" height="115" key="GridCell.Tab.0.bottom" timestamp="1585504801156">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1124" height="115" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1585504801156" />
+    <state width="1124" height="115" key="GridCell.Tab.0.center" timestamp="1585504801156">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1124" height="115" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1585504801156" />
+    <state width="1124" height="115" key="GridCell.Tab.0.left" timestamp="1585504801156">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1124" height="115" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1585504801156" />
+    <state width="1124" height="115" key="GridCell.Tab.0.right" timestamp="1585504801156">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1124" height="115" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1585504801156" />
+    <state x="183" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1585504896506">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="183" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585504896506" />
+    <state x="776" y="126" width="607" height="804" key="find.popup" timestamp="1585504391170">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="776" y="126" width="607" height="804" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1585504391170" />
+    <state x="828" y="247" key="run.anything.popup" timestamp="1585500852683">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="828" y="247" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1585500852683" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1585426359370">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1585426359370" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jrt://D:/school/a download/ideaIU-2019.3.4.win/jbr!/javafx.graphics/javafx/application/Application.class</url>
+          <line>65</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
