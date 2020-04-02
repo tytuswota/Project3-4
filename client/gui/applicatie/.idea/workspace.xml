@@ -1,42 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="146c25f1-6282-46a5-94cb-596b7aae4d31" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/eigenBedragController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/pasInController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/pasUitController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fotos/pasIn.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/fotos/pasuit.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/eigenBedrag.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/pasIn.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/pasUit.fxml" afterDir="false" />
+    <list default="true" id="146c25f1-6282-46a5-94cb-596b7aae4d31" name="Default Changelist" comment=" Password box updated on key event">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/bedragController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/bedragController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/SerialReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/SerialReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/loginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/loginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/mainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/mainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/saldoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/saldoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/openjfx/bedrag.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/bedrag.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/openjfx/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/openjfx/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/mainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/openjfx/primary.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/openjfx/saldo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/saldo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/style/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/style/Main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/applicatie-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/applicatie-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/bedrag.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/bedrag.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/bedragController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/bedragController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/eigenBedrag.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/eigenBedrag.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/loginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/loginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/mainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/mainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/mainMenu.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/mainMenu.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/saldo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/saldo.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/saldoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/saldoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/style/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/style/Main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,21 +55,21 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\Project3-4\client\gui\applicatie\src\main\resources\fotos" />
+      <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\Project3-4\client\gui\applicatie\src\main\resources\style\fotos" />
+      <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\Project3-4\client\gui\applicatie\src\main\fotos" />
+      <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\gui\applicatie\src\main\fotos" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.openjfx" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\Project3-4\client\gui\applicatie\src\main\resources" />
       <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\Project3-4\client\gui\applicatie\src\main\resources\style" />
       <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\Project3-4\client\gui\applicatie\src\main\resources\org\openjfx" />
       <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\gui\applicatie\src\main\fotos" />
       <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\gui\applicatie\src\main\style" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="org.openjfx" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\Project3-4\client\gui\applicatie\src\main\resources\fotos" />
-      <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\Project3-4\client\gui\applicatie\src\main\resources\style\fotos" />
-      <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\Project3-4\client\gui\applicatie\src\main\fotos" />
-      <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\gui\applicatie\src\main\fotos" />
     </key>
   </component>
   <component name="RunManager">
@@ -147,6 +122,22 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Adding class to read serial communication" />
+    <MESSAGE value=" Password box updated on key event" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Password box updated on key event" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="552" y="183" key="#Notifications" timestamp="1585676246899">
       <screen x="0" y="0" width="1920" height="1050" />
@@ -160,26 +151,58 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="1051" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585674578718" />
+    <state x="563" y="118" key="CommitChangelistDialog2" timestamp="1585834093685">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="563" y="118" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585834093685" />
+    <state x="952" y="0" width="975" height="1047" key="DiffContextDialog" timestamp="1585832357551">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="952" y="0" width="975" height="1047" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585832357551" />
     <state x="740" y="266" key="FileChooserDialogImpl" timestamp="1585336459307">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="266" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1585336459307" />
-    <state width="1319" height="178" key="GridCell.Tab.0.bottom" timestamp="1585776360662">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="938" height="348" key="GridCell.Tab.0.bottom" timestamp="1585833951712">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="938" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585833951712" />
     <state width="1319" height="178" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1585776360662" />
-    <state width="1319" height="178" key="GridCell.Tab.0.center" timestamp="1585776360662">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="938" height="348" key="GridCell.Tab.0.center" timestamp="1585833951711">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="938" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585833951711" />
     <state width="1319" height="178" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1585776360662" />
-    <state width="1319" height="178" key="GridCell.Tab.0.left" timestamp="1585776360662">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="938" height="348" key="GridCell.Tab.0.left" timestamp="1585833951711">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="938" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585833951711" />
     <state width="1319" height="178" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1585776360662" />
-    <state width="1319" height="178" key="GridCell.Tab.0.right" timestamp="1585776360662">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="938" height="348" key="GridCell.Tab.0.right" timestamp="1585833951711">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="938" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585833951711" />
     <state width="1319" height="178" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1585776360662" />
+    <state width="938" height="348" key="GridCell.Tab.1.bottom" timestamp="1585833951713">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585833951713" />
+    <state width="938" height="348" key="GridCell.Tab.1.center" timestamp="1585833951712">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585833951712" />
+    <state width="938" height="348" key="GridCell.Tab.1.left" timestamp="1585833951712">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585833951712" />
+    <state width="938" height="348" key="GridCell.Tab.1.right" timestamp="1585833951712">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="938" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585833951712" />
+    <state x="696" y="234" key="RollbackChangesDialog" timestamp="1585834136220">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="696" y="234" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585834136220" />
     <state x="461" y="167" key="SettingsEditor" timestamp="1585579019266">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

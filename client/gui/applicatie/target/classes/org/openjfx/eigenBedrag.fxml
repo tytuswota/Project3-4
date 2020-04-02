@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="eigenBedrag" prefHeight="1080.0" prefWidth="1920.0" styleClass="bg" stylesheets="@../../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.eigenBedragController">
+<AnchorPane fx:controller="org.openjfx.eigenBedragController" id="eigenBedrag" prefHeight="1080.0" prefWidth="1920.0" styleClass="bg" stylesheets="@../../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" >
    <children>
       <TextField id="saldo" layoutX="809.0" layoutY="544.0" prefHeight="82.0" prefWidth="324.0" promptText="€00,00" styleClass="field" stylesheets="@../../style/Main.css">
          <font>
