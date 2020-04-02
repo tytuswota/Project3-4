@@ -1,6 +1,9 @@
 org\openjfx\saldoController.class
+org\openjfx\eigenBedragController.class
 org\openjfx\bedragController.class
+org\openjfx\pasInController.class
 org\openjfx\mainController.class
 module-info.class
 org\openjfx\loginController.class
 org\openjfx\App.class
+org\openjfx\pasUitController.class

@@ -7,11 +7,22 @@ import java.io.IOException;
 
 public class saldoController {
 
+    @FXML
+    Button saldoToMenu;
 
     @FXML
-    public void switchToSecondary() throws IOException {
-        App.setRoot("secondary");
+    Button afbreken;
 
 
+    @FXML
+    public void switchToPasUit() throws IOException {
+        App.setRoot("pasUit");
     }
+
+    @FXML
+    public void switchToMainMenu() throws IOException {
+        App.setRoot("mainMenu");
+    }
+
+
 }

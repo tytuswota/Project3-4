@@ -2,7 +2,9 @@
 
 
 
-
+#pasIn.bg{
+    -fx-background-image: url("../fotos/pasIn.jpg") no-repeat;
+}
 #login.bg {
     -fx-background-image: url("../fotos/pincode.jpg") no-repeat;
 }
@@ -17,6 +19,9 @@
 }
 #eigenBedrag.bg{
     -fx-background-image: url("../fotos/eigenBedrag.jpg") no-repeat;
+}
+#pasUit.bg{
+    -fx-background-image: url("../fotos/pasuit.jpg") no-repeat;
 }
 
 #button.knop {

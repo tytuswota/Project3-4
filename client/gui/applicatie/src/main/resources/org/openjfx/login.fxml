@@ -16,7 +16,7 @@
             </font>
         </Button>
 
-        <Button id="button" fx:id="cancel" layoutX="294.0" layoutY="711.0" mnemonicParsing="false" onMouseClicked="#switchToMainMenu" styleClass="knop" stylesheets="@../../style/Main.css" text="*" textFill="WHITE">
+        <Button id="button" fx:id="annuleren" layoutX="294.0" layoutY="711.0" mnemonicParsing="false" onAction="#switchToPasUit" styleClass="knop" stylesheets="@../../style/Main.css" text="*" textFill="WHITE">
             <font>
                 <Font size="60.0" />
             </font>

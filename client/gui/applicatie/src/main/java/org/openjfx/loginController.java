@@ -9,11 +9,18 @@ public class loginController {
 
     @FXML
     Button bevestigen;
-    Button cancel;
+    @FXML
+    Button annuleren;
 
 
     @FXML
     public void switchToMainMenu() throws IOException {
         App.setRoot("mainMenu");
     }
+
+    @FXML
+    public void switchToPasUit() throws IOException {
+        App.setRoot("pasUit");
+    }
+
 }
