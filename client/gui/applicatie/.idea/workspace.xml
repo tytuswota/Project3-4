@@ -1,7 +1,181 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="146c25f1-6282-46a5-94cb-596b7aae4d31" name="Default Changelist" comment="" />
+    <list default="true" id="146c25f1-6282-46a5-94cb-596b7aae4d31" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../.idea/gui.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/cssdialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/loginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/saldoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fotos/bedrag.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fotos/eigenBedrag.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fotos/main.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fotos/saldo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/bedrag.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/mainMenu.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/saldo.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/fotos/test1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/fotos/test2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fotos/pincode.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/PrimaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/bedragController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/SecondaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/mainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/openjfx/primary.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/openjfx/secondary.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/openjfx/test.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/style/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/style/Main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/App.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/PrimaryController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/SecondaryController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/primary.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/secondary.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/test.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-console-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-console-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-datetime-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-debug-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-errorhandling-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-file-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-file-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-file-l2-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-handle-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-heap-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-interlocked-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-libraryloader-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-localization-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-memory-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-namedpipe-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-processenvironment-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-processthreads-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-processthreads-l1-1-1.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-profile-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-rtlsupport-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-string-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-synch-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-synch-l1-2-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-sysinfo-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-timezone-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-core-util-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-crt-conio-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-crt-convert-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-crt-environment-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-crt-filesystem-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-crt-heap-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-crt-locale-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-crt-math-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-crt-multibyte-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-crt-private-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-crt-process-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-crt-runtime-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-crt-stdio-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-crt-string-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-crt-time-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/api-ms-win-crt-utility-l1-1-0.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/awt.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/fontmanager.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/freetype.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/java.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/java.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/javajpeg.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/javaw.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/jawt.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/jimage.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/jli.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/jrunscript.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/jsound.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/keytool.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/launcher" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/launcher.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/lcms.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/mlib_image.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/msvcp140.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/net.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/nio.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/prefs.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/server/jvm.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/splashscreen.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/ucrtbase.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/vcruntime140.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/verify.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/bin/zip.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/conf/net.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/conf/security/java.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/conf/security/java.security" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/conf/security/policy/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/conf/security/policy/limited/default_US_export.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/conf/security/policy/limited/default_local.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/conf/security/policy/limited/exempt_local.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/conf/security/policy/unlimited/default_US_export.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/conf/security/policy/unlimited/default_local.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/conf/sound.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/include/classfile_constants.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/include/jawt.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/include/jni.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/include/jvmti.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/include/jvmticmlr.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/include/win32/jawt_md.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/include/win32/jni_md.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.base/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.base/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.base/aes.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.base/asm.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.base/c-libutl.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.base/cldr.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.base/icu.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.base/public_suffix.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.base/unicode.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.base/zlib.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.datatransfer/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.datatransfer/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.desktop/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.desktop/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.desktop/colorimaging.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.desktop/freetype.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.desktop/giflib.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.desktop/harfbuzz.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.desktop/jpeg.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.desktop/lcms.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.desktop/libpng.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.desktop/mesa3d.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.desktop/opengl.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.prefs/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.prefs/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.scripting/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.scripting/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.xml/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.xml/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.xml/bcel.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.xml/dom.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.xml/jcup.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.xml/xalan.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/java.xml/xerces.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/jdk.unsupported/COPYRIGHT" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/legal/jdk.unsupported/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/lib/classlist" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/lib/fontconfig.bfc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/lib/fontconfig.properties.src" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/lib/jawt.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/lib/jrt-fs.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/lib/jvm.cfg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/lib/jvm.lib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/lib/modules" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/lib/psfont.properties.ja" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/lib/psfontj2d.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/lib/security/blacklisted.certs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/lib/security/cacerts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/lib/security/default.policy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/lib/security/public_suffix_list.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/lib/tzdb.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/lib/tzmappings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/image/release" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,8 +186,12 @@
       <list>
         <option value="CSS File" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -23,6 +201,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1ZitstYKm03QTlBQZfvjggN1LqD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -30,16 +209,26 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/fotos" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/style/fotos" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\Project3-4\client\gui\applicatie\src\main\resources\style\fotos" />
+      <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\Project3-4\client\gui\applicatie\src\main\fotos" />
       <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\gui\applicatie\src\main\fotos" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.openjfx" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\Project3-4\client\gui\applicatie\src\main\resources" />
+      <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\Project3-4\client\gui\applicatie\src\main\resources\style" />
+      <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\Project3-4\client\gui\applicatie\src\main\resources\org\openjfx" />
       <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\gui\applicatie\src\main\fotos" />
       <recent name="D:\school\projecten\jaar 1\project 3 &amp; 4\gui\applicatie\src\main\style" />
     </key>
@@ -81,6 +270,11 @@
       <workItem from="1585412747521" duration="11578000" />
       <workItem from="1585491605766" duration="11656000" />
       <workItem from="1585504875442" duration="137000" />
+      <workItem from="1585510589153" duration="4426000" />
+      <workItem from="1585560522968" duration="10103000" />
+      <workItem from="1585576601159" duration="801000" />
+      <workItem from="1585577413231" duration="9411000" />
+      <workItem from="1585665740992" duration="11438000" />
     </task>
     <servers />
   </component>
@@ -88,60 +282,61 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="183" key="#Notifications" timestamp="1585676246899">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="183" key="#Notifications/0.0.1920.1050@0.0.1920.1050" timestamp="1585676246899" />
     <state x="278" y="216" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1585334145623">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="278" y="216" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585334145623" />
-    <state x="1051" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585497950737">
+    <state x="1051" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1585674578718">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="1051" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585497950737" />
+    <state x="1051" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585674578718" />
     <state x="740" y="266" key="FileChooserDialogImpl" timestamp="1585336459307">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="266" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1585336459307" />
-    <state width="1124" height="115" key="GridCell.Tab.0.bottom" timestamp="1585504801156">
+    <state width="1322" height="167" key="GridCell.Tab.0.bottom" timestamp="1585686637830">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1124" height="115" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1585504801156" />
-    <state width="1124" height="115" key="GridCell.Tab.0.center" timestamp="1585504801156">
+    <state width="1322" height="167" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1585686637830" />
+    <state width="1322" height="167" key="GridCell.Tab.0.center" timestamp="1585686637830">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1124" height="115" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1585504801156" />
-    <state width="1124" height="115" key="GridCell.Tab.0.left" timestamp="1585504801156">
+    <state width="1322" height="167" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1585686637830" />
+    <state width="1322" height="167" key="GridCell.Tab.0.left" timestamp="1585686637830">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1124" height="115" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1585504801156" />
-    <state width="1124" height="115" key="GridCell.Tab.0.right" timestamp="1585504801156">
+    <state width="1322" height="167" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1585686637830" />
+    <state width="1322" height="167" key="GridCell.Tab.0.right" timestamp="1585686637830">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state width="1124" height="115" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1585504801156" />
-    <state x="183" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1585504896506">
+    <state width="1322" height="167" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1585686637830" />
+    <state x="461" y="167" key="SettingsEditor" timestamp="1585579019266">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="183" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585504896506" />
+    <state x="461" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1585579019266" />
+    <state x="183" y="349" width="602" height="352" key="com.intellij.ide.util.TipDialog" timestamp="1585665756315">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="183" y="349" width="602" height="352" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585665756315" />
+    <state x="769" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585676272146">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="769" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050@0.0.1920.1050" timestamp="1585676272146" />
     <state x="776" y="126" width="607" height="804" key="find.popup" timestamp="1585504391170">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="776" y="126" width="607" height="804" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1585504391170" />
-    <state x="828" y="247" key="run.anything.popup" timestamp="1585500852683">
+    <state x="828" y="247" key="run.anything.popup" timestamp="1585563450745">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="828" y="247" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1585500852683" />
+    <state x="828" y="247" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1585563450745" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1585426359370">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1585426359370" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>jrt://D:/school/a download/ideaIU-2019.3.4.win/jbr!/javafx.graphics/javafx/application/Application.class</url>
-          <line>65</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
