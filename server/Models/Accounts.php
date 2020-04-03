@@ -3,7 +3,6 @@ include_once "BaseModel.php";
 
 class Accounts extends BaseModel
 {
-    private $stmt = 0;
     public function __construct(){
 
         $this->tableName = "BankAccount";
