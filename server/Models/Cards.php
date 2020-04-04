@@ -8,7 +8,8 @@ class Cards extends BaseModel
     }
 
     public function readCard($cardId = 0){
-        $stmt = $this->read($cardId);
+
+        $stmt = $this->read("card_id",$cardId);
         $cardsArray = array();
 
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
@@ -24,7 +25,6 @@ class Cards extends BaseModel
         }
 
         http_response_code(200);
-
         return json_encode($cardsArray);
     }
 

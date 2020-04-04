@@ -1,6 +1,6 @@
 <?php
 
-/*include_once "../Database/DatabaseConnection.php";*/
+/*include_once "../../Database/DatabaseConnection.php";*/
 
 class BaseModel
 {
@@ -52,15 +52,18 @@ class BaseModel
     }
 
     public function read($key ,$where){
-        if($where == 0){
+        if($where === 0){
             $query = "SELECT * FROM " . $this->tableName;
         }else{
-            $query = "SELECT * FROM" . $this->tableName . "WHERE " . $key . "=" . $where;
+            $query = "SELECT * FROM " . $this->tableName . " WHERE " . $key . "=:A";
         }
+
         $database = new DatabaseConnection();
         $database->getConnection();
 
         $stmt = $database->conn->prepare($query);
+        $stmt->bindParam(':A', $where);
+
         $stmt->execute();
 
         return $stmt;
