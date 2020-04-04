@@ -1,6 +1,6 @@
 <?php
 
-/*include_once "../../Database/DatabaseConnection.php";*/
+include_once "../../Database/DatabaseConnection.php";
 
 class BaseModel
 {
@@ -10,8 +10,8 @@ class BaseModel
         $query = "INSERT INTO " . $this->tableName . " SET ";
 
         $i = 0;
+        print_r($values);
         foreach($values as $key => $value){
-            echo json_encode("{" . $key . ":" . $value . "}");
             if($i === 0){
                 $query .= $key . "=:" . $i;
             }else{
@@ -20,13 +20,10 @@ class BaseModel
             $i++;
         }
 
-        echo json_encode("{" . $query . "}");
-
         $database = new DatabaseConnection();
         $database->getConnection();
 
         $stmt = $database->conn->prepare($query);
-
 
         /*array_map('changeValue', $values);
 
@@ -35,7 +32,6 @@ class BaseModel
             htmlspecialchars(strip_tags($val));
         }*/
 
-
         $i = 0;
         foreach($values as $key => &$value){
             $index = ':'.$i;
@@ -43,8 +39,8 @@ class BaseModel
             $i++;
         }
 
-        if($stmt->execute()){
 
+        if($stmt->execute()){
 
             return $database->conn->lastInsertId();
         }

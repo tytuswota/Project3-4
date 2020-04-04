@@ -11,14 +11,14 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 $accounts = new Accounts();
 
-/*http_response_code(200);*/
+http_response_code(200);
 $inputData = json_decode(file_get_contents("php://input"));
 
 if(empty($inputData)){
     echo json_encode($accounts->readAccount());
 }else{
     $accountId = $inputData->account_id;
-    echo $accountId;
+    echo json_encode($accounts->readAccount($accountId));
 }
 
 

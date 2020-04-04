@@ -23,7 +23,7 @@ class Accounts extends BaseModel
             array_push($bankAccountArray, $bankAccountItem);
 
         }
-
+        print_r($bankAccountArray);
         http_response_code(200);
         return json_encode($bankAccountArray);
     }
