@@ -15,7 +15,6 @@ class LoginController
 
        if(password_verify($givenPin,$hashedPin)){
            echo "logged in";
-           //JWT
        }else{
            echo "wrong pin";
        }
