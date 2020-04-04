@@ -11,7 +11,7 @@ class DatabaseConnection
 
     public function getConnection(){
         $cred = json_decode(file_get_contents("../../database.json"));
-        $this->hostName = $cred->hostNmae;
+        $this->hostName = $cred->hostName;
         $this->dbName = $cred->dbName;
         $this->userName = $cred->userName;
         $this->password = $cred->password;

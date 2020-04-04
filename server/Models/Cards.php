@@ -4,7 +4,7 @@ include_once "BaseModel.php";
 class Cards extends BaseModel
 {
     public function __construct(){
-        $this->tableName = 'Cards';
+        $this->tableName = 'Card';
     }
 
     public function readCard($cardId = 0){
@@ -28,8 +28,8 @@ class Cards extends BaseModel
         return json_encode($cardsArray);
     }
 
-    public function createCard(){
-
+    public function createCard($val){
+        $this->create($val);
     }
 
 }

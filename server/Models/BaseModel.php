@@ -1,17 +1,17 @@
 <?php
 
-include_once "../Database/DatabaseConnection.php";
+/*include_once "../Database/DatabaseConnection.php";*/
 
 class BaseModel
 {
     public $tableName;
 
     protected function create($values){
-
         $query = "INSERT INTO " . $this->tableName . " SET ";
 
         $i = 0;
         foreach($values as $key => $value){
+            echo json_encode("{" . $key . ":" . $value . "}");
             if($i === 0){
                 $query .= $key . "=:" . $i;
             }else{
@@ -20,14 +20,21 @@ class BaseModel
             $i++;
         }
 
+        echo json_encode("{" . $query . "}");
+
         $database = new DatabaseConnection();
         $database->getConnection();
+
         $stmt = $database->conn->prepare($query);
 
-        array_map('changeValue', $values);
+
+        /*array_map('changeValue', $values);
+
         function changeValue($val){
+            echo json_encode("{test:" . $val . "}");
             htmlspecialchars(strip_tags($val));
-        }
+        }*/
+
 
         $i = 0;
         foreach($values as $key => &$value){
@@ -35,8 +42,11 @@ class BaseModel
             $stmt->bindParam($index,$value);
             $i++;
         }
+
         if($stmt->execute()){
-            return true;
+
+
+            return $database->conn->lastInsertId();
         }
         return false;
     }

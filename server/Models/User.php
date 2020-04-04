@@ -1,5 +1,5 @@
 <?php
-
+include_once "BaseModel.php";
 
 class User extends BaseModel
 {
