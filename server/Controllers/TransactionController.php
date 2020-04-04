@@ -8,6 +8,5 @@ class TransactionController extends BaseController
         $accountsValues = json_decode($accounts->readAccount($accountId));
 
         print_r($accountsValues);
-
     }
 }

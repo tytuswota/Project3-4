@@ -12,6 +12,7 @@ class Accounts extends BaseModel
         $bankAccountArray = array();
 
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
             $bankAccountItem = array(
                 "bank_account_id" => $row['bank_account_id'],
                 "account_balance" => $row['account_balance'],
@@ -23,7 +24,7 @@ class Accounts extends BaseModel
             array_push($bankAccountArray, $bankAccountItem);
 
         }
-        print_r($bankAccountArray);
+
         http_response_code(200);
         return json_encode($bankAccountArray);
     }

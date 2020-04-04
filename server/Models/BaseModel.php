@@ -10,7 +10,6 @@ class BaseModel
         $query = "INSERT INTO " . $this->tableName . " SET ";
 
         $i = 0;
-        print_r($values);
         foreach($values as $key => $value){
             if($i === 0){
                 $query .= $key . "=:" . $i;
@@ -65,8 +64,40 @@ class BaseModel
         return $stmt;
     }
 
-    protected function update(){
+    protected function update($key ,$where, $values){
+        $query = "UPDATE " . $this->tableName . " SET ";
 
+        $i = 0;
+        foreach($values as $key => $value){
+            if($i === 0){
+                $query .= $key . "=:" . $i;
+            }else{
+                $query .= ", ". $key . "=:" . $i;
+            }
+            $i++;
+        }
+
+        $query .= " WHERE :w = :v";
+
+        $database = new DatabaseConnection();
+        $database->getConnection();
+
+        $stmt = $database->conn->prepare($query);
+
+        $i = 0;
+        foreach($values as $key => &$value){
+            $index = ':'.$i;
+            $stmt->bindParam($index,$value);
+            $i++;
+        }
+
+        $stmt->bindParam(":w", $key);
+        $stmt->bindParam(":v", $where);
+
+        if($stmt->execute()){
+            return true;
+        }
+        return false;
     }
 
     protected function delete(){
