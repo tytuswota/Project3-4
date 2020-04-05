@@ -64,7 +64,7 @@ class BaseModel
         return $stmt;
     }
 
-    protected function update($key ,$where, $values){
+    protected function update($idName ,$idVal, $values){
         $query = "UPDATE " . $this->tableName . " SET ";
 
         $i = 0;
@@ -77,9 +77,7 @@ class BaseModel
             $i++;
         }
 
-        $query .= " WHERE :w = :v";
-
-        print_r($query);
+        $query .= " WHERE `{$idName}` = :v ";
 
         $database = new DatabaseConnection();
         $database->getConnection();
@@ -93,10 +91,11 @@ class BaseModel
             $i++;
         }
 
-        $stmt->bindParam(":w", $key);
-        $stmt->bindParam(":v", $where);
+        $stmt->bindParam(":v", $idVal);
+
 
         if($stmt->execute()){
+            $stmt->debugDumpParams();
             return true;
         }
         return false;

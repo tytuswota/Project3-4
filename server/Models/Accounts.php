@@ -34,11 +34,12 @@ class Accounts extends BaseModel
     }
 
     public function updateAccountBalance($id,$newBalance){
-        $where = "bank_account_id";
+
+        $name = "bank_account_id";
         $values = [
             "account_balance"=>$newBalance
         ];
-        $this->update($id,$where,$values);
+        $this->update($name,$id,$values);
     }
 
     public function deleteAccount(){
