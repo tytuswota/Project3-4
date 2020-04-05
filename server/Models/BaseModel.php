@@ -79,6 +79,8 @@ class BaseModel
 
         $query .= " WHERE :w = :v";
 
+        print_r($query);
+
         $database = new DatabaseConnection();
         $database->getConnection();
 
