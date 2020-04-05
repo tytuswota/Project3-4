@@ -34,7 +34,19 @@ public class loginController {
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
-                    pin.appendText(key);
+
+//                    if (key == "#") {
+//                    }
+
+                    char car = key.charAt(0);
+
+                    if ((car >= '0'  && car <= '9')) {
+                        if (pin.getLength() != 4) {
+                            pin.appendText(key);
+                        } else {
+                            System.out.println("te lang");
+                        }
+                    }
                 }
             });
         }

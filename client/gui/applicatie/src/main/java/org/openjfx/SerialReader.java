@@ -39,9 +39,15 @@ public class SerialReader {
                     System.out.println("Read " + numRead + " bytes.");
                     System.out.println(new String(newData));
                     JSONObject json = new JSONObject(new String(newData));
+
                     if (json.has("keypress")) {
                         KeyPressEvent(json.getString("keypress"));
                     }
+
+                    if (json.has("rfid")) {
+                        rfidEvent(json.getString("rfid"));
+                    }
+
                 }
             });
         } catch (Exception e) {
@@ -51,5 +57,8 @@ public class SerialReader {
 
     protected void KeyPressEvent(String key) {
         System.out.print("key " + key);
+    }
+    protected void rfidEvent(String uid) {
+        System.out.print("rfid " + uid);
     }
 }
