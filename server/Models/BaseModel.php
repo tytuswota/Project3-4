@@ -1,6 +1,6 @@
 <?php
 
-/*include_once "../../Database/DatabaseConnection.php";*/
+include_once "../../Database/DatabaseConnection.php";
 
 class BaseModel
 {
@@ -11,7 +11,6 @@ class BaseModel
 
         $i = 0;
         foreach($values as $key => $value){
-            echo json_encode("{" . $key . ":" . $value . "}");
             if($i === 0){
                 $query .= $key . "=:" . $i;
             }else{
@@ -20,13 +19,10 @@ class BaseModel
             $i++;
         }
 
-        echo json_encode("{" . $query . "}");
-
         $database = new DatabaseConnection();
         $database->getConnection();
 
         $stmt = $database->conn->prepare($query);
-
 
         /*array_map('changeValue', $values);
 
@@ -35,7 +31,6 @@ class BaseModel
             htmlspecialchars(strip_tags($val));
         }*/
 
-
         $i = 0;
         foreach($values as $key => &$value){
             $index = ':'.$i;
@@ -43,8 +38,8 @@ class BaseModel
             $i++;
         }
 
-        if($stmt->execute()){
 
+        if($stmt->execute()){
 
             return $database->conn->lastInsertId();
         }
@@ -69,8 +64,41 @@ class BaseModel
         return $stmt;
     }
 
-    protected function update(){
+    protected function update($idName ,$idVal, $values){
+        $query = "UPDATE " . $this->tableName . " SET ";
 
+        $i = 0;
+        foreach($values as $key => $value){
+            if($i === 0){
+                $query .= $key . "=:" . $i;
+            }else{
+                $query .= ", ". $key . "=:" . $i;
+            }
+            $i++;
+        }
+
+        $query .= " WHERE `{$idName}` = :v ";
+
+        $database = new DatabaseConnection();
+        $database->getConnection();
+
+        $stmt = $database->conn->prepare($query);
+
+        $i = 0;
+        foreach($values as $key => &$value){
+            $index = ':'.$i;
+            $stmt->bindParam($index,$value);
+            $i++;
+        }
+
+        $stmt->bindParam(":v", $idVal);
+
+
+        if($stmt->execute()){
+            $stmt->debugDumpParams();
+            return true;
+        }
+        return false;
     }
 
     protected function delete(){

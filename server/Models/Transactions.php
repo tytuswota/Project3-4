@@ -3,7 +3,7 @@ include_once "BaseModel.php";
 
 class Transactions extends BaseModel
 {
-    public function _construct(){
+    public function __construct(){
         $this->tableName = "Transaction";
     }
 

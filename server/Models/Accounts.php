@@ -12,6 +12,7 @@ class Accounts extends BaseModel
         $bankAccountArray = array();
 
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
             $bankAccountItem = array(
                 "bank_account_id" => $row['bank_account_id'],
                 "account_balance" => $row['account_balance'],
@@ -30,6 +31,15 @@ class Accounts extends BaseModel
 
     public function createAccount($values){
         return $this->create($values);
+    }
+
+    public function updateAccountBalance($id,$newBalance){
+
+        $name = "bank_account_id";
+        $values = [
+            "account_balance"=>$newBalance
+        ];
+        $this->update($name,$id,$values);
     }
 
     public function deleteAccount(){
