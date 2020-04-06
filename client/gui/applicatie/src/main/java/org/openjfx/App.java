@@ -15,6 +15,7 @@ import java.io.IOException;
 public class App extends Application {
 
     private static Scene scene;
+    public static String accountId;
     public static void main(String[] args) {
         launch();
     }
@@ -23,6 +24,8 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("pasIn"));
+        //sets the stage to full screen
+        //stage.setFullScreen(true);
         stage.setScene(scene);
         stage.show();
     }
