@@ -10,6 +10,15 @@ import org.openjfx.loginController;
 
 public class loginController {
 
+    SerialReader reader;
+
+    public loginController() {
+        reader = SerialReader.GetReader();
+        reader.addKeyPadListener((x) -> {
+            KeyPressEventHandler(x);
+        });
+    }
+
     @FXML
     PasswordField pin;
     @FXML
@@ -28,28 +37,24 @@ public class loginController {
         App.setRoot("pasUit");
     }
 
-    SerialReader serialReader = new SerialReader() {
-        @Override
-        protected void KeyPressEvent(String key) {
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
+    public void KeyPressEventHandler(String key) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
 
 //                    if (key == "#") {
 //                    }
 
-                    char car = key.charAt(0);
+                char car = key.charAt(0);
 
-                    if ((car >= '0'  && car <= '9')) {
-                        if (pin.getLength() != 4) {
-                            pin.appendText(key);
-                        } else {
-                            System.out.println("te lang");
-                        }
+                if ((car >= '0' && car <= '9')) {
+                    if (pin.getLength() != 4) {
+                        pin.appendText(key);
+                    } else {
+                        System.out.println("te lang");
                     }
                 }
-            });
-        }
-    };
-
+            }
+        });
+    }
 }

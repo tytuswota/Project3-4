@@ -8,7 +8,11 @@
 
 <AnchorPane id="eigenBedrag" prefHeight="1080.0" prefWidth="1920.0" styleClass="bg" stylesheets="@../../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.eigenBedragController">
    <children>
+<<<<<<< HEAD
       <TextField id="saldo" fx:id="eigenBedrag" layoutX="809.0" layoutY="544.0" prefHeight="82.0" prefWidth="324.0" promptText="€00,00" styleClass="field" stylesheets="@../../style/Main.css">
+=======
+      <TextField fx:id="saldoText" id="saldo" layoutX="809.0" layoutY="544.0" prefHeight="82.0" prefWidth="324.0" promptText="€00,00" styleClass="field" stylesheets="@../../style/Main.css">
+>>>>>>> c1f776b2206a8584f0326e0d3422acda037d3fd6
          <font>
             <Font size="35.0" />
          </font>

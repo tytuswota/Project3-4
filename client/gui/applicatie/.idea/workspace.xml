@@ -5,7 +5,9 @@
       <change beforePath="$PROJECT_DIR$/../../backlog/sprints/sprint 1.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../../backlog/sprints/sprint 2.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/SerialReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/SerialReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/eigenBedragController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/eigenBedragController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/loginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/loginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/pasInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/pasInController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/openjfx/eigenBedrag.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/eigenBedrag.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/openjfx/pasIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/pasIn.fxml" afterDir="false" />
@@ -129,7 +131,7 @@
       <workItem from="1586020289793" duration="13554000" />
       <workItem from="1586091677345" duration="513000" />
       <workItem from="1586120521153" duration="3609000" />
-      <workItem from="1586162755670" duration="6694000" />
+      <workItem from="1586162755670" duration="7292000" />
     </task>
     <servers />
   </component>

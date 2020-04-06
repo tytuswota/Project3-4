@@ -11,6 +11,16 @@ import java.io.IOException;
 
 public class pasInController {
 
+
+    SerialReader reader;
+
+    public pasInController() {
+        reader = SerialReader.GetReader();
+        reader.addRFIDListener((x) -> {
+            RFIDEventHandler(x);
+        });
+    }
+
     @FXML
     AnchorPane toLogin;
 
@@ -22,6 +32,7 @@ public class pasInController {
         App.setRoot("login");
     }
 
+<<<<<<< HEAD
 //    SerialReader serialReader = new SerialReader() {
 //        @Override
 //        protected void rfidEvent(String uid) {
@@ -50,4 +61,31 @@ public class pasInController {
 //            });
 //        }
 //    };
+=======
+    private void RFIDEventHandler(String uid) {
+        Platform.runLater(new Runnable() {
+
+            @Override
+            public void run() {
+
+                if (test.getLength() != 16) {
+                    test.appendText(uid);
+                } else {
+                    try {
+                        switchToLogin();
+                    } catch (Exception e) {
+                        System.out.println(e);
+                    }
+                }
+//werkt nog niet
+                /*
+                 * iets voor uid check om naar volgende scherm te gaan.
+                 *
+                 * */
+
+            }
+
+        });
+    }
+>>>>>>> c1f776b2206a8584f0326e0d3422acda037d3fd6
 }
