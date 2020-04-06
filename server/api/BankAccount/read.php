@@ -18,7 +18,9 @@ if(empty($inputData)){
     echo json_encode($accounts->readAccount());
 }else{
     $accountId = $inputData->account_id;
-    echo json_encode($accounts->readAccount($accountId));
+    $account = json_decode($accounts->readAccount($accountId));
+
+    echo json_encode($account[0]);
 }
 
 

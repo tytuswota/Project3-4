@@ -23,7 +23,6 @@ public class saldoController {
         saldoField.setText("€ " + balance);
     }
 
-
     @FXML
     public void switchToPasUit() throws IOException {
         App.setRoot("pasUit");
@@ -33,6 +32,4 @@ public class saldoController {
     public void switchToMainMenu() throws IOException {
         App.setRoot("mainMenu");
     }
-
-
 }
