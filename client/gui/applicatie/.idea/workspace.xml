@@ -4,35 +4,29 @@
     <list default="true" id="146c25f1-6282-46a5-94cb-596b7aae4d31" name="Default Changelist" comment=" Password box updated on key event">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/SerialReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/SerialReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/loginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/loginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/pasInController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/pasInController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/openjfx/pasIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/pasIn.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/applicatie-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/applicatie-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/openjfx/saldoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/openjfx/saldoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/openjfx/pasUit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/pasUit.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/openjfx/saldo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/openjfx/saldo.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/module-info.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/module-info.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/bedragController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/bedragController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/eigenBedragController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/eigenBedragController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/loginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/loginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/mainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/mainController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/pasIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/pasIn.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/pasInController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/pasInController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/pasUit.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/pasUit.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/pasUitController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/pasUitController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/saldo.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/saldo.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/org/openjfx/saldoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/openjfx/saldoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../server/.htaccess" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../server/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../server/Controllers/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../server/api/BankAccount/read.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../server/api/BankAccount/read.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../server/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/../../../server/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CodeStyleSettingsInfer">
-    <option name="done" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -54,9 +48,6 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectCodeStyleSettingsMigration">
-    <option name="version" value="1" />
-  </component>
   <component name="ProjectId" id="1ZitstYKm03QTlBQZfvjggN1LqD" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -69,9 +60,9 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../../vakken/programming/op3/inleveren" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -135,9 +126,15 @@
       <workItem from="1585665740992" duration="13274000" />
       <workItem from="1585688663131" duration="664000" />
       <workItem from="1585756040155" duration="10295000" />
-      <workItem from="1586020289793" duration="13554000" />
-      <workItem from="1586091677345" duration="513000" />
     </task>
+    <task id="LOCAL-00001" summary="Login alpha">
+      <created>1586173144428</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586173144428</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,17 +156,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Adding class to read serial communication" />
     <MESSAGE value=" Password box updated on key event" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Password box updated on key event" />
+    <MESSAGE value="Login alpha" />
+    <option name="LAST_COMMIT_MESSAGE" value="Login alpha" />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="183" key="#Notifications" timestamp="1585676246899">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="552" y="183" key="#Notifications/0.0.1920.1050@0.0.1920.1050" timestamp="1585676246899" />
-    <state x="335" y="414" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1586020296280">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="808" y="410" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1585943459757">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="335" y="414" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1586020296280" />
+    <state x="808" y="410" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040/1920.54.1280.984@0.0.1920.1040" timestamp="1585943459757" />
     <state x="278" y="216" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1585334145623">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
@@ -178,85 +176,107 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="1051" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585674578718" />
-    <state x="563" y="118" key="CommitChangelistDialog2" timestamp="1585834093685">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2289" y="166" key="CommitChangelistDialog2" timestamp="1586184458257">
+      <screen x="1920" y="54" width="1280" height="984" />
     </state>
+    <state x="2289" y="166" key="CommitChangelistDialog2/0.0.1920.1040/1920.54.1280.984@1920.54.1280.984" timestamp="1586184458257" />
     <state x="563" y="118" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585834093685" />
     <state x="952" y="0" width="975" height="1047" key="DiffContextDialog" timestamp="1585832357551">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="952" y="0" width="975" height="1047" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585832357551" />
-    <state x="740" y="266" key="FileChooserDialogImpl" timestamp="1586092191703">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="724" y="195" key="FileChooserDialogImpl" timestamp="1586163429728">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="266" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1586092191703" />
-    <state width="878" height="351" key="GridCell.Tab.0.bottom" timestamp="1586047991585">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="740" y="263" key="FileChooserDialogImpl/0.0.1920.1040/1920.54.1280.984@0.0.1920.1040" timestamp="1586163062433" />
+    <state x="724" y="195" key="FileChooserDialogImpl/0.0.1920.1040/1920.54.1280.984@1920.54.1280.984" timestamp="1586163429728" />
+    <state x="740" y="266" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1585336459307" />
+    <state width="1237" height="282" key="GridCell.Tab.0.bottom" timestamp="1586184521158">
+      <screen x="1920" y="54" width="1280" height="984" />
     </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.54.1280.984@0.0.1920.1040" timestamp="1586169569763" />
+    <state width="1237" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.54.1280.984@1920.54.1280.984" timestamp="1586184521158" />
     <state width="938" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585833951712" />
-    <state width="878" height="351" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586047991585" />
-    <state width="878" height="351" key="GridCell.Tab.0.center" timestamp="1586047991585">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1319" height="178" key="GridCell.Tab.0.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1585776360662" />
+    <state width="1237" height="282" key="GridCell.Tab.0.center" timestamp="1586184521158">
+      <screen x="1920" y="54" width="1280" height="984" />
     </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.54.1280.984@0.0.1920.1040" timestamp="1586169569763" />
+    <state width="1237" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.54.1280.984@1920.54.1280.984" timestamp="1586184521158" />
     <state width="938" height="348" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585833951711" />
-    <state width="878" height="351" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586047991585" />
-    <state width="878" height="351" key="GridCell.Tab.0.left" timestamp="1586047991584">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1319" height="178" key="GridCell.Tab.0.center/0.0.1920.1050@0.0.1920.1050" timestamp="1585776360662" />
+    <state width="1237" height="282" key="GridCell.Tab.0.left" timestamp="1586184521158">
+      <screen x="1920" y="54" width="1280" height="984" />
     </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.54.1280.984@0.0.1920.1040" timestamp="1586169569763" />
+    <state width="1237" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.54.1280.984@1920.54.1280.984" timestamp="1586184521158" />
     <state width="938" height="348" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585833951711" />
-    <state width="878" height="351" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586047991584" />
-    <state width="878" height="351" key="GridCell.Tab.0.right" timestamp="1586047991585">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1319" height="178" key="GridCell.Tab.0.left/0.0.1920.1050@0.0.1920.1050" timestamp="1585776360662" />
+    <state width="1237" height="282" key="GridCell.Tab.0.right" timestamp="1586184521158">
+      <screen x="1920" y="54" width="1280" height="984" />
     </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.54.1280.984@0.0.1920.1040" timestamp="1586169569763" />
+    <state width="1237" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.54.1280.984@1920.54.1280.984" timestamp="1586184521158" />
     <state width="938" height="348" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585833951711" />
-    <state width="878" height="351" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586047991585" />
-    <state width="878" height="351" key="GridCell.Tab.1.bottom" timestamp="1586047991585">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="1319" height="178" key="GridCell.Tab.0.right/0.0.1920.1050@0.0.1920.1050" timestamp="1585776360662" />
+    <state width="938" height="348" key="GridCell.Tab.1.bottom" timestamp="1585833951713">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="938" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585833951713" />
-    <state width="878" height="351" key="GridCell.Tab.1.bottom/0.0.1920.1050@0.0.1920.1050" timestamp="1586047991585" />
-    <state width="878" height="351" key="GridCell.Tab.1.center" timestamp="1586047991585">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="938" height="348" key="GridCell.Tab.1.center" timestamp="1585833951712">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="938" height="348" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585833951712" />
-    <state width="878" height="351" key="GridCell.Tab.1.center/0.0.1920.1050@0.0.1920.1050" timestamp="1586047991585" />
-    <state width="878" height="351" key="GridCell.Tab.1.left" timestamp="1586047991585">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="938" height="348" key="GridCell.Tab.1.left" timestamp="1585833951712">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="938" height="348" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585833951712" />
-    <state width="878" height="351" key="GridCell.Tab.1.left/0.0.1920.1050@0.0.1920.1050" timestamp="1586047991585" />
-    <state width="878" height="351" key="GridCell.Tab.1.right" timestamp="1586047991585">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state width="938" height="348" key="GridCell.Tab.1.right" timestamp="1585833951712">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="938" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585833951712" />
-    <state width="878" height="351" key="GridCell.Tab.1.right/0.0.1920.1050@0.0.1920.1050" timestamp="1586047991585" />
+    <state x="2048" y="263" width="800" height="566" key="MultipleFileMergeDialog" timestamp="1586184516117">
+      <screen x="1920" y="54" width="1280" height="984" />
+    </state>
+    <state x="2048" y="263" width="800" height="566" key="MultipleFileMergeDialog/0.0.1920.1040/1920.54.1280.984@1920.54.1280.984" timestamp="1586184516117" />
     <state x="696" y="234" key="RollbackChangesDialog" timestamp="1585834136220">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="696" y="234" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585834136220" />
-    <state x="461" y="167" key="SettingsEditor" timestamp="1586023192671">
+    <state x="461" y="167" key="SettingsEditor" timestamp="1585579019266">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="461" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1586023192671" />
-    <state x="183" y="349" width="602" height="352" key="com.intellij.ide.util.TipDialog" timestamp="1586092045355">
+    <state x="461" y="167" key="SettingsEditor/0.0.1920.1050@0.0.1920.1050" timestamp="1585579019266" />
+    <state x="2152" y="280" key="Vcs.Push.Dialog.v2" timestamp="1586184553799">
+      <screen x="1920" y="54" width="1280" height="984" />
+    </state>
+    <state x="2152" y="280" key="Vcs.Push.Dialog.v2/0.0.1920.1040/1920.54.1280.984@1920.54.1280.984" timestamp="1586184553799" />
+    <state x="2042" y="381" width="458" height="334" key="com.intellij.ide.util.TipDialog" timestamp="1586162992838">
+      <screen x="1920" y="54" width="1280" height="984" />
+    </state>
+    <state x="183" y="346" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.54.1280.984@0.0.1920.1040" timestamp="1586035058291" />
+    <state x="2042" y="381" width="458" height="334" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.54.1280.984@1920.54.1280.984" timestamp="1586162992838" />
+    <state x="183" y="349" width="602" height="352" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1585756041485" />
+    <state x="769" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585775193539">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="183" y="349" width="602" height="352" key="com.intellij.ide.util.TipDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1586092045355" />
-    <state x="769" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586046649021">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="769" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050@0.0.1920.1050" timestamp="1586046649021" />
+    <state x="769" y="442" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1050@0.0.1920.1050" timestamp="1585775193539" />
     <state x="776" y="126" width="607" height="804" key="find.popup" timestamp="1585504391170">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="776" y="126" width="607" height="804" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1585504391170" />
-    <state x="828" y="247" key="run.anything.popup" timestamp="1586025175118">
+    <state x="2282" y="338" key="git4idea.merge.GitPullDialog" timestamp="1586184541352">
+      <screen x="1920" y="54" width="1280" height="984" />
+    </state>
+    <state x="2282" y="338" key="git4idea.merge.GitPullDialog/0.0.1920.1040/1920.54.1280.984@1920.54.1280.984" timestamp="1586184541352" />
+    <state x="828" y="247" key="run.anything.popup" timestamp="1585563450745">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="828" y="247" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1586025175118" />
-    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1585426359370">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="828" y="247" key="run.anything.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1585563450745" />
+    <state x="623" y="225" width="672" height="672" key="search.everywhere.popup" timestamp="1586164681384">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="623" y="225" width="672" height="672" key="search.everywhere.popup/0.0.1920.1040/1920.54.1280.984@0.0.1920.1040" timestamp="1586164681384" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1585426359370" />
   </component>
 </project>

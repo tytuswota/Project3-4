@@ -1,2 +1,6 @@
-org\openjfx\pasInController$1$1.class
-org\openjfx\pasInController$1.class
+org\openjfx\SerialReader.class
+org\openjfx\ConnectionManager.class
+org\openjfx\loginController$1.class
+org\openjfx\MsgBox.class
+org\openjfx\loginController$1$1.class
+org\openjfx\SerialReader$1.class
