@@ -1,2 +1,11 @@
+<<<<<<< HEAD
 org\openjfx\loginController$1.class
 org\openjfx\loginController$1$1.class
+=======
+org\openjfx\SerialReader.class
+org\openjfx\ConnectionManager.class
+org\openjfx\loginController$1.class
+org\openjfx\MsgBox.class
+org\openjfx\loginController$1$1.class
+org\openjfx\SerialReader$1.class
+>>>>>>> 017792a87d62a834f0428e05d18f349adb7d1539

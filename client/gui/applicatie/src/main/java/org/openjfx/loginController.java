@@ -29,7 +29,27 @@ public class loginController {
 
     @FXML
     public void switchToMainMenu() throws IOException {
-        App.setRoot("mainMenu");
+        if(login()){
+            App.setRoot("mainMenu");
+        }else{
+            MsgBox.informationBox("Login","Pin fout", "Probeer opnieuw");
+        }
+
+    }
+
+    private boolean login(){
+        //id for testing
+        String cardId = "SU-DASB-1";
+
+        String pin = this.pin.getText();
+        ConnectionManager connectionManager = ConnectionManager.tryLogin(cardId, pin);
+
+        if(connectionManager!= null){
+            App.accountId = connectionManager.getAccountname();
+            return true;
+        }
+
+        return false;
     }
 
     @FXML

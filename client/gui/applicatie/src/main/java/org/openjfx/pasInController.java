@@ -1,15 +1,13 @@
 package org.openjfx;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
-import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
 public class pasInController {
+<<<<<<< HEAD
 
 
     SerialReader reader;
@@ -27,11 +25,14 @@ public class pasInController {
 //    @FXML
 //    TextField test;
 
+=======
+>>>>>>> 017792a87d62a834f0428e05d18f349adb7d1539
     @FXML
     public void switchToLogin() throws IOException {
         App.setRoot("login");
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 //    SerialReader serialReader = new SerialReader() {
 //        @Override
@@ -88,4 +89,6 @@ public class pasInController {
         });
     }
 >>>>>>> c1f776b2206a8584f0326e0d3422acda037d3fd6
+=======
+>>>>>>> 017792a87d62a834f0428e05d18f349adb7d1539
 }

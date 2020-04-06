@@ -13,8 +13,11 @@ class LoginController
        $card = json_decode($cards->readCard($loginData->card_id));
        $hashedPin = $card[0]->pin;
 
+
        if(password_verify($givenPin,$hashedPin)){
-           echo "logged in";
+           $userData = json_decode($account->readAccount($loginData->card_id));
+           echo json_encode($userData[0]);
+           //echo "logged in";
        }else{
            echo "wrong pin";
        }
