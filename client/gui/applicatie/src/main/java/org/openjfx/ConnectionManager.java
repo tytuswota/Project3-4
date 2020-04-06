@@ -13,33 +13,55 @@ import java.io.*;
 public class ConnectionManager {
 
         // Test method for loginManager
-        public static void main(String[] args) {
+        /*public static void main(String[] args) {
             ConnectionManager connectionManager = ConnectionManager.tryLogin("testCardNumber", 1);
-        }
+        }*/
 
         private final String accountname;
-        private final int balance;
+        private final String balance;
+        private final String JWT;
 
         // Private default constructor
-        private ConnectionManager(String accountname, int balance) {
+        private ConnectionManager(String accountname, String balance) {
             this.accountname = accountname;
             this.balance = balance;
+            this.JWT = "";
         }
 
         // Returns an loginManager when succeeded, else null
-        public final static ConnectionManager tryLogin(String cardNumber, int pincode) {
+        public final static ConnectionManager tryLogin(String cardNumber, String pincode) {
             try {
-                JSONObject jsonToSent = new JSONObject();
-                jsonToSent.put("cartNumber", cardNumber);
-                jsonToSent.put("pincode", pincode);
-                JSONObject obj = loadData("http://www.google.com",jsonToSent); // TODO use https connection
-                return new ConnectionManager( obj.getString("accountname"), obj.getInt("balance"));
+                JSONObject jsonCardData = new JSONObject();
+                jsonCardData.put("card_id", cardNumber);
+                jsonCardData.put("pin", pincode);
+                JSONObject jsonObj = loadData("http://192.168.33.10/api/Login/login.php",jsonCardData); // TODO use https connection
+
+                //data from api
+                /*
+                * "bank_account_id": "SU-DASB-1",
+                   "account_balance": "81.00",
+                    "type": "1",
+                    "start_date": "2020-02-02",
+                    "end_date": null,
+                    "user_id": "1"
+                * */
+
+                return new ConnectionManager( jsonObj.getString("bank_account_id"), jsonObj.getString("account_balance"));
 
             } catch (Exception e) {
                 System.err.println("error while initialising login");
                 System.err.println(e.toString());
             }
             return null;
+        }
+
+        public static String userBalance(String userId){
+            JSONObject accountData = new JSONObject();
+            accountData.put("account_id",userId);
+
+            JSONObject jsonObj = loadData("http://192.168.33.10/api/BankAccount/read.php",accountData);
+
+            return jsonObj.getString("account_balance");
         }
 
         // Loads JSONobjest with a post request from the given url
@@ -62,8 +84,10 @@ public class ConnectionManager {
                 }
                 InputStream stream = http.getInputStream();
                 String str = new String(stream.readAllBytes());
-                System.out.println(str);
-                return new JSONObject(str);
+
+                JSONObject jsonUserData = new JSONObject(str);
+
+                return jsonUserData;
 
             } catch (MalformedURLException e) {
                 System.out.println("malformed URL");
@@ -76,7 +100,7 @@ public class ConnectionManager {
         }
 
         // Returns balance
-        public int getBalance() {
+        public String getBalance() {
             return balance;
         }
 
