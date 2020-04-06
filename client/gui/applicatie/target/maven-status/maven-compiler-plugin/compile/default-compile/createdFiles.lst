@@ -1,9 +1,14 @@
 org\openjfx\saldoController.class
-org\openjfx\eigenBedragController.class
-org\openjfx\bedragController.class
+org\openjfx\SerialReader.class
 org\openjfx\pasInController.class
-org\openjfx\mainController.class
+org\openjfx\ConnectionManager.class
 module-info.class
 org\openjfx\loginController.class
+org\openjfx\loginController$1.class
+org\openjfx\eigenBedragController.class
+org\openjfx\bedragController.class
+org\openjfx\loginController$1$1.class
+org\openjfx\mainController.class
+org\openjfx\SerialReader$1.class
 org\openjfx\App.class
 org\openjfx\pasUitController.class
