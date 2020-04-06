@@ -6,13 +6,12 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
-import org.openjfx.loginController;
 
-public class loginController {
+public class LoginController {
 
     SerialReader reader;
 
-    public loginController() {
+    public LoginController() {
         reader = SerialReader.GetReader();
         reader.addKeyPadListener((x) -> {
             KeyPressEventHandler(x);

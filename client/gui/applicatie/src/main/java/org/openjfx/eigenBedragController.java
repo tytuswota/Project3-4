@@ -3,19 +3,16 @@ package org.openjfx;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-<<<<<<< HEAD
-import javafx.scene.control.Label;
-=======
->>>>>>> c1f776b2206a8584f0326e0d3422acda037d3fd6
+
 import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class eigenBedragController {
+public class EigenBedragController {
 
     SerialReader reader;
 
-    public eigenBedragController() {
+    public EigenBedragController() {
         reader = SerialReader.GetReader();
         reader.addKeyPadListener((x) -> {
             KeyPressEventHandler(x);
@@ -26,12 +23,8 @@ public class eigenBedragController {
     Button eigenBedragToMenu;
 
     @FXML
-<<<<<<< HEAD
-    TextField eigenBedrag;
-=======
-    TextField saldoText;
->>>>>>> c1f776b2206a8584f0326e0d3422acda037d3fd6
 
+    TextField saldoText;
     @FXML
     public void switchToMainMenu() throws IOException {
         App.setRoot("mainMenu");

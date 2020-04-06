@@ -7,7 +7,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
-public class saldoController {
+public class SaldoController {
 
     @FXML
     Button saldoToMenu;
