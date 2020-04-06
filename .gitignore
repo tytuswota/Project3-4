@@ -1,2 +1,7 @@
 client/gui/applicatie/target
-*.clas
+client/gui/applicatie/.idea
+.idea
+
+*.class
+
+
