@@ -14,40 +14,40 @@ public class pasInController {
     @FXML
     AnchorPane toLogin;
 
-    @FXML
-    TextField test;
+//    @FXML
+//    TextField test;
 
     @FXML
     public void switchToLogin() throws IOException {
         App.setRoot("login");
     }
 
-    SerialReader serialReader = new SerialReader() {
-        @Override
-        protected void rfidEvent(String uid) {
-            Platform.runLater(new Runnable() {
-
-                @Override
-                public void run() {
-
-                    if (test.getLength() != 16) {
-                        test.appendText(uid);
-                    } else {
-                        try {
-                            switchToLogin();
-                        } catch (Exception e) {
-                            System.out.println(e);
-                        }
-                    }
-//werkt nog niet
-                    /*
-                     * iets voor uid check om naar volgende scherm te gaan.
-                     *
-                     * */
-
-                }
-
-            });
-        }
-    };
+//    SerialReader serialReader = new SerialReader() {
+//        @Override
+//        protected void rfidEvent(String uid) {
+//            Platform.runLater(new Runnable() {
+//
+//                @Override
+//                public void run() {
+//
+//                    if (test.getLength() != 16) {
+//                        test.appendText(uid);
+//                    } else {
+//                        try {
+//                            switchToLogin();
+//                        } catch (Exception e) {
+//                            System.out.println(e);
+//                        }
+//                    }
+////werkt nog niet
+//                    /*
+//                     * iets voor uid check om naar volgende scherm te gaan.
+//                     *
+//                     * */
+//
+//                }
+//
+//            });
+//        }
+//    };
 }
