@@ -47,7 +47,6 @@ public class LoginController {
             App.accountId = connectionManager.getAccountname();
             return true;
         }
-
         return false;
     }
 
