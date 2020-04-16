@@ -1,12 +1,12 @@
-C:\Users\tymek\Documents\school\project\localserver\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\bedragController.java
-C:\Users\tymek\Documents\school\project\localserver\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\SerialReader.java
-C:\Users\tymek\Documents\school\project\localserver\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\App.java
-C:\Users\tymek\Documents\school\project\localserver\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\loginController.java
-C:\Users\tymek\Documents\school\project\localserver\Project3-4\client\gui\applicatie\src\main\java\module-info.java
-C:\Users\tymek\Documents\school\project\localserver\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\MsgBox.java
-C:\Users\tymek\Documents\school\project\localserver\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\ConnectionManager.java
-C:\Users\tymek\Documents\school\project\localserver\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\mainController.java
-C:\Users\tymek\Documents\school\project\localserver\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\pasUitController.java
-C:\Users\tymek\Documents\school\project\localserver\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\pasInController.java
-C:\Users\tymek\Documents\school\project\localserver\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\eigenBedragController.java
-C:\Users\tymek\Documents\school\project\localserver\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\saldoController.java
+D:\school\projecten\jaar 1\project 3 & 4\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\EigenBedragController.java
+D:\school\projecten\jaar 1\project 3 & 4\Project3-4\client\gui\applicatie\src\main\java\module-info.java
+D:\school\projecten\jaar 1\project 3 & 4\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\BedragController.java
+D:\school\projecten\jaar 1\project 3 & 4\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\App.java
+D:\school\projecten\jaar 1\project 3 & 4\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\SerialReader.java
+D:\school\projecten\jaar 1\project 3 & 4\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\SaldoController.java
+D:\school\projecten\jaar 1\project 3 & 4\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\MsgBox.java
+D:\school\projecten\jaar 1\project 3 & 4\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\MainController.java
+D:\school\projecten\jaar 1\project 3 & 4\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\PasInController.java
+D:\school\projecten\jaar 1\project 3 & 4\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\PasUitController.java
+D:\school\projecten\jaar 1\project 3 & 4\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\ConnectionManager.java
+D:\school\projecten\jaar 1\project 3 & 4\Project3-4\client\gui\applicatie\src\main\java\org\openjfx\LoginController.java
