@@ -7,5 +7,12 @@ pom.xml
 
 client/gui/applicatie/target/applicatie-1.0-SNAPSHOT.jar
 
+# 16 April 2020 toegevoegd.
+client/gui/applicatie/target/generated-sources
+
+client/gui/applicatie/target/maven-archiver
+
+client/gui/applicatie/target/maven-status
+
 
 
