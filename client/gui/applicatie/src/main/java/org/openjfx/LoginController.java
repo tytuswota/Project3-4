@@ -38,7 +38,7 @@ public class LoginController {
 
     private boolean login(){
         //id for testing
-        String cardId = "SU-DASB-1";
+        String cardId = reader.getLastCardNumber();
 
         String pin = this.pin.getText();
         ConnectionManager connectionManager = ConnectionManager.tryLogin(cardId, pin);
