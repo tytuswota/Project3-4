@@ -43,11 +43,11 @@ public class LoginController {
         String pin = this.pin.getText();
         ConnectionManager connectionManager = ConnectionManager.tryLogin(cardId, pin);
 
-        if(connectionManager!= null){
-            App.accountId = connectionManager.getAccountname();
+        //if(connectionManager!= null){
+        //    App.accountId = connectionManager.getAccountname();
             return true;
-        }
-        return false;
+        //}
+        //return false;
     }
 
     @FXML
