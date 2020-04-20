@@ -3,8 +3,6 @@ client/gui/applicatie/.idea
 
 *.class
 
-pom.xml
-
 client/gui/applicatie/target/applicatie-1.0-SNAPSHOT.jar
 
 # 16 April 2020 toegevoegd.
