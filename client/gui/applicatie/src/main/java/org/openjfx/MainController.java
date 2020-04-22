@@ -4,6 +4,8 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import model.ConnectionManager;
+import model.SetOfBanknotes;
 
 public class MainController {
     @FXML
@@ -14,6 +16,9 @@ public class MainController {
 
     @FXML
     Button afbreken;
+
+    @FXML
+    Button pinZeventig;
 
     @FXML
     private void switchToPasUit() throws IOException {
@@ -28,5 +33,14 @@ public class MainController {
     @FXML
     private void switchToSaldo() throws IOException {
         App.setRoot("saldo");
+    }
+
+    @FXML
+    private  void PinZeventig()  throws IOException {
+        if(ConnectionManager.getSession().withdraw(new SetOfBanknotes(0,2,1)) == true){
+            App.setRoot("pasUit");
+        }else{
+            //TODO handle error
+        }
     }
 }
