@@ -1,0 +1,18 @@
+[
+  {
+    "bank_account_id": "SU-DASB-00000001",
+    "account_balance": "81.00",
+    "type": "1",
+    "start_date": "2020-02-02",
+    "end_date": null,
+    "user_id": "10"
+  },
+  {
+    "bank_account_id": "SU-DASB-00000002",
+    "account_balance": "75.00",
+    "type": "1",
+    "start_date": "2020-02-02",
+    "end_date": null,
+    "user_id": "10"
+  }
+]
