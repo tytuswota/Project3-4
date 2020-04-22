@@ -1,4 +1,4 @@
-package org.openjfx;
+package model;
 
 /*
  *   https://fazecast.github.io/jSerialComm/

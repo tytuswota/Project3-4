@@ -3,7 +3,7 @@ package org.openjfx;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import model.ConnectionManager;
 
 import java.io.IOException;
 
@@ -19,7 +19,7 @@ public class SaldoController {
     @FXML
     public void initialize() {
 
-        String balance = ConnectionManager.userBalance(App.accountId);
+        String balance = ConnectionManager.getSession().getBalance();
         saldoField.setText("€ " + balance);
     }
 

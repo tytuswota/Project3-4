@@ -1,7 +1,14 @@
 package Seeder;
 
+/*
+the seederEngine fills the database with data from the json files.
+
+lacking functionality:
+    adding cards
+ */
+
 import org.json.JSONArray;
-import org.openjfx.ConnectionManager;
+import model.ConnectionManager;
 import org.json.JSONObject;
 
 import java.io.FileReader;

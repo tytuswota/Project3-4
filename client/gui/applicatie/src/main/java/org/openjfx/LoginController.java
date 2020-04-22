@@ -6,6 +6,8 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import model.ConnectionManager;
+import model.SerialReader;
 
 public class LoginController {
 
@@ -38,9 +40,9 @@ public class LoginController {
 
     private boolean login(){
         //id for testing
-        String cardId = reader.getLastCardNumber();
+        String cardId = "SU-DASB-00000002";//reader.getLastCardNumber();
 
-        String pin = this.pin.getText();
+        String pin = "1234";//this.pin.getText();
         ConnectionManager connectionManager = ConnectionManager.tryLogin(cardId, pin);
 
         if(connectionManager!= null){

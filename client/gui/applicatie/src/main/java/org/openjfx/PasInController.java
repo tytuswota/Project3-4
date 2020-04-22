@@ -2,9 +2,8 @@ package org.openjfx;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
+import model.SerialReader;
 
 import java.io.IOException;
 
