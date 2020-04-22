@@ -29,23 +29,27 @@ public class LoginController {
 
 
     @FXML
-    public void switchToMainMenu() throws IOException {
-        if(login()){
-            App.setRoot("mainMenu");
-        }else{
-            MsgBox.informationBox("Login","Pin fout", "Probeer opnieuw");
+    public void switchToMainMenu() {
+        try {
+            if (login()) {
+                App.setRoot("mainMenu");
+            } else {
+                MsgBox.informationBox("Login", "Pin fout", "Probeer opnieuw");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
     }
 
-    private boolean login(){
+    private boolean login() {
         //id for testing
         String cardId = "SU-DASB-00000002";//reader.getLastCardNumber();
 
         String pin = "1234";//this.pin.getText();
         ConnectionManager connectionManager = ConnectionManager.tryLogin(cardId, pin);
 
-        if(connectionManager!= null){
+        if (connectionManager != null) {
             App.accountId = connectionManager.getAccountname();
             return true;
         }
@@ -61,11 +65,11 @@ public class LoginController {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
-
-//                    if (key == "#") {
-//                    }
-
                 char car = key.charAt(0);
+
+                if (car == '#') {
+                        switchToMainMenu();
+                }
 
                 if ((car >= '0' && car <= '9')) {
                     if (pin.getLength() != 4) {
