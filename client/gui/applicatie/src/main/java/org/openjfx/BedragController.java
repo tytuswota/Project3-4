@@ -2,11 +2,9 @@ package org.openjfx;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-
 import java.io.IOException;
 
 public class BedragController {
-
 
     @FXML
     Button bedragToMenu;
@@ -23,6 +21,4 @@ public class BedragController {
     public void switchToEigenBedrag() throws IOException {
         App.setRoot("eigenBedrag");
     }
-
-
 }

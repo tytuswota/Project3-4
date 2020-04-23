@@ -40,11 +40,14 @@ public class MainController extends BaseController {
     private void PinZeventig() throws IOException {
         Withdrawer withdrawer = new Withdrawer();
         SetOfBanknotes banknotes = new SetOfBanknotes(0, 2, 1);
-        if (withdrawer.canWithdraw(banknotes)) {
-            if (withdrawer.withdraw(banknotes))
+        boolean balanceEnough = withdrawer.isBalanceEnough(banknotes.getTotalAmount());
+        boolean banknotesAvailable = withdrawer.withdraw(banknotes);
+        if(balanceEnough && banknotesAvailable) {
+            if(withdrawer.withdraw(banknotes)) {
                 App.setRoot("pasUit");
-        } else {
-            //TODO handle error
+            }else {
+                System.out.println("withdrawing failed");
+            }
         }
     }
 
