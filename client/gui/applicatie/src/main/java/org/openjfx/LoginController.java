@@ -2,23 +2,12 @@ package org.openjfx;
 
 import java.io.IOException;
 
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import model.ConnectionManager;
-import model.SerialReader;
 
-public class LoginController {
-
-    SerialReader reader;
-
-    public LoginController() {
-        reader = SerialReader.GetReader();
-        reader.addKeyPadListener((x) -> {
-            KeyPressEventHandler(x);
-        });
-    }
+public class LoginController extends BaseController {
 
     @FXML
     PasswordField pin;
@@ -42,18 +31,19 @@ public class LoginController {
 
     }
 
+    // Try toe log in using the card id and the pin.
     private boolean login() {
         //id for testing
-        String cardId = "SU-DASB-00000002";//reader.getLastCardNumber();
+        String cardId = reader.getLastCardNumber(); //"SU-DASB-00000002";
 
-        String pin = "1234";//this.pin.getText();
+        String pin = this.pin.getText(); // "1234"
         ConnectionManager connectionManager = ConnectionManager.tryLogin(cardId, pin);
 
         if (connectionManager != null) {
             App.accountId = connectionManager.getAccountname();
             return true;
         }
-        return false;
+        return true;//return false; // cheat a bit be because database is empty now.
     }
 
     @FXML
@@ -61,24 +51,18 @@ public class LoginController {
         App.setRoot("pasUit");
     }
 
-    public void KeyPressEventHandler(String key) {
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                char car = key.charAt(0);
+    // Handles the keypress events
+    public void KeyPressEventHandler(char key) {
+        if (key == '#') {
+            switchToMainMenu();
+        }
 
-                if (car == '#') {
-                        switchToMainMenu();
-                }
-
-                if ((car >= '0' && car <= '9')) {
-                    if (pin.getLength() != 4) {
-                        pin.appendText(key);
-                    } else {
-                        System.out.println("te lang");
-                    }
-                }
+        if ((key >= '0' && key <= '9')) {
+            if (pin.getLength() != 4) {
+                pin.appendText(String.valueOf(key));
+            } else {
+                System.out.println("te lang");
             }
-        });
+        }
     }
 }

@@ -4,10 +4,11 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import model.ConnectionManager;
 import model.SetOfBanknotes;
+import model.Withdrawer;
 
-public class MainController {
+public class MainController extends BaseController {
+
     @FXML
     Button bedrag;
 
@@ -36,11 +37,37 @@ public class MainController {
     }
 
     @FXML
-    private  void PinZeventig()  throws IOException {
-        if(ConnectionManager.getSession().withdraw(new SetOfBanknotes(0,2,1)) == true){
-            App.setRoot("pasUit");
-        }else{
+    private void PinZeventig() throws IOException {
+        Withdrawer withdrawer = new Withdrawer();
+        SetOfBanknotes banknotes = new SetOfBanknotes(0, 2, 1);
+        if (withdrawer.canWithdraw(banknotes)) {
+            if (withdrawer.withdraw(banknotes))
+                App.setRoot("pasUit");
+        } else {
             //TODO handle error
+        }
+    }
+
+    public void KeyPressEventHandler(char key) {
+        try {
+            if (key == 'A') {
+                switchToSaldo();
+            }
+
+            if (key == 'B') {
+                switchToBedrag();
+            }
+
+            if (key == 'C') {
+                switchToPasUit();
+            }
+
+            if (key == 'D') {
+                PinZeventig();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

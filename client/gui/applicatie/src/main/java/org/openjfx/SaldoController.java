@@ -18,9 +18,12 @@ public class SaldoController {
 
     @FXML
     public void initialize() {
-
-        String balance = ConnectionManager.getSession().getBalance();
-        saldoField.setText("€ " + balance);
+        try {
+            String balance = ConnectionManager.getSession().getBalance();
+            saldoField.setText("€ " + balance);
+        }catch (Exception e){
+            saldoField.setText("Sorrie, er kon geen verbinding gemaakt worden.");
+        }
     }
 
     @FXML

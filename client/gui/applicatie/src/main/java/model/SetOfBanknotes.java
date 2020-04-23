@@ -1,12 +1,14 @@
 package model;
-
+/*
+Represents a set of banknotes
+ */
 public class SetOfBanknotes {
 
     private int tens;
     private int twenties;
     private int fifties;
 
-    SetOfBanknotes(int tens, int twenties, int fifties){
+    public SetOfBanknotes(int tens, int twenties, int fifties){
         this.tens = tens;
         this.twenties = twenties;
         this.fifties = fifties;
