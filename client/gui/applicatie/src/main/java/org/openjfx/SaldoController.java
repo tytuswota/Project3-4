@@ -22,7 +22,7 @@ public class SaldoController {
             String balance = ConnectionManager.getSession().getBalance();
             saldoField.setText("€ " + balance);
         }catch (Exception e){
-            saldoField.setText("Sorrie, er kon geen verbinding gemaakt worden.");
+            saldoField.setText("Sorrie, geen verbinding");
         }
     }
 
