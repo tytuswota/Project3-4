@@ -38,6 +38,11 @@ public class SerialReader {
         RFIDListeners.add(listener);
     }
 
+    public void removeListeners(){
+        KeyPadListeners.clear();
+        RFIDListeners.clear();
+    }
+
     private void RaiseKeyPadEvent(String args) {
         KeyPadListeners.forEach(x -> x.accept(args));
     }

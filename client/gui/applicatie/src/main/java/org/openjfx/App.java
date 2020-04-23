@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.SerialReader;
 
 import java.io.IOException;
 
@@ -31,6 +32,8 @@ public class App extends Application {
     }
 
     static void setRoot(String fxml) throws IOException {
+        // remove listeners to prevent from unexpected behaviour.
+        SerialReader.GetReader().removeListeners();
         scene.setRoot(loadFXML(fxml));
     }
 
