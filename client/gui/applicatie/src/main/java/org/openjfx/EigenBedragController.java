@@ -15,11 +15,6 @@ public class EigenBedragController extends BaseController {
     TextField saldoText;
 
     @FXML
-    public void switchToMainMenu() throws IOException {
-        App.setRoot("mainMenu");
-    }
-
-    @FXML
     public void removeCharacter() throws  IOException{
         String text = saldoText.getText();
         text = text.substring(0,text.length()-1);

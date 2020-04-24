@@ -22,11 +22,6 @@ public class MainController extends BaseController {
     Button pinZeventig;
 
     @FXML
-    private void switchToPasUit() throws IOException {
-        App.setRoot("pasUit");
-    }
-
-    @FXML
     private void switchToBedrag() throws IOException {
         App.setRoot("bedrag");
     }

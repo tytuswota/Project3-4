@@ -26,16 +26,6 @@ public class SaldoController extends BaseController {
         }
     }
 
-    @FXML
-    public void switchToPasUit() throws IOException {
-        App.setRoot("pasUit");
-    }
-
-    @FXML
-    public void switchToMainMenu() throws IOException {
-        App.setRoot("mainMenu");
-    }
-
     @Override
     public void KeyPressEventHandler(char key) {
         try {

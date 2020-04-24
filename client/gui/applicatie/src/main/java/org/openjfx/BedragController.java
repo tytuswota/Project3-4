@@ -13,11 +13,6 @@ public class BedragController extends BaseController{
     Button bedragToEigenBedrag;
 
     @FXML
-    public void switchToMainMenu() throws IOException {
-        App.setRoot("mainMenu");
-    }
-
-    @FXML
     public void switchToEigenBedrag() throws IOException {
         App.setRoot("eigenBedrag");
     }

@@ -41,11 +41,6 @@ public class LoginController extends BaseController {
         return true;//return false; // cheat a bit be because database is empty now.
     }
 
-    @FXML
-    public void switchToPasUit() throws IOException {
-        App.setRoot("pasUit");
-    }
-
     // Handles the keypress events
     public void KeyPressEventHandler(char key) {
         try {
