@@ -7,7 +7,7 @@ import model.ConnectionManager;
 
 import java.io.IOException;
 
-public class SaldoController {
+public class SaldoController extends BaseController {
 
     @FXML
     Button saldoToMenu;
@@ -34,5 +34,18 @@ public class SaldoController {
     @FXML
     public void switchToMainMenu() throws IOException {
         App.setRoot("mainMenu");
+    }
+
+    @Override
+    public void KeyPressEventHandler(char key) {
+        try {
+            if (key == '#') {
+                switchToPasUit();
+            }else if(key == '*'){
+                switchToMainMenu();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

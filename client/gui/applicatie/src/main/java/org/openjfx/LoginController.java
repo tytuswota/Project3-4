@@ -18,17 +18,12 @@ public class LoginController extends BaseController {
 
 
     @FXML
-    public void switchToMainMenu() {
-        try {
-            if (login()) {
-                App.setRoot("mainMenu");
-            } else {
-                MsgBox.informationBox("Login", "Pin fout", "Probeer opnieuw");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void switchToMainMenu() throws IOException {
+        if (login()) {
+            App.setRoot("mainMenu");
+        } else {
+            MsgBox.informationBox("Login", "Pin fout", "Probeer opnieuw");
         }
-
     }
 
     // Try toe log in using the card id and the pin.
@@ -53,16 +48,23 @@ public class LoginController extends BaseController {
 
     // Handles the keypress events
     public void KeyPressEventHandler(char key) {
-        if (key == '#') {
-            switchToMainMenu();
-        }
-
-        if ((key >= '0' && key <= '9')) {
-            if (pin.getLength() != 4) {
-                pin.appendText(String.valueOf(key));
-            } else {
-                System.out.println("te lang");
+        try {
+            if (key == '#') {
+                switchToMainMenu();
             }
+            if (key == '*') {
+                switchToPasUit();
+            }
+
+            if ((key >= '0' && key <= '9')) {
+                if (pin.getLength() != 4) {
+                    pin.appendText(String.valueOf(key));
+                } else {
+                    System.out.println("te lang");
+                }
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 }

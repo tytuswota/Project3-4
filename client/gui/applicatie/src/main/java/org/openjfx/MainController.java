@@ -56,16 +56,13 @@ public class MainController extends BaseController {
             if (key == 'A') {
                 switchToSaldo();
             }
-
-            if (key == 'B') {
-                switchToBedrag();
-            }
-
-            if (key == 'C') {
+            else if (key == 'B') {
                 switchToPasUit();
             }
-
-            if (key == 'D') {
+            else if (key == 'C') {
+                switchToBedrag();
+            }
+            else if (key == 'D') {
                 PinZeventig();
             }
 
