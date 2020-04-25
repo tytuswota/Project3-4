@@ -6,7 +6,7 @@ class CardsController
     static function createCard($cardData, $accountId){
 
         $cards = new Cards();
-        //bcrypt
+
         $val = [
             "card_id" => "SU-DASB-".$accountId,
             "active" => "1",
@@ -15,7 +15,7 @@ class CardsController
             "bank_account_id" => $accountId
         ];
 
-        $cards->createCard($val);
+        return $cards->createCard($val);
     }
 
 }

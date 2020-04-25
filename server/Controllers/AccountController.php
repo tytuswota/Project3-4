@@ -8,6 +8,7 @@ class AccountController extends BaseController
     static function createBankAccount($values,$userId){
 
         $valArray = [
+                "bank_account_id"=>$values->bank_account_id,
                 "account_balance"=>$values->account_balance,
                 "type"=>$values->type,
                 "start_date"=>$values->start_date,
@@ -18,7 +19,7 @@ class AccountController extends BaseController
         $accountId = $accounts->createAccount($valArray);
 
         $cardData = $values->card_data;
-        CardsController::createCard($cardData, $accountId);
+        return CardsController::createCard($cardData, $accountId);
     }
 
 

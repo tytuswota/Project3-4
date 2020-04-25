@@ -34,7 +34,7 @@ public class ConnectionManager {
                 JSONObject jsonCardData = new JSONObject();
                 jsonCardData.put("card_id", cardNumber);
                 jsonCardData.put("pin", pincode);
-                JSONObject jsonObj = loadData("http://192.168.33.10/api/Login/login.php",jsonCardData); // TODO use https connection
+                JSONObject jsonObj = loadData("http://145.24.222.51/api/Login/login.php",jsonCardData); // TODO use https connection
 
                 //data from api
                 /*
@@ -59,7 +59,7 @@ public class ConnectionManager {
             JSONObject accountData = new JSONObject();
             accountData.put("account_id",userId);
 
-            JSONObject jsonObj = loadData("http://192.168.33.10/api/BankAccount/read.php",accountData);
+            JSONObject jsonObj = loadData("http://145.24.222.51/api/BankAccount/read.php",accountData);
 
             return jsonObj.getString("account_balance");
         }

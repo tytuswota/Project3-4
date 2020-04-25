@@ -38,9 +38,7 @@ class BaseModel
             $i++;
         }
 
-
         if($stmt->execute()){
-
             return $database->conn->lastInsertId();
         }
         return false;

@@ -19,8 +19,7 @@ class UserController extends BaseController
 
         $user = new User();
         $userId = $user->createUser($values);
-        AccountController::createBankAccount($userData->account_data, $userId);
-
+        return AccountController::createBankAccount($userData->account_data, $userId);
         //create bank account
     }
 }

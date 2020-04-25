@@ -11,7 +11,7 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
 $incomingData = json_decode(file_get_contents("php://input"));
-if(UserController::makeUser($incomingData)){
+if(!empty(UserController::makeUser($incomingData))){
     http_response_code(201);
     echo json_encode(array("message"=>"account has been made"));
 }else{

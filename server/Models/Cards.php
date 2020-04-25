@@ -29,7 +29,7 @@ class Cards extends BaseModel
     }
 
     public function createCard($val){
-        $this->create($val);
+        return $this->create($val);
     }
 
 }
