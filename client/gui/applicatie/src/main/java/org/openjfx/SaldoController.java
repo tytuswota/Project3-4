@@ -3,11 +3,11 @@ package org.openjfx;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import model.ConnectionManager;
 
 import java.io.IOException;
 
-public class SaldoController {
+public class SaldoController extends BaseController {
 
     @FXML
     Button saldoToMenu;
@@ -18,18 +18,24 @@ public class SaldoController {
 
     @FXML
     public void initialize() {
-
-        String balance = ConnectionManager.userBalance(App.accountId);
-        saldoField.setText("€ " + balance);
+        try {
+            String balance = ConnectionManager.getSession().getBalance();
+            saldoField.setText("€ " + balance);
+        }catch (Exception e){
+            saldoField.setText("Sorrie, geen verbinding");
+        }
     }
 
-    @FXML
-    public void switchToPasUit() throws IOException {
-        App.setRoot("pasUit");
-    }
-
-    @FXML
-    public void switchToMainMenu() throws IOException {
-        App.setRoot("mainMenu");
+    @Override
+    public void KeyPressEventHandler(char key) {
+        try {
+            if (key == '#') {
+                switchToPasUit();
+            }else if(key == '*'){
+                switchToMainMenu();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
