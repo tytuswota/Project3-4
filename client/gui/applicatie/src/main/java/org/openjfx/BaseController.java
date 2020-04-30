@@ -12,11 +12,10 @@ Contains the shared features of the controllers.
 
 public class BaseController {
 
-    SerialReader reader;
+    protected static SerialReader reader = SerialReader.GetReader();
 
     // Constructor
     public BaseController() {
-        reader = SerialReader.GetReader();
         reader.addKeyPadListener((x) -> {
             baseKeyPressEventHandler(x);
         });

@@ -3,6 +3,7 @@ package org.openjfx;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import model.ConnectionManager;
@@ -16,13 +17,14 @@ public class LoginController extends BaseController {
     @FXML
     Button annuleren;
 
+    Dialog dialog;
 
     @FXML
     public void switchToMainMenu() throws IOException {
-        if (login()) {
+        if (false && login()) {
             App.setRoot("mainMenu");
         } else {
-            MsgBox.informationBox("Login", "Pin fout", "Probeer opnieuw");
+            dialog = new Dialog("pincode verkeert");
         }
     }
 
@@ -45,7 +47,11 @@ public class LoginController extends BaseController {
     public void KeyPressEventHandler(char key) {
         try {
             if (key == '#') {
-                switchToMainMenu();
+                if(dialog != null && dialog.isShowing()){
+                    dialog.close();
+                }else{
+                    switchToMainMenu();
+                }
             }
             if (key == '*') {
                 switchToPasUit();
