@@ -22,7 +22,7 @@ public class Withdrawer {
     public boolean withdraw(SetOfBanknotes banknotes){
         try {
         // TODO add logic for dispenser
-        return ConnectionManager.getSession().withdraw(banknotes);
+        return SessionManager.getSession().withdraw(banknotes);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -31,7 +31,7 @@ public class Withdrawer {
 
     public boolean isBalanceEnough(int amount){
         try{
-        return amount > Integer.parseInt(ConnectionManager.getSession().getBalance());
+        return amount > Integer.parseInt(SessionManager.getSession().getBalance());
         }catch (Exception e){
             e.printStackTrace();
         }

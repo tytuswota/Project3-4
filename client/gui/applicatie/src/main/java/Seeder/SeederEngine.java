@@ -8,7 +8,7 @@ lacking functionality:
  */
 
 import org.json.JSONArray;
-import model.ConnectionManager;
+import model.SessionManager;
 import org.json.JSONObject;
 
 import java.io.FileReader;
@@ -18,7 +18,7 @@ public class SeederEngine {
     public static void main(String[] args) {
         //createFromFile(ConnectionManager::createUser, "Users.json");
         //createFromFile(ConnectionManager::createBankAccount, "BankAccounts.json");
-        createFromFile(ConnectionManager::createTransaction, "Transactions.json");
+        createFromFile(SessionManager::createTransaction, "Transactions.json");
         //createFromFile(ConnectionManager::, ".json");
 
     }

@@ -3,9 +3,7 @@ package org.openjfx;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import model.ConnectionManager;
-
-import java.io.IOException;
+import model.SessionManager;
 
 public class SaldoController extends BaseController {
 
@@ -19,7 +17,7 @@ public class SaldoController extends BaseController {
     @FXML
     public void initialize() {
         try {
-            String balance = ConnectionManager.getSession().getBalance();
+            String balance = SessionManager.getSession().getBalance();
             saldoField.setText("€ " + balance);
         }catch (Exception e){
             saldoField.setText("Sorrie, geen verbinding");

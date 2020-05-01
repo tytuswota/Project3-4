@@ -3,10 +3,9 @@ package org.openjfx;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
-import model.ConnectionManager;
+import model.SessionManager;
 
 public class LoginController extends BaseController {
 
@@ -32,10 +31,10 @@ public class LoginController extends BaseController {
         String cardId = reader.getLastCardNumber(); //"SU-DASB-00000002";
 
         String pin = this.pin.getText(); // "1234"
-        ConnectionManager connectionManager = ConnectionManager.tryLogin(cardId, pin);
+        SessionManager sessionManager = SessionManager.tryLogin(cardId, pin);
 
-        if (connectionManager != null) {
-            App.accountId = connectionManager.getAccountname();
+        if (sessionManager != null) {
+            App.accountId = sessionManager.getAccountname();
             return true;
         }
         return true;//return false; // cheat a bit be because database is empty now.
