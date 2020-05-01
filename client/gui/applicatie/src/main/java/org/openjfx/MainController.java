@@ -33,17 +33,8 @@ public class MainController extends BaseController {
 
     @FXML
     private void PinZeventig() throws IOException {
-        Withdrawer withdrawer = new Withdrawer();
         SetOfBanknotes banknotes = new SetOfBanknotes(0, 2, 1);
-        boolean balanceEnough = withdrawer.isBalanceEnough(banknotes.getTotalAmount());
-        boolean banknotesAvailable = withdrawer.withdraw(banknotes);
-        if(balanceEnough && banknotesAvailable) {
-            if(withdrawer.withdraw(banknotes)) {
-                App.setRoot("pasUit");
-            }else {
-                System.out.println("withdrawing failed");
-            }
-        }
+        withdraw(banknotes);
     }
 
     public void KeyPressEventHandler(char key) {

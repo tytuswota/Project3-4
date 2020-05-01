@@ -6,13 +6,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 
 import static org.openjfx.App.loadFXML;
 
+/*
+Custom messagebox.
+ */
+
 public class Dialog extends Stage{
 
+    // Constructor set label text on screen.
     Dialog(String message) throws IOException {
         Parent root = loadFXML("dialog");
         var ch = root.getChildrenUnmodifiable();

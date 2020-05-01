@@ -17,11 +17,9 @@ public class LoginController extends BaseController {
     @FXML
     Button annuleren;
 
-    Dialog dialog;
-
     @FXML
     public void switchToMainMenu() throws IOException {
-        if (false && login()) {
+        if (true || login()) {// bypass to test
             App.setRoot("mainMenu");
         } else {
             dialog = new Dialog("pincode verkeert");
@@ -47,11 +45,7 @@ public class LoginController extends BaseController {
     public void KeyPressEventHandler(char key) {
         try {
             if (key == '#') {
-                if(dialog != null && dialog.isShowing()){
-                    dialog.close();
-                }else{
-                    switchToMainMenu();
-                }
+                 switchToMainMenu();
             }
             if (key == '*') {
                 switchToPasUit();

@@ -23,7 +23,7 @@
                 <Font size="60.0" />
             </font>
         </Button>
-        <Button id="button" layoutX="1706.0" layoutY="318.0" mnemonicParsing="false" styleClass="knop" stylesheets="@../../style/Main.css" text="D" textFill="WHITE">
+        <Button id="button" layoutX="1706.0" layoutY="318.0" mnemonicParsing="false" styleClass="knop" onAction="#PinZeventig" stylesheets="@../../style/Main.css" text="D" textFill="WHITE">
             <font>
                 <Font size="60.0" />
             </font>
