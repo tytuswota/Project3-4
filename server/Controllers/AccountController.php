@@ -42,7 +42,6 @@ class AccountController extends BaseController
 
         if($accounts->createAccount($valArray) != false){
             $cardData = $values->card_data;
-            print_r($newAccountId);
             return CardsController::createCard($cardData, $newAccountId);
         }
         //select last id
