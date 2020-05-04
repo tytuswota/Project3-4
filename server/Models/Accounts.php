@@ -30,7 +30,12 @@ class Accounts extends BaseModel
     }
 
     public function createAccount($values){
+
         return $this->create($values);
+    }
+
+    public function getLastBankAccountId(){
+        return $this->getLastRecord('bank_account_id');
     }
 
     public function updateAccountBalance($id,$newBalance){

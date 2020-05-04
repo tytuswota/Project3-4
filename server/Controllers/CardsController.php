@@ -7,9 +7,8 @@ class CardsController
 
         $cards = new Cards();
 
-
         $val = [
-            "card_id" => "SU-DASB-".$accountId,
+            "card_id" => $accountId,
             "active" => "1",
             "expiration_date" => $cardData->expiration_date,
             "pin" => password_hash($cardData->pin, PASSWORD_BCRYPT),
