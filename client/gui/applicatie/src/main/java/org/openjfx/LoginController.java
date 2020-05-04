@@ -4,17 +4,36 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import model.LanguageSystem;
 import model.SessionManager;
 
 public class LoginController extends BaseController {
 
+    public void initialize() {
+        enter_pin.setText(LanguageSystem.getString("enter_pin"));
+        confirm.setText(LanguageSystem.getString("confirm"));
+        confirm.setText(LanguageSystem.getString("cancel"));
+    }
+
     @FXML
     PasswordField pin;
+
     @FXML
     Button bevestigen;
+
     @FXML
     Button annuleren;
+
+    @FXML
+    Label enter_pin;
+
+    @FXML
+    Label confirm;
+
+    @FXML
+    Label cancel;
 
     @FXML
     public void switchToMainMenu() throws IOException {

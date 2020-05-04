@@ -2,17 +2,30 @@ package org.openjfx;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import model.LanguageSystem;
 
 import java.io.IOException;
 
 public class EigenBedragController extends BaseController {
+
+    public void initialise(){
+        confirm.setText(LanguageSystem.getString("confirm"));
+        confirm.setText(LanguageSystem.getString("desired_amount"));
+    }
 
     @FXML
     Button eigenBedragToMenu;
 
     @FXML
     TextField saldoText;
+
+    @FXML
+    Label confirm;
+
+    @FXML
+    Label desired_amount;
 
     @FXML
     public void removeCharacter() throws  IOException{

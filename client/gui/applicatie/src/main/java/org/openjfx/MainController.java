@@ -4,10 +4,31 @@ import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import model.LanguageSystem;
 import model.SetOfBanknotes;
 import model.Withdrawer;
 
 public class MainController extends BaseController {
+    @FXML
+    public void initialize() {
+        balance.setText(LanguageSystem.getString("balance"));
+        cancel.setText(LanguageSystem.getString("cancel"));
+        withdraw.setText(LanguageSystem.getString("withdraw"));
+        withdraw70.setText(LanguageSystem.getString("withdraw70"));
+    }
+
+    @FXML
+    Label balance;
+
+    @FXML
+    Label cancel;
+
+    @FXML
+    Label withdraw;
+
+    @FXML
+    Label withdraw70;
 
     @FXML
     Button bedrag;

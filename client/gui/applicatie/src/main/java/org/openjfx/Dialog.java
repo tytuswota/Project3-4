@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import model.LanguageSystem;
+
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 
@@ -26,7 +28,7 @@ public class Dialog extends Stage{
                 Label label = (Label)node;
                 String id = label.getId();
                 if(id != null && id.compareTo("message") == 0){
-                    label.setText(message);
+                    label.setText(LanguageSystem.getString(message));
                 }
             }
         }

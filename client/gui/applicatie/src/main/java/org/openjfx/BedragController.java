@@ -2,9 +2,24 @@ package org.openjfx;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import model.LanguageSystem;
+
 import java.io.IOException;
 
 public class BedragController extends BaseController{
+
+    @FXML
+    public void initialize() {
+        other.setText(LanguageSystem.getString("other_amount"));
+        menu.setText(LanguageSystem.getString("menu"));
+    }
+
+    @FXML
+    Label other;
+
+    @FXML
+    Label menu;
 
     @FXML
     Button bedragToMenu;

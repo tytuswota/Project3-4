@@ -15,8 +15,11 @@ public class LanguageSystem extends ConnectionManager{
         JSONObject toSent = new JSONObject();
         toSent.put("id", id);
         toSent.put("language", language.toString());
-        JSONObject recieved = ConnectionManager.loadData("getTranslation.php",toSent);
-        return recieved.getString(id);
+        JSONObject recieved = ConnectionManager.loadData("LanguageSystem/getTranslation.php",toSent);
+        if(recieved != null){
+            return recieved.getString(id);
+        }
+        return id;
     }
 
     public  enum Language {
