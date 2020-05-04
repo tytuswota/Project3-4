@@ -29,9 +29,8 @@ class AccountController extends BaseController
             $newAccountId = substr($lastAccountId, 0, 8);
 
         }else{
-
             $newAccountId = "SU-DASB-";
-            $accountNumbers = 0;
+            $accountNumbers = 1;
         }
 
         for($x = 8 - strlen((string)($accountNumbers)); $x > 0; $x--){
@@ -43,6 +42,7 @@ class AccountController extends BaseController
 
         if($accounts->createAccount($valArray) != false){
             $cardData = $values->card_data;
+            print_r($newAccountId);
             return CardsController::createCard($cardData, $newAccountId);
         }
         //select last id

@@ -41,8 +41,6 @@ class BaseModel
 
         if($stmt->execute()){
 
-            $stmt->debugDumpParams();
-
             $lastId = $database->conn->lastInsertId();
 
             if($lastId != 0){
