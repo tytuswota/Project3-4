@@ -14,10 +14,10 @@ class Cards extends BaseModel
 
         while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
             $cardsItem = array(
-                "card_id" => $row['card_id'],
+                "card_id" => $cardId,
                 "active"=> $row['active'],
                 "expiration_date" => $row['expiration_date'],
-                "bank_account_id" => $row['bank_account_id'],
+                "bank_account_id" => $cardId,
                 "pin" => $row['pin']
             );
 
@@ -29,7 +29,7 @@ class Cards extends BaseModel
     }
 
     public function createCard($val){
-        $this->create($val);
+        return $this->create($val);
     }
 
 }

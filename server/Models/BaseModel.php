@@ -7,6 +7,7 @@ class BaseModel
     public $tableName;
 
     protected function create($values){
+
         $query = "INSERT INTO " . $this->tableName . " SET ";
 
         $i = 0;
@@ -38,10 +39,16 @@ class BaseModel
             $i++;
         }
 
-
         if($stmt->execute()){
 
-            return $database->conn->lastInsertId();
+            $lastId = $database->conn->lastInsertId();
+
+            if($lastId != 0){
+                return $lastId;
+            }else{
+                return true;
+            }
+
         }
         return false;
     }
@@ -61,6 +68,16 @@ class BaseModel
 
         $stmt->execute();
 
+        return $stmt;
+    }
+
+    public function getLastRecord($orderBy){
+        $query = "SELECT * FROM " . $this->tableName . " ORDER BY " . $orderBy .  " DESC LIMIT 1";
+        $database = new DatabaseConnection();
+        $database->getConnection();
+        $stmt = $database->conn->prepare($query);
+
+        $stmt->execute();
         return $stmt;
     }
 

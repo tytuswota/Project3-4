@@ -9,6 +9,7 @@ class UserController extends BaseController
     public function makeUser($userData){
         //content needs to be checked first
 
+
         $values = [
             "first_name" => $userData->first_name,
             "date_of_birth" => $userData->date_of_birth,
@@ -19,8 +20,7 @@ class UserController extends BaseController
 
         $user = new User();
         $userId = $user->createUser($values);
-        AccountController::createBankAccount($userData->account_data, $userId);
-
+        return AccountController::createBankAccount($userData->account_data, $userId);
         //create bank account
     }
 }
