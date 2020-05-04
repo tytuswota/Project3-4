@@ -1,9 +1,12 @@
 package org.openjfx;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.LanguageSystem;
@@ -32,10 +35,21 @@ public class Dialog extends Stage{
                 }
             }
         }
-
         Scene scene = new Scene(root);
+
+        //Creating the mouse event handler
+        EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+               close();
+            }
+        };
+        //Registering the event filter
+        scene.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
+
         this.initStyle(StageStyle.UNDECORATED);
         this.setScene(scene);
         this.show();
+
     }
 }
