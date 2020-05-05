@@ -7,18 +7,15 @@ class LanguageSystem
     static function getTranslation($request)
     {
         $translationID = $request->id; // for instance: "TextPinWrong"
-        $language = $request->language; // for instance: "NEDERLANDS", "ENGLISH"
 
         // DO query
-        $query = "SELECT ? FROM translations WHERE id= ?";
+        $query = "SELECT * FROM translations WHERE id= ?";
 
         $database = new DatabaseConnection();
         $database->getConnection();
 
         $stmt = $database->conn->prepare($query);
-        $stmt->bindParam($language, $translationID);
-
-        $stmt->execute();
+        $stmt->execute(array( $translationID));
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
         return $row;

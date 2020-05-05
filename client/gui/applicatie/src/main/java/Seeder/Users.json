@@ -1,16 +1,36 @@
 [
   {
-    "first_name": "Tymek",
-    "date_of_birth": "1920-02-02",
-    "prefix": "",
-    "surname": "Tytuswota",
-    "country": "Netherlands"
-  },
-  {
     "first_name": "Jaco",
     "date_of_birth": "1998-04-05",
     "prefix": "de",
     "surname": "Jong",
-    "country": "Netherlands"
+    "country": "Netherlands",
+    "account_data": {
+      "account_balance": "100",
+      "type": "1",
+      "start_date": "2020/02/02",
+      "user_id": "2",
+      "card_data": {
+        "expiration_date": "2025/04/04",
+        "pin": "1234"
+      }
+    }
+  },
+  {
+    "first_name": "Tymek",
+    "prefix": "de",
+    "surname": "Shwart",
+    "date_of_birth": "1920/02/02",
+    "country": "nl",
+    "account_data": {
+      "account_balance": "100",
+      "type": "1",
+      "start_date": "2020/02/02",
+      "user_id": "1",
+      "card_data": {
+        "expiration_date": "2025/04/04",
+        "pin": "1234"
+      }
+    }
   }
 ]

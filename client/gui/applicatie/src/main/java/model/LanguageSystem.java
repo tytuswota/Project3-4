@@ -8,22 +8,23 @@ public class LanguageSystem extends ConnectionManager{
 
     public static void main(String[] args) {
         System.out.println(language.toString());
+        System.out.println(LanguageSystem.getString("other"));
     }
 
     // Needs the id of and returns the translation.
     public static String getString(String id){
         JSONObject toSent = new JSONObject();
         toSent.put("id", id);
-        toSent.put("language", language.toString());
         JSONObject recieved = ConnectionManager.loadData("LanguageSystem/getTranslation.php",toSent);
         if(recieved != null){
-            return recieved.getString(id);
+            return recieved.getString(language.toString().toLowerCase());
         }
         return id;
     }
 
     public  enum Language {
         NEDERLANDS,
-        ENGLISH
+        ENGLISH,
+        RUSSIAN
     }
 }
