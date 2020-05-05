@@ -9,7 +9,17 @@ class LanguageSystem
         $language = $request->language; // for instance: "NEDERLANDS", "ENGLISH"
 
         // DO query
-        $Result[$request->id] = "TestString";
-        return $Result;
+        $query = "SELECT ? FROM translations WHERE id= ?";
+
+        $database = new DatabaseConnection();
+        $database->getConnection();
+
+        $stmt = $database->conn->prepare($query);
+        $stmt->bindParam($language, $translationID);
+
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $row;
     }
 }

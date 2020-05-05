@@ -10,7 +10,7 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-
+// needs the following input {"id":"idOfTheTranslation" "language":"languageYouNeed"}
 $incomingLoginData = json_decode(file_get_contents("php://input"));
 if(isset($incomingLoginData->id)){
     $result = json_encode(LanguageSystem::getTranslation($incomingLoginData));
