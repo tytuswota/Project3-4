@@ -18,11 +18,25 @@
             <Font size="35.0" />
          </font>
       </Label>
-
         <Button id="button" fx:id="afbreken" layoutX="1478.0" layoutY="707.0" mnemonicParsing="false" onAction="#switchToPasUit" styleClass="knop" stylesheets="@../../style/Main.css" text="#" textFill="WHITE">
             <font>
                 <Font size="60.0" />
             </font>
         </Button>
+      <Label fx:id="mainMenu" layoutX="571.0" layoutY="793.0" text="Label" textFill="#c0ff12e5">
+         <font>
+            <Font size="43.0" />
+         </font>
+      </Label>
+      <Label fx:id="quit" layoutX="1258.0" layoutY="793.0" text="Label" textFill="#c0ff12e5">
+         <font>
+            <Font size="43.0" />
+         </font>
+      </Label>
+      <Label fx:id="yourBalance" layoutX="910.0" layoutY="458.0" text="Label" textFill="#c0ff12e5">
+         <font>
+            <Font size="43.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

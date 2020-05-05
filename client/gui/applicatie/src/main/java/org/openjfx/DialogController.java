@@ -7,12 +7,12 @@ import model.LanguageSystem;
 public class DialogController {
     @FXML
     public void initialize() {
-        go_back.setText(LanguageSystem.getString("go_back"));
+        goBack.setText(LanguageSystem.getString("goBack"));
     }
 
     @FXML
     Label message;
 
     @FXML
-    Label go_back;
+    Label goBack;
 }

@@ -12,7 +12,7 @@ public class EigenBedragController extends BaseController {
 
     public void initialise(){
         confirm.setText(LanguageSystem.getString("confirm"));
-        confirm.setText(LanguageSystem.getString("desired_amount"));
+        desiredAmount.setText(LanguageSystem.getString("desiredAmount"));
     }
 
     @FXML
@@ -25,7 +25,10 @@ public class EigenBedragController extends BaseController {
     Label confirm;
 
     @FXML
-    Label desired_amount;
+    Label desiredAmount;
+
+    @FXML
+    Label backspace;
 
     @FXML
     public void removeCharacter() throws  IOException{

@@ -11,7 +11,7 @@ public class BedragController extends BaseController{
 
     @FXML
     public void initialize() {
-        other.setText(LanguageSystem.getString("other_amount"));
+        other.setText(LanguageSystem.getString("other"));
         menu.setText(LanguageSystem.getString("menu"));
     }
 

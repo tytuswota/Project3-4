@@ -21,7 +21,7 @@
                 <Font size="60.0" />
             </font>
         </Button>
-        <Label fx:id="enter_pin" layoutX="911.0" layoutY="464.0" text="Label" textFill="#ff7d7d">
+        <Label fx:id="enterPin" layoutX="911.0" layoutY="464.0" text="Label" textFill="#ff7d7d">
             <font>
                 <Font size="42.0" />
             </font>
@@ -31,7 +31,7 @@
             <Font size="42.0" />
          </font>
       </Label>
-      <Label fx:id="cancel" layoutX="575.0" layoutY="805.0" text="Label" textFill="#ff7d7d">
+      <Label fx:id="quit" layoutX="575.0" layoutY="805.0" text="Label" textFill="#ff7d7d">
          <font>
             <Font size="42.0" />
          </font>

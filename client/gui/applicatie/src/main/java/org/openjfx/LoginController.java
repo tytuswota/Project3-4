@@ -12,9 +12,9 @@ import model.SessionManager;
 public class LoginController extends BaseController {
 
     public void initialize() {
-        enter_pin.setText(LanguageSystem.getString("enter_pin"));
+        enterPin.setText(LanguageSystem.getString("enterPin"));
+        quit.setText(LanguageSystem.getString("quit"));
         confirm.setText(LanguageSystem.getString("confirm"));
-        confirm.setText(LanguageSystem.getString("cancel"));
     }
 
     @FXML
@@ -27,13 +27,13 @@ public class LoginController extends BaseController {
     Button annuleren;
 
     @FXML
-    Label enter_pin;
+    Label enterPin;
 
     @FXML
     Label confirm;
 
     @FXML
-    Label cancel;
+    Label quit;
 
     @FXML
     public void switchToMainMenu() throws IOException {

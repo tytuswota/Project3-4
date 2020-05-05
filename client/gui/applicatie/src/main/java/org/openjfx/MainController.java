@@ -13,7 +13,7 @@ public class MainController extends BaseController {
     @FXML
     public void initialize() {
         balance.setText(LanguageSystem.getString("balance"));
-        cancel.setText(LanguageSystem.getString("cancel"));
+        quit.setText(LanguageSystem.getString("cancel"));
         withdraw.setText(LanguageSystem.getString("withdraw"));
         withdraw70.setText(LanguageSystem.getString("withdraw70"));
     }
@@ -22,7 +22,7 @@ public class MainController extends BaseController {
     Label balance;
 
     @FXML
-    Label cancel;
+    Label quit;
 
     @FXML
     Label withdraw;
