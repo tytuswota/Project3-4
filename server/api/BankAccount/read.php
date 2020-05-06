@@ -9,19 +9,44 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
+include_once 'libs/php-jwt-master/src/BeforeValidException.php';
+include_once 'libs/php-jwt-master/src/ExpiredException.php';
+include_once 'libs/php-jwt-master/src/SignatureInvalidException.php';
+include_once 'libs/php-jwt-master/src/JWT.php';
+use \Firebase\JWT\JWT;
+
 $accounts = new Accounts();
 
 http_response_code(200);
 $inputData = json_decode(file_get_contents("php://input"));
 
-if(empty($inputData)){
-    echo json_encode($accounts->readAccount());
-}else{
-    $accountId = $inputData->account_id;
-    $account = json_decode($accounts->readAccount($accountId));
+$jwt=isset($data->jwt) ? $inputData->jwt : "";
+$key = "test";
 
-    echo json_encode($account[0]);
+if($jwt){
+    try {
+
+        // decode jwt
+        $decoded = JWT::decode($jwt, $key, array('HS256'));
+
+        if(empty($inputData)){
+            echo json_encode($accounts->readAccount());
+        }else{
+            $accountId = $inputData->account_id;
+            $account = json_decode($accounts->readAccount($accountId));
+
+            echo json_encode($account[0]);
+        }
+
+        // set user property values here
+    }catch (Exception $e){
+        echo json_encode(array(
+            "message" => "Access denied.",
+            "error" => $e->getMessage()
+        ));
+    }
 }
+
 
 
 
