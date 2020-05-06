@@ -31,8 +31,7 @@ public class Withdrawer {
 
     public boolean isBalanceEnough(int amount){
         try{
-
-            return (double)amount > Double.parseDouble(SessionManager.getSession().getBalance());
+            return Double.parseDouble(SessionManager.getSession().getBalance()) >= (double)amount;
         }catch (Exception e){
             e.printStackTrace();
         }
