@@ -14,7 +14,7 @@ class TransactionController extends BaseController
 
     static function withdraw($accountId, $amount){
         $accountBalance = self::getMaxWidthDraw($accountId);
-        if($amount >= 0){
+        if($amount > 0){
             $result = $accountBalance - $amount;
 
             if($result >= 0){
