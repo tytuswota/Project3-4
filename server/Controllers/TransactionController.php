@@ -17,7 +17,7 @@ class TransactionController extends BaseController
         if($amount >= 0){
             $result = $accountBalance - $amount;
 
-            if($result > 0){
+            if($result >= 0){
                 $accounts = new Accounts();
                 $accounts->updateAccountBalance($accountId,$result);
                 return true;
