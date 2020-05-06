@@ -9,7 +9,7 @@ insert into translations values
 ("balance","saldo","balance", "баланс"),
 ("quit","afbreken","quit", "прекращать"),
 ("withdraw","pinnen","withdraw"),
-("withdraw70","€ 70 pinnen","€ 70 withdraw", "изымать"),
+("withdraw70","₽ 70 pinnen","₽ 70 withdraw", "₽ 70 изымать"),
 ("cardOut","neem uw pas uit","take your card out", "вытащи свою карточку"),
 ("cardIn","voer uw pas in","insert your card","вставьте свою карту"),
 ("noConnection","Sorry, geen verbinding","Sorry, no connection", "Извините, нет связи"),

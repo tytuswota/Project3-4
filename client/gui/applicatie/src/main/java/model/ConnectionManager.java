@@ -21,8 +21,8 @@ public class ConnectionManager {
             URL url = new URL("http://dasbank.ml/api/" + urlStr);
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
             // long time out could slow down the initialising
-            http.setReadTimeout(50);
-            http.setConnectTimeout(50);
+            http.setReadTimeout(1000);
+            http.setConnectTimeout(1000);
             http.setDoOutput(true);
             http.setRequestMethod("POST");
             http.setFixedLengthStreamingMode(length);

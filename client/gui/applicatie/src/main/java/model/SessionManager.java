@@ -18,7 +18,7 @@ public class SessionManager extends ConnectionManager{
     private final String JWT;
 
     public static void main(String[] args) {
-        SessionManager con = SessionManager.tryLogin("SU-DASB-00000002","1234");
+        SessionManager con = SessionManager.tryLogin("SU-DASB-00000001","1234");
         if(con != null){
             System.out.println("account: " + con.getAccountname() + " ,balance: " + con.getBalance());
             con.withdraw(new SetOfBanknotes(1,2,0));
@@ -58,6 +58,7 @@ public class SessionManager extends ConnectionManager{
         request.put("amount", banknotes.getTotalAmount());
         request.put("causer_account_id", this.getAccountname());
         request.put("receiver_account_id", this.getAccountname());
+        System.out.println(request);
         loadData("TransActions/withdraw.php", request);
         return true;
     }
