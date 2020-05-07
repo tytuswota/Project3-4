@@ -37,19 +37,19 @@ public class LoginController extends BaseController {
     private int efforts = 0;
     @FXML
     public void switchToMainMenu() throws IOException {
-        if(this.efforts != 3){
-            if (login()) {// bypass to test
+        if (this.efforts != 3) {
+            if (true || login()) {// bypass to test
                 efforts = 0;
                 App.setRoot("mainMenu");
             } else {
                 efforts++;
                 dialog = new Dialog("pincode verkeert");
             }
-        }else{
+        } else {
             dialog = new Dialog("pass geblokeerd");
         }
-
     }
+
     // Try toe log in using the card id and the pin.
     private boolean login() {
         //id for testing
