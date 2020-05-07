@@ -69,6 +69,8 @@ public class SessionManager extends ConnectionManager{
         JSONObject accountData = new JSONObject();
         accountData.put("account_id", this.getAccountname());
 
+        System.out.println(accountData);
+
         JSONObject jsonObj = loadData("BankAccount/read.php", accountData);
 
         return jsonObj.getString("account_balance");
