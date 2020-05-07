@@ -6,13 +6,14 @@ include_once '../../libs/php-jwt-master/src/BeforeValidException.php';
 include_once '../../libs/php-jwt-master/src/ExpiredException.php';
 include_once '../../libs/php-jwt-master/src/SignatureInvalidException.php';
 include_once '../../libs/php-jwt-master/src/JWT.php';
+include_once '../api/config.php';
 
 use \Firebase\JWT\JWT;
 
 class LoginController
 {
-
     static function login($loginData){
+
 
         // show error reporting
         error_reporting(E_ALL);
@@ -21,7 +22,6 @@ class LoginController
         date_default_timezone_set('Europe/Amsterdam');
 
        //should be in a config file
-        $key = "test";
         $iat = 1356999524;
         $nbf = 1357000000;
 
@@ -50,10 +50,11 @@ class LoginController
                )
            );
 
-           $jwt = JWT::encode($token,$key);
+
+           $jwt = JWT::encode($token,config::$key);
            echo json_encode(
                array(
-                "message" => $userData[0],
+                "data" => $userData[0],
                 "jwt" => $jwt
                )
            );

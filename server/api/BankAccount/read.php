@@ -9,10 +9,11 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-include_once 'libs/php-jwt-master/src/BeforeValidException.php';
-include_once 'libs/php-jwt-master/src/ExpiredException.php';
-include_once 'libs/php-jwt-master/src/SignatureInvalidException.php';
-include_once 'libs/php-jwt-master/src/JWT.php';
+include_once '../../libs/php-jwt-master/src/BeforeValidException.php';
+include_once '../../libs/php-jwt-master/src/ExpiredException.php';
+include_once '../../libs/php-jwt-master/src/SignatureInvalidException.php';
+include_once '../../libs/php-jwt-master/src/JWT.php';
+include_once '../config.php';
 use \Firebase\JWT\JWT;
 
 $accounts = new Accounts();
@@ -20,14 +21,14 @@ $accounts = new Accounts();
 http_response_code(200);
 $inputData = json_decode(file_get_contents("php://input"));
 
-$jwt=isset($data->jwt) ? $inputData->jwt : "";
-$key = "test";
+$jwt=isset($inputData->jwt) ? $inputData->jwt : "";
+//this should be somewhere else
 
 if($jwt){
     try {
-
         // decode jwt
-        $decoded = JWT::decode($jwt, $key, array('HS256'));
+        $decoded = JWT::decode($jwt, config::$key, array('HS256'));
+        echo "hello is this working?";
 
         if(empty($inputData)){
             echo json_encode($accounts->readAccount());
