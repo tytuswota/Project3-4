@@ -11,12 +11,15 @@ class BaseModel
         $query = "INSERT INTO " . $this->tableName . " SET ";
 
         $i = 0;
+
         foreach($values as $key => $value){
+
             if($i === 0){
                 $query .= $key . "=:" . $i;
             }else{
                 $query .= ", ". $key . "=:" . $i;
             }
+
             $i++;
         }
 
@@ -40,7 +43,6 @@ class BaseModel
         }
 
         if($stmt->execute()){
-
             $lastId = $database->conn->lastInsertId();
 
             if($lastId != 0){
@@ -50,6 +52,7 @@ class BaseModel
             }
 
         }
+
         return false;
     }
 
@@ -81,7 +84,8 @@ class BaseModel
         return $stmt;
     }
 
-    protected function update($idName ,$idVal, $values){
+    public function update($idName ,$idVal, $values){
+        print_r("hey");
         $query = "UPDATE " . $this->tableName . " SET ";
 
         $i = 0;
@@ -95,6 +99,7 @@ class BaseModel
         }
 
         $query .= " WHERE `{$idName}` = :v ";
+        print_r($query);
 
         $database = new DatabaseConnection();
         $database->getConnection();
@@ -110,6 +115,7 @@ class BaseModel
 
         $stmt->bindParam(":v", $idVal);
 
+        $stmt->debugDumpParams();
 
         if($stmt->execute()){
             $stmt->debugDumpParams();

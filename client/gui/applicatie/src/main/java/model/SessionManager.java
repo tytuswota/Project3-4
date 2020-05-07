@@ -59,7 +59,7 @@ public class SessionManager extends ConnectionManager{
         request.put("causer_account_id", this.getAccountname());
         request.put("receiver_account_id", this.getAccountname());
         System.out.println(request);
-        System.out.println(loadData("TransActions/withdraw.php", request));
+        loadData("TransActions/withdraw.php", request);
         return true;
     }
 

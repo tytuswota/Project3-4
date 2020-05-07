@@ -1,5 +1,5 @@
 create table Translations(id VARCHAR(100), nederlands VARCHAR(100), english VARCHAR(100), russian VARCHAR(100));
-insert into Translations values 
+insert into Translations values
 ("other","anders","other","другой"),
 ("menu","menu","menu","меню"),
 ("goBack","druk # om terug te gaan","type # to return","qwertyuiop[asdfghjkl"),
@@ -8,8 +8,8 @@ insert into Translations values
 ("confirm","bevestigen","confirm","подтверждения"),
 ("balance","saldo","balance", "баланс"),
 ("quit","afbreken","quit", "прекращать"),
-("withdraw","pinnen","withdraw","1234567890-]3456789"),
-("withdraw70","€ 70 pinnen","€ 70 withdraw", "изымать"),
+("withdraw","pinnen","withdraw"),
+("withdraw70","₽ 70 pinnen","₽ 70 withdraw", "₽ 70 изымать"),
 ("cardOut","neem uw pas uit","take your card out", "вытащи свою карточку"),
 ("cardIn","voer uw pas in","insert your card","вставьте свою карту"),
 ("noConnection","Sorry, geen verbinding","Sorry, no connection", "Извините, нет связи"),

@@ -47,8 +47,8 @@ public class LoginController extends BaseController {
     // Try toe log in using the card id and the pin.
     private boolean login() {
         //id for testing
-        String cardId = "SU-DASB-00000001"; //reader.getLastCardNumber(); //"SU-DASB-00000002";
-
+        //String cardId = reader.getLastCardNumber(); //"SU-DASB-00000002";
+        String cardId = "SU-DASB-00000001";
         String pin = this.pin.getText(); // "1234"
         SessionManager sessionManager = SessionManager.tryLogin(cardId, pin);
 
@@ -56,7 +56,7 @@ public class LoginController extends BaseController {
             App.accountId = sessionManager.getAccountname();
             return true;
         }
-        return false; // cheat a bit be because database is empty now.
+        return false;//return false; // cheat a bit be because database is empty now.
     }
 
     // Handles the keypress events
