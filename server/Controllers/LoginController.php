@@ -6,14 +6,13 @@ include_once '../../libs/php-jwt-master/src/BeforeValidException.php';
 include_once '../../libs/php-jwt-master/src/ExpiredException.php';
 include_once '../../libs/php-jwt-master/src/SignatureInvalidException.php';
 include_once '../../libs/php-jwt-master/src/JWT.php';
-include_once '../api/config.php';
+include_once '../Config.php';
 
 use \Firebase\JWT\JWT;
 
 class LoginController
 {
     static function login($loginData){
-
 
         // show error reporting
         error_reporting(E_ALL);
@@ -50,8 +49,8 @@ class LoginController
                )
            );
 
-
            $jwt = JWT::encode($token,config::$key);
+
            echo json_encode(
                array(
                 "data" => $userData[0],
@@ -66,6 +65,5 @@ class LoginController
 
 
     }
-
 
 }

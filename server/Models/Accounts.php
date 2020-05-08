@@ -29,6 +29,17 @@ class Accounts extends BaseModel
         return json_encode($bankAccountArray);
     }
 
+    public function blockCard($bankAccountId){
+        $this->tableName = "Card";
+        $name = "bank_account_id";
+        $values = [
+            "active"=>0
+        ];
+        $val = $this->update($name,$bankAccountId,$values);
+        $this->tableName = "BankAccount";
+        return $val;
+    }
+
     public function createAccount($values){
 
         return $this->create($values);

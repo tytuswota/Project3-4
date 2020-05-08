@@ -13,7 +13,7 @@ include_once '../../libs/php-jwt-master/src/BeforeValidException.php';
 include_once '../../libs/php-jwt-master/src/ExpiredException.php';
 include_once '../../libs/php-jwt-master/src/SignatureInvalidException.php';
 include_once '../../libs/php-jwt-master/src/JWT.php';
-include_once '../config.php';
+include_once '../Config.php';
 use \Firebase\JWT\JWT;
 
 $accounts = new Accounts();
@@ -28,7 +28,6 @@ if($jwt){
     try {
         // decode jwt
         $decoded = JWT::decode($jwt, config::$key, array('HS256'));
-        echo "hello is this working?";
 
         if(empty($inputData)){
             echo json_encode($accounts->readAccount());

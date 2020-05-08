@@ -115,10 +115,7 @@ class BaseModel
 
         $stmt->bindParam(":v", $idVal);
 
-        $stmt->debugDumpParams();
-
         if($stmt->execute()){
-            $stmt->debugDumpParams();
             return true;
         }
         return false;

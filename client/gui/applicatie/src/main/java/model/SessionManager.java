@@ -27,9 +27,9 @@ public class SessionManager extends ConnectionManager{
     }
 
     // Private default constructor
-    private SessionManager(String accountname) {
+    private SessionManager(String accountname, String jwt) {
         this.accountname = accountname;
-        this.JWT = "";
+        this.JWT = jwt;
     }
 
     // Returns an loginManager when succeeded, else null
@@ -39,8 +39,7 @@ public class SessionManager extends ConnectionManager{
             jsonCardData.put("card_id", cardNumber);
             jsonCardData.put("pin", pincode);
             JSONObject jsonObj = loadData("Login/login.php", jsonCardData);  // TODO use https connection
-
-            session = new SessionManager(jsonObj.getString("bank_account_id"));
+            session = new SessionManager(jsonObj.getJSONObject("data").getString("bank_account_id"), jsonObj.getString("jwt"));
             return session;
 
         } catch (Exception e) {
@@ -49,6 +48,14 @@ public class SessionManager extends ConnectionManager{
         }
         return null;
     }
+
+    public static void blockCard(String bankAccountId){
+        JSONObject jsonData = new JSONObject();
+        jsonData.put("bank_account_id", bankAccountId);
+        System.out.println(jsonData);
+        loadData("BankAccount/block.php", jsonData);
+    }
+
     public static SessionManager getSession(){
         return session;
     }
@@ -58,6 +65,7 @@ public class SessionManager extends ConnectionManager{
         request.put("amount", banknotes.getTotalAmount());
         request.put("causer_account_id", this.getAccountname());
         request.put("receiver_account_id", this.getAccountname());
+        request.put("jwt", this.JWT);
         System.out.println(request);
         loadData("TransActions/withdraw.php", request);
         return true;
@@ -68,12 +76,17 @@ public class SessionManager extends ConnectionManager{
     public String getBalance() {
         JSONObject accountData = new JSONObject();
         accountData.put("account_id", this.getAccountname());
+        accountData.put("jwt", this.JWT);
 
         System.out.println(accountData);
 
         JSONObject jsonObj = loadData("BankAccount/read.php", accountData);
 
         return jsonObj.getString("account_balance");
+    }
+
+    public void blockPass(String dankId){
+
     }
 
     // returns account name

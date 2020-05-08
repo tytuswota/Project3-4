@@ -37,27 +37,30 @@ public class LoginController extends BaseController {
     private int efforts = 0;
     @FXML
     public void switchToMainMenu() throws IOException {
+
+        //String cardId = reader.getLastCardNumber(); //"SU-DASB-00000002";
+        String cardId = "SU-DASB-00000001";
+
         if (this.efforts != 3) {
-            if (true || login()) {// bypass to test
+            if (login(cardId)) {
                 efforts = 0;
                 App.setRoot("mainMenu");
             } else {
                 efforts++;
                 dialog = new Dialog("pincode verkeert");
+                //
             }
         } else {
+            SessionManager.blockCard(cardId);
             dialog = new Dialog("pass geblokeerd");
         }
     }
 
     // Try toe log in using the card id and the pin.
-    private boolean login() {
+    private boolean login(String cardId) {
         //id for testing
-        //String cardId = reader.getLastCardNumber(); //"SU-DASB-00000002";
-        String cardId = "SU-DASB-00000001";
         String pin = this.pin.getText(); // "1234"
         SessionManager sessionManager = SessionManager.tryLogin(cardId, pin);
-
         if (sessionManager != null) {
             App.accountId = sessionManager.getAccountname();
             return true;
