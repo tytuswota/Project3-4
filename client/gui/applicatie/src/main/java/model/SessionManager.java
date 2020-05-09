@@ -39,6 +39,7 @@ public class SessionManager extends ConnectionManager{
             jsonCardData.put("card_id", cardNumber);
             jsonCardData.put("pin", pincode);
             JSONObject jsonObj = loadData("Login/login.php", jsonCardData);  // TODO use https connection
+            System.out.println(jsonObj);
             session = new SessionManager(jsonObj.getJSONObject("data").getString("bank_account_id"), jsonObj.getString("jwt"));
             return session;
 
