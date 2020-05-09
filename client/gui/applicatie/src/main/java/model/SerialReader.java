@@ -1,4 +1,4 @@
-package org.openjfx;
+package model;
 
 /*
  *   https://fazecast.github.io/jSerialComm/
@@ -13,7 +13,7 @@ import java.util.function.Consumer;
 public class SerialReader {
 
     static SerialReader reader;
-
+    private String lastCardNumber;
     private Set<Consumer<String>> KeyPadListeners = new HashSet();
     private Set<Consumer<String>> RFIDListeners = new HashSet();
 
@@ -36,6 +36,11 @@ public class SerialReader {
 
     public void addRFIDListener(Consumer<String> listener) {
         RFIDListeners.add(listener);
+    }
+
+    public void removeListeners(){
+        KeyPadListeners.clear();
+        RFIDListeners.clear();
     }
 
     private void RaiseKeyPadEvent(String args) {
@@ -76,17 +81,21 @@ public class SerialReader {
                     JSONObject json = new JSONObject(new String(newData));
 
                     if (json.has("keypress")) {
-                        RaiseKeyPadEvent((json.getString("keypress")));//new EventArgs
+                        RaiseKeyPadEvent((json.getString("keypress")));
                     }
 
                     if (json.has("rfid")) {
-                        RaiseRFIDEvent((json.getString("rfid")));//new EventArgs
+                        lastCardNumber = json.getString("rfid");
+                        RaiseRFIDEvent(lastCardNumber);
                     }
-
                 }
             });
         } catch (Exception e) {
             System.out.println("error while initialising SerialReader");
         }
     }
+
+        public String getLastCardNumber(){
+            return lastCardNumber;
+        }
 }

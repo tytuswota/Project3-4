@@ -3,11 +3,10 @@ package org.openjfx;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import model.LanguageSystem;
+import model.SessionManager;
 
-import java.io.IOException;
-
-public class SaldoController {
+public class SaldoController extends BaseController {
 
     @FXML
     Button saldoToMenu;
@@ -17,19 +16,35 @@ public class SaldoController {
     Button afbreken;
 
     @FXML
+    Label quit;
+    @FXML
+    Label mainMenu;
+    @FXML
+    Label yourBalance;
+
+    @FXML
     public void initialize() {
-
-        String balance = ConnectionManager.userBalance(App.accountId);
-        saldoField.setText("€ " + balance);
+        quit.setText(LanguageSystem.getString("quit"));
+        mainMenu.setText(LanguageSystem.getString("mainMenu"));
+        yourBalance.setText(LanguageSystem.getString("yourBalance"));
+        try {
+            String balance = SessionManager.getSession().getBalance();
+            saldoField.setText("€ " + balance);
+        }catch (Exception e){
+            saldoField.setText(LanguageSystem.getString("noConnection"));
+        }
     }
 
-    @FXML
-    public void switchToPasUit() throws IOException {
-        App.setRoot("pasUit");
-    }
-
-    @FXML
-    public void switchToMainMenu() throws IOException {
-        App.setRoot("mainMenu");
+    @Override
+    public void KeyPressEventHandler(char key) {
+        try {
+            if (key == '#') {
+                switchToPasUit();
+            }else if(key == '*'){
+                switchToMainMenu();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

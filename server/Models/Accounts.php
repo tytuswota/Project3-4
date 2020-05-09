@@ -29,8 +29,44 @@ class Accounts extends BaseModel
         return json_encode($bankAccountArray);
     }
 
+    public function blockCard($bankAccountId){
+        $this->tableName = "Card";
+        $name = "bank_account_id";
+        $values = [
+            "active"=>0
+        ];
+        $val = $this->update($name,$bankAccountId,$values);
+        $this->tableName = "BankAccount";
+        return $val;
+    }
+
+    public function readCard($cardId = 0){
+        $this->tableName = "Card";
+        $stmt = $this->read("card_id",$cardId);
+        $cardArray = array();
+
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
+            $cardItem = array(
+                "card_id" => $row['card_id'],
+                "active" => $row['active'],
+                "expiration_data" => $row['expiration_data'],
+                "bank_account_id" => $row['bank_account_id'],
+            );
+            array_push($cardArray, $cardItem);
+        }
+        $this->tableName = "BankAccount";
+        http_response_code(200);
+        return json_encode($cardArray);
+    }
+
     public function createAccount($values){
+
         return $this->create($values);
+    }
+
+    public function getLastBankAccountId(){
+        return $this->getLastRecord('bank_account_id');
     }
 
     public function updateAccountBalance($id,$newBalance){

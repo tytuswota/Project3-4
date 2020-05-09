@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="pasIn" fx:id="toLogin" onDragDetected="#switchToLogin" onMouseClicked="#switchToLogin" prefHeight="1080.0" prefWidth="1920.0" styleClass="bg" stylesheets="@../../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.PasInController">
-<!--   <children>-->
-<!--&lt;!&ndash;      <TextField fx:id="test" layoutX="227.0" layoutY="399.0" />&ndash;&gt;-->
-<!--   </children>-->
+ <children>
+    <Label fx:id="cardIn" alignment="CENTER" contentDisplay="CENTER" layoutX="710.0" layoutY="414.0" prefWidth="500.0" text="Label" textAlignment="CENTER" textFill="#ff7d7d">
+        <font>
+            <Font size="42.0" />
+        </font>
+    </Label>
+ </children>
 </AnchorPane>

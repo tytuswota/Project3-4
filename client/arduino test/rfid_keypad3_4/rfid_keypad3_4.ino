@@ -1,195 +1,181 @@
-
-/*
-  RST/Reset   RST          9
-  SPI SS      SDA(SS)      10
-  SPI MOSI    MOSI         11 / ICSP-4
-  SPI MISO    MISO         12 / ICSP-1
-  SPI SCK     SCK          13 / ICSP-3
-
-*/
-#include <SPI.h>
-#include <MFRC522.h>
+//#include <Arduino.h>
+#include <SPI.h>     //include the SPI bus library
+#include <MFRC522.h> //include the RFID reader library
 #include <Keypad.h>
 
-#define SS_PIN 10
-#define RST_PIN 2
-MFRC522 mfrc522(SS_PIN, RST_PIN);
+//#define verbal_output //do only use this for debug
 
-const int password_length = 4;
+#define SS_PIN 10 //slave select pin
+#define RST_PIN 9 //reset pin
 
-String tagHRO = "8A 16 F8 0A";             //Hardcoded tagUID
-char correct_pin[password_length] = {'1', '2', '3', '4'}; //Hardcoded password
-char passwordOpslag[password_length];
-int data_index = 0;
+// We are using a 4 by 4 keypad
+#define ROWS 4
+#define COLS 4
 
-int bedrag = 200;
+////////////////////////keypad////////////////////////////////////////////
 
-
-bool rfidMode = true;
-bool keyPad = false;
-bool pasHRO = true;
-
-
-int attemptCounter = 0;     //Telt het aantal inlog pogingen
-
-#define led A1
-
-const byte ROWS = 4; //four rows
-const byte COLS = 4; //three columnsa
 char keys[ROWS][COLS] = {
-  {'1', '2', '3', 'A'},
-  {'4', '5', '6', 'B'},
-  {'7', '8', '9', 'C'},
-  {'*', '0', '#', 'D'}
-};
+    {'1', '2', '3', 'A'},
+    {'4', '5', '6', 'B'},
+    {'7', '8', '9', 'C'},
+    {'*', '0', '#', 'D'}};
 
 // Initializing pins for keypad
 byte rowPins[ROWS] = {A0, 8, 7, 6}; //connect to the row pinouts of the keypad
-byte colPins[COLS] = {5, 4, 3, 2}; //connect to the column pinouts of the keypad
+byte colPins[COLS] = {5, 4, 3, 2};  //connect to the column pinouts of the keypad
 
 // Create instance for keypad
-Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
+Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
 
-void setup() {
-  Serial.begin(9600);
-  mfrc522.PCD_Init();   // Init MFRC522
-  mfrc522.PCD_SetAntennaGain(mfrc522.RxGain_max);
+/////////////////////////// RFID ///////////////////////////////////////////////
+MFRC522 mfrc522(SS_PIN, RST_PIN); // instatiate a MFRC522 reader object.
+MFRC522::MIFARE_Key key;          //create a MIFARE_Key struct named 'key', which will hold the card information
 
-  SPI.begin();
-  Serial.println("Scan uw pas");
+//this is the block number we will write into and then read.
+int block = 1;
 
-  pinMode(led, OUTPUT);
-}
+byte blockcontent[16] = {"SU-DASB-00000001"}; //an array with 16 bytes to be written into one of the 64 card blocks is defined
 
-void loop() {
+//This array is used for reading out a block.
+byte readbackblock[18];
 
-  if (rfidMode == true && pasHRO == true )  //Zoekt naar pas mode
+void setup()
+{
+  Serial.begin(9600); // Initialize serial communications with the PC
+  SPI.begin();        // Init SPI bus
+  mfrc522.PCD_Init(); // Init MFRC522 card (in case you wonder what PCD means: proximity coupling device)
+#ifdef verbal_output
+  Serial.println("Scan a MIFARE Classic card");
+#endif
+  // Prepare the security key for the read and write functions.
+  for (byte i = 0; i < 6; i++)
   {
-    Serial.println("Scan uw pas");
-    // Look for new cards
-    if ( ! mfrc522.PICC_IsNewCardPresent()) {
-      return;
-    }
-    // Select one of the cards
-    if ( ! mfrc522.PICC_ReadCardSerial()) {
-      return;
-    }
-
-    //Reading from the card
-    String tag = "";
-    for (byte j = 0; j < mfrc522.uid.size; j++)
-    {
-      tag.concat(String(mfrc522.uid.uidByte[j] < 0x10 ? " 0" : " "));
-      tag.concat(String(mfrc522.uid.uidByte[j], HEX));
-    }
-    tag.toUpperCase();
-    //Checking the card
-    if (tag.substring(1) == tagHRO ) //Wanneer de HRO pas gelezen wordt
-    {
-      Serial.println("Toets uw pincode in:");
-      rfidMode = false;
-      keyPad = true;
-    }
-    else
-    {
-      Serial.println("De ingevoerde pas is onbekend");  //Wanneer een verkeerde pas gelezen wordt.
-      rfidMode = true;
-      delay(300);
-      Serial.println("Scan uw pas");
-    }
-  }
-
-
-  // If RFID mode is false, it will look for keys from keypad
-  while (rfidMode == false && keyPad == true) {
-    char key = keypad.getKey(); // Storing keys
-
-    if (key) {
-      Serial.println(key);
-    }
-
-    if ((key >= '0' && key <= '9')) {
-      if (data_index <= password_length) {
-        {
-          passwordOpslag[data_index] = key;
-          data_index++;
-        }
-      } else
-      {
-        Serial.println("Pincode is te lang");
-      }
-    } else if (key == '#')
-    {
-      delay(200);
-      if (cmpArray()) // If password is matched
-      {
-        if ( pasHRO == true)
-        {
-          Serial.println("Pass Accepted");
-          keyPad = false;
-          digitalWrite(led, HIGH);
-          delay(250);
-          clearData();
-          Serial.print("Uw saldo is: €");
-          Serial.println(bedrag);
-          break;
-        }
-      }  else    // If password is not matched
-      {
-        Serial.println("Wrong Password");
-        clearData();
-        attemptCounter++;  //Telt ééntje bij de attemptcounter
-        Serial.println( attemptCounter);
-
-      }
-    } else if (key == '*') {
-      backspace();
-    }
-
-    if (attemptCounter == 3)
-    {
-      rfidMode = true;
-      pasHRO = false;
-      keyPad = false;
-      Serial.println("je pas is geblokkeerd");
-      delay(500);
-      Serial.println("Neem uw pas uit. Neem contact met de klantenservice");
-      clearData();
-      //      break;
-    }
+    key.keyByte[i] = 0xFF; //keyByte is defined in the "MIFARE_Key" 'struct' definition in the .h file of the library
   }
 }
 
-
-bool cmpArray()
+void loop()
 {
-  for (int i = 0; i < password_length; i++)
+  char key = keypad.getKey();
+  if (key)
+  { // sent only when a key is present
+    Serial.print("{\"keypress\":\"");
+    Serial.print(key);
+    Serial.println("\"}");
+  }
+
+  // Look for new cards
+  if (!mfrc522.PICC_IsNewCardPresent())
   {
-    if (passwordOpslag[i] != correct_pin[i])
-    {
-      return false;
-    }
+    return;
   }
 
-  return true;
-}
-
-void clearData()
-{
-  // Serial.println("arraaaaaaaay");
-  //  for (int j = 0; j < 5; j++ ) {
-  //    Serial.println(passwordOpslag[j]);
-  //  }
-
-  for (int i = 0; i < 5; i++) {
-    data_index = 0;
-    passwordOpslag[i] = 0;
+  // Select one of the cards
+  if (!mfrc522.PICC_ReadCardSerial())
+  {
+    return;
   }
-  return;
+#ifdef verbal_output
+  Serial.println("card selected");
+#endif
+  //  the blockcontent array is written into the card block
+  //writeBlock(block, blockcontent);
+
+  //read the block back
+  readBlock(block, readbackblock);
+
+  //print the block contents
+#ifdef verbal_output
+  Serial.print("read block: ");
+#endif
+  //String str;
+  char str[16];
+  for (int j = 0; j < 16; j++)
+  {
+    str[j] = readbackblock[j];
+    char uidCharacter = readbackblock[j];
+  }
+  Serial.print("{\"rfid\":\"");
+  Serial.print(str);
+  Serial.println("\"}");
 }
 
-void backspace()
+//Write specific block
+int writeBlock(int blockNumber, byte arrayAddress[])
 {
-  data_index--;
-  return;
+  //this makes sure that we only write into data blocks. Every 4th block is a trailer block for the access/security info.
+  int largestModulo4Number = blockNumber / 4 * 4;
+  int trailerBlock = largestModulo4Number + 3; //determine trailer block for the sector
+  if (blockNumber > 2 && (blockNumber + 1) % 4 == 0)
+  {
+#ifdef verbal_output
+    Serial.print(blockNumber);
+    Serial.println(" is a trailer block:");
+#endif
+    return 2;
+  }
+#ifdef verbal_output
+  Serial.print(blockNumber);
+  Serial.println(" is a data block:");
+#endif
+
+  //authentication of the desired block for access
+  byte status = mfrc522.PCD_Authenticate(MFRC522::PICC_CMD_MF_AUTH_KEY_A, trailerBlock, &key, &(mfrc522.uid));
+  if (status != MFRC522::STATUS_OK)
+  {
+#ifdef verbal_output
+    Serial.print("PCD_Authenticate() failed: ");
+    Serial.println(mfrc522.GetStatusCodeName(status));
+#endif
+    return 3; //return "3" as error message
+  }
+
+  //writing the block
+  status = mfrc522.MIFARE_Write(blockNumber, arrayAddress, 16);
+  //status = mfrc522.MIFARE_Write(9, value1Block, 16);
+  if (status != MFRC522::STATUS_OK)
+  {
+#ifdef verbal_output
+    Serial.print("MIFARE_Write() failed: ");
+    Serial.println(mfrc522.GetStatusCodeName(status));
+#endif
+    return 4; //return "4" as error message
+  }
+#ifdef verbal_output
+  Serial.println("block was written");
+#endif
+}
+
+//Read specific block
+int readBlock(int blockNumber, byte arrayAddress[])
+{
+  int largestModulo4Number = blockNumber / 4 * 4;
+  int trailerBlock = largestModulo4Number + 3; //determine trailer block for the sector
+
+  //authentication of the desired block for access
+  byte status = mfrc522.PCD_Authenticate(MFRC522::PICC_CMD_MF_AUTH_KEY_A, trailerBlock, &key, &(mfrc522.uid));
+
+  if (status != MFRC522::STATUS_OK)
+  {
+#ifdef verbal_output
+    Serial.print("PCD_Authenticate() failed (read): ");
+    Serial.println(mfrc522.GetStatusCodeName(status));
+#endif
+    return 3; //return "3" as error message
+  }
+
+  //reading a block
+  byte buffersize = 18;                                                 //we need to define a variable with the read buffer size, since the MIFARE_Read method below needs a pointer to the variable that contains the size...
+  status = mfrc522.MIFARE_Read(blockNumber, arrayAddress, &buffersize); //&buffersize is a pointer to the buffersize variable; MIFARE_Read requires a pointer instead of just a number
+  if (status != MFRC522::STATUS_OK)
+  {
+#ifdef verbal_output
+    Serial.print("MIFARE_read() failed: ");
+    Serial.println(mfrc522.GetStatusCodeName(status));
+#endif
+    return 4; //return "4" as error message
+  }
+#ifdef verbal_output
+  Serial.println("block was read");
+#endif
 }

@@ -1,40 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <Pane id="bedrag" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="bg" stylesheets="@../../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.BedragController">
    <children>
-      <Button id="button" fx:id="bedragToEigenBedrag" layoutX="1717.0" layoutY="514.0" mnemonicParsing="false" onAction="#switchToEigenBedrag" styleClass="knop" stylesheets="@../../style/Main.css" text="#" textFill="WHITE">
+      <Button id="button" fx:id="bedragToEigenBedrag" layoutX="1682.0" layoutY="506.0" mnemonicParsing="false" onAction="#switchToEigenBedrag" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="#" textFill="WHITE">
          <font>
             <Font size="60.0" />
          </font>
       </Button>
-      <Button id="button" layoutX="1717.0" layoutY="318.0" mnemonicParsing="false" styleClass="knop" stylesheets="@../../style/Main.css" text="D" textFill="WHITE">
+      <Button id="button" layoutX="1682.0" layoutY="303.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="D" textFill="WHITE">
          <font>
             <Font size="60.0" />
          </font>
       </Button>
-      <Button id="button" layoutX="1717.0" layoutY="127.0" mnemonicParsing="false" styleClass="knop" stylesheets="@../../style/Main.css" text="B" textFill="WHITE">
+      <Button id="button" layoutX="1682.0" layoutY="119.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="B" textFill="WHITE">
          <font>
             <Font size="60.0" />
          </font>
       </Button>
-      <Button id="button" fx:id="bedragToMenu" layoutX="59.0" layoutY="514.0" mnemonicParsing="false" onAction="#switchToMainMenu" styleClass="knop" stylesheets="@../../style/Main.css" text="*" textFill="WHITE">
+      <Button id="button" fx:id="bedragToMenu" layoutX="45.0" layoutY="506.0" mnemonicParsing="false" onAction="#switchToMainMenu" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="*" textFill="WHITE">
          <font>
             <Font size="60.0" />
          </font>
       </Button>
-      <Button id="button" layoutX="59.0" layoutY="318.0" mnemonicParsing="false" styleClass="knop" stylesheets="@../../style/Main.css" text="C" textFill="WHITE">
+      <Button id="button" layoutX="46.0" layoutY="310.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="C" textFill="WHITE">
          <font>
             <Font size="60.0" />
          </font>
       </Button>
-      <Button id="button" layoutX="59.0" layoutY="127.0" mnemonicParsing="false" styleClass="knop" stylesheets="@../../style/Main.css" text="A" textFill="WHITE">
+      <Button id="button" layoutX="46.0" layoutY="119.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="A" textFill="WHITE">
          <font>
             <Font size="60.0" />
          </font>
       </Button>
+      <Label fx:id="other" alignment="CENTER" layoutX="1348.0" layoutY="600.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="#ff7d7d">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Label fx:id="menu" alignment="CENTER" layoutX="281.0" layoutY="600.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="#ff7d7d">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Label fx:id="menu1" alignment="CENTER" layoutX="281.0" layoutY="214.0" prefWidth="300.0" text="₽ 10" textAlignment="CENTER" textFill="#ff7d7d">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Label fx:id="menu11" alignment="CENTER" layoutX="281.0" layoutY="405.0" prefWidth="300.0" text="₽ 20" textAlignment="CENTER" textFill="#ff7d7d">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Label fx:id="other1" alignment="CENTER" layoutX="1348.0" layoutY="399.0" prefWidth="300.0" text="₽ 100" textAlignment="CENTER" textFill="#ff7d7d">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Label fx:id="other11" alignment="CENTER" layoutX="1348.0" layoutY="214.0" prefWidth="300.0" text="₽ 50" textAlignment="CENTER" textFill="#ff7d7d">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
