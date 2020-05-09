@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import model.LanguageSystem;
 import model.SessionManager;
+import org.json.JSONObject;
 
 public class LoginController extends BaseController {
 
@@ -41,19 +42,25 @@ public class LoginController extends BaseController {
         //String cardId = reader.getLastCardNumber(); //"SU-DASB-00000002";
         String cardId = "SU-DASB-00000001";
 
-        if (this.efforts != 3) {
-            if (login(cardId)) {
-                efforts = 0;
-                App.setRoot("mainMenu");
+        JSONObject cardObject = SessionManager.getCard(cardId);
+        if(cardObject.getString("active").equals("1")){
+            if (this.efforts != 3) {
+                if (login(cardId)) {
+                    efforts = 0;
+                    App.setRoot("mainMenu");
+                } else {
+                    efforts++;
+                    dialog = new Dialog("pincode verkeert");
+                    //
+                }
             } else {
-                efforts++;
-                dialog = new Dialog("pincode verkeert");
-                //
+                SessionManager.blockCard(cardId);
+                dialog = new Dialog("pass geblokeerd");
             }
-        } else {
-            SessionManager.blockCard(cardId);
+        }else{
             dialog = new Dialog("pass geblokeerd");
         }
+
     }
 
     // Try toe log in using the card id and the pin.

@@ -18,12 +18,12 @@ public class SessionManager extends ConnectionManager{
     private final String JWT;
 
     public static void main(String[] args) {
-        SessionManager con = SessionManager.tryLogin("SU-DASB-00000001","1234");
-        if(con != null){
+        System.out.println(SessionManager.getCard("SU-DASB-00000001"));
+        /*if(con != null){
             System.out.println("account: " + con.getAccountname() + " ,balance: " + con.getBalance());
             con.withdraw(new SetOfBanknotes(1,2,0));
             System.out.println("account: " + con.getAccountname() + " ,balance: " + con.getBalance());
-        }
+        }*/
     }
 
     // Private default constructor
@@ -38,6 +38,9 @@ public class SessionManager extends ConnectionManager{
             JSONObject jsonCardData = new JSONObject();
             jsonCardData.put("card_id", cardNumber);
             jsonCardData.put("pin", pincode);
+
+            System.out.println(jsonCardData);
+
             JSONObject jsonObj = loadData("Login/login.php", jsonCardData);  // TODO use https connection
             System.out.println(jsonObj);
             session = new SessionManager(jsonObj.getJSONObject("data").getString("bank_account_id"), jsonObj.getString("jwt"));
@@ -55,6 +58,14 @@ public class SessionManager extends ConnectionManager{
         jsonData.put("bank_account_id", bankAccountId);
         System.out.println(jsonData);
         loadData("BankAccount/block.php", jsonData);
+    }
+
+    public static JSONObject getCard(String cardId){
+        JSONObject cardData = new JSONObject();
+        cardData.put("card_id", cardId);
+
+        JSONObject jsonObj = loadData("BankAccount/readCard.php", cardData);
+        return jsonObj;
     }
 
     public static SessionManager getSession(){

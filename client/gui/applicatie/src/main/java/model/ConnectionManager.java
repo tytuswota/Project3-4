@@ -20,6 +20,7 @@ public class ConnectionManager {
 
             URL url = new URL("http://dasbank.ml/api/" + urlStr);
             //URL url = new URL("http://192.168.33.10/api/" + urlStr);//
+            System.out.println(url.toString());
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
             // long time out could slow down the initialising
             http.setReadTimeout(1000);
@@ -35,7 +36,6 @@ public class ConnectionManager {
             }
             InputStream stream = http.getInputStream();
             String str = new String(stream.readAllBytes());
-
             JSONObject jsonUserData = new JSONObject(str);
 
             return jsonUserData;
