@@ -10,9 +10,10 @@ import java.io.IOException;
 
 public class EigenBedragController extends BaseController {
 
-    public void initialise(){
+    public void initialize() {
         confirm.setText(LanguageSystem.getString("confirm"));
         desiredAmount.setText(LanguageSystem.getString("desiredAmount"));
+        backspace.setText(LanguageSystem.getString("backspace"));
     }
 
     @FXML

@@ -3,7 +3,7 @@ ALTER TABLE Translations CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
 insert into Translations values
 ("other","anders","other","другой"),
 ("menu","menu","menu","меню"),
-("goBack","druk # om terug te gaan","type # to return","qwertyuiopasdfghjkl"),
+("goBack","druk # om terug te gaan","type # to return","введите # для возврата"),
 ("desiredAmount","voer het gewenst bedrag in","enter the desired amount","введите # для возврата"),
 ("backspace","backspace","backspace","бекспейс"),
 ("confirm","bevestigen","confirm","подтверждения"),
@@ -15,5 +15,5 @@ insert into Translations values
 ("cardIn","voer uw pas in","insert your card","вставьте свою карту"),
 ("noConnection","Sorry, geen verbinding","Sorry, no connection", "Извините, нет связи"),
 ("mainMenu", "hooftmenu","mainmenu", "главное меню"),
-("yourBalance","uw saldo is:","your balance is:", "qwertyuiop"),
+("yourBalance","uw saldo is:","your balance is:", "ваш баланс:"),
 ("enterPin", "voer uw pincode in", "enter your pin", "ваш баланс:") ;
