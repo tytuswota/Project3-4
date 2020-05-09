@@ -5,7 +5,7 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="pasUit" onMouseClicked="#switchToPassIn" prefHeight="1080.0" prefWidth="1920.0" styleClass="bg" stylesheets="@../../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.PasUitController">
-    <Label fx:id="cardOut" layoutX="911.0" layoutY="414.0" text="Label" textFill="#ff7d7d">
+    <Label fx:id="cardOut" alignment="CENTER" layoutX="710.0" layoutY="414.0" prefWidth="500.0" text="Label" textAlignment="CENTER" textFill="#ff7d7d">
         <font>
             <Font size="42.0" />
         </font>
