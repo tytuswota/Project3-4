@@ -22,7 +22,8 @@ Custom messagebox.
 
 public class Dialog extends Stage{
 
-    // Constructor set label text on screen.
+    // Constructor, sets the message in the dialog.
+    // Give a language key, if key isn't recognised by the language system, the key wil be shown.
     Dialog(String message) throws IOException {
         Parent root = loadFXML("dialog");
         var ch = root.getChildrenUnmodifiable();
