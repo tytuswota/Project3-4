@@ -4,7 +4,7 @@ import org.json.JSONObject;
 
 public class LanguageSystem extends ConnectionManager{
 
-    private static Language language = Language.ENGLISH;
+    private static Language language = Language.NEDERLANDS;
 
     public static void main(String[] args) {
         System.out.println(language.toString());
