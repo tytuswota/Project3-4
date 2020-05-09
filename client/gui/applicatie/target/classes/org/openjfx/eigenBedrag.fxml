@@ -27,17 +27,17 @@
             <Font size="60.0" />
          </font>
       </Button>
-      <Label fx:id="confirm" alignment="CENTER" layoutX="1152.0" layoutY="787.0" prefWidth="300.0" text="confirm" textFill="#ff7d7d">
+      <Label fx:id="confirm" alignment="CENTER" layoutX="1152.0" layoutY="787.0" prefWidth="300.0" text="label" textFill="#ff7d7d">
          <font>
             <Font size="42.0" />
          </font>
       </Label>
-      <Label fx:id="desiredAmount" alignment="CENTER" layoutX="721.0" layoutY="467.0" prefWidth="500.0" text="desired_amount" textFill="#ff7d7d">
+      <Label fx:id="desiredAmount" alignment="CENTER" layoutX="721.0" layoutY="467.0" prefWidth="500.0" text="label" textFill="#ff7d7d">
          <font>
             <Font size="42.0" />
          </font>
       </Label>
-      <Label fx:id="backspace" alignment="CENTER" layoutX="483.0" layoutY="787.0" prefWidth="300.0" text="backspace" textFill="#ff7d7d">
+      <Label fx:id="backspace" alignment="CENTER" layoutX="483.0" layoutY="787.0" prefWidth="300.0" text="label" textFill="#ff7d7d">
          <font>
             <Font size="42.0" />
          </font>

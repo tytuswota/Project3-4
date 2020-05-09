@@ -1,27 +1,36 @@
 /* . is voor class en # is voor id. */
 
 
-
-#pasIn.bg{
+#pasIn.bg {
     -fx-background-image: url("../fotos/pasIn.jpg") no-repeat;
 }
+
 #login.bg {
     -fx-background-image: url("../fotos/pincode.jpg") no-repeat;
 }
+
 #main.bg {
     -fx-background-image: url("../fotos/main.jpg") no-repeat;
 }
-#saldo.bg{
+
+#saldo.bg {
     -fx-background-image: url("../fotos/saldo.jpg") no-repeat;
 }
-#bedrag.bg{
+
+#bedrag.bg {
     -fx-background-image: url("../fotos/bedrag.jpg") no-repeat;
 }
-#eigenBedrag.bg{
+
+#eigenBedrag.bg {
     -fx-background-image: url("../fotos/eigenBedrag.jpg") no-repeat;
 }
-#pasUit.bg{
+
+#pasUit.bg {
     -fx-background-image: url("../fotos/pasuit.jpg") no-repeat;
+}
+
+#bon.bg {
+    -fx-background-image: url("../fotos/bon.jpg") no-repeat;
 }
 
 #button.knop {
@@ -53,4 +62,13 @@
     -fx-border-color: white;
     -fx-text-fill: white;
 }
+
+bon.field {
+    -fx-background-color: #000674;
+    -fx-border-width: 5px;
+    -fx-border-radius: 10px;
+    -fx-border-color: white;
+    -fx-text-fill: white;
+}
+
 
