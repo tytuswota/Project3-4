@@ -23,9 +23,9 @@ char uidtest;
 
 #include <Keypad.h>
 /**
- * testprogram for the keypad communication.
- * 
- */
+   testprogram for the keypad communication.
+
+*/
 const byte ROWS = 4; //four rows
 const byte COLS = 4; //three columnsa
 char keys[ROWS][COLS] = {
@@ -66,14 +66,14 @@ void loop()
 {
 
 
-    char key = keypad.getKey();
+  char key = keypad.getKey();
   if (key) { // sent only when a key is present
     Serial.print("{\"keypress\":\"");
     Serial.print(key);
     Serial.println("\"}");
   }
 
-  
+
   // Look for new cards
   if ( ! mfrc522.PICC_IsNewCardPresent()) {
     return;
@@ -95,22 +95,20 @@ void loop()
   //   mfrc522.PICC_DumpToSerial(&(mfrc522.uid));
 
   //print the block contents
+  char str[16];
   Serial.print("read block: ");
   for (int j = 0 ; j < 16 ; j++)
   {
 
-    uidtest = readbackblock[j];
-
+    str[j] = readbackblock[j];
+    char uidCharacter = readbackblock[j];
     //    Serial.print(uidtest);
     //    Serial.write (readbackblock[j]);
 
     Serial.print("{\"rfid\":\"");
-    Serial.print(uidtest);
+    Serial.print(str);
     Serial.println("\"}");
   }
-
-
-
 }
 
 

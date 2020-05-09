@@ -28,15 +28,15 @@ public class LoginController {
 
     @FXML
     public void switchToMainMenu() throws IOException {
-        if(login()){
+        if (login()) {
             App.setRoot("mainMenu");
-        }else{
-            MsgBox.informationBox("Login","Pin fout", "Probeer opnieuw");
+        } else {
+            MsgBox.informationBox("Login", "Pin fout", "Probeer opnieuw");
         }
 
     }
 
-    private boolean login(){
+    private boolean login() {
         //id for testing
         String cardId = "SU-DASB-1";
 
@@ -49,6 +49,7 @@ public class LoginController {
         }
         return false;
     }
+
 
     @FXML
     public void switchToPasUit() throws IOException {

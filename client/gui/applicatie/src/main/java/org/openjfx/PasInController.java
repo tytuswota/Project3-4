@@ -1,5 +1,6 @@
 package org.openjfx;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseButton;
@@ -65,24 +66,13 @@ public class PasInController {
      * */
 
     private void RFIDEventHandler(String uid) {
-        /*Platform.runLater(new Runnable() {
+        Platform.runLater(new Runnable() {
 
             @Override
             public void run() {
-
-                if (test.getLength() != 16) {
-                    test.appendText(uid);
-                } else {
-                    try {
-                        switchToLogin();
-                    } catch (Exception e) {
-                        System.out.println(e);
-                    }
-                }
-
-
+                System.out.println(uid);
             }
 
-        });*/
+        });
     }
 }
