@@ -9,7 +9,7 @@ class LanguageSystem
         $translationID = $request->id; // for instance: "TextPinWrong"
 
         // DO query
-        $query = "SELECT * FROM translations WHERE id= ?";
+        $query = "SELECT * FROM Translations WHERE id= ?";
 
         $database = new DatabaseConnection();
         $database->getConnection();
