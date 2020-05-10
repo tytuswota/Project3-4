@@ -75,7 +75,7 @@ public class BaseController {
             System.out.println("BanknotesAvailable.");
         } else {
             if (withdrawer.withdraw(banknotes)) {
-                App.setRoot("pasUit");
+                App.setRoot("Bon");
             } else {
                 dialog = new Dialog("Opnemen mislukt.");
                 System.out.println("Withdrawing failed.");
