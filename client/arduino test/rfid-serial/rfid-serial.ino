@@ -105,9 +105,9 @@ void loop()
     //    Serial.print(uidtest);
     //    Serial.write (readbackblock[j]);
 
-    Serial.print("{\"rfid\":\"");
+    //    Serial.print("{\"rfid\":\"");
     Serial.print(str);
-    Serial.println("\"}");
+    //    Serial.println("\"}");
   }
 }
 

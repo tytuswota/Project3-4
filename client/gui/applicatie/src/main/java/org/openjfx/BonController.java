@@ -24,6 +24,9 @@ public class BonController extends BaseController {
         try {
             if (key == '#') {
                 //bon  functie moet komen
+                switchToPasUit();
+
+
             }else if(key == '*'){
                 switchToPasUit();
             }
