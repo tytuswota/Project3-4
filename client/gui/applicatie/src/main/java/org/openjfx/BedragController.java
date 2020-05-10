@@ -57,6 +57,10 @@ public class BedragController extends BaseController{
         withdraw(banknotes);
     }
 
+    public void calculateNotes() {
+
+    }
+
     @Override
     public void KeyPressEventHandler(char key) {
         try {
