@@ -8,12 +8,12 @@
 <AnchorPane id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="bg" stylesheets="@../../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.MainController">
     <children>
 
-        <Button id="button" fx:id="saldo" layoutX="82.0" layoutY="104.0" mnemonicParsing="false" onAction="#switchToSaldo" prefHeight="112.0" prefWidth="190.0" styleClass="knop" stylesheets="@../../style/Main.css" text="A">
+        <Button id="button" fx:id="saldo" layoutX="80.0" layoutY="110.0" mnemonicParsing="false" onAction="#switchToSaldo" prefHeight="112.0" prefWidth="190.0" styleClass="knop" stylesheets="@../../style/Main.css" text="A">
             <font>
                 <Font size="60.0" />
             </font>
         </Button>
-        <Button id="button" fx:id="afbreken" layoutX="82.0" layoutY="306.0" mnemonicParsing="false" onAction="#switchToPasUit" prefHeight="112.0" prefWidth="190.0" styleClass="knop" stylesheets="@../../style/Main.css" text="B">
+        <Button id="button" fx:id="afbreken" layoutX="80.0" layoutY="306.0" mnemonicParsing="false" onAction="#switchToPasUit" prefHeight="112.0" prefWidth="190.0" styleClass="knop" stylesheets="@../../style/Main.css" text="B">
             <font>
                 <Font size="60.0" />
             </font>
@@ -23,27 +23,27 @@
                 <Font size="60.0" />
             </font>
         </Button>
-        <Button id="button" fx:id="pinZeventig" layoutX="1640.0" layoutY="306.0" mnemonicParsing="false" onAction="#PinZeventig" prefHeight="112.0" prefWidth="190.0" styleClass="knop" stylesheets="@../../style/Main.css" text="D">
+        <Button id="button" fx:id="pinZeventig" layoutX="1640.0" layoutY="302.0" mnemonicParsing="false" onAction="#PinZeventig" prefHeight="112.0" prefWidth="190.0" styleClass="knop" stylesheets="@../../style/Main.css" text="D">
             <font>
                 <Font size="60.0" />
             </font>
         </Button>
-      <Label fx:id="balance" alignment="CENTER" layoutX="308.0" layoutY="216.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="#ff7d7d">
+      <Label fx:id="balance" alignment="CENTER" layoutX="308.0" layoutY="215.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="42.0" />
          </font>
       </Label>
-      <Label fx:id="quit" alignment="CENTER" layoutX="308.0" layoutY="412.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="#ff7d7d">
+      <Label fx:id="quit" alignment="CENTER" layoutX="308.0" layoutY="415.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="42.0" />
          </font>
       </Label>
-      <Label fx:id="withdraw" alignment="CENTER" layoutX="1310.0" layoutY="216.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="#ff7d7d">
+      <Label fx:id="withdraw" alignment="CENTER" layoutX="1310.0" layoutY="215.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="42.0" />
          </font>
       </Label>
-      <Label fx:id="withdraw70" alignment="CENTER" layoutX="1310.0" layoutY="412.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="#ff7d7d">
+      <Label fx:id="withdraw70" alignment="CENTER" layoutX="1310.0" layoutY="413.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="42.0" />
          </font>

@@ -82,4 +82,30 @@ public class BaseController {
             }
         }
     }
+
+    public void withdraw(SetOfBanknotes banknotes, int A) throws IOException {
+        Withdrawer withdrawer = new Withdrawer();
+        // Remove dialog box if opened already.
+        if(dialog != null && dialog.isShowing()){
+            dialog.close();
+        }
+
+        boolean balanceEnough = withdrawer.isBalanceEnough(banknotes.getTotalAmount());
+        boolean banknotesAvailable = withdrawer.banknotesAvailable(banknotes);
+
+        if (!balanceEnough) {
+            dialog = new Dialog("Saldo is niet hoog genoeg.");
+            System.out.println("Balance not high enough");
+        } else if (!banknotesAvailable) {
+            dialog = new Dialog("Biljetten niet aanwezig.");
+            System.out.println("BanknotesAvailable.");
+        } else {
+            if (withdrawer.withdraw(banknotes)) {
+                App.setRoot("pasUit");
+            } else {
+                dialog = new Dialog("Opnemen mislukt.");
+                System.out.println("Withdrawing failed.");
+            }
+        }
+    }
 }

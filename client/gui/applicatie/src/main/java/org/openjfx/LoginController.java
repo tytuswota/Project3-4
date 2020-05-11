@@ -39,8 +39,8 @@ public class LoginController extends BaseController {
     @FXML
     public void switchToMainMenu() throws IOException {
 
-        //String cardId = reader.getLastCardNumber(); //"SU-DASB-00000002";
-        String cardId = "SU-DASB-00000001";
+        String cardId = reader.getLastCardNumber(); //"SU-DASB-00000002";
+//        String cardId = "SU-DASB-00000001";
 
         JSONObject cardObject = SessionManager.getCard(cardId);
         if(cardObject.getString("active").equals("1")){
@@ -66,7 +66,9 @@ public class LoginController extends BaseController {
     // Try toe log in using the card id and the pin.
     private boolean login(String cardId) {
         //id for testing
+        System.out.println("je moeder");
         String pin = this.pin.getText(); // "1234"
+        System.out.println("dit is de pin jatoch " + pin);
         SessionManager sessionManager = SessionManager.tryLogin(cardId, pin);
         if (sessionManager != null) {
             App.accountId = sessionManager.getAccountname();

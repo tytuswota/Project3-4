@@ -15,7 +15,7 @@
         </Button>
       <Label id="saldo" fx:id="saldoField" layoutX="740.0" layoutY="578.0" prefHeight="107.0" prefWidth="447.0" styleClass="field" stylesheets="@../../style/Main.css" text="₽00,00">
          <font>
-            <Font size="35.0" />
+            <Font size="60.0" />
          </font>
       </Label>
         <Button id="button" fx:id="afbreken" layoutX="1485.0" layoutY="686.0" mnemonicParsing="false" onAction="#switchToPasUit" prefHeight="114.0" prefWidth="184.0" styleClass="knop" stylesheets="@../../style/Main.css" text="#">
@@ -23,17 +23,17 @@
                 <Font size="60.0" />
             </font>
         </Button>
-      <Label fx:id="mainMenu" alignment="CENTER" layoutX="481.0" layoutY="789.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="#c0ff12e5">
+      <Label fx:id="mainMenu" alignment="CENTER" layoutX="481.0" layoutY="800.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="#ffffffe5">
          <font>
             <Font size="43.0" />
          </font>
       </Label>
-      <Label fx:id="quit" alignment="CENTER" layoutX="1153.0" layoutY="789.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="#c0ff12e5">
+      <Label fx:id="quit" alignment="CENTER" layoutX="1153.0" layoutY="800.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="#ffffffe5">
          <font>
             <Font size="43.0" />
          </font>
       </Label>
-      <Label fx:id="yourBalance" alignment="CENTER" layoutX="712.0" layoutY="464.0" prefWidth="500.0" text="Label" textAlignment="CENTER" textFill="#c0ff12e5">
+      <Label fx:id="yourBalance" alignment="CENTER" layoutX="712.0" layoutY="464.0" prefWidth="500.0" text="Label" textAlignment="CENTER" textFill="#ffffffe5">
          <font>
             <Font size="43.0" />
          </font>

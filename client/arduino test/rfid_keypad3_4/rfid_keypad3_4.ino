@@ -15,14 +15,15 @@
 ////////////////////////keypad////////////////////////////////////////////
 
 char keys[ROWS][COLS] = {
-    {'1', '2', '3', 'A'},
-    {'4', '5', '6', 'B'},
-    {'7', '8', '9', 'C'},
-    {'*', '0', '#', 'D'}};
+  {'1', '2', '3', 'A'},
+  {'4', '5', '6', 'B'},
+  {'7', '8', '9', 'C'},
+  {'*', '0', '#', 'D'}
+};
 
 // Initializing pins for keypad
-byte rowPins[ROWS] = {A0, 8, 7, 6}; //connect to the row pinouts of the keypad
-byte colPins[COLS] = {5, 4, 3, 2};  //connect to the column pinouts of the keypad
+byte rowPins[ROWS] = {2, 3, 4, 5}; //connect to the row pinouts of the keypad
+byte colPins[COLS] = {6, 7, 8, A0};  //connect to the column pinouts of the keypad
 
 // Create instance for keypad
 Keypad keypad = Keypad(makeKeymap(keys), rowPins, colPins, ROWS, COLS);
@@ -79,7 +80,7 @@ void loop()
   Serial.println("card selected");
 #endif
   //  the blockcontent array is written into the card block
-  //writeBlock(block, blockcontent);
+  //  writeBlock(block, blockcontent);
 
   //read the block back
   readBlock(block, readbackblock);
@@ -95,8 +96,12 @@ void loop()
     str[j] = readbackblock[j];
     char uidCharacter = readbackblock[j];
   }
+  
+  String myString = String(str);
+  myString = myString.substring(0, 16);
+
   Serial.print("{\"rfid\":\"");
-  Serial.print(str);
+  Serial.print(myString);
   Serial.println("\"}");
 }
 
@@ -178,4 +183,8 @@ int readBlock(int blockNumber, byte arrayAddress[])
 #ifdef verbal_output
   Serial.println("block was read");
 #endif
+
+  mfrc522.PICC_HaltA();
+  mfrc522.PCD_StopCrypto1();
+
 }

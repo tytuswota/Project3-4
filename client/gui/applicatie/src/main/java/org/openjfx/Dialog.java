@@ -38,6 +38,7 @@ public class Dialog extends Stage{
         }
         Scene scene = new Scene(root);
 
+
         //Creating the mouse event handler
         EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
             @Override
