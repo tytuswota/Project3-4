@@ -74,7 +74,7 @@ public class LoginController extends BaseController {
             App.accountId = sessionManager.getAccountname();
             return true;
         }
-        return false;//return false; // cheat a bit be because database is empty now.
+        return false;//return false;
     }
 
     // Handles the keypress events
@@ -93,6 +93,15 @@ public class LoginController extends BaseController {
                 } else {
                     System.out.println("te lang");
                 }
+            }
+            if(key == 'A'){
+                LanguageSystem.setLanguage(LanguageSystem.Language.NEDERLANDS);
+            }
+            if(key == 'B'){
+                LanguageSystem.setLanguage(LanguageSystem.Language.ENGLISH);
+            }
+            if (key == 'C') {
+                LanguageSystem.setLanguage(LanguageSystem.Language.RUSSIAN);
             }
         }catch (Exception e){
             e.printStackTrace();
