@@ -44,6 +44,19 @@ public class ErrorController extends BaseController {
 
     @Override
     public void KeyPressEventHandler(char key) {
+        try {
+            if(key == '#'){
+                goBack();
+            }
+            if(key == '*'){
+                switchToPasUit();
+            }
+            if (key == 'A'){
+                switchToMainMenu();
+            }
 
+        }catch (Exception e){
+
+        }
     }
 }

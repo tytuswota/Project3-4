@@ -3,7 +3,7 @@ ALTER TABLE Translations CONVERT TO CHARACTER SET utf8 COLLATE utf8_general_ci;
 insert into Translations values
 ("other","anders","other","другой"),
 ("menu","menu","menu","меню"),
-("goBack","druk # om terug te gaan","type # to return","введите # для возврата"),
+("goBack","ga terug","return","возврата"),
 ("desiredAmount","voer het gewenst bedrag in","enter the desired amount","введите # для возврата"),
 ("backspace","backspace","backspace","бекспейс"),
 ("confirm","bevestigen","confirm","подтверждения"),
