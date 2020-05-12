@@ -2,16 +2,15 @@ package org.openjfx;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import model.LanguageSystem;
 import model.SerialReader;
 
 import java.io.IOException;
-
-import static org.openjfx.MsgBox.informationBox;
 
 /**
  * JavaFX App
@@ -19,12 +18,15 @@ import static org.openjfx.MsgBox.informationBox;
 
 public class App extends Application {
 
+    // Saves the lastRoot except it is a error message.
+    private static Parent lastRoot;
+
     private static Scene scene;
     public static String accountId;
+
     public static void main(String[] args) {
         launch();
     }
-
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -40,11 +42,37 @@ public class App extends Application {
     static void setRoot(String fxml) throws IOException {
         // remove listeners to prevent from unexpected behaviour.
         SerialReader.GetReader().removeListeners();
-        scene.setRoot(loadFXML(fxml));
+        lastRoot = loadFXML(fxml);
+        scene.setRoot(lastRoot);
+    }
+
+    //
+    static void showErrorScreen(String message ) throws IOException {
+        // remove listeners to prevent from unexpected behaviour.
+        SerialReader.GetReader().removeListeners();
+        Parent root = loadFXML("error");
+        var ch = root.getChildrenUnmodifiable();
+        for (Node node : ch){
+            if(node instanceof Label){
+                Label label = (Label)node;
+                String id = label.getId();
+                if(id != null && id.compareTo("message") == 0){
+                    label.setText(LanguageSystem.getString(message));
+                }
+            }
+        }
+        scene.setRoot(root);
+
     }
 
     static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
+
+    static public void restoreLast(){
+        if(lastRoot != null)
+            scene.setRoot(lastRoot);
+    }
+
 }

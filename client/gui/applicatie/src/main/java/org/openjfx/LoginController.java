@@ -52,15 +52,15 @@ public class LoginController extends BaseController {
                     App.setRoot("mainMenu");
                 } else {
                     efforts++;
-                    dialog = new Dialog("pincode verkeert");
+                    App.showErrorScreen("pincode verkeert");
                     //
                 }
             } else {
                 SessionManager.blockCard(cardId);
-                dialog = new Dialog("pass geblokeerd");
+                App.showErrorScreen("pass geblokeerd");
             }
         }else{
-            dialog = new Dialog("pass geblokeerd");
+            App.showErrorScreen("pass geblokeerd");
         }
 
     }
