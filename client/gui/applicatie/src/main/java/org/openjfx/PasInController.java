@@ -26,6 +26,23 @@ public class PasInController extends BaseController{
         App.setRoot("login");
     }
 
+    // Handles the keypress events
+    public void KeyPressEventHandler(char key) {
+        try {
+            if(key == 'A'){
+                LanguageSystem.setLanguage(LanguageSystem.Language.NEDERLANDS);
+            }
+            if(key == 'B'){
+                LanguageSystem.setLanguage(LanguageSystem.Language.ENGLISH);
+            }
+            if (key == 'C') {
+                LanguageSystem.setLanguage(LanguageSystem.Language.RUSSIAN);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     protected void RFIDEventHandler(String uid) {
         Platform.runLater(new Runnable() {
 
@@ -43,4 +60,4 @@ public class PasInController extends BaseController{
 
         });
     }
-}
+ }

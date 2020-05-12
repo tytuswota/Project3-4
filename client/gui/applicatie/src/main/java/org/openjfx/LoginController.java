@@ -12,6 +12,8 @@ import org.json.JSONObject;
 
 public class LoginController extends BaseController {
 
+    private String cardId = reader.getLastCardNumber();
+
     public void initialize() {
         enterPin.setText(LanguageSystem.getString("enterPin"));
         quit.setText(LanguageSystem.getString("quit"));
@@ -39,8 +41,8 @@ public class LoginController extends BaseController {
     @FXML
     public void switchToMainMenu() throws IOException {
 
-        String cardId = reader.getLastCardNumber(); //"SU-DASB-00000002";
-//        String cardId = "SU-DASB-00000001";
+ //        //"SU-DASB-00000002";
+ //       String cardId = "SU-DASB-00000001";
 
         JSONObject cardObject = SessionManager.getCard(cardId);
         if(cardObject.getString("active").equals("1")){
@@ -74,7 +76,7 @@ public class LoginController extends BaseController {
             App.accountId = sessionManager.getAccountname();
             return true;
         }
-        return false;//return false; // cheat a bit be because database is empty now.
+        return false;//return false;
     }
 
     // Handles the keypress events

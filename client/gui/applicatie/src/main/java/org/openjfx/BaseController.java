@@ -35,8 +35,9 @@ public class BaseController {
                 char car = key.charAt(0);
                 if (car == '#' && dialog != null && dialog.isShowing()) {
                     dialog.close();
+                } else {
+                    KeyPressEventHandler(car);
                 }
-                KeyPressEventHandler(car);
             }
         });
     }
@@ -60,7 +61,7 @@ public class BaseController {
     public void withdraw(SetOfBanknotes banknotes) throws IOException {
         Withdrawer withdrawer = new Withdrawer();
         // Remove dialog box if opened already.
-        if(dialog != null && dialog.isShowing()){
+        if (dialog != null && dialog.isShowing()) {
             dialog.close();
         }
 
@@ -86,7 +87,7 @@ public class BaseController {
     public void withdraw(SetOfBanknotes banknotes, int A) throws IOException {
         Withdrawer withdrawer = new Withdrawer();
         // Remove dialog box if opened already.
-        if(dialog != null && dialog.isShowing()){
+        if (dialog != null && dialog.isShowing()) {
             dialog.close();
         }
 
