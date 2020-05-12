@@ -11,5 +11,20 @@
             <Font size="42.0" />
         </font>
     </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="103.0" layoutY="60.0" prefWidth="500.0" text="A = Nederlands" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="710.0" layoutY="60.0" prefWidth="500.0" text="B = English" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1374.0" layoutY="60.0" prefWidth="500.0" text="C = Russian" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
  </children>
 </AnchorPane>
