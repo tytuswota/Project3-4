@@ -30,7 +30,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("pasIn"));
         //sets the stage to full screen
-//        stage.setFullScreen(true);
+        stage.setFullScreen(true);
         // remove the buttons
         //stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
