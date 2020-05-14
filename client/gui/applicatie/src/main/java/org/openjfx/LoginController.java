@@ -18,6 +18,7 @@ public class LoginController extends BaseController {
         enterPin.setText(LanguageSystem.getString("enterPin"));
         quit.setText(LanguageSystem.getString("quit"));
         confirm.setText(LanguageSystem.getString("confirm"));
+        backspace.setText(LanguageSystem.getString("backspace"));
     }
 
     @FXML
@@ -30,10 +31,23 @@ public class LoginController extends BaseController {
     Button annuleren;
 
     @FXML
+    Button btBackspace;
+
+    @FXML
+    Label backspace;
+
+    @FXML
     Label enterPin;
 
     @FXML
     Label confirm;
+
+    @FXML
+    public void removeCharacter() throws  IOException{
+        String text = pin.getText();
+        text = text.substring(0,text.length()-1);
+        pin.setText(text);
+    }
 
     @FXML
     Label quit;
@@ -42,7 +56,7 @@ public class LoginController extends BaseController {
     public void switchToMainMenu() throws IOException {
 
  //        //"SU-DASB-00000002";
-        String cardId = "SU-DASB-00000001";
+        //String cardId = "SU-DASB-00000001";
 
         JSONObject cardObject = SessionManager.getCard(cardId);
         if(cardObject.getString("active").equals("1")){
@@ -87,6 +101,9 @@ public class LoginController extends BaseController {
             }
             if (key == '*') {
                 switchToPasUit();
+            }
+            if(key == 'B'){
+                removeCharacter();
             }
 
             if ((key >= '0' && key <= '9')) {

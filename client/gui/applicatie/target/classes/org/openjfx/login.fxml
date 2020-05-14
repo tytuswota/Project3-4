@@ -29,12 +29,22 @@
                 <Font size="42.0" />
             </font>
         </Label>
+      <Button id="button" fx:id="btBackspace" layoutX="867.0" layoutY="709.0" mnemonicParsing="false" onAction="#removeCharacter" prefHeight="114.0" prefWidth="186.0" styleClass="knop" stylesheets="@../../style/Main.css" text="B">
+         <font>
+            <Font size="60.0" />
+         </font>
+      </Button>
       <Label fx:id="confirm" alignment="CENTER" contentDisplay="CENTER" layoutX="1154.0" layoutY="792.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="42.0" />
          </font>
       </Label>
       <Label fx:id="quit" alignment="CENTER" contentDisplay="CENTER" layoutX="483.0" layoutY="792.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="42.0" />
+         </font>
+      </Label>
+      <Label fx:id="backspace" alignment="CENTER" contentDisplay="CENTER" layoutX="810.0" layoutY="888.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="42.0" />
          </font>

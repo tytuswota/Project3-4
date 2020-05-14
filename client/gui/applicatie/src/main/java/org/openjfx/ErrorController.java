@@ -56,7 +56,7 @@ public class ErrorController extends BaseController {
             }
 
         }catch (Exception e){
-
+            e.printStackTrace();
         }
     }
 }
