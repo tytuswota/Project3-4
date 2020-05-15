@@ -26,6 +26,10 @@ public class LanguageSystem extends ConnectionManager{
         return id;
     }
 
+    public static void setLanguage(Language language) {
+        LanguageSystem.language = language;
+    }
+
     public  enum Language {
         NEDERLANDS,
         ENGLISH,

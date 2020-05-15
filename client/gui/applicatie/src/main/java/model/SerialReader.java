@@ -96,6 +96,9 @@ public class SerialReader {
     }
 
         public String getLastCardNumber(){
-            return lastCardNumber;
+            String cardnumber = lastCardNumber;
+            lastCardNumber = null;
+            return cardnumber;
+
         }
 }

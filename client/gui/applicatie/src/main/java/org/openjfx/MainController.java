@@ -55,7 +55,7 @@ public class MainController extends BaseController {
     @FXML
     private void PinZeventig() throws IOException {
         SetOfBanknotes banknotes = new SetOfBanknotes(0, 1, 1);
-        withdraw(banknotes);
+        withdraw(banknotes,0);
     }
 
     public void KeyPressEventHandler(char key) {

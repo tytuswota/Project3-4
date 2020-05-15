@@ -118,4 +118,8 @@ public class SessionManager extends ConnectionManager{
     public static JSONObject createTransaction(JSONObject request) {
         return loadData("TransActions/withdraw.php", request);
     }
+
+    public static void deleteSession(){
+        session = null;
+    }
 }

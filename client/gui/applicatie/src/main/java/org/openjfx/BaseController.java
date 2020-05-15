@@ -16,8 +16,6 @@ public class BaseController {
 
     protected static SerialReader reader = SerialReader.GetReader();
 
-    protected Dialog dialog;
-
     // Constructor
     public BaseController() {
         reader.addKeyPadListener((x) -> {
@@ -33,9 +31,6 @@ public class BaseController {
             @Override
             public void run() {
                 char car = key.charAt(0);
-                if (car == '#' && dialog != null && dialog.isShowing()) {
-                    dialog.close();
-                }
                 KeyPressEventHandler(car);
             }
         });
@@ -59,25 +54,43 @@ public class BaseController {
 
     public void withdraw(SetOfBanknotes banknotes) throws IOException {
         Withdrawer withdrawer = new Withdrawer();
-        // Remove dialog box if opened already.
-        if(dialog != null && dialog.isShowing()){
-            dialog.close();
-        }
 
         boolean balanceEnough = withdrawer.isBalanceEnough(banknotes.getTotalAmount());
         boolean banknotesAvailable = withdrawer.banknotesAvailable(banknotes);
 
         if (!balanceEnough) {
-            dialog = new Dialog("Saldo is niet hoog genoeg.");
+            App.showErrorScreen("Saldo is niet hoog genoeg.");
             System.out.println("Balance not high enough");
         } else if (!banknotesAvailable) {
-            dialog = new Dialog("Biljetten niet aanwezig.");
+            App.showErrorScreen("Biljetten niet aanwezig.");
             System.out.println("BanknotesAvailable.");
         } else {
             if (withdrawer.withdraw(banknotes)) {
                 App.setRoot("Bon");
             } else {
-                dialog = new Dialog("Opnemen mislukt.");
+                App.showErrorScreen("Opnemen mislukt.");
+                System.out.println("Withdrawing failed.");
+            }
+        }
+    }
+
+    public void withdraw(SetOfBanknotes banknotes, int A) throws IOException {
+        Withdrawer withdrawer = new Withdrawer();
+
+        boolean balanceEnough = withdrawer.isBalanceEnough(banknotes.getTotalAmount());
+        boolean banknotesAvailable = withdrawer.banknotesAvailable(banknotes);
+
+        if (!balanceEnough) {
+            App.showErrorScreen("Saldo is niet hoog genoeg.");
+            System.out.println("Balance not high enough");
+        } else if (!banknotesAvailable) {
+            App.showErrorScreen("Biljetten niet aanwezig.");
+            System.out.println("BanknotesAvailable.");
+        } else {
+            if (withdrawer.withdraw(banknotes)) {
+                App.setRoot("pasUit");
+            } else {
+                App.showErrorScreen("Opnemen mislukt.");
                 System.out.println("Withdrawing failed.");
             }
         }
