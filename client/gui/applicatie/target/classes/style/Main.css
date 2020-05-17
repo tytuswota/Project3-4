@@ -33,6 +33,10 @@
     -fx-background-image: url("../fotos/bon.jpg") no-repeat;
 }
 
+#error.bg {
+    -fx-background-image: url("../fotos/error2.0.jpg") no-repeat;
+}
+
 #button.knop {
     -fx-background-radius: 15px;
     -fx-min-width: 150px;
@@ -62,6 +66,13 @@
 }
 
 #bon.field {
+    -fx-background-color: white;
+    -fx-border-width: 5px;
+    -fx-border-radius: 10px;
+    -fx-border-color: white;
+}
+
+#error.field{
     -fx-background-color: white;
     -fx-border-width: 5px;
     -fx-border-radius: 10px;
