@@ -46,7 +46,7 @@ public class EigenBedragController extends BaseController {
 
         int amount = Integer.parseInt(saldoText.getText());
 
-        int[] bankNoteOptions = getBanknoteOptions(amount);
+        int[][] bankNoteOptions = getBanknoteOptions(amount);
 
 
 
@@ -54,7 +54,7 @@ public class EigenBedragController extends BaseController {
 
     }
 
-    public int[] getBanknoteOptions(int amount) throws IOException{
+    public int[][] getBanknoteOptions(int amount) throws IOException{
         BankNoteCombo bankNoteCombo = new BankNoteCombo();
 
         int b[] = bankNoteCombo.calBankNoteCombo(amount);
@@ -62,7 +62,7 @@ public class EigenBedragController extends BaseController {
         //index's 0 = 10 1 = 20 2 = 50
         int bankNotesOption[] = new int[3];
 
-        int options[][] = new int[3][];
+        int options[][] = new int[3][20];
 
         for(int i = 0; i < b.length; i++){
             if(b[i] != 0) {
@@ -87,23 +87,38 @@ public class EigenBedragController extends BaseController {
                 }
                 int num = bankNotesOption[i] * bil;
                 int subtraction = amount - num;
-                System.out.println("num: " + num);
-                System.out.println("subtraction: " + subtraction);
+
                 if(subtraction != 0){
-                    System.out.println(subtraction);
-                    if(subtraction > 10){
+                    if(subtraction >= 10){
                         //return multi d options
-                        rowOfOptions++;
+                        //the rowOfOptions variable is the same when there are more options
+                        int otherArray[][] = getBanknoteOptions(subtraction);
                     }else{
                         bankNotesOption[0]++;
                     }
                 }else{
+                    options[i][rowOfOptions] = bankNotesOption[i];
+                }
+            }
+            rowOfOptions++;
+        }
 
+        System.out.println("======================================================");
+        for(int y = 0; y < 20; y++){
+            for(int x = 0; x < 3; x++){
+                if(options[x][y] != 0)
+                {
+                    System.out.println("x:" + x);
+                    System.out.println("y: " + y);
+                    System.out.println("==the value");
+                    System.out.println(options[x][y]);
+                    System.out.println("==the value");
                 }
             }
         }
+        System.out.println("======================================================");
 
-        return bankNotesOption;
+        return options;
     }
 
     public void KeyPressEventHandler(char key) {
