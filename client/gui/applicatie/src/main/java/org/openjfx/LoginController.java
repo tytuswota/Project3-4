@@ -56,7 +56,7 @@ public class LoginController extends BaseController {
     public void switchToMainMenu() throws IOException {
 
  //        //"SU-DASB-00000002";
-        //String cardId = "SU-DASB-00000001";
+        String cardId = "SU-DASB-00000001";
 
         JSONObject cardObject = SessionManager.getCard(cardId);
         if(cardObject.getString("active").equals("1")){

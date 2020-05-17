@@ -85,7 +85,6 @@ class BaseModel
     }
 
     public function update($idName ,$idVal, $values){
-        print_r("hey");
         $query = "UPDATE " . $this->tableName . " SET ";
 
         $i = 0;
@@ -99,7 +98,6 @@ class BaseModel
         }
 
         $query .= " WHERE `{$idName}` = :v ";
-        print_r($query);
 
         $database = new DatabaseConnection();
         $database->getConnection();
