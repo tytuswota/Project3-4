@@ -48,7 +48,15 @@ public class EigenBedragController extends BaseController {
 
         int[][] bankNoteOptions = getBanknoteOptions(amount);
 
+        //x = 0 = 10
+        //x = 1 = 20
+        //x = 2 = 50
 
+        BanknoteSelection.banknoteArray = bankNoteOptions;
+
+        App.setRoot("banknoteSelection");
+
+        //show banknotes
 
         //give bankNoteOptions
 
