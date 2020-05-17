@@ -93,6 +93,11 @@ public class EigenBedragController extends BaseController {
                         //return multi d options
                         //the rowOfOptions variable is the same when there are more options
                         int otherArray[][] = getBanknoteOptions(subtraction);
+                        for(int x = 0; x < 3; x++){
+                            options[x][rowOfOptions] = otherArray[x][0];
+                        }
+                        options[i][rowOfOptions] = num / bil;
+
                     }else{
                         bankNotesOption[0]++;
                     }
@@ -102,21 +107,6 @@ public class EigenBedragController extends BaseController {
             }
             rowOfOptions++;
         }
-
-        System.out.println("======================================================");
-        for(int y = 0; y < 20; y++){
-            for(int x = 0; x < 3; x++){
-                if(options[x][y] != 0)
-                {
-                    System.out.println("x:" + x);
-                    System.out.println("y: " + y);
-                    System.out.println("==the value");
-                    System.out.println(options[x][y]);
-                    System.out.println("==the value");
-                }
-            }
-        }
-        System.out.println("======================================================");
 
         return options;
     }
