@@ -2,12 +2,15 @@ package org.openjfx;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import model.BankNoteCombo;
 import model.SerialReader;
 import model.SetOfBanknotes;
 import model.Withdrawer;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /*
 Contains the shared features of the controllers.
@@ -25,6 +28,7 @@ public class BaseController {
         reader.addRFIDListener((x) -> {
             RFIDEventHandler(x);
         });
+        clock();
     }
 
     private void baseKeyPressEventHandler(String key) {
@@ -52,6 +56,9 @@ public class BaseController {
     public void switchToPasUit() throws IOException {
         App.setRoot("pasUit");
     }
+
+    @FXML
+    Label clockLabel;
 
     public void withdraw(SetOfBanknotes banknotes) throws IOException {
         Withdrawer withdrawer = new Withdrawer();
@@ -152,5 +159,44 @@ public class BaseController {
         }
 
         return options;
+    }
+
+    @FXML
+    public void clock() {
+        Thread clock = new Thread() {
+
+
+            @Override
+            public void run() {
+
+
+                while (true) {
+
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            Calendar cal = new GregorianCalendar();
+                            int day = cal.get(Calendar.DAY_OF_MONTH);
+                            int month = cal.get(Calendar.MONTH);
+                            int year = cal.get(Calendar.YEAR);
+
+                            int second = cal.get(Calendar.SECOND);
+                            int minute = cal.get(Calendar.MINUTE);
+                            int hour = cal.get(Calendar.HOUR);
+
+                            clockLabel.setText(year + "/" + month + "/" + day + "\n" + hour + ":" + minute + ":" + second);
+                        }
+
+                    });
+
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        clock.start();
     }
 }
