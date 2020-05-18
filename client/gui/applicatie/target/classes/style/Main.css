@@ -60,6 +60,7 @@
 
 #pin.field {
     -fx-pref-height: 106px;
+    -fx-background-radius: 10px;
     -fx-pref-width: 440px;
     -fx-border-width: 5px;
     -fx-font-size: 40px;
@@ -67,16 +68,18 @@
 
 #bon.field {
     -fx-background-color: white;
-    -fx-border-width: 5px;
+    -fx-background-radius: 10px;
     -fx-border-radius: 10px;
+    -fx-border-width: 5px;
     -fx-border-color: white;
 }
 
 #error.field{
     -fx-background-color: white;
+    -fx-background-radius: 10px;
     -fx-border-width: 5px;
     -fx-border-radius: 10px;
-    -fx-border-color: white;
+
 }
 
 
