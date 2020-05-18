@@ -38,5 +38,10 @@
             <Font size="43.0" />
          </font>
       </Label>
+        <Label fx:id="clockLabel" layoutX="815.0" layoutY="60.0" prefHeight="150.0" prefWidth="290.0" text="clock">
+            <font>
+                <Font size="40.0" />
+            </font>
+        </Label>
     </children>
 </AnchorPane>
