@@ -8,7 +8,7 @@ import model.SetOfBanknotes;
 
 import java.io.IOException;
 
-public class BedragController extends BaseController{
+public class BedragController extends BaseController {
 
     @FXML
     public void initialize() {
@@ -34,27 +34,35 @@ public class BedragController extends BaseController{
     }
 
     @FXML
-    public void withdrawTen() throws IOException{
-        SetOfBanknotes banknotes = new SetOfBanknotes(1, 0, 0);
-        withdraw(banknotes);
+    public void withdrawTen() throws IOException {
+        int[][] bankNoteOptions = getBanknoteOptions(10);
+
+        BanknoteSelection.banknoteArray = bankNoteOptions;
+        App.setRoot("banknoteSelection");
     }
 
     @FXML
-    public void withdrawTwenty()throws IOException{
-        SetOfBanknotes banknotes = new SetOfBanknotes(0, 1, 0);
-        withdraw(banknotes);
+    public void withdrawTwenty() throws IOException {
+        int[][] bankNoteOptions = getBanknoteOptions(20);
+
+        BanknoteSelection.banknoteArray = bankNoteOptions;
+        App.setRoot("banknoteSelection");
     }
 
     @FXML
-    public void withdrawFifty() throws IOException{
-        SetOfBanknotes banknotes = new SetOfBanknotes(0, 0, 1);
-        withdraw(banknotes);
+    public void withdrawFifty() throws IOException {
+        int[][] bankNoteOptions = getBanknoteOptions(50);
+
+        BanknoteSelection.banknoteArray = bankNoteOptions;
+        App.setRoot("banknoteSelection");
     }
 
     @FXML
-    public void withdrawHundred() throws IOException{
-        SetOfBanknotes banknotes = new SetOfBanknotes(0, 0, 2);
-        withdraw(banknotes);
+    public void withdrawHundred() throws IOException {
+        int[][] bankNoteOptions = getBanknoteOptions(100);
+
+        BanknoteSelection.banknoteArray = bankNoteOptions;
+        App.setRoot("banknoteSelection");
     }
 
     public void calculateNotes() {
@@ -88,7 +96,7 @@ public class BedragController extends BaseController{
                 // withdraw 100
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

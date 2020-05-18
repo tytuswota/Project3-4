@@ -1,0 +1,85 @@
+/* . is voor class en # is voor id. */
+
+
+#pasIn.bg {
+    -fx-background-image: url("../fotos/pasIn.jpg") no-repeat;
+}
+
+#login.bg {
+    -fx-background-image: url("../fotos/pincode.jpg") no-repeat;
+}
+
+#main.bg {
+    -fx-background-image: url("../fotos/main.jpg") no-repeat;
+}
+
+#saldo.bg {
+    -fx-background-image: url("../fotos/saldo.jpg") no-repeat;
+}
+
+#bedrag.bg {
+    -fx-background-image: url("../fotos/bedrag.jpg") no-repeat;
+}
+
+#eigenBedrag.bg {
+    -fx-background-image: url("../fotos/eigenBedrag.jpg") no-repeat;
+}
+
+#pasUit.bg {
+    -fx-background-image: url("../fotos/pasuit.jpg") no-repeat;
+}
+
+#bon.bg {
+    -fx-background-image: url("../fotos/bon.jpg") no-repeat;
+}
+
+#error.bg {
+    -fx-background-image: url("../fotos/error2.0.jpg") no-repeat;
+}
+
+#button.knop {
+    -fx-background-radius: 15px;
+    -fx-min-width: 150px;
+    -fx-min-height: 100px;
+    -fx-background-color: #FFFFFF;
+    -fx-padding: 0px;
+    -fx-border-width: 4px;
+    -fx-border-radius: 10px;
+    -fx-border-color: white;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,50) , 10,0,0,4 );
+}
+
+
+#saldo.field {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-pref-height: 106px;
+    -fx-pref-width: 440px;
+    -fx-border-width: 5px;
+}
+
+#pin.field {
+    -fx-pref-height: 106px;
+    -fx-background-radius: 10px;
+    -fx-pref-width: 440px;
+    -fx-border-width: 5px;
+    -fx-font-size: 40px;
+}
+
+#bon.field {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-border-width: 5px;
+    -fx-border-color: white;
+}
+
+#error.field{
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-border-width: 5px;
+    -fx-border-radius: 10px;
+
+}
+
+

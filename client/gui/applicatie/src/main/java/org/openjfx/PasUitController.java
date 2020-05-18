@@ -7,7 +7,7 @@ import model.SessionManager;
 
 import java.io.IOException;
 
-public class PasUitController {
+public class PasUitController extends BaseController {
 
     @FXML
     void initialize(){

@@ -23,7 +23,7 @@
                 <Font size="60.0" />
             </font>
         </Button>
-        <Button id="button" fx:id="pinZeventig" layoutX="1640.0" layoutY="302.0" mnemonicParsing="false" onAction="#PinZeventig" prefHeight="112.0" prefWidth="190.0" styleClass="knop" stylesheets="@../../style/Main.css" text="D">
+        <Button id="button" fx:id="pinZeventig" layoutX="1643.0" layoutY="302.0" mnemonicParsing="false" onAction="#PinZeventig" prefHeight="112.0" prefWidth="190.0" styleClass="knop" stylesheets="@../../style/Main.css" text="D">
             <font>
                 <Font size="60.0" />
             </font>
@@ -48,5 +48,10 @@
             <Font size="42.0" />
          </font>
       </Label>
+        <Label fx:id="clockLabel" layoutX="815.0" layoutY="60.0" prefHeight="150.0" prefWidth="290.0" text="clock">
+            <font>
+                <Font size="40.0" />
+            </font>
+        </Label>
     </children>
 </AnchorPane>

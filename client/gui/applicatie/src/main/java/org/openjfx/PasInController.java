@@ -7,11 +7,13 @@ import javafx.scene.layout.AnchorPane;
 import model.LanguageSystem;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
-public class PasInController extends BaseController{
+public class PasInController extends BaseController {
 
     @FXML
-    void initialize(){
+    void initialize() {
         cardIn.setText(LanguageSystem.getString("cardIn"));
     }
 
@@ -26,19 +28,20 @@ public class PasInController extends BaseController{
         App.setRoot("login");
     }
 
+
     // Handles the keypress events
     public void KeyPressEventHandler(char key) {
         try {
-            if(key == 'A'){
+            if (key == 'A') {
                 LanguageSystem.setLanguage(LanguageSystem.Language.NEDERLANDS);
             }
-            if(key == 'B'){
+            if (key == 'B') {
                 LanguageSystem.setLanguage(LanguageSystem.Language.ENGLISH);
             }
             if (key == 'C') {
                 LanguageSystem.setLanguage(LanguageSystem.Language.RUSSIAN);
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -60,4 +63,4 @@ public class PasInController extends BaseController{
 
         });
     }
- }
+}
