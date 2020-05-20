@@ -1,0 +1,22 @@
+{
+  "name": "gosbank-client",
+  "version": "0.0.1",
+  "description": "The land node of the Soviet Union (Class TI1E)",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/bplaat/gosbank.git"
+  },
+  "author": "Bastiaan van der Plaat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bplaat/gosbank/issues"
+  },
+  "homepage": "https://gosbank.ml/",
+  "dependencies": {
+    "ws": "^7.2.3"
+  }
+}
