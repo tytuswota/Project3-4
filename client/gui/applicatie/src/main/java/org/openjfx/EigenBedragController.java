@@ -16,10 +16,17 @@ public class EigenBedragController extends BaseController {
         confirm.setText(LanguageSystem.getString("confirm"));
         desiredAmount.setText(LanguageSystem.getString("desiredAmount"));
         backspace.setText(LanguageSystem.getString("backspace"));
+        menu.setText(LanguageSystem.getString("menu"));
     }
 
     @FXML
     Button eigenBedragToMenu;
+
+    @FXML
+    Button corrigeren;
+
+    @FXML
+    Button bevestigen;
 
     @FXML
     TextField saldoText;
@@ -32,6 +39,9 @@ public class EigenBedragController extends BaseController {
 
     @FXML
     Label backspace;
+
+    @FXML
+    Label menu;
 
     @FXML
     public void removeCharacter() throws IOException {
@@ -48,17 +58,10 @@ public class EigenBedragController extends BaseController {
 
         int[][] bankNoteOptions = getBanknoteOptions(amount);
 
-        //x = 0 = 10
-        //x = 1 = 20
-        //x = 2 = 50
 
         BanknoteSelection.banknoteArray = bankNoteOptions;
 
         App.setRoot("banknoteSelection");
-
-        //show banknotes
-
-        //give bankNoteOptions
 
     }
 
@@ -66,13 +69,17 @@ public class EigenBedragController extends BaseController {
         try {
 
             if (key == '#') {
-                // Do transaction.
+                commitTransActions();
+            }
+
+            if (key == 'B') {
+                removeCharacter();
+            }
+
+            if(key == '*'){
                 switchToMainMenu();
             }
 
-            if (key == '*') {
-                removeCharacter();
-            }
 
             if ((key >= '0' && key <= '9')) {
                 if (saldoText.getLength() != 3) {

@@ -10,7 +10,7 @@
             <Font size="42.0" />
         </font>
     </Label>
-    <Label fx:id="clockLabel" alignment="CENTER" layoutX="815.0" layoutY="60.0" prefHeight="150.0" prefWidth="290.0" text="clock" textAlignment="CENTER">
+    <Label id="klok" fx:id="clockLabel" alignment="CENTER" layoutX="815.0" layoutY="60.0" prefHeight="160.0" prefWidth="290.0" styleClass="clock" stylesheets="@../../style/Main.css" text="clock" textAlignment="CENTER">
         <font>
             <Font size="40.0" />
         </font>

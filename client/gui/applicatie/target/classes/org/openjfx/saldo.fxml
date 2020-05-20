@@ -7,7 +7,7 @@
 
 <AnchorPane id="saldo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="bg" stylesheets="@../../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.SaldoController">
     <children>
-        <Button id="button" fx:id="saldoToMenu" contentDisplay="CENTER" layoutX="250.0" layoutY="700.0" mnemonicParsing="false" onAction="#switchToMainMenu" prefHeight="107.0" prefWidth="192.0" styleClass="knop" stylesheets="@../../style/Main.css" text="*" textAlignment="CENTER">
+        <Button id="button" fx:id="saldoToMenu" contentDisplay="CENTER" layoutX="250.0" layoutY="690.0" mnemonicParsing="false" onAction="#switchToMainMenu" prefHeight="115.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="*" textAlignment="CENTER">
 
             <font>
                 <Font size="60.0" />
@@ -18,7 +18,7 @@
             <Font size="60.0" />
          </font>
       </Label>
-        <Button id="button" fx:id="afbreken" layoutX="1485.0" layoutY="686.0" mnemonicParsing="false" onAction="#switchToPasUit" prefHeight="114.0" prefWidth="184.0" styleClass="knop" stylesheets="@../../style/Main.css" text="#">
+        <Button id="button" fx:id="afbreken" layoutX="1485.0" layoutY="690.0" mnemonicParsing="false" onAction="#switchToPasUit" prefHeight="114.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="#">
             <font>
                 <Font size="60.0" />
             </font>
@@ -38,7 +38,7 @@
             <Font size="43.0" />
          </font>
       </Label>
-        <Label fx:id="clockLabel" layoutX="815.0" layoutY="60.0" prefHeight="150.0" prefWidth="290.0" text="clock">
+        <Label id="klok" fx:id="clockLabel" alignment="CENTER" layoutX="815.0" layoutY="60.0" prefHeight="160.0" prefWidth="290.0" styleClass="clock" stylesheets="@../../style/Main.css" text="clock" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font size="40.0" />
             </font>

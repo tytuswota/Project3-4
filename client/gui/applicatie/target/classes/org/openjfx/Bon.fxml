@@ -11,7 +11,7 @@
          <font>
             <Font size="48.0" />
          </font></Label>
-      <Button id="button" fx:id="getReceipt" layoutX="1485.0" layoutY="706.0" mnemonicParsing="false" styleClass="knop" stylesheets="@../../style/Main.css" text="#">
+      <Button id="button" fx:id="getReceipt" layoutX="1485.0" layoutY="700.0" mnemonicParsing="false" styleClass="knop" stylesheets="@../../style/Main.css" text="#">
          <font>
             <Font size="60.0" />
          </font>
@@ -25,12 +25,12 @@
          <font>
             <Font size="48.0" />
          </font></Label>
-      <Label id="bon" layoutX="677.0" layoutY="540.0" prefHeight="80.0" prefWidth="566.0" styleClass="field" stylesheets="@../../style/Main.css" text="wilt uw een transactie bon">
+      <Label id="bon" layoutX="677.0" layoutY="540.0" prefHeight="98.0" prefWidth="703.0" styleClass="field" stylesheets="@../../style/Main.css" text="wilt uw een transactie bon">
          <font>
             <Font size="48.0" />
          </font>
       </Label>
-      <Label fx:id="clockLabel" layoutX="815.0" layoutY="60.0" prefHeight="150.0" prefWidth="290.0" text="clock">
+      <Label id="klok" fx:id="clockLabel" alignment="CENTER" layoutX="815.0" layoutY="60.0" prefHeight="160.0" prefWidth="290.0" styleClass="clock" stylesheets="@../../style/Main.css" text="clock" textAlignment="CENTER">
          <font>
             <Font size="40.0" />
          </font>

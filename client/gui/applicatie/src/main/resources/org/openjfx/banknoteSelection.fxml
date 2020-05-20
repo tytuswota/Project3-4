@@ -5,63 +5,62 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane id="bedrag" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="bg" stylesheets="@../../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.BanknoteSelection">
-   <children>
-      <Button id="button" fx:id="optie_4" layoutX="1682.0" layoutY="303.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="D">
-         <font>
-            <Font size="60.0" />
-         </font>
-      </Button>
-      <Button id="button" fx:id="optie_2" layoutX="1682.0" layoutY="119.0" mnemonicParsing="false" onAction="#optie2" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="B">
-         <font>
-            <Font size="60.0" />
-         </font>
-      </Button>
-      <Button id="button" fx:id="bedragToMenu" layoutX="45.0" layoutY="506.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="*">
-         <font>
-            <Font size="60.0" />
-         </font>
-      </Button>
-      <Button id="button" fx:id="optie_3" layoutX="46.0" layoutY="310.0" mnemonicParsing="false" onAction="#optie3" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="C">
-         <font>
-            <Font size="60.0" />
-         </font>
-      </Button>
-      <Button id="button" fx:id="optie_1" layoutX="46.0" layoutY="119.0" mnemonicParsing="false" onAction="#optie1" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="A">
-         <font>
-            <Font size="60.0" />
-         </font>
-      </Button>
-      <Label fx:id="menu" alignment="CENTER" layoutX="281.0" layoutY="600.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="42.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="281.0" layoutY="223.0" prefWidth="300.0" text="optie 1" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="42.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="281.0" layoutY="418.0" prefWidth="300.0" text="optie 3" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="42.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="1350.0" layoutY="410.0" prefWidth="300.0" text="optie 4" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="42.0" />
-         </font>
-      </Label>
-      <Label alignment="CENTER" layoutX="1350.0" layoutY="223.0" prefWidth="300.0" text="optie 2" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="42.0" />
-         </font>
-      </Label>
-      <Label fx:id="clockLabel" layoutX="815.0" layoutY="60.0" prefHeight="150.0" prefWidth="290.0" text="clock">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
+<Pane id="biljetOpties" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="bg" stylesheets="@../../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.BanknoteSelection">
+    <children>
 
-   </children>
+        <Button id="button" fx:id="menu" layoutX="1675.0" layoutY="305.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="*">
+            <font>
+                <Font size="60.0" />
+            </font>
+        </Button>
+
+        <Button id="button" fx:id="optie_1" layoutX="46.0" layoutY="119.0" mnemonicParsing="false" onAction="#optie1" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="A">
+            <font>
+                <Font size="60.0" />
+            </font>
+        </Button>
+
+        <Button id="button" fx:id="optie_2" layoutX="1675.0" layoutY="119.0" mnemonicParsing="false" onAction="#optie2" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="B">
+            <font>
+                <Font size="60.0" />
+            </font>
+        </Button>
+
+        <Button id="button" fx:id="optie_3" layoutX="46.0" layoutY="310.0" mnemonicParsing="false" onAction="#optie3" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="C">
+            <font>
+                <Font size="60.0" />
+            </font>
+        </Button>
+
+        <Label fx:id="lbl_menu" alignment="CENTER" layoutX="1350.0" layoutY="410.0" prefWidth="300.0" text="lbl main " textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font size="42.0" />
+            </font>
+        </Label>
+
+        <Label fx:id="lbl_optie_1" alignment="CENTER" layoutX="281.0" layoutY="220.0" prefHeight="62.0" prefWidth="483.0" text="lbl optie 1" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font size="42.0" />
+            </font>
+        </Label>
+
+        <Label fx:id="lbl_optie_2" alignment="CENTER" layoutX="1136.0" layoutY="218.0" prefHeight="62.0" prefWidth="514.0" text="lbl optie 2" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font size="42.0" />
+            </font>
+        </Label>
+
+        <Label fx:id="lbl_optie_3" alignment="CENTER" layoutX="281.0" layoutY="410.0" prefHeight="62.0" prefWidth="473.0" text="lbl optie 3" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font size="42.0" />
+            </font>
+        </Label>
+
+        <Label id="klok" fx:id="clockLabel" alignment="CENTER" layoutX="815.0" layoutY="60.0" prefHeight="160.0" prefWidth="290.0" styleClass="clock" stylesheets="@../../style/Main.css" text="clock" textAlignment="CENTER">
+            <font>
+                <Font size="40.0" />
+            </font>
+        </Label>
+
+    </children>
 </Pane>
