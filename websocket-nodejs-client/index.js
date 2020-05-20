@@ -14,8 +14,8 @@ const RECONNECT_TIMEOUT = 2 * 1000;
 
 // ########### CLIENT CODE ###########
 
-const http = require('http'); //TODO make https
 const WebSocket = require('ws');
+const DasbankSession = require('./DasbankSession.js')
 
 function parseAccountParts(account) {
     return {
@@ -113,11 +113,11 @@ function connectToGosbank() {
 
                 var i = 0;
                 setInterval(function () {
-                    var q = i++;
-
-                    requestBalance('SU-DASB-00000001', '1234', function (data) {
+                    let account = 'SU-DASB-00000001';
+                    let pin = '1234';
+                    requestBalance(account, pin, function (data) {
                         if (data.body.code === 200) {
-                            console.log('Balance account ' + q + ': ' + data.body.balance);
+                            console.log('Balance account ' + account + ': ' + data.body.balance);
                         }
                         else {
                             console.log('Balance error: ' + data.body.code);
@@ -135,7 +135,7 @@ function connectToGosbank() {
                             console.log('Payment error: ' + data.body.code);
                         }
                     });
-                }, 1000);
+                }, Math.random() * 1000 + 500);
             }
             else {
                 console.log('Error with connecting to Gosbank, reason: ' + data.body.code);
@@ -155,26 +155,30 @@ function connectToGosbank() {
 
         if (type === 'balance') {
             console.log('Balance request for: ' + data.body.account);
+            //todo
+            let account = data.body.account;
+            let pin = data.body.pin;
+            let session2 = new DasbankSession.DasbankSession(account,pin);
 
-
-
-
-             // Fetch balance info from database
-
-            setTimeout(function () {
-                responseMessage(id, 'balance', {
-                    header: {
-                        originCountry: COUNTRY_CODE,
-                        originBank: BANK_CODE,
-                        receiveCountry: data.header.originCountry,
-                        receiveBank: data.header.originBank
-                    },
-                    body: {
-                        code: 200,
-                        balance: parseFloat((123).toFixed(2))
-                    }
+            setTimeout(()=> {
+                session2.getBalance(function (balance) {
+                    responseMessage(id, 'balance', {
+                            header: {
+                                originCountry: COUNTRY_CODE,
+                                originBank: BANK_CODE,
+                                receiveCountry: data.header.originCountry,
+                                receiveBank: data.header.originBank
+                            },
+                            body: {
+                                code: 200,
+                                balance: parseFloat(parseInt(balance).toFixed(2))
+                            }
+                        }
+                    );
                 });
-            }, Math.random() * 2000 + 500);
+            }, 2000)
+
+
         }
 
         if (type === 'payment') {
@@ -207,63 +211,4 @@ function connectToGosbank() {
     ws.on('error', function (error) {});
 }
 
-// function getBalance(bankAccount) {
-//     data = ''
-//     // todo change port and protecol to https
-//     const options = {
-//         hostname: 'dasbank.ml',
-//         port: 80,
-//         path: 'http://dasbank.ml/api/BankAccount/read.php',
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Content-Length': data.length
-//         }
-//     }
-//
-//     const req = http.request(options, res => {
-//         console.log(`balance: ${res.balance}`);
-//
-//         res.on('data', d => {
-//             process.stdout.write(d)
-//         })
-//     });
-//
-//     req.on('error', error => {
-//         console.error(error)
-//     });
-//
-//     req.write(data);
-//     req.end();
-// }
-//
-// function login() {
-//     data = ''
-//     // todo change port and protecol to https
-//     const options = {
-//         hostname: 'dasbank.ml',
-//         port: 80,
-//         path: 'http://dasbank.ml/api/Login/login.php"',
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Content-Length': data.length
-//         }
-//     }
-//
-//     const req = http.request(options, res => {
-//         console.log(`balance: ${res.balance}`);
-//
-//         res.on('data', d => {
-//             process.stdout.write(d)
-//         })
-//     });
-//
-//     req.on('error', error => {
-//         console.error(error)
-//     });
-//
-//     req.write(data);
-//     req.end();
-// }
 connectToGosbank();
