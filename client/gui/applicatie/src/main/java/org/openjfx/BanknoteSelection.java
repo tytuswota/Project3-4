@@ -3,6 +3,7 @@ package org.openjfx;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import model.LanguageSystem;
 import model.SetOfBanknotes;
 
@@ -46,6 +47,7 @@ public class BanknoteSelection extends BaseController {
 
                     if (combo == 0) {
                         lbl_optie_1.setText("₽10 * " + (banknoteArray[0][combo]) + " + ₽20 * " + (banknoteArray[1][combo]) + "+ ₽50 * " + (banknoteArray[2][combo]));
+                    lbl_optie_1.setTextFill(Color.GREEN);
                     }
                     if (combo == 1) {
                         lbl_optie_2.setText("₽10 * " + (banknoteArray[0][combo]) + " + ₽20 * " + (banknoteArray[1][combo]) + " + ₽50 * " + (banknoteArray[2][combo]));
