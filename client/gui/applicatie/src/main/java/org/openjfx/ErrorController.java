@@ -14,6 +14,7 @@ public class ErrorController extends BaseController {
         goBack.setText(LanguageSystem.getString("goBack"));
         quit.setText(LanguageSystem.getString("quit"));
         mainMenu.setText(LanguageSystem.getString("mainMenu"));
+        message.setText(LanguageSystem.getString("saldoLaag"));
     }
 
     @FXML

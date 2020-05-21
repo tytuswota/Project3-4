@@ -9,7 +9,10 @@ import model.SetOfBanknotes;
 import model.Withdrawer;
 
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 /*
@@ -160,6 +163,45 @@ public class BaseController {
 
         return options;
     }
+//Georgian clock incase there are issues with simpledataformat.
+//    @FXML
+//    public void clock() {
+//        Thread clock = new Thread() {
+//
+//
+//            @Override
+//            public void run() {
+//
+//
+//                while (true) {
+//
+//                    Platform.runLater(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            Calendar cal = new GregorianCalendar();
+//                            int day = cal.get(Calendar.DAY_OF_MONTH);
+//                            int month = cal.get(Calendar.MONTH);
+//                            int year = cal.get(Calendar.YEAR);
+//
+//                            int second = cal.get(Calendar.SECOND);
+//                            int minute = cal.get(Calendar.MINUTE);
+//                            int hour = cal.get(Calendar.HOUR);
+//
+//                            clockLabel.setText(year + "/" + month + "/" + day + "\n" + hour + ":" + minute + ":" + second);
+//                        }
+//
+//                    });
+//
+//                    try {
+//                        Thread.sleep(1000);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        };
+//        clock.start();
+//    }  //
 
     @FXML
     public void clock() {
@@ -175,22 +217,19 @@ public class BaseController {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            Calendar cal = new GregorianCalendar();
-                            int day = cal.get(Calendar.DAY_OF_MONTH);
-                            int month = cal.get(Calendar.MONTH);
-                            int year = cal.get(Calendar.YEAR);
+                            String clock = "dd/MM/yyyy\nHH:mm:ss";
+                            SimpleDateFormat date = new SimpleDateFormat(clock);
+                            String datestring = date.format(new Date());
 
-                            int second = cal.get(Calendar.SECOND);
-                            int minute = cal.get(Calendar.MINUTE);
-                            int hour = cal.get(Calendar.HOUR);
 
-                            clockLabel.setText(year + "/" + month + "/" + day + "\n" + hour + ":" + minute + ":" + second);
+                            clockLabel.setText(datestring);
+
                         }
 
                     });
 
                     try {
-                        Thread.sleep(1000);
+                        Thread.sleep(1);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
