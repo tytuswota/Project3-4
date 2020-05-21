@@ -1,6 +1,7 @@
 package org.openjfx;
 
 import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -33,13 +34,44 @@ public class PasInController extends BaseController {
     public void KeyPressEventHandler(char key) {
         try {
             if (key == 'A') {
-                LanguageSystem.setLanguage(LanguageSystem.Language.NEDERLANDS);
+
+                Task<Void> longRunningTask = new Task<Void>() {
+
+                    @Override
+                    protected Void call() throws Exception {
+                        LanguageSystem.setLanguage(LanguageSystem.Language.NEDERLANDS);
+                        Platform.runLater(() -> cardIn.setText(LanguageSystem.getString("cardIn")));
+                        return null;
+                    }
+                };
+                new Thread(longRunningTask).start();
+
             }
             if (key == 'B') {
-                LanguageSystem.setLanguage(LanguageSystem.Language.ENGLISH);
+                Task<Void> longRunningTask = new Task<Void>() {
+
+                    @Override
+                    protected Void call() throws Exception {
+                        LanguageSystem.setLanguage(LanguageSystem.Language.ENGLISH);
+                        Platform.runLater(() -> cardIn.setText(LanguageSystem.getString("cardIn")));
+                        return null;
+                    }
+                };
+                new Thread(longRunningTask).start();
+
             }
             if (key == 'C') {
-                LanguageSystem.setLanguage(LanguageSystem.Language.RUSSIAN);
+                Task<Void> longRunningTask = new Task<Void>() {
+
+                    @Override
+                    protected Void call() throws Exception {
+                        LanguageSystem.setLanguage(LanguageSystem.Language.RUSSIAN);
+                        Platform.runLater(() -> cardIn.setText(LanguageSystem.getString("cardIn")));
+                        return null;
+                    }
+                };
+                new Thread(longRunningTask).start();
+
             }
         } catch (Exception e) {
             e.printStackTrace();
