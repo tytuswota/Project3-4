@@ -33,6 +33,10 @@
     -fx-background-image: url("../fotos/bon.jpg") no-repeat;
 }
 
+#biljetOpties.bg {
+    -fx-background-image: url("../fotos/biljetOpties.jpg") no-repeat;
+}
+
 #error.bg {
     -fx-background-image: url("../fotos/error2.0.jpg") no-repeat;
 }
@@ -46,7 +50,7 @@
     -fx-border-width: 4px;
     -fx-border-radius: 10px;
     -fx-border-color: white;
-    -fx-effect: dropshadow( gaussian , rgba(0,0,0,50) , 10,0,0,4 );
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 50), 10, 0, 0, 4);
 }
 
 
@@ -68,13 +72,14 @@
 
 #bon.field {
     -fx-background-color: white;
-    -fx-background-radius: 10px;
+    -fx-background-radius: 13px;
     -fx-border-radius: 10px;
     -fx-border-width: 5px;
-    -fx-border-color: white;
+    -fx-border-color: #005CE9;
+    -fx-font-size: 60;
 }
 
-#error.field{
+#error.field {
     -fx-background-color: white;
     -fx-background-radius: 10px;
     -fx-border-width: 5px;
@@ -82,4 +87,11 @@
 
 }
 
+#klok.clock .text {
+    -fx-font-family: Calibri;
+    -fx-font-size: 60;
+    -fx-fill: #3366CC;
+    -fx-stroke: white;
+    -fx-stroke-width: 2px;
+}
 

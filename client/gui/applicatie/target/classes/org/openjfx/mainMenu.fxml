@@ -5,25 +5,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="bg" stylesheets="@../../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.MainController">
+<AnchorPane id="main" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1074.0" prefWidth="1867.0" styleClass="bg" stylesheets="@../../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.MainController">
     <children>
 
-        <Button id="button" fx:id="saldo" layoutX="80.0" layoutY="110.0" mnemonicParsing="false" onAction="#switchToSaldo" prefHeight="112.0" prefWidth="190.0" styleClass="knop" stylesheets="@../../style/Main.css" text="A">
+        <Button id="button" fx:id="saldo" layoutX="80.0" layoutY="105.0" mnemonicParsing="false" onAction="#switchToSaldo" prefHeight="115.0" prefWidth="190.0" styleClass="knop" stylesheets="@../../style/Main.css" text="A">
             <font>
                 <Font size="60.0" />
             </font>
         </Button>
-        <Button id="button" fx:id="afbreken" layoutX="80.0" layoutY="306.0" mnemonicParsing="false" onAction="#switchToPasUit" prefHeight="112.0" prefWidth="190.0" styleClass="knop" stylesheets="@../../style/Main.css" text="B">
+        <Button id="button" fx:id="afbreken" layoutX="80.0" layoutY="306.0" mnemonicParsing="false" onAction="#switchToPasUit" prefHeight="115.0" prefWidth="190.0" styleClass="knop" stylesheets="@../../style/Main.css" text="B">
             <font>
                 <Font size="60.0" />
             </font>
         </Button>
-        <Button id="button" fx:id="bedrag" layoutX="1640.0" layoutY="104.0" mnemonicParsing="false" onAction="#switchToBedrag" prefHeight="112.0" prefWidth="190.0" styleClass="knop" stylesheets="@../../style/Main.css" text="C">
+        <Button id="button" fx:id="bedrag" layoutX="1640.0" layoutY="100.0" mnemonicParsing="false" onAction="#switchToBedrag" prefHeight="115.0" prefWidth="190.0" styleClass="knop" stylesheets="@../../style/Main.css" text="C">
             <font>
                 <Font size="60.0" />
             </font>
         </Button>
-        <Button id="button" fx:id="pinZeventig" layoutX="1643.0" layoutY="302.0" mnemonicParsing="false" onAction="#PinZeventig" prefHeight="112.0" prefWidth="190.0" styleClass="knop" stylesheets="@../../style/Main.css" text="D">
+        <Button id="button" fx:id="pinZeventig" layoutX="1643.0" layoutY="302.0" mnemonicParsing="false" onAction="#PinZeventig" prefHeight="115.0" prefWidth="190.0" styleClass="knop" stylesheets="@../../style/Main.css" text="D">
             <font>
                 <Font size="60.0" />
             </font>
@@ -48,7 +48,7 @@
             <Font size="42.0" />
          </font>
       </Label>
-        <Label fx:id="clockLabel" layoutX="815.0" layoutY="60.0" prefHeight="150.0" prefWidth="290.0" text="clock">
+        <Label id="klok" fx:id="clockLabel" alignment="CENTER" layoutX="815.0" layoutY="60.0" prefHeight="160.0" prefWidth="290.0" styleClass="clock" stylesheets="@../../style/Main.css" text="clock" textAlignment="CENTER">
             <font>
                 <Font size="40.0" />
             </font>

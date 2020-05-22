@@ -94,7 +94,6 @@ void loop()
   for (int j = 0; j < 16; j++)
   {
     str[j] = readbackblock[j];
-    char uidCharacter = readbackblock[j];
   }
   
   String myString = String(str);
