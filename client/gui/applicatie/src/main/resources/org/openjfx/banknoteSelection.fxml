@@ -8,49 +8,37 @@
 <Pane id="biljetOpties" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="bg" stylesheets="@../../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.BanknoteSelection">
     <children>
 
-        <Button id="button" fx:id="menu" layoutX="1675.0" layoutY="305.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="*">
+        <Button id="button" fx:id="menu" layoutX="1675.0" layoutY="385.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="*">
             <font>
                 <Font size="60.0" />
             </font>
         </Button>
 
-        <Button id="button" fx:id="optie_1" layoutX="46.0" layoutY="119.0" mnemonicParsing="false" onAction="#optie1" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="A">
+        <Button id="button" fx:id="optie_1" layoutX="46.0" layoutY="190.0" mnemonicParsing="false" onAction="#optie1" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="A">
             <font>
                 <Font size="60.0" />
             </font>
         </Button>
 
-        <Button id="button" fx:id="optie_2" layoutX="1675.0" layoutY="119.0" mnemonicParsing="false" onAction="#optie2" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="B">
+        <Button id="button" fx:id="optie_2" layoutX="1675.0" layoutY="190.0" mnemonicParsing="false" onAction="#optie2" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="B">
             <font>
                 <Font size="60.0" />
             </font>
         </Button>
 
-        <Button id="button" fx:id="optie_3" layoutX="46.0" layoutY="310.0" mnemonicParsing="false" onAction="#optie3" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="C">
+        <Button id="button" fx:id="optie_3" layoutX="46.0" layoutY="390.0" mnemonicParsing="false" onAction="#optie3" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="C">
             <font>
                 <Font size="60.0" />
             </font>
         </Button>
 
-        <Label fx:id="lbl_menu" alignment="CENTER" layoutX="1350.0" layoutY="410.0" prefWidth="300.0" text="lbl main " textAlignment="CENTER" textFill="WHITE">
+        <Label fx:id="lbl_menu" alignment="CENTER" layoutX="1323.0" layoutY="487.0" prefWidth="300.0" text="lbl main " textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font size="42.0" />
             </font>
         </Label>
 
-        <Label fx:id="lbl_optie_1" alignment="CENTER" layoutX="281.0" layoutY="220.0" prefHeight="62.0" prefWidth="483.0" text="lbl optie 1" textAlignment="CENTER" textFill="WHITE">
-            <font>
-                <Font size="42.0" />
-            </font>
-        </Label>
-
-        <Label fx:id="lbl_optie_2" alignment="CENTER" layoutX="1136.0" layoutY="218.0" prefHeight="62.0" prefWidth="514.0" text="lbl optie 2" textAlignment="CENTER" textFill="WHITE">
-            <font>
-                <Font size="42.0" />
-            </font>
-        </Label>
-
-        <Label fx:id="lbl_optie_3" alignment="CENTER" layoutX="281.0" layoutY="410.0" prefHeight="62.0" prefWidth="473.0" text="lbl optie 3" textAlignment="CENTER" textFill="WHITE">
+        <Label fx:id="lbl_optie_1_10" alignment="CENTER" layoutX="283.0" layoutY="287.0" prefHeight="62.0" prefWidth="290.0" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font size="42.0" />
             </font>
@@ -61,6 +49,36 @@
                 <Font size="40.0" />
             </font>
         </Label>
+      <Label fx:id="lbl_optie_2_10" alignment="CENTER" layoutX="1333.0" layoutY="167.0" prefHeight="62.0" prefWidth="290.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_optie_2_20" alignment="CENTER" layoutX="1333.0" layoutY="229.0" prefHeight="60.0" prefWidth="290.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_optie_2_50" alignment="CENTER" layoutX="1333.0" layoutY="289.0" prefHeight="60.0" prefWidth="290.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_optie_3_10" alignment="CENTER" layoutX="283.0" layoutY="366.0" prefHeight="62.0" prefWidth="290.0" textFill="WHITE">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_optie_3_20" alignment="CENTER" layoutX="283.0" layoutY="428.0" prefHeight="60.0" prefWidth="290.0" textFill="WHITE">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_optie_3_50" alignment="CENTER" layoutX="283.0" layoutY="488.0" prefHeight="60.0" prefWidth="290.0" textFill="WHITE">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
 
     </children>
 </Pane>
