@@ -61,31 +61,22 @@ public class BanknoteSelection extends BaseController {
                 if (banknoteArray[bill][combo] != 0) {
 
                     if (combo == 0) {
-                        if (banknoteArray[0][0] != 0) {
-                            lbl_optie_1_10.setText("₽10 X " + (banknoteArray[0][0]));
+                        if (banknoteArray[0][combo] != 0) {
+                            lbl_optie_1_10.setText("₽10 X " + (banknoteArray[0][combo]));
                         }
-//                        lbl_optie_1.setTextFill(Color.GREEN);
                     }
                     if (combo == 1) {
-                        if (banknoteArray[0][1] != 0) {
-                            lbl_optie_2_10.setText("₽10 X " + (banknoteArray[0][1]));
-                        }
-                        if (banknoteArray[1][1] != 0) {
-                            lbl_optie_2_20.setText("₽20 X " + (banknoteArray[1][1]));
-                        }
-                        if (banknoteArray[2][1] != 0) {
-                            lbl_optie_2_50.setText("₽50 X " + (banknoteArray[2][1]));
+                        if (banknoteArray[0][combo] != 0) {
+                            lbl_optie_2_10.setText("₽10 X " + (banknoteArray[0][combo]));
+                            lbl_optie_2_20.setText("₽20 X " + (banknoteArray[1][combo]));
+                            lbl_optie_2_50.setText("₽50 X " + (banknoteArray[2][combo]));
                         }
                     }
                     if (combo == 2) {
-                        if (banknoteArray[0][2] != 0) {
-                            lbl_optie_3_10.setText("₽10 X " + (banknoteArray[0][2]));
-                        }
-                        if (banknoteArray[1][2] != 0) {
-                            lbl_optie_3_20.setText("₽20 X " + (banknoteArray[1][2]));
-                        }
-                        if (banknoteArray[2][2] != 0) {
-                            lbl_optie_3_50.setText("₽50 X " + (banknoteArray[2][2]));
+                        if (banknoteArray[0][combo] != 0) {
+                            lbl_optie_3_10.setText("₽10 X " + (banknoteArray[0][combo]));
+                            lbl_optie_3_20.setText("₽20 X " + (banknoteArray[1][combo]));
+                            lbl_optie_3_50.setText("₽50 X " + (banknoteArray[2][combo]));
                         }
                     }
                     lbl_menu.setText(LanguageSystem.getString("menu"));
