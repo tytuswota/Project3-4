@@ -50,7 +50,7 @@ public class App extends Application {
     static void showErrorScreen(String message ) throws IOException {
         // remove listeners to prevent from unexpected behaviour.
         SerialReader.GetReader().removeListeners();
-        Parent root = loadFXML("error");
+        Parent root = loadFXML("saldoLaag");
         var ch = root.getChildrenUnmodifiable();
         for (Node node : ch){
             if(node instanceof Label){

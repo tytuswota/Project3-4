@@ -14,29 +14,35 @@ public class ErrorController extends BaseController {
         goBack.setText(LanguageSystem.getString("goBack"));
         quit.setText(LanguageSystem.getString("quit"));
         mainMenu.setText(LanguageSystem.getString("mainMenu"));
-        message.setText(LanguageSystem.getString("saldoLaag"));
+        saldoMessage.setText(LanguageSystem.getString("saldoLaag"));
+        pinMessage.setText(LanguageSystem.getString("pinFout"));
     }
 
-    @FXML
-    Label message;
 
     @FXML
-    Button BTgoBack;
+    Label saldoMessage;
 
     @FXML
-    Label goBack;
-
-    @FXML
-    Button BTquit;
+    Label pinMessage;
 
     @FXML
     Label quit;
 
     @FXML
-    Button BTmainMenu;
+    Label mainMenu;
 
     @FXML
-    Label mainMenu;
+    Label goBack;
+
+    @FXML
+    Button BTgoBack;
+
+    @FXML
+    Button BTquit;
+
+    @FXML
+    Button BTmainMenu;
+
 
     @FXML
     public void goBack() throws IOException {
