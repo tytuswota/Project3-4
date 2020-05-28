@@ -63,6 +63,9 @@ public class BanknoteSelection extends BaseController {
                     if (combo == 0) {
                         if (banknoteArray[0][combo] != 0) {
                             lbl_optie_1_10.setText("₽10 X " + (banknoteArray[0][combo]));
+                        } else {
+                            lbl_optie_1_10.setText("₽10 X 0");
+                            lbl_optie_1_10.setTextFill(Color.RED);
                         }
                     }
                     if (combo == 1) {

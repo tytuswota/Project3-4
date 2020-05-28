@@ -52,17 +52,17 @@ public class ErrorController extends BaseController {
     @Override
     public void KeyPressEventHandler(char key) {
         try {
-            if(key == '#'){
+            if (key == '#') {
                 goBack();
             }
-            if(key == '*'){
+            if (key == '*') {
                 switchToPasUit();
             }
-            if (key == 'A'){
+            if (key == 'A') {
                 switchToMainMenu();
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

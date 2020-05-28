@@ -20,7 +20,7 @@ public class BankNoteCombo {
             bankNotes[1] = 20;
         }
 
-        if (this.amount % 50 == 0 || this.amount % 50 == 10 || this.amount % 50 == 20) {
+        if (this.amount % 50 == 0 || this.amount % 50 == 10 || this.amount % 50 == 20 && this.amount <= 200 && this.amount >= 50) {
             bankNotes[2] = 50;
         }
 
