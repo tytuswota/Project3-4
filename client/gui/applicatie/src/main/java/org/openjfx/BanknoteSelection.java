@@ -26,16 +26,31 @@ public class BanknoteSelection extends BaseController {
     Button menu;
 
     @FXML
-    Label lbl_optie_1;
+    Label lbl_optie_1_10;
 
     @FXML
-    Label lbl_optie_2;
+    Label lbl_optie_2_10;
 
     @FXML
-    Label lbl_optie_3;
+    Label lbl_optie_2_20;
+
+    @FXML
+    Label lbl_optie_2_50;
+
+    @FXML
+    Label lbl_optie_3_10;
+
+    @FXML
+    Label lbl_optie_3_20;
+
+    @FXML
+    Label lbl_optie_3_50;
 
     @FXML
     Label lbl_menu;
+
+//    maak meerdere labels en doe de if statemant van !=0 set Tekst
+
 
     int biljet = 0;
 
@@ -46,14 +61,26 @@ public class BanknoteSelection extends BaseController {
                 if (banknoteArray[bill][combo] != 0) {
 
                     if (combo == 0) {
-                        lbl_optie_1.setText("₽10 * " + (banknoteArray[0][combo]) + " + ₽20 * " + (banknoteArray[1][combo]) + "+ ₽50 * " + (banknoteArray[2][combo]));
-                    lbl_optie_1.setTextFill(Color.GREEN);
+                        if (banknoteArray[0][combo] != 0) {
+                            lbl_optie_1_10.setText("₽10 X " + (banknoteArray[0][combo]));
+                        } else {
+                            lbl_optie_1_10.setText("₽10 X 0");
+                            lbl_optie_1_10.setTextFill(Color.RED);
+                        }
                     }
                     if (combo == 1) {
-                        lbl_optie_2.setText("₽10 * " + (banknoteArray[0][combo]) + " + ₽20 * " + (banknoteArray[1][combo]) + " + ₽50 * " + (banknoteArray[2][combo]));
+                        if (banknoteArray[0][combo] != 0) {
+                            lbl_optie_2_10.setText("₽10 X " + (banknoteArray[0][combo]));
+                            lbl_optie_2_20.setText("₽20 X " + (banknoteArray[1][combo]));
+                            lbl_optie_2_50.setText("₽50 X " + (banknoteArray[2][combo]));
+                        }
                     }
                     if (combo == 2) {
-                        lbl_optie_3.setText("₽10 * " + (banknoteArray[0][combo]) + " + ₽20 * " + (banknoteArray[1][combo]) + " + ₽50 * " + (banknoteArray[2][combo]));
+                        if (banknoteArray[0][combo] != 0) {
+                            lbl_optie_3_10.setText("₽10 X " + (banknoteArray[0][combo]));
+                            lbl_optie_3_20.setText("₽20 X " + (banknoteArray[1][combo]));
+                            lbl_optie_3_50.setText("₽50 X " + (banknoteArray[2][combo]));
+                        }
                     }
                     lbl_menu.setText(LanguageSystem.getString("menu"));
                 }
@@ -85,7 +112,7 @@ public class BanknoteSelection extends BaseController {
     public void KeyPressEventHandler(char key) {
         try {
 
-            if (key == 'A') {
+            if (key == 'A' && banknoteArray[0][0] != 0) {
                 optie1();
             }
             if (key == 'B') {
