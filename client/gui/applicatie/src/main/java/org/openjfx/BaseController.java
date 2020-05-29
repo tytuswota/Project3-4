@@ -70,7 +70,7 @@ public class BaseController {
         boolean banknotesAvailable = withdrawer.banknotesAvailable(banknotes);
 
         if (!balanceEnough) {
-            App.showErrorScreen("Saldo is niet hoog genoeg.");
+            App.showErrorScreen("balanceLow");
             System.out.println("Balance not high enough");
         } else if (!banknotesAvailable) {
             App.showErrorScreen("Biljetten niet aanwezig.");
@@ -92,7 +92,7 @@ public class BaseController {
         boolean banknotesAvailable = withdrawer.banknotesAvailable(banknotes);
 
         if (!balanceEnough) {
-            App.showErrorScreen("Saldo is niet hoog genoeg.");
+            App.showErrorScreen("balanceLow");
             System.out.println("Balance not high enough");
         } else if (!banknotesAvailable) {
             App.showErrorScreen("Biljetten niet aanwezig.");

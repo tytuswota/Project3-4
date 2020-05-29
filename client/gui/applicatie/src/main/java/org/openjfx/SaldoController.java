@@ -29,7 +29,7 @@ public class SaldoController extends BaseController {
         yourBalance.setText(LanguageSystem.getString("yourBalance"));
         try {
             String balance = SessionManager.getSession().getBalance();
-            saldoField.setText("€ " + balance);
+            saldoField.setText(" ₽ " + balance);
         }catch (Exception e){
             saldoField.setText(LanguageSystem.getString("noConnection"));
         }

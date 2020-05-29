@@ -12,7 +12,8 @@ import org.json.JSONObject;
 
 public class LoginController extends BaseController {
 
-    private String cardId = reader.getLastCardNumber();
+    //    private String cardId = reader.getLastCardNumber();
+    private String cardId = "SU-DASB-00000001";
 
     public void initialize() {
         enterPin.setText(LanguageSystem.getString("enterPin"));
@@ -43,48 +44,49 @@ public class LoginController extends BaseController {
     Label confirm;
 
     @FXML
-    public void removeCharacter() throws  IOException{
+    public void removeCharacter() throws IOException {
         String text = pin.getText();
-        text = text.substring(0,text.length()-1);
+        text = text.substring(0, text.length() - 1);
         pin.setText(text);
     }
 
     @FXML
     Label quit;
     private int efforts = 0;
+
     @FXML
     public void switchToMainMenu() throws IOException {
 
- //        //"SU-DASB-00000002";
+        //        //"SU-DASB-00000002";
         String cardId = "SU-DASB-00000001";
 
         JSONObject cardObject = SessionManager.getCard(cardId);
-        if(cardObject.getString("active").equals("1")){
+        if (cardObject.getString("active").equals("1")) {
             if (this.efforts != 3) {
                 if (login(cardId)) {
                     efforts = 0;
                     App.setRoot("mainMenu");
                 } else {
                     efforts++;
-                    App.showErrorScreen("pincode verkeert");
+                    App.showErrorScreenPin("pinWrong");
                     //
                 }
             } else {
                 SessionManager.blockCard(cardId);
-                App.showErrorScreen("pass geblokeerd");
+                App.showErrorScreenPin("cardBlocked");
             }
-        }else{
-            App.showErrorScreen("pass geblokeerd");
+        } else {
+            App.showErrorScreenPin("cardBlocked");
         }
 
     }
 
-    // Try toe log in using the card id and the pin.
+    // Try to log in using the card id and the pin.
     private boolean login(String cardId) {
         //id for testing
-        System.out.println("je moeder");
+
         String pin = this.pin.getText(); // "1234"
-        System.out.println("dit is de pin jatoch " + pin);
+        System.out.println("dit is de pin " + pin);
         SessionManager sessionManager = SessionManager.tryLogin(cardId, pin);
         if (sessionManager != null) {
             App.accountId = sessionManager.getAccountname();
@@ -96,13 +98,13 @@ public class LoginController extends BaseController {
     // Handles the keypress events
     public void KeyPressEventHandler(char key) {
         try {
-            if (key == '#') {
-                 switchToMainMenu();
+            if (key == '#' ) {
+                switchToMainMenu();
             }
             if (key == '*') {
                 switchToPasUit();
             }
-            if(key == 'B'){
+            if (key == 'B') {
                 removeCharacter();
             }
 
@@ -113,7 +115,7 @@ public class LoginController extends BaseController {
                     System.out.println("te lang");
                 }
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

@@ -34,13 +34,13 @@
 
         <Label fx:id="lbl_menu" alignment="CENTER" layoutX="1323.0" layoutY="487.0" prefWidth="300.0" text="lbl main " textAlignment="CENTER" textFill="WHITE">
             <font>
-                <Font size="42.0" />
+                <Font size="40.0" />
             </font>
         </Label>
 
         <Label fx:id="lbl_optie_1_10" alignment="CENTER" layoutX="283.0" layoutY="287.0" prefHeight="62.0" prefWidth="290.0" textAlignment="CENTER" textFill="WHITE">
             <font>
-                <Font size="42.0" />
+                <Font size="40.0" />
             </font>
         </Label>
 
