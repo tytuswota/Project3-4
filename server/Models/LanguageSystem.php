@@ -18,6 +18,8 @@ class LanguageSystem
         $stmt->execute(array( $translationID));
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
+
+
         return $row;
     }
 }

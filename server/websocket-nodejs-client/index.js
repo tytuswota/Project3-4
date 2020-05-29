@@ -17,6 +17,20 @@ const RECONNECT_TIMEOUT = 2 * 1000;
 const WebSocket = require('ws');
 const DasbankSession = require('./DasbankSession.js')
 
+const wss = new WebSocket.Server({port: process.env.Port || 3000});
+
+var dataFromPhp = "";
+
+wss.on('connection', function(ws){
+
+    ws.on('message', function(message){
+        dataFromPhp = message;
+        connectToGosbank();
+    });
+
+
+});
+
 function parseAccountParts(account) {
     return {
         country: account.substring(0, 2),
@@ -25,12 +39,13 @@ function parseAccountParts(account) {
     };
 }
 
-function connectToGosbank() {
+function connectToGosbank(message) {
     const ws = new WebSocket(LOCAL_DEBUG_MODE ? 'ws://localhost:8080' : 'wss://ws.gosbank.ml/');
-
     const pendingCallbacks = [];
+    const data = message;
 
     function requestMessage(type, data, callback) {
+        console.log("in request message");
         const id = Date.now();
         if (callback !== undefined) {
             pendingCallbacks.push({ id: id, type: type + '_response', callback: callback });
@@ -39,6 +54,7 @@ function connectToGosbank() {
     }
 
     function responseMessage(id, type, data) {
+        console.log("in response message");
         ws.send(JSON.stringify({ id: id, type: type + '_response', data: data }));
     }
 
@@ -81,6 +97,7 @@ function connectToGosbank() {
         }
 
         if (toAccountParts.bank !== BANK_CODE) {
+            console.log("in second if");
             requestMessage('payment', {
                 header: {
                     originCountry: COUNTRY_CODE,
@@ -98,7 +115,18 @@ function connectToGosbank() {
         }
     }
 
+
+
     ws.on('open', function () {
+        console.log("in the open ws function");
+        const {type, account, pin} = JSON.parse(dataFromPhp);
+        console.log(type);
+        console.log(account);
+        console.log(pin);
+        /*console.log("type: " + type);
+        console.log("accountId: " + account);
+        console.log("pin: " + pin);*/
+
         requestMessage('register', {
             header: {
                 originCountry: COUNTRY_CODE,
@@ -111,7 +139,19 @@ function connectToGosbank() {
             if (data.body.code === 200) {
                 console.log('Connected with Gosbank with bank code: ' + BANK_CODE);
 
-                var i = 0;
+                if(type === 'balance'){
+                    requestBalance(account, pin, function (data) {
+                        if (data.body.code === 200) {
+                            console.log('Balance account ' + account + ': ' + data.body.balance);
+                        }
+                        else {
+                            console.log('Balance error: ' + data.body.code);
+                        }
+                    });
+                }
+
+                /*var i = 0;
+
                 setInterval(function () {
                     let account = 'SU-DASB-00000001';
                     let pin = '1234';
@@ -135,7 +175,7 @@ function connectToGosbank() {
                             console.log('Payment error: ' + data.body.code);
                         }
                     });
-                }, Math.random() * 1000 + 500);
+                }, Math.random() * 1000 + 500);*/
             }
             else {
                 console.log('Error with connecting to Gosbank, reason: ' + data.body.code);
@@ -211,4 +251,4 @@ function connectToGosbank() {
     ws.on('error', function (error) {});
 }
 
-connectToGosbank();
+//connectToGosbank();
