@@ -193,15 +193,15 @@ function connectToGosbank(message) {
             }
         }
 
+        let account = data.body.account;
+        let pin = data.body.pin;
+        let session = new DasbankSession.DasbankSession(account,pin);
+
         if (type === 'balance') {
             console.log('Balance request for: ' + data.body.account);
-            //todo
-            let account = data.body.account;
-            let pin = data.body.pin;
-            let session2 = new DasbankSession.DasbankSession(account,pin);
 
             setTimeout(()=> {
-                session2.getBalance(function (balance) {
+                session.getBalance(function (balance) {
                     responseMessage(id, 'balance', {
                             header: {
                                 originCountry: COUNTRY_CODE,
@@ -224,21 +224,22 @@ function connectToGosbank(message) {
         if (type === 'payment') {
             console.log('Payment request for: ' + data.body.toAccount);
 
-            // Add payment to database
+            setTimeout(() => {
+                session.withdraw(function (statuscode) {
 
-            setTimeout(function () {
-                responseMessage(id, 'payment', {
-                    header: {
-                        originCountry: COUNTRY_CODE,
-                        originBank: BANK_CODE,
-                        receiveCountry: data.header.originCountry,
-                        receiveBank: data.header.originBank
-                    },
-                    body: {
-                        code: 200
-                    }
-                });
-            }, Math.random() * 2000 + 500);
+                    responseMessage(id, 'payment', {
+                        header: {
+                            originCountry: COUNTRY_CODE,
+                            originBank: BANK_CODE,
+                            receiveCountry: data.header.originCountry,
+                            receiveBank: data.header.originBank
+                        },
+                        body: {
+                            code: statuscode
+                        }
+                    }, 2000);
+                }, data.data.body.fromAccount);
+            });
         }
     });
 
