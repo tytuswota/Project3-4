@@ -83,7 +83,7 @@
     -fx-font-size: 60;
 }
 
-#error.field {
+#saldoLaagId.field {
     -fx-background-color: white;
     -fx-background-radius: 10px;
     -fx-border-width: 5px;
@@ -91,7 +91,7 @@
 
 }
 
-#pinFout.field {
+#pinErrorId.field {
     -fx-background-color: white;
     -fx-background-radius: 10px;
     -fx-pref-height: 106px;

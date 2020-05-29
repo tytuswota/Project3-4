@@ -7,9 +7,9 @@
 
 <Pane id="bon" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="bg" stylesheets="@../../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.BonController">
    <children>
-      <Label layoutX="544.0" layoutY="798.0" stylesheets="@../../style/Main.css" text="nee">
+      <Label layoutX="544.0" layoutY="805.0" stylesheets="@../../style/Main.css" text="nee" textFill="WHITE">
          <font>
-            <Font size="48.0" />
+            <Font size="40.0" />
          </font></Label>
       <Button id="button" fx:id="getReceipt" layoutX="1485.0" layoutY="700.0" mnemonicParsing="false" styleClass="knop" stylesheets="@../../style/Main.css" text="#">
          <font>
@@ -21,9 +21,9 @@
             <Font size="60.0" />
          </font>
       </Button>
-      <Label layoutX="1258.0" layoutY="790.0" stylesheets="@../../style/Main.css" text="ja">
+      <Label layoutX="1258.0" layoutY="799.0" stylesheets="@../../style/Main.css" text="ja" textFill="WHITE">
          <font>
-            <Font size="48.0" />
+            <Font size="40.0" />
          </font></Label>
       <Label id="bon" layoutX="677.0" layoutY="540.0" prefHeight="98.0" prefWidth="703.0" styleClass="field" stylesheets="@../../style/Main.css" text="wilt uw een transactie bon">
          <font>

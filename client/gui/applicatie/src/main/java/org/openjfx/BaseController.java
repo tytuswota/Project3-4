@@ -70,7 +70,7 @@ public class BaseController {
         boolean banknotesAvailable = withdrawer.banknotesAvailable(banknotes);
 
         if (!balanceEnough) {
-            App.showErrorScreen("Saldo is niet hoog genoeg.");
+            App.showErrorScreen("balanceLow");
             System.out.println("Balance not high enough");
         } else if (!banknotesAvailable) {
             App.showErrorScreen("Biljetten niet aanwezig.");
@@ -92,7 +92,7 @@ public class BaseController {
         boolean banknotesAvailable = withdrawer.banknotesAvailable(banknotes);
 
         if (!balanceEnough) {
-            App.showErrorScreen("Saldo is niet hoog genoeg.");
+            App.showErrorScreen("balanceLow");
             System.out.println("Balance not high enough");
         } else if (!banknotesAvailable) {
             App.showErrorScreen("Biljetten niet aanwezig.");
@@ -163,46 +163,7 @@ public class BaseController {
 
         return options;
     }
-//Georgian clock incase there are issues with simpledataformat.
-//    @FXML
-//    public void clock() {
-//        Thread clock = new Thread() {
-//
-//
-//            @Override
-//            public void run() {
-//
-//
-//                while (true) {
-//
-//                    Platform.runLater(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            Calendar cal = new GregorianCalendar();
-//                            int day = cal.get(Calendar.DAY_OF_MONTH);
-//                            int month = cal.get(Calendar.MONTH);
-//                            int year = cal.get(Calendar.YEAR);
-//
-//                            int second = cal.get(Calendar.SECOND);
-//                            int minute = cal.get(Calendar.MINUTE);
-//                            int hour = cal.get(Calendar.HOUR);
-//
-//                            clockLabel.setText(year + "/" + month + "/" + day + "\n" + hour + ":" + minute + ":" + second);
-//                        }
-//
-//                    });
-//
-//                    try {
-//                        Thread.sleep(1000);
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
-//                }
-//            }
-//        };
-//        clock.start();
-//    }  //
-
+    
     @FXML
     public void clock() {
         Thread clock = new Thread() {

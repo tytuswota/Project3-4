@@ -9,22 +9,22 @@
  <children>
     <Label fx:id="cardIn" alignment="CENTER" contentDisplay="CENTER" layoutX="710.0" layoutY="414.0" prefWidth="500.0" text="Label" textAlignment="CENTER" textFill="WHITE">
         <font>
-            <Font size="42.0" />
+            <Font size="45.0" />
         </font>
     </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="282.5" layoutY="440.0" prefHeight="60.0" prefWidth="215.0" text="Nederlands" textAlignment="CENTER" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="240.0" layoutY="440.0" prefHeight="66.0" prefWidth="299.0" text="Nederlands" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="42.0" />
+            <Font size="45.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="282.5" layoutY="570.0" prefHeight="60.0" prefWidth="215.0" text="English" textAlignment="CENTER" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="242.0" layoutY="565.0" prefHeight="62.0" prefWidth="299.0" text="English" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="42.0" />
+            <Font size="45.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="282.5" layoutY="700.0" prefHeight="60.0" prefWidth="215.0" text="Russian" textAlignment="CENTER" textFill="WHITE">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="239.0" layoutY="695.0" prefHeight="66.0" prefWidth="299.0" text="Pусский" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="42.0" />
+            <Font size="45.0" />
          </font>
       </Label>
       <Label id="klok" fx:id="clockLabel" alignment="CENTER" layoutX="815.0" layoutY="60.0" prefHeight="160.0" prefWidth="290.0" styleClass="clock" stylesheets="@../../style/Main.css" text="clock" textAlignment="CENTER" textFill="WHITE">

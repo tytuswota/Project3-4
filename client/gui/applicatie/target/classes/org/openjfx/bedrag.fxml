@@ -37,34 +37,34 @@
             <Font size="60.0" />
          </font>
       </Button>
-      <Label fx:id="other" alignment="CENTER" layoutX="1350.0" layoutY="600.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="other" alignment="CENTER" layoutX="1350.0" layoutY="597.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="42.0" />
+            <Font size="40.0" />
          </font>
       </Label>
       <Label fx:id="menu" alignment="CENTER" layoutX="281.0" layoutY="600.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="42.0" />
+            <Font size="40.0" />
          </font>
       </Label>
       <Label fx:id="menu1" alignment="CENTER" layoutX="281.0" layoutY="223.0" prefWidth="300.0" text="₽ 10" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="42.0" />
+            <Font size="40.0" />
          </font>
       </Label>
       <Label fx:id="menu11" alignment="CENTER" layoutX="281.0" layoutY="415.0" prefWidth="300.0" text="₽ 20" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="42.0" />
+            <Font size="40.0" />
          </font>
       </Label>
       <Label fx:id="other1" alignment="CENTER" layoutX="1350.0" layoutY="410.0" prefWidth="300.0" text="₽ 100" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="42.0" />
+            <Font size="40.0" />
          </font>
       </Label>
       <Label fx:id="other11" alignment="CENTER" layoutX="1350.0" layoutY="223.0" prefWidth="300.0" text="₽ 50" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="42.0" />
+            <Font size="40.0" />
          </font>
       </Label>
       <Label id="klok" fx:id="clockLabel" alignment="CENTER" layoutX="815.0" layoutY="60.0" prefHeight="160.0" prefWidth="290.0" styleClass="clock" stylesheets="@../../style/Main.css" text="clock" textAlignment="CENTER">
