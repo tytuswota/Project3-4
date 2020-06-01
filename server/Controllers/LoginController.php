@@ -7,13 +7,17 @@ include_once '../../libs/php-jwt-master/src/ExpiredException.php';
 include_once '../../libs/php-jwt-master/src/SignatureInvalidException.php';
 include_once '../../libs/php-jwt-master/src/JWT.php';
 include_once '../Config.php';
+include_once '../../Core/WebsocketClient/Websocket.php';
 
 use \Firebase\JWT\JWT;
 
+const BankCode = "DASB";
+
 class LoginController
 {
-    static function login($loginData){
 
+    static function login($loginData){
+        //sendToclient($loginData);
         // show error reporting
         error_reporting(E_ALL);
 
@@ -28,39 +32,74 @@ class LoginController
 
        $account = new Accounts();
        $cards = new Cards();
+       //check if account in from dasbank
+       if(strpos($loginData->card_id, BankCode) !== false){
+           $givenPin = $loginData->pin;
+           $card = json_decode($cards->readCard($loginData->card_id));
+           $hashedPin = $card[0]->pin;
 
-       $givenPin = $loginData->pin;
-       $card = json_decode($cards->readCard($loginData->card_id));
-       $hashedPin = $card[0]->pin;
 
+           if(password_verify($givenPin,$hashedPin)){
 
-       if(password_verify($givenPin,$hashedPin)){
+               $userData = json_decode($account->readAccount($loginData->card_id));
 
-           $userData = json_decode($account->readAccount($loginData->card_id));
+               $token = array(
+                   "iss" => $iss,
+                   "iat" => $iat,
+                   "nbf" => $nbf,
+                   "data" => array(
+                       "id" => $userData[0]->bank_account_id,
+                       "user_id" => $userData[0]->user_id,
+                       "start_date" => $userData[0]->start_date
+                   )
+               );
 
-           $token = array(
-               "iss" => $iss,
-               "iat" => $iat,
-               "nbf" => $nbf,
-               "data" => array(
-                   "id" => $userData[0]->bank_account_id,
-                   "user_id" => $userData[0]->user_id,
-                   "start_date" => $userData[0]->start_date
-               )
-           );
+               $jwt = JWT::encode($token,config::$key);
 
-           $jwt = JWT::encode($token,config::$key);
+               echo json_encode(
+                   array(
+                       "data" => $userData[0],
+                       "jwt" => $jwt
+                   )
+               );
 
-           echo json_encode(
-               array(
-                "data" => $userData[0],
-                "jwt" => $jwt
-               )
-           );
-
-           //echo "logged in";
+               //echo "logged in";
+           }else{
+               echo "wrong pin";
+           }
        }else{
-           echo "wrong pin";
+           $webSocketClient = new Websocket();
+
+           $jsonForGos = json_encode(array(
+               "type"=>"balance",
+               "account"=>$loginData->card_id,
+               "pin"=>$loginData->pin
+           ));
+           $response = $webSocketClient->sendToclient($jsonForGos);
+
+           if($response->status !== 400){
+               $token = array(
+                   "iss" => $iss,
+                   "iat" => $iat,
+                   "nbf" => $nbf,
+                   "data" => array(
+                       "id" => $response->account,
+                       "user_id" => $response->account
+                   )
+               );
+
+               $jwt = JWT::encode($token,config::$key);
+
+               echo json_encode(
+                   array(
+                       "data" => $response->account,
+                       "jwt" => $jwt
+                   )
+               );
+
+           }else{
+               echo "wrong pin";
+           }
        }
 
 
