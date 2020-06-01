@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import model.BankNoteCombo;
 import model.LanguageSystem;
+import model.SessionManager;
 import model.SetOfBanknotes;
 
 import java.io.IOException;
@@ -50,6 +51,12 @@ public class EigenBedragController extends BaseController {
         saldoText.setText(text);
     }
 
+
+
+
+    double balance = Double.parseDouble(SessionManager.getSession().getBalance());
+
+
     public void commitTransActions() throws IOException {
 
         System.out.println("in the commit transaction methode");
@@ -61,7 +68,12 @@ public class EigenBedragController extends BaseController {
 
         BanknoteSelection.banknoteArray = bankNoteOptions;
 
-        App.setRoot("banknoteSelection");
+        
+        if (amount > balance || amount < 10) {
+            App.setRoot("saldoLaag");
+        } else {
+            App.setRoot("banknoteSelection");
+        }
 
     }
 
@@ -76,7 +88,7 @@ public class EigenBedragController extends BaseController {
                 removeCharacter();
             }
 
-            if(key == '*'){
+            if (key == '*') {
                 switchToMainMenu();
             }
 

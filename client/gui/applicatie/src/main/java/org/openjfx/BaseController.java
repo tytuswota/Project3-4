@@ -163,7 +163,7 @@ public class BaseController {
 
         return options;
     }
-    
+
     @FXML
     public void clock() {
         Thread clock = new Thread() {
