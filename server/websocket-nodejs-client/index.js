@@ -139,10 +139,18 @@ function connectToGosbank(wss) {
                 if(type === 'balance'){
                     requestBalance(account, pin, function (data) {
                         if (data.body.code === 200) {
-                            wss.send('Balance account ' + account + ': ' + data.body.balance);
+                            var json = new Object();
+                            json.status = data.body.code;
+                            json.dataType = "balance";
+                            json.account = account;
+                            json.balance = data.body.balance;
+                            wss.send(JSON.stringify(json));
                         }
                         else {
-                            wss.send('Balance error: ' + data.body.code);
+                            var json = new Object();
+                            json.status = data.body.code;
+                            json.dataType = "balance error"
+                            wss.send(JSON.stringify(json));
                         }
                     });
                 }

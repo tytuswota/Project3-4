@@ -17,9 +17,10 @@ class Websocket
         //print_r($data);
         $client = new Client("ws://localhost:3000");
         $client->send($data);
+        $obj = false;
         try{
-            echo "test";
             $message = $client->receive();
+            $obj = json_decode($message);
         }catch (\WebSocket\ConnectionException $e){
             echo $e;
         }
@@ -27,6 +28,6 @@ class Websocket
         $client->close();
         //
         //echo $client->receive();
-
+        return $obj;
     }
 }

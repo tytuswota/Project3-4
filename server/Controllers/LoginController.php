@@ -15,6 +15,7 @@ const BankCode = "DASB";
 
 class LoginController
 {
+
     static function login($loginData){
         //sendToclient($loginData);
         // show error reporting
@@ -74,8 +75,31 @@ class LoginController
                "account"=>$loginData->card_id,
                "pin"=>$loginData->pin
            ));
-           $webSocketClient->sendToclient($jsonForGos);
+           $response = $webSocketClient->sendToclient($jsonForGos);
 
+           if($response->status !== 400){
+               $token = array(
+                   "iss" => $iss,
+                   "iat" => $iat,
+                   "nbf" => $nbf,
+                   "data" => array(
+                       "id" => $response->account,
+                       "user_id" => $response->account
+                   )
+               );
+
+               $jwt = JWT::encode($token,config::$key);
+
+               echo json_encode(
+                   array(
+                       "data" => $response->account,
+                       "jwt" => $jwt
+                   )
+               );
+
+           }else{
+               echo "wrong pin";
+           }
        }
 
 
