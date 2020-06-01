@@ -95,6 +95,7 @@ public class SessionManager extends ConnectionManager{
         JSONObject jsonObj = loadData("BankAccount/read.php", accountData);
 
         return jsonObj.getString("account_balance");
+
     }
 
     public void blockPass(String dankId){
