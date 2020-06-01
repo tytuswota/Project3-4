@@ -97,7 +97,6 @@ function connectToGosbank(message) {
         }
 
         if (toAccountParts.bank !== BANK_CODE) {
-            console.log("in second if");
             requestMessage('payment', {
                 header: {
                     originCountry: COUNTRY_CODE,
@@ -119,10 +118,15 @@ function connectToGosbank(message) {
 
     ws.on('open', function () {
         console.log("in the open ws function");
-        const {type, account, pin} = JSON.parse(dataFromPhp);
-        console.log(type);
-        console.log(account);
-        console.log(pin);
+
+        if(type == 'balance'){
+            const {type, account, pin} = JSON.parse(dataFromPhp);
+        }
+
+        if(type == 'payment'){
+            const {type, fromAccount, toAccount, pin, amount} = JSON.parse(dataFromPhp);
+        }
+
         /*console.log("type: " + type);
         console.log("accountId: " + account);
         console.log("pin: " + pin);*/
@@ -146,6 +150,16 @@ function connectToGosbank(message) {
                         }
                         else {
                             console.log('Balance error: ' + data.body.code);
+                        }
+                    });
+                }
+
+                if(type == 'transaction'){
+                    requestPayment(fromAccount, toAccount, pin, amount, function(){
+                        if(data.body.code == 200){
+                            console.log('Payment accepted');
+                        }else{
+                            console.log('Payment error: ' + data.body.code);
                         }
                     });
                 }
@@ -191,6 +205,18 @@ function connectToGosbank(message) {
                 pendingCallbacks[i].callback(data);
                 pendingCallbacks.splice(i--, 1);
             }
+        }
+
+        if(type == 'transaction'){
+            console.log('Transaction request from: ' + data.body.account);
+
+            let account = data.body.account;
+            let pin = data.body.pin;
+            let session = new DasbankSession.DasbankSession(account, pin);
+
+            setTimeout(()=>{
+                session.createTransAction();
+            });
         }
 
         if (type === 'balance') {

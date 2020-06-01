@@ -9,6 +9,9 @@ class DasbankSession {
         this.login(cardId, pincode)
     }
 
+    createTransAction(handler){
+        let data = JSON.stringify({"jwt": this._jwtToken, "receiver_account_id":"test", "causer_account_id":"test"})
+    }
     getBalance(handler) {
         let data = JSON.stringify({"jwt": this._jwtToken, "account_id": this._account_id});
         //console.log(`data to send ${data}`);
