@@ -19,7 +19,7 @@ import java.util.GregorianCalendar;
 Contains the shared features of the controllers.
  */
 
-public class BaseController {
+public class BaseController extends Thread {
 
     protected static SerialReader reader = SerialReader.GetReader();
 
