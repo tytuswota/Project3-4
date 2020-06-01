@@ -51,10 +51,10 @@ public class EigenBedragController extends BaseController {
         saldoText.setText(text);
     }
 
-    String kanker = SessionManager.getSession().getBalance();
-    ;
 
-    double balance = Double.parseDouble(kanker);
+
+
+    double balance = Double.parseDouble(SessionManager.getSession().getBalance());
 
 
     public void commitTransActions() throws IOException {
