@@ -68,7 +68,7 @@ public class EigenBedragController extends BaseController {
 
         BanknoteSelection.banknoteArray = bankNoteOptions;
 
-        System.out.println("dit is kanker eigenbalance " + balance);
+        
         if (amount > balance || amount < 10) {
             App.setRoot("saldoLaag");
         } else {
