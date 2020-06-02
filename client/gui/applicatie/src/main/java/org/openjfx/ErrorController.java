@@ -13,17 +13,10 @@ public class ErrorController extends BaseController {
     public void initialize() {
         goBack.setText(LanguageSystem.getString("goBack"));
         quit.setText(LanguageSystem.getString("quit"));
-        mainMenu.setText(LanguageSystem.getString("mainMenu"));
-        saldoMessage.setText(LanguageSystem.getString("saldoLaag"));
-        pinMessage.setText(LanguageSystem.getString("pinFout"));
+        if (mainMenu != null) {
+            mainMenu.setText(LanguageSystem.getString("mainMenu"));
+        }
     }
-
-
-    @FXML
-    Label saldoMessage;
-
-    @FXML
-    Label pinMessage;
 
     @FXML
     Label quit;

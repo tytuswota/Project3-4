@@ -12,14 +12,18 @@ class TransactionController extends BaseController
         return $accountsValues[0]->account_balance;
     }
 
-    static function withdraw($accountId, $amount){
-        $accountBalance = self::getMaxWidthDraw($accountId);
-        if($amount > 0){
-            $result = $accountBalance - $amount;
+    static function withdraw($causer_account_id,$receiver_account_id, $amount){
+        $causerAccountBalance = self::getMaxWidthDraw($causer_account_id);
+        $receiverAccountBalance = self::getMaxWidthDraw($receiver_account_id);
 
-            if($result >= 0){
+        if($amount > 0){
+            $resultCauser = $causerAccountBalance - $amount;
+            $resultReceiver = $receiverAccountBalance + $amount;
+
+            if($resultCauser >= 0 && $resultReceiver >= 0){
                 $accounts = new Accounts();
-                $accounts->updateAccountBalance($accountId,$result);
+                $accounts->updateAccountBalance($causer_account_id,$resultCauser);
+                $accounts->updateAccountBalance($receiver_account_id,$resultReceiver);
                 return true;
             }else{
                 return false;

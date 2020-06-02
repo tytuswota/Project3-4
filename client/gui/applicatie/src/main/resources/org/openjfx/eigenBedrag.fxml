@@ -7,68 +7,54 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="eigenBedrag" prefHeight="1080.0" prefWidth="1920.0" styleClass="bg" stylesheets="@../../style/Main.css"
-            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.openjfx.EigenBedragController">
+<AnchorPane id="eigenBedrag" prefHeight="1080.0" prefWidth="1920.0" styleClass="bg" stylesheets="@../../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.EigenBedragController">
     <children>
-        <TextField id="saldo" fx:id="saldoText" layoutX="740.0" layoutY="577.0" prefHeight="82.0" prefWidth="324.0"
-                   promptText="€00,00" styleClass="field" stylesheets="@../../style/Main.css">
+        <TextField id="saldo" fx:id="saldoText" layoutX="740.0" layoutY="577.0" prefHeight="82.0" prefWidth="324.0" promptText="€00,00" styleClass="field" stylesheets="@../../style/Main.css">
             <font>
-                <Font size="40.0"/>
+                <Font size="40.0" />
             </font>
             <opaqueInsets>
-                <Insets/>
+                <Insets />
             </opaqueInsets>
         </TextField>
-        <Button id="button" fx:id="corrigeren" contentDisplay="CENTER" layoutX="890.0" layoutY="870.0"
-                mnemonicParsing="false" onAction="#removeCharacter" styleClass="knop"
-                stylesheets="@../../style/Main.css" text="B" textAlignment="CENTER">
+        <Button id="button" fx:id="corrigeren" contentDisplay="CENTER" layoutX="890.0" layoutY="870.0" mnemonicParsing="false" onAction="#removeCharacter" styleClass="knop" stylesheets="@../../style/Main.css" text="B" textAlignment="CENTER">
             <font>
-                <Font size="60.0"/>
+                <Font size="60.0" />
             </font>
         </Button>
-        <Button id="button" fx:id="bevestigen" layoutX="1440.0" layoutY="870.0" mnemonicParsing="false"
-                onAction="#commitTransActions" styleClass="knop" stylesheets="@../../style/Main.css" text="#">
+        <Button id="button" fx:id="bevestigen" layoutX="1440.0" layoutY="870.0" mnemonicParsing="false" onAction="#commitTransActions" styleClass="knop" stylesheets="@../../style/Main.css" text="#">
             <font>
-                <Font size="60.0"/>
+                <Font size="60.0" />
             </font>
         </Button>
-        <Label fx:id="confirm" alignment="CENTER" layoutX="1365.0" layoutY="800.0" prefWidth="300.0"
-               text="lbl bevestigen" textFill="WHITE">
+        <Label fx:id="confirm" alignment="CENTER" layoutX="1365.0" layoutY="800.0" prefWidth="300.0" text="lbl bevestigen" textFill="WHITE">
             <font>
-                <Font size="42.0"/>
+                <Font size="40.0" />
             </font>
         </Label>
-        <Label fx:id="desiredAmount" alignment="CENTER" layoutX="721.0" layoutY="467.0" prefWidth="500.0" text="label"
-               textFill="WHITE">
+        <Label fx:id="desiredAmount" alignment="CENTER" layoutX="660.0" layoutY="467.0" prefWidth="600.0" text="label" textFill="WHITE">
             <font>
-                <Font size="42.0"/>
+                <Font size="45.0" />
             </font>
         </Label>
-        <Label fx:id="backspace" alignment="CENTER" layoutX="810.0" layoutY="800.0" prefWidth="300.0"
-               text="lbl corigeren" textFill="WHITE">
+        <Label fx:id="backspace" alignment="CENTER" layoutX="810.0" layoutY="800.0" prefWidth="300.0" text="lbl corigeren" textFill="WHITE">
             <font>
-                <Font size="42.0"/>
+                <Font size="40.0" />
             </font>
         </Label>
-        <Button id="button" fx:id="eigenBedragToMenu" layoutX="330.0" layoutY="870.0" mnemonicParsing="false"
-                onAction="#switchToMainMenu" styleClass="knop" stylesheets="@../../style/Main.css" text="*"
-                textAlignment="CENTER">
+        <Button id="button" fx:id="eigenBedragToMenu" layoutX="330.0" layoutY="870.0" mnemonicParsing="false" onAction="#switchToMainMenu" styleClass="knop" stylesheets="@../../style/Main.css" text="*" textAlignment="CENTER">
             <font>
-                <Font size="60.0"/>
+                <Font size="60.0" />
             </font>
         </Button>
-        <Label fx:id="menu" alignment="CENTER" layoutX="258.0" layoutY="800.0" prefHeight="62.0" prefWidth="300.0"
-               text="lbl main menu" textAlignment="CENTER" textFill="WHITE">
+        <Label fx:id="menu" alignment="CENTER" layoutX="258.0" layoutY="800.0" prefHeight="62.0" prefWidth="300.0" text="lbl main menu" textAlignment="CENTER" textFill="WHITE">
             <font>
-                <Font size="40.0"/>
+                <Font size="40.0" />
             </font>
         </Label>
-        <Label id="klok" fx:id="clockLabel" alignment="CENTER" layoutX="815.0" layoutY="60.0" prefHeight="160.0"
-               prefWidth="290.0" styleClass="clock" stylesheets="@../../style/Main.css" text="clock"
-               textAlignment="CENTER">
+        <Label id="klok" fx:id="clockLabel" alignment="CENTER" layoutX="815.0" layoutY="60.0" prefHeight="160.0" prefWidth="290.0" styleClass="clock" stylesheets="@../../style/Main.css" text="clock" textAlignment="CENTER">
             <font>
-                <Font size="40.0"/>
+                <Font size="40.0" />
             </font>
         </Label>
     </children>

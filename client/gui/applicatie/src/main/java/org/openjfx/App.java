@@ -56,7 +56,25 @@ public class App extends Application {
             if(node instanceof Label){
                 Label label = (Label)node;
                 String id = label.getId();
-                if(id != null && id.compareTo("message") == 0){
+                if(id != null && id.compareTo("saldoLaagId") == 0){
+                    label.setText(LanguageSystem.getString(message));
+                }
+            }
+        }
+        scene.setRoot(root);
+
+    }
+
+    static void showErrorScreenPin(String message) throws IOException {
+        // remove listeners to prevent from unexpected behaviour.
+        SerialReader.GetReader().removeListeners();
+        Parent root = loadFXML("pinFout");
+        var ch = root.getChildrenUnmodifiable();
+        for (Node node : ch) {
+            if (node instanceof Label) {
+                Label label = (Label) node;
+                String id = label.getId();
+                if (id != null && id.compareTo("pinErrorId") == 0) {
                     label.setText(LanguageSystem.getString(message));
                 }
             }

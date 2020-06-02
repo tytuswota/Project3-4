@@ -45,6 +45,8 @@ if($jwt){
             "error" => $e->getMessage()
         ));
     }
+}else{
+    echo "error no token";
 }
 
 

@@ -25,17 +25,17 @@
         </Button>
       <Label fx:id="mainMenu" alignment="CENTER" layoutX="481.0" layoutY="800.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="#ffffffe5">
          <font>
-            <Font size="43.0" />
+            <Font size="40.0" />
          </font>
       </Label>
       <Label fx:id="quit" alignment="CENTER" layoutX="1153.0" layoutY="800.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="#ffffffe5">
          <font>
-            <Font size="43.0" />
+            <Font size="40.0" />
          </font>
       </Label>
       <Label fx:id="yourBalance" alignment="CENTER" layoutX="712.0" layoutY="464.0" prefWidth="500.0" text="Label" textAlignment="CENTER" textFill="#ffffffe5">
          <font>
-            <Font size="43.0" />
+            <Font size="45.0" />
          </font>
       </Label>
         <Label id="klok" fx:id="clockLabel" alignment="CENTER" layoutX="815.0" layoutY="60.0" prefHeight="160.0" prefWidth="290.0" styleClass="clock" stylesheets="@../../style/Main.css" text="clock" textAlignment="CENTER" textFill="WHITE">
