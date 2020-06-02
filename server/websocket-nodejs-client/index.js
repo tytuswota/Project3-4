@@ -3,8 +3,8 @@
 // Connect to local running Gosbank server
 const LOCAL_DEBUG_MODE = true;
 
-// Your country code always 'SU'
-const COUNTRY_CODE = 'SU';
+// Your country code always 'SO'
+const COUNTRY_CODE = 'SO';
 
 // Your bank code
 const BANK_CODE = process.argv[2] || "DASB";
@@ -21,14 +21,12 @@ const wsServer = new WebSocket.Server({port: process.env.Port || 3000});
 
 var dataFromPhp = "";
 
-wsServer.on('connection', function(wss){
-    wss.on('message', function(message){
-
+wsServer.on('connection', function (wss) {
+    wss.on('message', function (message) {
+        console.log(message)
         dataFromPhp = message;
         connectToGosbank(wss);
     });
-
-
 });
 
 function parseAccountParts(account) {
@@ -47,14 +45,14 @@ function connectToGosbank(wss) {
         console.log("in request message");
         const id = Date.now();
         if (callback !== undefined) {
-            pendingCallbacks.push({ id: id, type: type + '_response', callback: callback });
+            pendingCallbacks.push({id: id, type: type + '_response', callback: callback});
         }
-        ws.send(JSON.stringify({ id: id, type: type, data: data }));
+        ws.send(JSON.stringify({id: id, type: type, data: data}));
     }
 
     function responseMessage(id, type, data) {
         console.log("in response message");
-        ws.send(JSON.stringify({ id: id, type: type + '_response', data: data }));
+        ws.send(JSON.stringify({id: id, type: type + '_response', data: data}));
     }
 
     function requestBalance(account, pin, callback) {
@@ -115,20 +113,33 @@ function connectToGosbank(wss) {
     }
 
 
-
     ws.on('open', function () {
-        console.log("in the open ws function");
+        let toSent = {
+            "id": 1586944886509,
+            "type": "register",
+            "data": {
+                "header": {
+                    "originCountry": "SO",
+                    "originBank": "DASB",
+                    "receiveCountry": "SO",
+                    "receiveBank": "GOSB"
+                },
+                "body": {}
+            }
+        }
+        ws.send(JSON.stringify(toSent));
+        /*console.log("in the open ws function");
         const {type, account, fromAccount, toAccount, pin, amount} = JSON.parse(dataFromPhp);
 
-        /*console.log("type: " + type);
+        /!*console.log("type: " + type);
         console.log("accountId: " + account);
-        console.log("pin: " + pin);*/
+        console.log("pin: " + pin);*!/
 
         requestMessage('register', {
             header: {
                 originCountry: COUNTRY_CODE,
                 originBank: BANK_CODE,
-                receiveCountry: 'SU',
+                receiveCountry: COUNTRY_CODE,
                 receiveBank: 'GOSB'
             },
             body: {}
@@ -173,10 +184,12 @@ function connectToGosbank(wss) {
                 console.log('Error with connecting to Gosbank, reason: ' + data.body.code);
             }
         });
+    */
     });
 
     ws.on('message', function (message) {
-        const { id, type, data } = JSON.parse(message);
+
+        const {id, type, data} = JSON.parse(message);
 
         for (var i = 0; i < pendingCallbacks.length; i++) {
             if (pendingCallbacks[i].id === id && pendingCallbacks[i].type === type) {
@@ -185,15 +198,29 @@ function connectToGosbank(wss) {
             }
         }
 
-        if(type == 'payment'){
+        if (data.body.fromAccount != undefined) {
+            requestToDasbank(id, type, data);
+        }
 
-            let account = data.body.fromAccount;
-            let pin = data.body.pin;
-            let session3 = new DasbankSession.DasbankSession(account, pin);
+        /*ws.on('close', function () {
+            console.log('Disconnected, try to reconnect in ' + (RECONNECT_TIMEOUT / 1000).toFixed(0) + ' seconds!');
+            setTimeout(connectToGosbank, RECONNECT_TIMEOUT);
+        });
 
-            setTimeout(()=>{
-                session3.createTransAction(data.body.amount,data.body.toAccount,data.body.fromAccount,function(data){
-                    responseMessage(id, 'balance', {
+        // Ingnore connecting errors reconnect in the close handler
+        ws.on('error', function (error) {
+        });*/
+    });
+
+
+    function requestToDasbank(id, type, data) {
+        let account = data.body.fromAccount;
+        let pin = data.body.pin;
+        let session = new DasbankSession.DasbankSession(account, pin,
+            function (code) {
+
+                if (code === '400') {
+                    responseMessage(id, type, {
                             header: {
                                 originCountry: COUNTRY_CODE,
                                 originBank: BANK_CODE,
@@ -201,70 +228,50 @@ function connectToGosbank(wss) {
                                 receiveBank: data.header.originBank
                             },
                             body: {
-                                code: 200
+                                code: 400
                             }
                         }
                     );
-                });
-            }, 2000);
-        }
-
-        if (type === 'balance') {
-            console.log('Balance request for: ' + data.body.account);
-            //todo
-            let account = data.body.account;
-            let pin = data.body.pin;
-            let session2 = new DasbankSession.DasbankSession(account,pin);
-
-            setTimeout(()=> {
-                session2.getBalance(function (balance) {
-                    responseMessage(id, 'balance', {
-                            header: {
-                                originCountry: COUNTRY_CODE,
-                                originBank: BANK_CODE,
-                                receiveCountry: data.header.originCountry,
-                                receiveBank: data.header.originBank
-                            },
-                            body: {
-                                code: 200,
-                                balance: parseFloat(parseInt(balance).toFixed(2))
+                    return;
+                }
+                if (type == 'payment') {
+                    session.createTransAction(data.body.amount, data.body.toAccount, data.body.fromAccount, function (result) {
+                        responseMessage(id, 'payment', {
+                                header: {
+                                    originCountry: COUNTRY_CODE,
+                                    originBank: BANK_CODE,
+                                    receiveCountry: data.header.originCountry,
+                                    receiveBank: data.header.originBank
+                                },
+                                body: {
+                                    code: result
+                                }
                             }
-                        }
-                    );
-                });
-            }, 2000)
+                        );
+                    });
+                }
 
+                if (type === 'balance') {
+                    console.log('Balance request for: ' + data.body.account);
 
-        }
-
-        if (type === 'payment') {
-            console.log('Payment request for: ' + data.body.toAccount);
-
-            // Add payment to database
-
-            setTimeout(function () {
-                responseMessage(id, 'payment', {
-                    header: {
-                        originCountry: COUNTRY_CODE,
-                        originBank: BANK_CODE,
-                        receiveCountry: data.header.originCountry,
-                        receiveBank: data.header.originBank
-                    },
-                    body: {
-                        code: 200
-                    }
-                });
-            }, Math.random() * 2000 + 500);
-        }
-    });
-
-    ws.on('close', function () {
-        console.log('Disconnected, try to reconnect in ' + (RECONNECT_TIMEOUT / 1000).toFixed(0) + ' seconds!');
-        setTimeout(connectToGosbank, RECONNECT_TIMEOUT);
-    });
-
-    // Ingnore connecting errors reconnect in the close handler
-    ws.on('error', function (error) {});
+                    session.getBalance(function (balance) {
+                        responseMessage(id, 'balance', {
+                                header: {
+                                    originCountry: COUNTRY_CODE,
+                                    originBank: BANK_CODE,
+                                    receiveCountry: data.header.originCountry,
+                                    receiveBank: data.header.originBank
+                                },
+                                body: {
+                                    code: 200,
+                                    balance: parseFloat(parseInt(balance).toFixed(2))
+                                }
+                            }
+                        );
+                    });
+                }
+            });
+    }
 }
 
-//connectToGosbank();
+connectToGosbank();

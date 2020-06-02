@@ -5,8 +5,8 @@ class DasbankSession {
     _account_id = '';
     _account_balance = '';
 
-    constructor(cardId, pincode) {
-        this.login(cardId, pincode)
+    constructor(cardId, pincode, handler) {
+        this.login(cardId, pincode, handler)
     }
 
     createTransAction(amount,toAccount,fromAccount,handler){
@@ -31,13 +31,14 @@ class DasbankSession {
         const req = http.request(options, res => {
 
             res.on('data', d => {
-                /*data = JSON.parse(d)
-                //console.log(data)
-                if (data !== null) {
-                    let reponse = data.account_balance;
-                    handler(reponse);
-                }*/
-            })
+                    // TODO Add all status codes.
+                    if (d ==="withdraw successful") {
+                        console.log(d)
+                        handler("200");
+                    } else {
+                        handler("400");
+                    }
+            });
         });
 
         req.on('error', error => {
@@ -47,6 +48,7 @@ class DasbankSession {
         req.write(data);
         req.end();
     }
+
     getBalance(handler) {
         let data = JSON.stringify({"jwt": this._jwtToken, "account_id": this._account_id});
         //console.log(`data to send ${data}`);
@@ -83,44 +85,7 @@ class DasbankSession {
         req.end();
     }
 
-    withdraw(handler, account) {
-        let data = JSON.stringify({"jwt": this._jwtToken, "causer_account_id": account, "receiver_account_id":this._account_id});
-        //console.log(`data to send ${data}`);
-        // todo change port and protecol to https
-        const options = {
-            hostname: 'dasbank.ml',
-            port: 80,
-            path: '/api/TransActions/withdraw.php',
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Content-Length': data.length
-            }
-        }
-
-        const req = http.request(options, res => {
-            console.log(`statusCode: ${res.statusCode}`);
-
-            res.on('data', d => {
-                // TODO Add all status codes.
-                if (String.compare(d,"withdraw successful") )
-                {
-                    handler("200");
-                }else {
-                    handler("400")
-                }
-            });
-        });
-
-        req.on('error', error => {
-            console.error(error)
-        });
-
-        req.write(data);
-        req.end();
-    }
-
-    login(cardId, pincode) {
+    login(cardId, pincode, handler) {
         console.log("===in the start login function");
         console.log(cardId);
         console.log(pincode);
@@ -143,15 +108,19 @@ class DasbankSession {
 
             res.on('data', d => {
                 try {
-                    data = JSON.parse(d)
-                    console.log(data)
-                    if (data.data !== null) {
-                        this._account_id = data.data.bank_account_id;
-                        this._jwtToken = data.jwt;
+                    console.log(d.toString())
+                    if(d !== "wrong pin") {
+                        data = JSON.parse(d)
+                        if (data.data !== null) {
+                            this._account_id = data.data.bank_account_id;
+                            this._jwtToken = data.jwt;
+                            handler('200');
+                        }
                     }
                 }catch (e) {
                     console.log(e)
                 }
+                handler('400');
             })
         });
 
@@ -164,9 +133,7 @@ class DasbankSession {
     }
 }
 
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+
 
 module.exports = {
     DasbankSession
