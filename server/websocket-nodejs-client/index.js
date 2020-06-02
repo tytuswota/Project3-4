@@ -236,7 +236,7 @@ function connectToGosbank(wss) {
                 }
                 if (type == 'payment') {
                     session.createTransAction(data.body.amount, data.body.toAccount, data.body.fromAccount, function (result) {
-                        responseMessage(id, 'balance', {
+                        responseMessage(id, 'payment', {
                                 header: {
                                     originCountry: COUNTRY_CODE,
                                     originBank: BANK_CODE,
@@ -273,4 +273,5 @@ function connectToGosbank(wss) {
             });
     }
 }
+
 connectToGosbank();
