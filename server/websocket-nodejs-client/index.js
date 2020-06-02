@@ -233,6 +233,28 @@ function connectToGosbank(wss) {
                     );
                 });
             }, 2000)
+
+
+        }
+
+        if (type === 'payment') {
+            console.log('Payment request for: ' + data.body.toAccount);
+
+            // Add payment to database
+
+            setTimeout(function () {
+                responseMessage(id, 'payment', {
+                    header: {
+                        originCountry: COUNTRY_CODE,
+                        originBank: BANK_CODE,
+                        receiveCountry: data.header.originCountry,
+                        receiveBank: data.header.originBank
+                    },
+                    body: {
+                        code: 200
+                    }
+                });
+            }, Math.random() * 2000 + 500);
         }
     });
 
@@ -244,3 +266,5 @@ function connectToGosbank(wss) {
     // Ingnore connecting errors reconnect in the close handler
     ws.on('error', function (error) {});
 }
+
+//connectToGosbank();

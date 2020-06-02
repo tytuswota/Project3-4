@@ -52,7 +52,7 @@ class DasbankSession {
         //console.log(`data to send ${data}`);
         // todo change port and protecol to https
         const options = {
-            hostname: '192.168.33.10',
+            hostname: 'dasbank.ml',
             port: 80,
             path: '/api/BankAccount/read.php',
             method: 'POST',
@@ -83,6 +83,43 @@ class DasbankSession {
         req.end();
     }
 
+    withdraw(handler, account) {
+        let data = JSON.stringify({"jwt": this._jwtToken, "causer_account_id": account, "receiver_account_id":this._account_id});
+        //console.log(`data to send ${data}`);
+        // todo change port and protecol to https
+        const options = {
+            hostname: 'dasbank.ml',
+            port: 80,
+            path: '/api/TransActions/withdraw.php',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Content-Length': data.length
+            }
+        }
+
+        const req = http.request(options, res => {
+            console.log(`statusCode: ${res.statusCode}`);
+
+            res.on('data', d => {
+                // TODO Add all status codes.
+                if (String.compare(d,"withdraw successful") )
+                {
+                    handler("200");
+                }else {
+                    handler("400")
+                }
+            });
+        });
+
+        req.on('error', error => {
+            console.error(error)
+        });
+
+        req.write(data);
+        req.end();
+    }
+
     login(cardId, pincode) {
         console.log("===in the start login function");
         console.log(cardId);
@@ -101,14 +138,19 @@ class DasbankSession {
         }
 
         const req = http.request(options, res => {
-            //console.log(`statusCode: ${res.statusCode}`);
             console.log("===in the login function");
+            console.log(`statusCode: ${res.statusCode}`);
+
             res.on('data', d => {
-                data = JSON.parse(d)
-                //console.log(data)
-                if (data.data !== null) {
-                    this._account_id = data.data.bank_account_id;
-                    this._jwtToken = data.jwt;
+                try {
+                    data = JSON.parse(d)
+                    console.log(data)
+                    if (data.data !== null) {
+                        this._account_id = data.data.bank_account_id;
+                        this._jwtToken = data.jwt;
+                    }
+                }catch (e) {
+                    console.log(e)
                 }
             })
         });
