@@ -27,7 +27,7 @@
                 <Font size="40.0" />
             </font>
         </Label>
-        <Label fx:id="quit" alignment="CENTER" layoutX="503.0" layoutY="785.0" prefHeight="74.0" prefWidth="290.0" text="afbreken_lbl" textFill="WHITE">
+        <Label fx:id="abort" alignment="CENTER" layoutX="503.0" layoutY="785.0" prefHeight="74.0" prefWidth="290.0" text="afbreken_lbl" textFill="WHITE">
             <font>
                 <Font size="40.0" />
             </font>

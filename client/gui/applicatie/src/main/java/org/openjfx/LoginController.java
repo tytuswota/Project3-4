@@ -17,7 +17,7 @@ public class LoginController extends BaseController {
 
     public void initialize() {
         enterPin.setText(LanguageSystem.getString("enterPin"));
-        quit.setText(LanguageSystem.getString("quit"));
+        abort.setText(LanguageSystem.getString("abort"));
         confirm.setText(LanguageSystem.getString("confirm"));
         backspace.setText(LanguageSystem.getString("backspace"));
     }
@@ -51,14 +51,14 @@ public class LoginController extends BaseController {
     }
 
     @FXML
-    Label quit;
+    Label abort;
     private int efforts = 0;
 
     @FXML
     public void switchToMainMenu() throws IOException {
 
         //        //"SU-DASB-00000002";
-        String cardId = "SU-DASB-00000001";//TODO veranderen naar SO
+        String cardId = "SO-DASB-00000001";//TODO veranderen naar SO
 
         JSONObject cardObject = SessionManager.getCard(cardId);
         if (cardObject.getString("active").equals("1")) {

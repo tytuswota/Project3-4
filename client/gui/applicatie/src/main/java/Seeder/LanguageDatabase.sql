@@ -8,7 +8,7 @@ insert into Translations values
 ("backspace","backspace","backspace","бекспейс"),
 ("confirm","bevestigen","confirm","подтверждения"),
 ("balance","saldo","balance", "баланс"),
-("quit","afbreken","quit", "прекращать"),
+("abort","afbreken","abort", "прекращать"),
 ("withdraw","pinnen","withdraw","qwertyuiodfghjkl;"),
 ("withdraw70","₽ 70 pinnen","₽ 70 withdraw", "₽ 70 изымать"),
 ("cardOut","neem uw pas uit","take your card out", "вытащи свою карточку"),

@@ -44,7 +44,7 @@ public class PasUitController extends BaseController {
                         switchToPassIn();
                         jemoeder = true;
 
-                    } catch (InterruptedException | IOException e) {
+                    } catch (InterruptedException | IOException | NullPointerException e) {
                         e.printStackTrace();
                     }
                 }

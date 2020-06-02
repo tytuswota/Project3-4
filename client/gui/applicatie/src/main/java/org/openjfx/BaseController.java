@@ -178,20 +178,21 @@ public class BaseController extends Thread {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            String clock = "dd/MM/yyyy\nHH:mm:ss";
+                            String clock = "dd/MM/yyyy\nHH:mm";
                             SimpleDateFormat date = new SimpleDateFormat(clock);
-                            String datestring = date.format(new Date());
+                            String dateString = date.format(new Date());
 
 
-                            clockLabel.setText(datestring);
+                            clockLabel.setText(dateString);
 
                         }
+
 
                     });
 
                     try {
                         Thread.sleep(1);
-                    } catch (InterruptedException e) {
+                    } catch (InterruptedException | NullPointerException  e) {
                         e.printStackTrace();
                     }
                 }
