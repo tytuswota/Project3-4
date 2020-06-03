@@ -16,7 +16,7 @@ public class SaldoController extends BaseController {
     Button afbreken;
 
     @FXML
-    Label quit;
+    Label abort;
     @FXML
     Label mainMenu;
     @FXML
@@ -24,12 +24,12 @@ public class SaldoController extends BaseController {
 
     @FXML
     public void initialize() {
-        quit.setText(LanguageSystem.getString("quit"));
+        abort.setText(LanguageSystem.getString("abort"));
         mainMenu.setText(LanguageSystem.getString("mainMenu"));
         yourBalance.setText(LanguageSystem.getString("yourBalance"));
         try {
             String balance = SessionManager.getSession().getBalance();
-            saldoField.setText("€ " + balance);
+            saldoField.setText(" ₽ " + balance);
         }catch (Exception e){
             saldoField.setText(LanguageSystem.getString("noConnection"));
         }

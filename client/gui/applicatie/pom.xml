@@ -56,6 +56,21 @@
                     <mainClass>org.openjfx.App</mainClass>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.moditect</groupId>
+                <artifactId>moditect-maven-plugin</artifactId>
+                <version>1.0.0.Beta2</version>
+                <executions>
+                    <execution>
+                        <id>generate-module-info</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-module-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>

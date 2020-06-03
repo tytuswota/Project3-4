@@ -9,6 +9,8 @@ include_once '../../libs/php-jwt-master/src/SignatureInvalidException.php';
 include_once '../../libs/php-jwt-master/src/JWT.php';
 include_once '../Config.php';
 
+use \Firebase\JWT\JWT;
+
 // required headers
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -19,7 +21,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 $incomingData = json_decode(file_get_contents("php://input"));
 
-$jwt=isset($inputData->jwt) ? $inputData->jwt : "";
+$jwt=isset($incomingData->jwt) ? $incomingData->jwt : "";
 
 if($jwt){
     try{

@@ -34,7 +34,7 @@ if($jwt){
         $trans = new Transactions();
         $trans->createTransaction($val);
 
-        if(TransactionController::withdraw($inputData->receiver_account_id,$amount)){
+        if(TransactionController::withdraw($inputData->causer_account_id, $inputData->receiver_account_id, $amount)){
             echo "withdraw successful";
         }else{
             echo "could not withdraw";
@@ -45,6 +45,8 @@ if($jwt){
             "error" => $e->getMessage()
         ));
     }
+}else{
+    echo "error no token";
 }
 
 

@@ -25,10 +25,6 @@
     -fx-background-image: url("../fotos/eigenBedrag.jpg") no-repeat;
 }
 
-#pasUit.bg {
-    -fx-background-image: url("../fotos/pasuit.jpg") no-repeat;
-}
-
 #bon.bg {
     -fx-background-image: url("../fotos/bon.jpg") no-repeat;
 }
@@ -37,8 +33,16 @@
     -fx-background-image: url("../fotos/biljetOpties.jpg") no-repeat;
 }
 
-#error.bg {
-    -fx-background-image: url("../fotos/error2.0.jpg") no-repeat;
+#saldoLaag.bg {
+    -fx-background-image: url("../fotos/saldoLaag2.0.jpg") no-repeat;
+}
+
+#pinFout.bg {
+    -fx-background-image: url("../fotos/pinFout2.0.jpg") no-repeat;
+}
+
+#pasUit.bg {
+    -fx-background-image: url("../fotos/pasuit.jpg") no-repeat;
 }
 
 #simulatie.bg {
@@ -83,12 +87,20 @@
     -fx-font-size: 60;
 }
 
-#error.field {
+#saldoLaagId.field {
     -fx-background-color: white;
     -fx-background-radius: 10px;
     -fx-border-width: 5px;
     -fx-border-radius: 10px;
 
+}
+
+#pinErrorId.field {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-pref-height: 106px;
+    -fx-pref-width: 617px;
+    -fx-border-width: 5px;
 }
 
 #klok.clock .text {

@@ -30,22 +30,22 @@
         </Button>
       <Label fx:id="balance" alignment="CENTER" layoutX="308.0" layoutY="215.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="42.0" />
+            <Font size="40.0" />
          </font>
       </Label>
-      <Label fx:id="quit" alignment="CENTER" layoutX="308.0" layoutY="415.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="abort" alignment="CENTER" layoutX="308.0" layoutY="415.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="42.0" />
+            <Font size="40.0" />
          </font>
       </Label>
       <Label fx:id="withdraw" alignment="CENTER" layoutX="1310.0" layoutY="215.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="42.0" />
+            <Font size="40.0" />
          </font>
       </Label>
       <Label fx:id="withdraw70" alignment="CENTER" layoutX="1310.0" layoutY="413.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="42.0" />
+            <Font size="40.0" />
          </font>
       </Label>
         <Label id="klok" fx:id="clockLabel" alignment="CENTER" layoutX="815.0" layoutY="60.0" prefHeight="160.0" prefWidth="290.0" styleClass="clock" stylesheets="@../../style/Main.css" text="clock" textAlignment="CENTER">

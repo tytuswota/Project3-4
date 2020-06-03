@@ -26,7 +26,7 @@
         </Button>
         <Label fx:id="enterPin" alignment="CENTER" contentDisplay="CENTER" layoutX="710.0" layoutY="478.0" maxHeight="-Infinity" prefWidth="500.0" text="Label" textAlignment="CENTER" textFill="WHITE">
             <font>
-                <Font size="42.0" />
+                <Font size="45.0" />
             </font>
         </Label>
       <Button id="button" fx:id="btBackspace" layoutX="860.0" layoutY="870.0" mnemonicParsing="false" onAction="#removeCharacter" prefHeight="114.0" prefWidth="186.0" styleClass="knop" stylesheets="@../../style/Main.css" text="B">
@@ -36,20 +36,20 @@
       </Button>
       <Label fx:id="confirm" alignment="CENTER" contentDisplay="CENTER" layoutX="1365.0" layoutY="800.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="42.0" />
+            <Font size="40.0" />
          </font>
       </Label>
-      <Label fx:id="quit" alignment="CENTER" contentDisplay="CENTER" layoutX="260.0" layoutY="800.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="abort" alignment="CENTER" contentDisplay="CENTER" layoutX="260.0" layoutY="800.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="42.0" />
+            <Font size="40.0" />
          </font>
       </Label>
       <Label fx:id="backspace" alignment="CENTER" contentDisplay="CENTER" layoutX="810.0" layoutY="800.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="42.0" />
+            <Font size="40.0" />
          </font>
       </Label>
-        <Label id="klok" fx:id="clockLabel" layoutX="815.0" layoutY="60.0" prefHeight="160.0" prefWidth="290.0" styleClass="clock" stylesheets="@../../style/Main.css" text="clock" textAlignment="CENTER">
+        <Label id="klok" fx:id="clockLabel" alignment="CENTER" layoutX="815.0" layoutY="60.0" prefHeight="160.0" prefWidth="290.0" styleClass="clock" stylesheets="@../../style/Main.css" text="clock" textAlignment="CENTER">
             <font>
                 <Font size="40.0" />
             </font>

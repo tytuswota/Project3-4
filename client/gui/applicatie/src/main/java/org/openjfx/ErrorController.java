@@ -12,31 +12,30 @@ public class ErrorController extends BaseController {
     @FXML
     public void initialize() {
         goBack.setText(LanguageSystem.getString("goBack"));
-        quit.setText(LanguageSystem.getString("quit"));
-        mainMenu.setText(LanguageSystem.getString("mainMenu"));
-        message.setText(LanguageSystem.getString("saldoLaag"));
+        abort.setText(LanguageSystem.getString("abort"));
+        if (mainMenu != null) {
+            mainMenu.setText(LanguageSystem.getString("mainMenu"));
+        }
     }
 
     @FXML
-    Label message;
+    Label abort;
 
     @FXML
-    Button BTgoBack;
+    Label mainMenu;
 
     @FXML
     Label goBack;
 
     @FXML
-    Button BTquit;
+    Button BTgoBack;
 
     @FXML
-    Label quit;
+    Button BTquit;
 
     @FXML
     Button BTmainMenu;
 
-    @FXML
-    Label mainMenu;
 
     @FXML
     public void goBack() throws IOException {
@@ -46,17 +45,17 @@ public class ErrorController extends BaseController {
     @Override
     public void KeyPressEventHandler(char key) {
         try {
-            if(key == '#'){
+            if (key == '#') {
                 goBack();
             }
-            if(key == '*'){
+            if (key == '*') {
                 switchToPasUit();
             }
-            if (key == 'A'){
+            if (key == 'A') {
                 switchToMainMenu();
             }
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

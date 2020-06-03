@@ -18,7 +18,7 @@ public class SessionManager extends ConnectionManager{
     private final String JWT;
 
     public static void main(String[] args) {
-        System.out.println(SessionManager.getCard("SU-DASB-00000001"));
+        System.out.println(SessionManager.getCard("SU-DASB-00000001"));//TODO veranderen naar So
         /*if(con != null){
             System.out.println("account: " + con.getAccountname() + " ,balance: " + con.getBalance());
             con.withdraw(new SetOfBanknotes(1,2,0));
@@ -95,6 +95,7 @@ public class SessionManager extends ConnectionManager{
         JSONObject jsonObj = loadData("BankAccount/read.php", accountData);
 
         return jsonObj.getString("account_balance");
+
     }
 
     public void blockPass(String dankId){

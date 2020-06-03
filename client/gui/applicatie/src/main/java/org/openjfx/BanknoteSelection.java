@@ -10,26 +10,9 @@ import model.SetOfBanknotes;
 import java.io.IOException;
 
 public class BanknoteSelection extends BaseController {
-    public static int BNote;
-    public static int banknote1;
-    public static int banknote2;
-    public static int banknote3;
     public static int[][] banknoteArray = null;
-    static boolean option_1 = false;
-    static boolean option_2 = false;
-    static boolean option_3 = false;
 
 
-
-    public static int getBanknote1(){
-        return banknote1;
-    }
-    public static int getBanknote2(){
-        return banknote2;
-    }
-    public static int getBanknote3(){
-        return banknote3;
-    }
     @FXML
     Button optie_1;
 
@@ -43,16 +26,29 @@ public class BanknoteSelection extends BaseController {
     Button menu;
 
     @FXML
-    Label lbl_optie_1;
+    Label lbl_optie_1_10;
 
     @FXML
-    Label lbl_optie_2;
+    Label lbl_optie_2_10;
 
     @FXML
-    Label lbl_optie_3;
+    Label lbl_optie_2_20;
+
+    @FXML
+    Label lbl_optie_2_50;
+
+    @FXML
+    Label lbl_optie_3_10;
+
+    @FXML
+    Label lbl_optie_3_20;
+
+    @FXML
+    Label lbl_optie_3_50;
 
     @FXML
     Label lbl_menu;
+
 
     int biljet = 0;
 
@@ -63,27 +59,34 @@ public class BanknoteSelection extends BaseController {
                 if (banknoteArray[bill][combo] != 0) {
 
                     if (combo == 0) {
-                        lbl_optie_1.setText("₽10 * " + (banknoteArray[0][combo]) + " + ₽20 * " + (banknoteArray[1][combo]) + "+ ₽50 * " + (banknoteArray[2][combo]));
-                        lbl_optie_1.setTextFill(Color.GREEN);
+                        if (banknoteArray[0][combo] != 0) {
+                            lbl_optie_1_10.setText("₽10 X " + (banknoteArray[0][combo]));
+                        }
                     }
                     if (combo == 1) {
-                        lbl_optie_2.setText("₽10 * " + (banknoteArray[0][combo]) + " + ₽20 * " + (banknoteArray[1][combo]) + " + ₽50 * " + (banknoteArray[2][combo]));
+                        if (banknoteArray[0][combo] != 0) {
+                            lbl_optie_2_10.setText("₽10 X " + (banknoteArray[0][combo]));
+                            lbl_optie_2_20.setText("₽20 X " + (banknoteArray[1][combo]));
+                            lbl_optie_2_50.setText("₽50 X " + (banknoteArray[2][combo]));
+                        }
                     }
                     if (combo == 2) {
-                        lbl_optie_3.setText("₽10 * " + (banknoteArray[0][combo]) + " + ₽20 * " + (banknoteArray[1][combo]) + " + ₽50 * " + (banknoteArray[2][combo]));
+                        if (banknoteArray[0][combo] != 0) {
+                            lbl_optie_3_10.setText("₽10 X " + (banknoteArray[0][combo]));
+                            lbl_optie_3_20.setText("₽20 X " + (banknoteArray[1][combo]));
+                            lbl_optie_3_50.setText("₽50 X " + (banknoteArray[2][combo]));
+                        }
                     }
                     lbl_menu.setText(LanguageSystem.getString("menu"));
                 }
             }
         }
-
     }
 
     // biljet opties die je krijgt als je gaat pinnen.
     @FXML
     private void optie1() throws IOException {
         SetOfBanknotes banknotes = new SetOfBanknotes(banknoteArray[0][0], banknoteArray[1][0], banknoteArray[2][0]);
-        option_1= true;
         withdraw(banknotes);
     }
 
@@ -91,15 +94,12 @@ public class BanknoteSelection extends BaseController {
     @FXML
     public void optie2() throws IOException {
         SetOfBanknotes banknotes = new SetOfBanknotes(banknoteArray[0][1], banknoteArray[1][1], banknoteArray[2][1]);
-        option_2= true;
         withdraw(banknotes);
-
     }
 
 
     @FXML
     public void optie3() throws IOException {
-        option_3 = true;
         SetOfBanknotes banknotes = new SetOfBanknotes(banknoteArray[0][2], banknoteArray[1][2], banknoteArray[2][2]);
         withdraw(banknotes);
     }
@@ -107,21 +107,14 @@ public class BanknoteSelection extends BaseController {
     public void KeyPressEventHandler(char key) {
         try {
 
-            if (key == 'A') {
-
+            if (key == 'A' && banknoteArray[0][0] != 0) {
                 optie1();
-
-
             }
             if (key == 'B') {
-
                 optie2();
-
             }
             if (key == 'C') {
-
                 optie3();
-
             }
             if (key == '*') {
                 switchToMainMenu();
@@ -130,36 +123,6 @@ public class BanknoteSelection extends BaseController {
 
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-    public static void print(){
-        if ( option_1 == true){
-            System.out.println("₽10 is " + (banknoteArray[0][0]+" keer uitgeworpen."));
-            banknote1 = banknoteArray[0][0];
-            System.out.println("₽20 is " + (banknoteArray[1][0]+" keer uitgeworpen."));
-            banknote2 = banknoteArray[1][0];
-            System.out.println("₽50 is " + (banknoteArray[2][0]+" keer uitgeworpen."));
-            banknote3 = banknoteArray[2][0];
-            option_1 = false;
-        }
-        else if(option_2 == true)
-        {
-            System.out.println("₽10 is " + (banknoteArray[0][1]+" keer uitgeworpen."));
-            banknote1 = banknoteArray[0][1];
-            System.out.println("₽20 is " + (banknoteArray[1][1]+" keer uitgeworpen."));
-            banknote2 = banknoteArray[1][1];
-            System.out.println("₽50 is " + (banknoteArray[2][1]+" keer uitgeworpen."));
-            banknote3 = banknoteArray[2][1];
-            option_2 = false;
-        }
-        else if(option_3 == true){
-            System.out.println("₽10 is " + (banknoteArray[0][2]+" keer uitgeworpen."));
-            banknote1 = banknoteArray[0][2];
-            System.out.println("₽20 is " + (banknoteArray[1][2]+" keer uitgeworpen."));
-            banknote2 = banknoteArray[1][2];
-            System.out.println("₽50 is " + (banknoteArray[2][2]+" keer uitgeworpen."));
-            banknote3 = banknoteArray[2][2];
-            option_3 = false;
         }
     }
 }
