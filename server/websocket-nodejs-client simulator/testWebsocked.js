@@ -39,9 +39,9 @@ ws.on('open', function () {
     }
 
     ws.send(JSON.stringify(toSent));
-    /*
+
     toSent = {
-        "id": 1586944886599,
+        "id": 1586944886559,
         "type": "payment",
         "data": {
             "header": {
@@ -61,7 +61,7 @@ ws.on('open', function () {
 
     ws.send(JSON.stringify(toSent));
 
-     */
+
 });
 
 ws.on('message', function(message){

@@ -144,7 +144,7 @@ function connectToGosbank(wss) {
             }
         }
 
-        if (data.body.account != undefined) {
+        if (data.body.account != undefined || data.body.toAccount) {
             requestToDasbank(id, type, data);
         }
 
@@ -161,6 +161,9 @@ function connectToGosbank(wss) {
 
     function requestToDasbank(id, type, data) {
         let account = data.body.account;
+        if (account === undefined){
+            account = data.body.fromAccount;
+        }
         let pin = data.body.pin;
         let session = new DasbankSession.DasbankSession(account, pin,
             function (code) {
