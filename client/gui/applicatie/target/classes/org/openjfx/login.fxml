@@ -39,7 +39,7 @@
             <Font size="40.0" />
          </font>
       </Label>
-      <Label fx:id="quit" alignment="CENTER" contentDisplay="CENTER" layoutX="260.0" layoutY="800.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="abort" alignment="CENTER" contentDisplay="CENTER" layoutX="260.0" layoutY="800.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font>

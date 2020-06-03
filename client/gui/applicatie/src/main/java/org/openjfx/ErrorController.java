@@ -12,14 +12,14 @@ public class ErrorController extends BaseController {
     @FXML
     public void initialize() {
         goBack.setText(LanguageSystem.getString("goBack"));
-        quit.setText(LanguageSystem.getString("quit"));
+        abort.setText(LanguageSystem.getString("abort"));
         if (mainMenu != null) {
             mainMenu.setText(LanguageSystem.getString("mainMenu"));
         }
     }
 
     @FXML
-    Label quit;
+    Label abort;
 
     @FXML
     Label mainMenu;
