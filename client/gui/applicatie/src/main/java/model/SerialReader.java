@@ -6,6 +6,8 @@ package model;
 
 import com.fazecast.jSerialComm.*;
 import org.json.*;
+
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Consumer;
@@ -18,7 +20,9 @@ public class SerialReader {
     private Set<Consumer<String>> RFIDListeners = new HashSet();
 
     // Test method
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException {
+
+
         SerialReader reader = SerialReader.GetReader();
         reader.addKeyPadListener((x) -> System.out.println("key " + x));
         reader.addRFIDListener((x) -> System.out.println("rfid " + x));

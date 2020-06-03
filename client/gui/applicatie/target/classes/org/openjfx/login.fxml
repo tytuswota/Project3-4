@@ -10,9 +10,9 @@
     <children>
 
         <PasswordField id="pin" fx:id="pin" layoutX="740.0" layoutY="577.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="114.0" prefWidth="353.0" styleClass="field" stylesheets="@../../style/Main.css">
-         <font>
-            <Font size="45.0" />
-         </font></PasswordField>
+            <font>
+                <Font size="45.0" />
+            </font></PasswordField>
 
         <Button id="button" fx:id="bevestigen" layoutX="1420.0" layoutY="870.0" mnemonicParsing="false" onAction="#switchToMainMenu" prefHeight="114.0" prefWidth="194.0" styleClass="knop" stylesheets="@../../style/Main.css" text="#">
             <font>
@@ -29,26 +29,26 @@
                 <Font size="45.0" />
             </font>
         </Label>
-      <Button id="button" fx:id="btBackspace" layoutX="860.0" layoutY="870.0" mnemonicParsing="false" onAction="#removeCharacter" prefHeight="114.0" prefWidth="186.0" styleClass="knop" stylesheets="@../../style/Main.css" text="B">
-         <font>
-            <Font size="60.0" />
-         </font>
-      </Button>
-      <Label fx:id="confirm" alignment="CENTER" contentDisplay="CENTER" layoutX="1365.0" layoutY="800.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
-      <Label fx:id="abort" alignment="CENTER" contentDisplay="CENTER" layoutX="260.0" layoutY="800.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
-      <Label fx:id="backspace" alignment="CENTER" contentDisplay="CENTER" layoutX="810.0" layoutY="800.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="40.0" />
-         </font>
-      </Label>
+        <Button id="button" fx:id="btBackspace" layoutX="860.0" layoutY="870.0" mnemonicParsing="false" onAction="#removeCharacter" prefHeight="114.0" prefWidth="186.0" styleClass="knop" stylesheets="@../../style/Main.css" text="B">
+            <font>
+                <Font size="60.0" />
+            </font>
+        </Button>
+        <Label fx:id="confirm" alignment="CENTER" contentDisplay="CENTER" layoutX="1365.0" layoutY="800.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font size="40.0" />
+            </font>
+        </Label>
+        <Label fx:id="abort" alignment="CENTER" contentDisplay="CENTER" layoutX="260.0" layoutY="800.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font size="40.0" />
+            </font>
+        </Label>
+        <Label fx:id="backspace" alignment="CENTER" contentDisplay="CENTER" layoutX="810.0" layoutY="800.0" prefWidth="300.0" text="Label" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font size="40.0" />
+            </font>
+        </Label>
         <Label id="klok" fx:id="clockLabel" alignment="CENTER" layoutX="815.0" layoutY="60.0" prefHeight="160.0" prefWidth="290.0" styleClass="clock" stylesheets="@../../style/Main.css" text="clock" textAlignment="CENTER">
             <font>
                 <Font size="40.0" />

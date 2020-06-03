@@ -37,12 +37,12 @@ public class PasUitController extends BaseController {
             @Override
             public void run() {
 
-                boolean jemoeder = false;
-                while (!jemoeder) {
+                boolean change = false;
+                while (!change) {
                     try {
                         Thread.sleep(2000);
                         switchToPassIn();
-                        jemoeder = true;
+                        change = true;
 
                     } catch (InterruptedException | IOException | NullPointerException e) {
                         e.printStackTrace();

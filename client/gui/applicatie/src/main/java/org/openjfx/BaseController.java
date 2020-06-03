@@ -22,6 +22,18 @@ Contains the shared features of the controllers.
 public class BaseController extends Thread {
 
     protected static SerialReader reader = SerialReader.GetReader();
+    private static int totBedrag;
+    private static String TBedrag;
+    private static String dateString;
+
+    public static String getTBedrag() {
+        TBedrag= Integer.toString(totBedrag);
+        return TBedrag;
+    }
+    public static String getDateString(){
+        return dateString;
+    }
+
 
     // Constructor
     public BaseController() {
@@ -32,6 +44,7 @@ public class BaseController extends Thread {
             RFIDEventHandler(x);
         });
         clock();
+
     }
 
     private void baseKeyPressEventHandler(String key) {
@@ -61,6 +74,11 @@ public class BaseController extends Thread {
     }
 
     @FXML
+    public void switchToSimulatie() throws IOException {
+        App.setRoot("simulatie");
+    }
+
+    @FXML
     Label clockLabel;
 
     public void withdraw(SetOfBanknotes banknotes) throws IOException {
@@ -77,6 +95,8 @@ public class BaseController extends Thread {
             System.out.println("BanknotesAvailable.");
         } else {
             if (withdrawer.withdraw(banknotes)) {
+                totBedrag= banknotes.getTotalAmount();
+                System.out.println(totBedrag);
                 App.setRoot("bon");
             } else {
                 App.showErrorScreen("Opnemen mislukt.");
@@ -99,6 +119,7 @@ public class BaseController extends Thread {
             System.out.println("BanknotesAvailable.");
         } else {
             if (withdrawer.withdraw(banknotes)) {
+                totBedrag= banknotes.getTotalAmount();
                 App.setRoot("pasUit");
             } else {
                 App.showErrorScreen("Opnemen mislukt.");
@@ -180,10 +201,10 @@ public class BaseController extends Thread {
                         public void run() {
                             String clock = "dd/MM/yyyy\nHH:mm";
                             SimpleDateFormat date = new SimpleDateFormat(clock);
-                            String dateString = date.format(new Date());
+                            dateString = date.format(new Date());
 
 
-                            clockLabel.setText(dateString);
+//                            clockLabel.setText(dateString);
 
                         }
 
