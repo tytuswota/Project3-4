@@ -196,22 +196,23 @@ public class BaseController extends Thread {
 
                 while (true) {
 
-                    Platform.runLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            String clock = "dd/MM/yyyy\nHH:mm";
-                            SimpleDateFormat date = new SimpleDateFormat(clock);
-                            dateString = date.format(new Date());
 
-
-//                            clockLabel.setText(dateString);
-
-                        }
-
-
-                    });
 
                     try {
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                String clock = "dd/MM/yyyy\nHH:mm";
+                                SimpleDateFormat date = new SimpleDateFormat(clock);
+                                dateString = date.format(new Date());
+
+
+                            clockLabel.setText(dateString);
+
+                            }
+
+
+                        });
                         Thread.sleep(1);
                     } catch (InterruptedException | NullPointerException  e) {
                         e.printStackTrace();

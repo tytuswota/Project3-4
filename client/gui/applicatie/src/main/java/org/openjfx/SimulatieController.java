@@ -48,12 +48,12 @@ public class SimulatieController extends BaseController{
             @Override
             public void run() {
 
-                boolean jemoeder = false;
-                while (!jemoeder) {
+                boolean change = false;
+                while (!change) {
                     try {
                         Thread.sleep(5000);
                         switchToPasUit();
-                        jemoeder = true;
+                        change = true;
 
                     } catch (InterruptedException | IOException | NullPointerException e) {
                         e.printStackTrace();

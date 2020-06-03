@@ -30,6 +30,12 @@
        <Label layoutX="533.0" layoutY="791.0" stylesheets="@../../style/Main.css" text="afbreken">
            <font>
                <Font size="48.0" />
-           </font></Label>
+           </font>
+       </Label>
+      <Label id="klok" fx:id="clockLabel" alignment="CENTER" layoutX="815.0" layoutY="60.0" prefHeight="160.0" prefWidth="290.0" styleClass="clock" stylesheets="@../../style/Main.css" text="clock" textAlignment="CENTER">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
