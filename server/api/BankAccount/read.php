@@ -14,7 +14,11 @@ include_once '../../libs/php-jwt-master/src/ExpiredException.php';
 include_once '../../libs/php-jwt-master/src/SignatureInvalidException.php';
 include_once '../../libs/php-jwt-master/src/JWT.php';
 include_once '../Config.php';
+include_once '../../Core/WebsocketClient/Websocket.php';
+
 use \Firebase\JWT\JWT;
+
+const BankCode = "DASB";
 
 $accounts = new Accounts();
 
@@ -25,6 +29,9 @@ $jwt=isset($inputData->jwt) ? $inputData->jwt : "";
 //this should be somewhere else
 
 if($jwt){
+    if(strpos($inputData->causer_id, BankCode) !== false){
+
+    }
     try {
         // decode jwt
         $decoded = JWT::decode($jwt, config::$key, array('HS256'));
