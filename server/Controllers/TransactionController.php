@@ -27,18 +27,6 @@ class TransactionController extends BaseController
             }
         }
 
-        if(strpos($receiver_account_id, BankCode) !== false){
-            $receiverAccountBalance = self::getMaxWidthDraw($receiver_account_id);
-            $resultReceiver = $receiverAccountBalance + $amount;
-            if($resultReceiver >= 0){
-                $accounts = new Accounts();
-                $accounts->updateAccountBalance($receiver_account_id,$resultReceiver);
-                return true;
-            }else{
-                return false;
-            }
-        }
-
         if(strpos($causer_account_id, BankCode) === false || strpos($receiver_account_id, BankCode) === false){
             $webSocketClient = new Websocket();
 
@@ -51,7 +39,14 @@ class TransactionController extends BaseController
             ));
 
             $response = $webSocketClient->sendToclient($jsonForGos);
-            if($response->status == 200){
+        }
+
+        if(strpos($receiver_account_id, BankCode) !== false){
+            $receiverAccountBalance = self::getMaxWidthDraw($receiver_account_id);
+            $resultReceiver = $receiverAccountBalance + $amount;
+            if($resultReceiver >= 0){
+                $accounts = new Accounts();
+                $accounts->updateAccountBalance($receiver_account_id,$resultReceiver);
                 return true;
             }else{
                 return false;
