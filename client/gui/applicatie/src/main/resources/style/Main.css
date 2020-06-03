@@ -45,6 +45,10 @@
     -fx-background-image: url("../fotos/pasuit.jpg") no-repeat;
 }
 
+#simulatie.bg {
+    -fx-background-image: url("../fotos");
+}
+
 #button.knop {
     -fx-background-radius: 15px;
     -fx-min-width: 150px;

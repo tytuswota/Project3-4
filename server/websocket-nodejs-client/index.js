@@ -230,7 +230,6 @@ function connectToGosbank(wss) {
         console.log("accountId: " + account);
         console.log("pin: " + pin);
 
-
         requestMessage('register', {
             header: {
                 originCountry: COUNTRY_CODE,
@@ -266,10 +265,17 @@ function connectToGosbank(wss) {
 
                 if (type == 'payment') {
                     requestPayment(fromAccount, toAccount, pin, amount, function (data) {
+                        var json = new Object();
                         if (data.body.code == 200) {
                             console.log('Payment accepted');
+                            json.status = data.body.code;
+                            json.message = "payment accepted";
+                            wss.send(JSON.stringify(json));
                         } else {
                             console.log('Payment error: ' + data.body.code);
+                            json.status = data.body.code;
+                            json.message = "payment error";
+                            wss.send(JSON.stringify(json));
                         }
                     });
                 }
