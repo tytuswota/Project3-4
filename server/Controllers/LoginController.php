@@ -69,25 +69,21 @@ class LoginController
                }else{
                    echo json_encode(
                        array(
-                           array(
                                "data" => array(
                                    "bank_account_id" => $loginData->account
                                ),
                            "jwt" => "",
                            "status" => 403
-                       )
                    ));
                }
                }else{
                echo json_encode(
                    array(
-                       array(
                            "data" => array(
                                "bank_account_id" => $loginData->account
                            ),
                        "jwt" => "",
                        "status" => 401
-                   )
                ));
                }
        }else{
