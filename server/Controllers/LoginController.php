@@ -71,7 +71,7 @@ class LoginController
                        array(
                            "data" => $loginData->card_id,
                            "jwt" => "",
-                           "status" => 401
+                           "status" => 403
                        )
                    );
                }
@@ -80,7 +80,7 @@ class LoginController
                    array(
                        "data" => $loginData->card_id,
                        "jwt" => "",
-                       "status" => 403
+                       "status" => 401
                    )
                );
                }

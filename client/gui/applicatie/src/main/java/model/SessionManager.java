@@ -17,7 +17,7 @@ public class SessionManager extends ConnectionManager{
     private static SessionManager session;
     private final String accountname;
     private final String JWT;
-    private final String status;
+    private final int status;
 
     public static void main(String[] args) {
         //System.out.println(SessionManager.getCard("SO-DASB-00000001"));//TODO veranderen naar So
@@ -29,7 +29,7 @@ public class SessionManager extends ConnectionManager{
     }
 
     // Private default constructor
-    private SessionManager(String accountname, String jwt, String status) {
+    private SessionManager(String accountname, String jwt, int status) {
         this.accountname = accountname;
         this.JWT = jwt;
         this.status = status;
@@ -46,7 +46,7 @@ public class SessionManager extends ConnectionManager{
 
             JSONObject jsonObj = loadData("Login/login.php", jsonCardData);  // TODO use https connection
             System.out.println(jsonObj);
-            session = new SessionManager(jsonObj.getJSONObject("data").getString("bank_account_id"), jsonObj.getString("jwt"), jsonCardData.getString("status"));
+            session = new SessionManager(jsonObj.getJSONObject("data").getString("bank_account_id"), jsonObj.getString("jwt"), jsonObj.getInt("status"));
             return session;
 
         } catch (Exception e) {
@@ -86,7 +86,7 @@ public class SessionManager extends ConnectionManager{
         return true;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
