@@ -25,7 +25,7 @@ wsServer.on('connection', function (wss) {
     wss.on('message', function (message) {
         console.log(message)
         dataFromPhp = message;
-        connectToGosbank(wss);
+        dasbankRequestHandler();
     });
 });
 
@@ -128,63 +128,7 @@ function connectToGosbank(wss) {
             }
         }
         ws.send(JSON.stringify(toSent));
-        /*console.log("in the open ws function");
-        const {type, account, fromAccount, toAccount, pin, amount} = JSON.parse(dataFromPhp);
 
-        /!*console.log("type: " + type);
-        console.log("accountId: " + account);
-        console.log("pin: " + pin);*!/
-
-        requestMessage('register', {
-            header: {
-                originCountry: COUNTRY_CODE,
-                originBank: BANK_CODE,
-                receiveCountry: COUNTRY_CODE,
-                receiveBank: 'GOSB'
-            },
-            body: {}
-        }, function (data) {
-            if (data.body.code === 200) {
-                console.log('Connected with Gosbank with bank code: ' + BANK_CODE);
-
-                if(type === 'balance'){
-                    requestBalance(account, pin, function (data) {
-                        if (data.body.code === 200) {
-                            var json = new Object();
-                            json.status = data.body.code;
-                            json.dataType = "balance";
-                            json.account = account;
-                            json.balance = data.body.balance;
-                            wss.send(JSON.stringify(json));
-                        }
-                        else {
-                            var json = new Object();
-                            json.status = data.body.code;
-                            json.dataType = "balance error"
-                            wss.send(JSON.stringify(json));
-                        }
-                    });
-                }
-
-                //receiver acount id = to_acount
-                //causer account id = from_account
-
-                if(type == 'payment'){
-                    requestPayment(fromAccount, toAccount, pin, amount, function(data){
-                        if(data.body.code == 200){
-                            console.log('Payment accepted');
-                        }else{
-                            console.log('Payment error: ' + data.body.code);
-                        }
-                    });
-                }
-
-            }
-            else {
-                console.log('Error with connecting to Gosbank, reason: ' + data.body.code);
-            }
-        });
-    */
     });
 
     ws.on('message', function (message) {
@@ -272,6 +216,65 @@ function connectToGosbank(wss) {
                 }
             });
     }
+}
+
+function dasbankRequestHandler() {
+    console.log("in the open ws function");
+    const {type, account, fromAccount, toAccount, pin, amount} = JSON.parse(dataFromPhp);
+
+    console.log("type: " + type);
+    console.log("accountId: " + account);
+    console.log("pin: " + pin);
+
+
+
+    requestMessage('register', {
+        header: {
+            originCountry: COUNTRY_CODE,
+            originBank: BANK_CODE,
+            receiveCountry: COUNTRY_CODE,
+            receiveBank: 'GOSB'
+        },
+        body: {}
+    }, function (data) {
+        if (data.body.code === 200) {
+            console.log('Connected with Gosbank with bank code: ' + BANK_CODE);
+
+            if (type === 'balance') {
+                requestBalance(account, pin, function (data) {
+                    if (data.body.code === 200) {
+                        var json = new Object();
+                        json.status = data.body.code;
+                        json.dataType = "balance";
+                        json.account = account;
+                        json.balance = data.body.balance;
+                        wss.send(JSON.stringify(json));
+                    } else {
+                        var json = new Object();
+                        json.status = data.body.code;
+                        json.dataType = "balance error"
+                        wss.send(JSON.stringify(json));
+                    }
+                });
+            }
+
+            //receiver acount id = to_acount
+            //causer account id = from_account
+
+            if (type == 'payment') {
+                requestPayment(fromAccount, toAccount, pin, amount, function (data) {
+                    if (data.body.code == 200) {
+                        console.log('Payment accepted');
+                    } else {
+                        console.log('Payment error: ' + data.body.code);
+                    }
+                });
+            }
+
+        } else {
+            console.log('Error with connecting to Gosbank, reason: ' + data.body.code);
+        }
+    });
 }
 
 connectToGosbank();
