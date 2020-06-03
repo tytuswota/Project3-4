@@ -21,13 +21,7 @@ const wsServer = new WebSocket.Server({port: process.env.Port || 3000});
 
 var dataFromPhp = "";
 
-wsServer.on('connection', function (wss) {
-    wss.on('message', function (message) {
-        console.log(message)
-        dataFromPhp = message;
-        dasbankRequestHandler();
-    });
-});
+
 
 function parseAccountParts(account) {
     return {
@@ -40,6 +34,14 @@ function parseAccountParts(account) {
 function connectToGosbank(wss) {
     const ws = new WebSocket(LOCAL_DEBUG_MODE ? 'ws://localhost:8080' : 'wss://ws.gosbank.ml/');
     const pendingCallbacks = [];
+
+    wsServer.on('connection', function (wss) {
+        wss.on('message', function (message) {
+            console.log(message)
+            dataFromPhp = message;
+            dasbankRequestHandler();
+        });
+    });
 
     function requestMessage(type, data, callback) {
         console.log("in request message");
@@ -275,6 +277,5 @@ function connectToGosbank(wss) {
         });
     }
 }
-
 
 connectToGosbank();
