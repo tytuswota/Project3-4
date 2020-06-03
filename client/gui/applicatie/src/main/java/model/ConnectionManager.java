@@ -19,7 +19,7 @@ public class ConnectionManager {
             int length = out.length;
 
             URL url = new URL("http://dasbank.ml/api/" + urlStr);
-           // URL url = new URL("http://192.168.33.10/api/" + urlStr);//
+            //URL url = new URL("http://192.168.33.10/api/" + urlStr);//
             System.out.println(url.toString());
             HttpURLConnection http = (HttpURLConnection) url.openConnection();
             // long time out could slow down the initialising

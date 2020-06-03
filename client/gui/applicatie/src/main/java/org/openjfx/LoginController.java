@@ -13,7 +13,6 @@ import org.json.JSONObject;
 public class LoginController extends BaseController {
 
     //    private String cardId = reader.getLastCardNumber();
-    private String cardId = "SU-DASB-00000001";//TODO veranderen naar SO
 
     public void initialize() {
         enterPin.setText(LanguageSystem.getString("enterPin"));
@@ -58,12 +57,13 @@ public class LoginController extends BaseController {
     public void switchToMainMenu() throws IOException {
 
         //        //"SU-DASB-00000002";
-        String cardId = "SO-DASB-00000001";//TODO veranderen naar SO
+        String cardId = "SO-DASB-00000002";//TODO veranderen naar SO
 
-        JSONObject cardObject = SessionManager.getCard(cardId);
-        if (cardObject.getString("active").equals("1")) {
+        int status = login(cardId);
+
+        if (status != 403) {
             if (this.efforts != 3) {
-                if (login(cardId)) {
+                if (status == 200) {
                     efforts = 0;
                     App.setRoot("mainMenu");
                 } else {
@@ -82,17 +82,17 @@ public class LoginController extends BaseController {
     }
 
     // Try to log in using the card id and the pin.
-    private boolean login(String cardId) {
+    private int login(String cardId) {
         //id for testing
 
         String pin = this.pin.getText(); // "1234"
         System.out.println("dit is de pin " + pin);
         SessionManager sessionManager = SessionManager.tryLogin(cardId, pin);
         if (sessionManager != null) {
+            App.pin = pin;
             App.accountId = sessionManager.getAccountname();
-            return true;
         }
-        return false;//return false;
+        return sessionManager.getStatus();
     }
 
     // Handles the keypress events

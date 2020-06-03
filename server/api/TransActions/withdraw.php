@@ -10,6 +10,8 @@ include_once '../../libs/php-jwt-master/src/ExpiredException.php';
 include_once '../../libs/php-jwt-master/src/SignatureInvalidException.php';
 include_once '../../libs/php-jwt-master/src/JWT.php';
 include_once '../Config.php';
+include_once '../../Core/WebsocketClient/Websocket.php';
+
 use \Firebase\JWT\JWT;
 
 $inputData = json_decode(file_get_contents("php://input"));
@@ -31,10 +33,12 @@ if($jwt){
             "receiver_account_id"=>$inputData->causer_account_id
         ];
 
+        //also put in the thing of gosbank
         $trans = new Transactions();
         $trans->createTransaction($val);
+        //========================================
 
-        if(TransactionController::withdraw($inputData->causer_account_id, $inputData->receiver_account_id, $amount)){
+        if(TransactionController::withdraw($inputData->causer_account_id, $inputData->receiver_account_id, $amount,$inputData->pin)){
             echo "withdraw successful";
         }else{
             echo "could not withdraw";
