@@ -22,6 +22,12 @@ Contains the shared features of the controllers.
 public class BaseController {
 
     protected static SerialReader reader = SerialReader.GetReader();
+    private static int totBedrag;
+
+    public static int getTotBedrag() {
+        return totBedrag;
+    }
+
 
     // Constructor
     public BaseController() {
@@ -32,6 +38,7 @@ public class BaseController {
             RFIDEventHandler(x);
         });
         clock();
+        this.totBedrag= totBedrag;
     }
 
     private void baseKeyPressEventHandler(String key) {
@@ -77,6 +84,8 @@ public class BaseController {
             System.out.println("BanknotesAvailable.");
         } else {
             if (withdrawer.withdraw(banknotes)) {
+                totBedrag= banknotes.getTotalAmount();
+                System.out.println(totBedrag);
                 App.setRoot("bon");
             } else {
                 App.showErrorScreen("Opnemen mislukt.");
@@ -99,6 +108,8 @@ public class BaseController {
             System.out.println("BanknotesAvailable.");
         } else {
             if (withdrawer.withdraw(banknotes)) {
+                totBedrag= banknotes.getTotalAmount();
+                System.out.println(getTotBedrag());
                 App.setRoot("pasUit");
             } else {
                 App.showErrorScreen("Opnemen mislukt.");
