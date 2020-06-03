@@ -11,7 +11,6 @@ let session = new DasbankSession.DasbankSession(account,pin, () => {
         });
 });
 
-// transaction failed
 let session3 = new DasbankSession.DasbankSession(account,pin, () => {
     session.createTransAction(1, account2, account,
         (e)=>{
