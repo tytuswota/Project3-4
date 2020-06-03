@@ -81,10 +81,12 @@ public class SessionManager extends ConnectionManager{
         JSONObject request = new JSONObject();
         request.put("amount", banknotes.getTotalAmount());
         request.put("causer_account_id", this.getAccountname());
-        request.put("receiver_account_id", this.getAccountname());
+        request.put("receiver_account_id", "SO-DASB-00000001");
         request.put("pin", App.pin);
         request.put("jwt", this.JWT);
+        System.out.println("withdraw data");
         System.out.println(request);
+        System.out.println("withdraw data");
         loadData("TransActions/withdraw.php", request);
         return true;
     }
@@ -100,12 +102,13 @@ public class SessionManager extends ConnectionManager{
         accountData.put("pin", App.pin);
         accountData.put("jwt", this.JWT);
 
-        System.out.println(accountData);
-
         JSONObject jsonObj = loadData("BankAccount/read.php", accountData);
 
-        return jsonObj.getString("account_balance");
+        if(jsonObj.getInt("status") == 200){
+            return jsonObj.getString("account_balance");
+        }
 
+        return "";
     }
 
     public void blockPass(String dankId){

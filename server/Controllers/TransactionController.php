@@ -15,45 +15,47 @@ class TransactionController extends BaseController
     }
 
     static function withdraw($causer_account_id,$receiver_account_id, $amount,$pin){
-        if(strpos($causer_account_id, BankCode) !== false && strpos($receiver_account_id, BankCode) !== false){
+
+        if(strpos($causer_account_id, BankCode) !== false){
             $causerAccountBalance = self::getMaxWidthDraw($causer_account_id);
-            $receiverAccountBalance = self::getMaxWidthDraw($receiver_account_id);
-
-            if($amount > 0){
-                $resultCauser = $causerAccountBalance - $amount;
-                $resultReceiver = $receiverAccountBalance + $amount;
-
-                if($resultCauser >= 0 && $resultReceiver >= 0){
-                    $accounts = new Accounts();
-                    $accounts->updateAccountBalance($causer_account_id,$resultCauser);
-                    $accounts->updateAccountBalance($receiver_account_id,$resultReceiver);
-                    return true;
-                }else{
-                    return false;
-                }
+            $resultCauser = $causerAccountBalance - $amount;
+            if($resultCauser >= 0){
+                $accounts = new Accounts();
+                $accounts->updateAccountBalance($causer_account_id,$resultCauser);
             }else{
                 return false;
             }
         }
 
-        $webSocketClient = new Websocket();
-
-        if(strpos($causer_account_id, BankCode) === false){
-            $jsonForGos = json_encode(array(
-                "type"=>"balance",
-                "account"=>$causer_account_id,
-                "pin"=>$pin
-            ));
+        if(strpos($receiver_account_id, BankCode) !== false){
+            $receiverAccountBalance = self::getMaxWidthDraw($receiver_account_id);
+            $resultReceiver = $receiverAccountBalance + $amount;
+            if($resultReceiver >= 0){
+                $accounts = new Accounts();
+                $accounts->updateAccountBalance($receiver_account_id,$resultReceiver);
+                return true;
+            }else{
+                return false;
+            }
         }
 
-        if(strpos($receiver_account_id, BankCode) === false){
+        if(strpos($causer_account_id, BankCode) === false || strpos($receiver_account_id, BankCode) === false){
+            $webSocketClient = new Websocket();
+
             $jsonForGos = json_encode(array(
-                "type"=>"balance",
-                "account"=>$causer_account_id,
-                "pin"=>$pin
+                "type"=>"payment",
+                "toAccount"=>$receiver_account_id,
+                "fromAccount"=>$causer_account_id,
+                "pin"=>$pin,
+                "amount"=>$amount
             ));
+
+            $response = $webSocketClient->sendToclient($jsonForGos);
+            if($response->status == 200){
+                return true;
+            }else{
+                return false;
+            }
         }
-
-
     }
 }
