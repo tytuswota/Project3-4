@@ -22,6 +22,7 @@ public class App extends Application {
     private static Parent lastRoot;
     private static Scene scene;
     public static String accountId;
+    public static String pin;//bad work around for gos bank
 
 
     public static void main(String[] args) {
