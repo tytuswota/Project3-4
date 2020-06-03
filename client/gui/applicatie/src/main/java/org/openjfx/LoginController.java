@@ -13,7 +13,6 @@ import org.json.JSONObject;
 public class LoginController extends BaseController {
 
     //    private String cardId = reader.getLastCardNumber();
-    private String cardId = "SU-DASB-00000001";//TODO veranderen naar SO
 
     public void initialize() {
         enterPin.setText(LanguageSystem.getString("enterPin"));
