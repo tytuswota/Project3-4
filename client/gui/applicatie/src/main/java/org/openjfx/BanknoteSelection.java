@@ -10,9 +10,29 @@ import model.SetOfBanknotes;
 import java.io.IOException;
 
 public class BanknoteSelection extends BaseController {
+    public static int BNote;
+    public static int banknote1;
+    public static int banknote2;
+    public static int banknote3;
+    public static String bankN1;
+    public static String bankN2;
+    public static String bankN3;
     public static int[][] banknoteArray = null;
 
 
+
+    public static String getBankN1(){
+        bankN1 = Integer.toString(banknote1);
+        return bankN1;
+    }
+    public static String getBankN2(){
+        bankN2 = Integer.toString(banknote2);
+        return bankN2;
+    }
+    public static String getBankN3(){
+        bankN3 = Integer.toString(banknote3);
+        return bankN3;
+    }
     @FXML
     Button optie_1;
 
@@ -87,6 +107,9 @@ public class BanknoteSelection extends BaseController {
     @FXML
     private void optie1() throws IOException {
         SetOfBanknotes banknotes = new SetOfBanknotes(banknoteArray[0][0], banknoteArray[1][0], banknoteArray[2][0]);
+        banknote1= banknoteArray[0][0];
+        banknote2= banknoteArray[1][0];
+        banknote3= banknoteArray[2][0];
         withdraw(banknotes);
     }
 
@@ -94,6 +117,9 @@ public class BanknoteSelection extends BaseController {
     @FXML
     public void optie2() throws IOException {
         SetOfBanknotes banknotes = new SetOfBanknotes(banknoteArray[0][1], banknoteArray[1][1], banknoteArray[2][1]);
+        banknote1= banknoteArray[0][1];
+        banknote2= banknoteArray[1][1];
+        banknote3= banknoteArray[2][1];
         withdraw(banknotes);
     }
 
@@ -101,6 +127,9 @@ public class BanknoteSelection extends BaseController {
     @FXML
     public void optie3() throws IOException {
         SetOfBanknotes banknotes = new SetOfBanknotes(banknoteArray[0][2], banknoteArray[1][2], banknoteArray[2][2]);
+        banknote1= banknoteArray[0][2];
+        banknote2= banknoteArray[1][2];
+        banknote3= banknoteArray[2][2];
         withdraw(banknotes);
     }
 

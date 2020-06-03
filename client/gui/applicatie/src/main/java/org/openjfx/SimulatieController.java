@@ -8,13 +8,13 @@ import javafx.scene.control.Label;
 import java.io.IOException;
 
 public class SimulatieController extends BaseController{
-
     @FXML
     public void initialize(){
         simulatie.setText("er is ₽"+iets+" gepint.");
         simulatie1.setText("₽10 is: "+brief1+"x uitgeworpen");
         simulatie2.setText("₽20 is: "+brief2+"x uitgeworpen");
         simulatie3.setText("₽50 is: "+brief3+"x uitgeworpen");
+        switchMethode();
     }
 
     @FXML
@@ -29,37 +29,41 @@ public class SimulatieController extends BaseController{
     @FXML
     Label simulatie3;
 
-    @FXML
-    Button afbreken;
 
-    String iets = Integer.toString(BaseController.getTotBedrag());
-    String brief1 = Integer.toString(BanknoteSelection.getBanknote1());
-    String brief2 = Integer.toString(BanknoteSelection.getBanknote2());
-    String brief3 = Integer.toString(BanknoteSelection.getBanknote3());
-
+    String iets = (BaseController.getTBedrag());
+    String brief1 = (BanknoteSelection.getBankN1());
+    String brief2 = (BanknoteSelection.getBankN2());
+    String brief3 = (BanknoteSelection.getBankN3());
 
 
     @FXML
     public void switchToPasUit() throws IOException {
         App.setRoot("pasUit");
     }
+    @FXML
+    public void switchMethode() {
+        Thread switchMethode = new Thread() {
 
 
-    @Override
-    public void KeyPressEventHandler(char key) {
-        try {
-            if (key == '#') {
-                switchToPasUit();
+            @Override
+            public void run() {
 
+                boolean jemoeder = false;
+                while (!jemoeder) {
+                    try {
+                        Thread.sleep(5000);
+                        switchToPasUit();
+                        jemoeder = true;
 
-            }else if(key == '*'){
-                switchToPasUit();
-
+                    } catch (InterruptedException | IOException | NullPointerException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
+        };
+        switchMethode.start();
     }
+
 
 
 }

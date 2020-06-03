@@ -23,9 +23,15 @@ public class BaseController extends Thread {
 
     protected static SerialReader reader = SerialReader.GetReader();
     private static int totBedrag;
+    private static String TBedrag;
+    private static String dateString;
 
-    public static int getTotBedrag() {
-        return totBedrag;
+    public static String getTBedrag() {
+        TBedrag= Integer.toString(totBedrag);
+        return TBedrag;
+    }
+    public static String getDateString(){
+        return dateString;
     }
 
 
@@ -38,7 +44,7 @@ public class BaseController extends Thread {
             RFIDEventHandler(x);
         });
         clock();
-        this.totBedrag= totBedrag;
+
     }
 
     private void baseKeyPressEventHandler(String key) {
@@ -65,6 +71,11 @@ public class BaseController extends Thread {
     @FXML
     public void switchToPasUit() throws IOException {
         App.setRoot("pasUit");
+    }
+
+    @FXML
+    public void switchToSimulatie() throws IOException {
+        App.setRoot("simulatie");
     }
 
     @FXML
@@ -109,7 +120,6 @@ public class BaseController extends Thread {
         } else {
             if (withdrawer.withdraw(banknotes)) {
                 totBedrag= banknotes.getTotalAmount();
-                System.out.println(getTotBedrag());
                 App.setRoot("pasUit");
             } else {
                 App.showErrorScreen("Opnemen mislukt.");
@@ -191,10 +201,10 @@ public class BaseController extends Thread {
                         public void run() {
                             String clock = "dd/MM/yyyy\nHH:mm";
                             SimpleDateFormat date = new SimpleDateFormat(clock);
-                            String dateString = date.format(new Date());
+                            dateString = date.format(new Date());
 
 
-                            clockLabel.setText(dateString);
+//                            clockLabel.setText(dateString);
 
                         }
 
