@@ -29,29 +29,50 @@ $jwt=isset($inputData->jwt) ? $inputData->jwt : "";
 //this should be somewhere else
 
 if($jwt){
-    if(strpos($inputData->causer_id, BankCode) !== false){
+    if(strpos($inputData->account_id, BankCode) !== false){
+        try {
+            // decode jwt
+            $decoded = JWT::decode($jwt, config::$key, array('HS256'));
 
-    }
-    try {
-        // decode jwt
-        $decoded = JWT::decode($jwt, config::$key, array('HS256'));
+            if(empty($inputData)){
+                echo json_encode($accounts->readAccount());
+            }else{
+                $accountId = $inputData->account_id;
+                $account = json_decode($accounts->readAccount($accountId));
+                $account[0]->status = 200;
+                echo json_encode($account[0]);
+            }
 
-        if(empty($inputData)){
-            echo json_encode($accounts->readAccount());
-        }else{
-            $accountId = $inputData->account_id;
-            $account = json_decode($accounts->readAccount($accountId));
-
-            echo json_encode($account[0]);
+            // set user property values here
+        }catch (Exception $e){
+            echo json_encode(array(
+                "status" => "404",
+                "message" => "Access denied.",
+                "error" => $e->getMessage()
+            ));
         }
+    }else{
+        $webSocketClient = new Websocket();
 
-        // set user property values here
-    }catch (Exception $e){
-        echo json_encode(array(
-            "message" => "Access denied.",
-            "error" => $e->getMessage()
+        $jsonForGos = json_encode(array(
+            "type"=>"balance",
+            "account"=>$inputData->card_id,
+            "pin"=>$inputData->pin
         ));
+
+        $response = $webSocketClient->sendToclient($jsonForGos);
+
+        echo json_encode(
+            array(
+                "data" => array(
+                    "bank_account_id" => $response->account
+                ),
+                "status" => $response->status,
+                "account_balance" => $response->balance
+            )
+        );
     }
+
 }
 
 

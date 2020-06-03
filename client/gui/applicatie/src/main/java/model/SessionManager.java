@@ -103,6 +103,10 @@ public class SessionManager extends ConnectionManager{
         accountData.put("jwt", this.JWT);
 
         JSONObject jsonObj = loadData("BankAccount/read.php", accountData);
+        System.out.println("data from balance");
+        System.out.println(jsonObj);
+        System.out.println("data from balance");
+
 
         if(jsonObj.getInt("status") == 200){
             return jsonObj.getString("account_balance");
