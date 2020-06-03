@@ -16,7 +16,7 @@ class DasbankSession {
             );
 
         const options = {
-            hostname: '192.168.33.10',
+            hostname: 'dasbank.ml',
             port: 80,
             path: '/api/TransActions/withdraw.php',
             method: 'POST',
@@ -32,7 +32,8 @@ class DasbankSession {
 
             res.on('data', d => {
                     // TODO Add all status codes.
-                    if (d ==="withdraw successful") {
+                    console.log("reaction = " + d);
+                    if (d.toString() === "withdraw successful") {
                         console.log(d)
                         handler("200");
                     } else {
@@ -92,7 +93,7 @@ class DasbankSession {
         let data = JSON.stringify({"card_id": cardId, "pin": pincode});
         // todo change port and protecol to https
         const options = {
-            hostname: '192.168.33.10',
+            hostname: 'dasbank.ml',
             port: 80,
             path: '/api/Login/login.php',
             method: 'POST',
@@ -109,18 +110,20 @@ class DasbankSession {
             res.on('data', d => {
                 try {
                     console.log(d.toString())
-                    if(d !== "wrong pin") {
+                    if(d.toString() !== "wrong pin") {
                         data = JSON.parse(d)
                         if (data.data !== null) {
                             this._account_id = data.data.bank_account_id;
                             this._jwtToken = data.jwt;
                             handler('200');
                         }
+                    }else {
+                        handler('400');
                     }
                 }catch (e) {
                     console.log(e)
+                    handler('400');
                 }
-                handler('400');
             })
         });
 

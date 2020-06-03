@@ -17,7 +17,6 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");*/
 
 function sendToclient($data){
-    echo "hey";
     //$client = new Client("ws://localhost:3000");
     //$client->send($data);
 }

@@ -21,9 +21,8 @@ ws.on('open', function () {
         }
     }
     ws.send(JSON.stringify(toSent));
-    sleep(2000);
     toSent = {
-        "id": 1586944886599,
+        "id": 1586944886593,
         "type": "balance",
         "data": {
             "header": {
@@ -40,9 +39,9 @@ ws.on('open', function () {
     }
 
     ws.send(JSON.stringify(toSent));
-    sleep(2000);
+
     toSent = {
-        "id": 1586944886599,
+        "id": 1586944886559,
         "type": "payment",
         "data": {
             "header": {
@@ -61,6 +60,8 @@ ws.on('open', function () {
     }
 
     ws.send(JSON.stringify(toSent));
+
+
 });
 
 ws.on('message', function(message){
