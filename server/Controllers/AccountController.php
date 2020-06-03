@@ -29,7 +29,7 @@ class AccountController extends BaseController
             $newAccountId = substr($lastAccountId, 0, 8);
 
         }else{
-            $newAccountId = "SU-DASB-";
+            $newAccountId = "SO-DASB-";
             $accountNumbers = 1;
         }
 

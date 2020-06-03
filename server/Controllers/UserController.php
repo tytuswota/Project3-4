@@ -7,7 +7,6 @@ include_once "BaseController.php";
 class UserController extends BaseController
 {
     public function makeUser($userData){
-        echo "hello";
         //content needs to be checked first
 
         $values = [
