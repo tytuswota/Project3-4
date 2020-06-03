@@ -20,9 +20,9 @@ public class App extends Application {
 
     // Saves the lastRoot except it is a error message.
     private static Parent lastRoot;
-
     private static Scene scene;
     public static String accountId;
+
 
     public static void main(String[] args) {
         launch();
