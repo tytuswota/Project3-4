@@ -69,20 +69,26 @@ class LoginController
                }else{
                    echo json_encode(
                        array(
-                           "data" => $loginData->card_id,
+                           array(
+                               "data" => array(
+                                   "bank_account_id" => $loginData->account
+                               ),
                            "jwt" => "",
                            "status" => 403
                        )
-                   );
+                   ));
                }
                }else{
                echo json_encode(
                    array(
-                       "data" => $loginData->card_id,
+                       array(
+                           "data" => array(
+                               "bank_account_id" => $loginData->account
+                           ),
                        "jwt" => "",
                        "status" => 401
                    )
-               );
+               ));
                }
        }else{
            $webSocketClient = new Websocket();
