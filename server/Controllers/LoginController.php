@@ -70,7 +70,7 @@ class LoginController
                    echo json_encode(
                        array(
                                "data" => array(
-                                   "bank_account_id" => $loginData->account
+                                   "bank_account_id" => $loginData->card_id
                                ),
                            "jwt" => "",
                            "status" => 403
@@ -80,7 +80,7 @@ class LoginController
                echo json_encode(
                    array(
                            "data" => array(
-                               "bank_account_id" => $loginData->account
+                               "bank_account_id" => $loginData->card_id
                            ),
                        "jwt" => "",
                        "status" => 401
