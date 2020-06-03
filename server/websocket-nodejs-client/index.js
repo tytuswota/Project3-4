@@ -227,7 +227,6 @@ function connectToGosbank(wss) {
         console.log("accountId: " + account);
         console.log("pin: " + pin);
 
-
         requestMessage('register', {
             header: {
                 originCountry: COUNTRY_CODE,
