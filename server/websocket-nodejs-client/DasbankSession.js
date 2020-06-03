@@ -33,7 +33,7 @@ class DasbankSession {
             res.on('data', d => {
                     // TODO Add all status codes.
                     console.log("reaction = " + d);
-                    if (d ==="withdraw successful") {
+                    if (d.toString() === "withdraw successful") {
                         console.log(d)
                         handler("200");
                     } else {
@@ -110,18 +110,20 @@ class DasbankSession {
             res.on('data', d => {
                 try {
                     console.log(d.toString())
-                    if(d !== "wrong pin") {
+                    if(d.toString() !== "wrong pin") {
                         data = JSON.parse(d)
                         if (data.data !== null) {
                             this._account_id = data.data.bank_account_id;
                             this._jwtToken = data.jwt;
                             handler('200');
                         }
+                    }else {
+                        handler('400');
                     }
                 }catch (e) {
                     console.log(e)
+                    handler('400');
                 }
-                handler('400');
             })
         });
 
