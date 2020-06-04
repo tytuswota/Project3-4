@@ -250,6 +250,9 @@ function connectToGosbank(wss) {
                             json.account = account;
                             json.balance = data.body.balance;
                             console.log(json);
+
+
+
                             wsServer.send(JSON.stringify(json));
                         } else {
                             var json = new Object();
@@ -272,6 +275,7 @@ function connectToGosbank(wss) {
                             json.status = data.body.code;
                             json.message = "payment accepted";
                             console.log(json);
+
                             wsServer.send(JSON.stringify(json));
                         } else {
                             console.log('Payment error: ' + data.body.code);
