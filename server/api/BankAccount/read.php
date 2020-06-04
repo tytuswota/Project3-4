@@ -20,6 +20,8 @@ use \Firebase\JWT\JWT;
 
 const BankCode = "DASB";
 
+const GOSBANK_CLIENT_API_URL = "http://localhost:8080";
+
 $accounts = new Accounts();
 
 error_reporting(E_ALL);
