@@ -18,6 +18,7 @@ const RECONNECT_TIMEOUT = 2 * 1000;
 const WebSocket = require('ws');
 const DasbankSession = require('./DasbankSession.js')
 var http = require('http');
+const url = require('url');
 
 var dataFromPhp = "";
 
