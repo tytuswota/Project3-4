@@ -57,7 +57,7 @@ public class LoginController extends BaseController {
     public void switchToMainMenu() throws IOException {
 
         //        //"SU-DASB-00000002";
-        String cardId = "SO-DASB-00000002";//TODO veranderen naar SO
+        String cardId = "SO-BANQ-00000005";//TODO veranderen naar SO
 
         int status = login(cardId);
 
