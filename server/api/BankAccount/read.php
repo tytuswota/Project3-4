@@ -22,6 +22,9 @@ const BankCode = "DASB";
 
 $accounts = new Accounts();
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 http_response_code(200);
 $inputData = json_decode(file_get_contents("php://input"));
 
@@ -52,7 +55,7 @@ if($jwt){
             ));
         }
     }else{
-        $webSocketClient = new Websocket();
+        /*$webSocketClient = new Websocket();
 
         $jsonForGos = json_encode(array(
             "type"=>"balance",
@@ -60,7 +63,9 @@ if($jwt){
             "pin"=>$inputData->pin
         ));
 
-        $response = $webSocketClient->sendToclient($jsonForGos);
+        $response = $webSocketClient->sendToclient($jsonForGos);*/
+
+        $response = json_decode(file_get_contents(GOSBANK_CLIENT_API_URL + '/gosbank/accounts/' . $inputData->card_id . '?pin=' . $inputData->pin));
 
         echo json_encode(
             array(

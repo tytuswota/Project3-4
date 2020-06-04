@@ -36,7 +36,7 @@ public class BonController extends BaseController {
         boolean change = false;
         while (!change) {
             try {
-                SerialPort comPort = SerialPort.getCommPort("COM3");
+                SerialPort comPort = SerialPort.getCommPort("COM4");
                 comPort.setComPortParameters(19200, 8, 1, 0);
                 comPort.setComPortTimeouts(SerialPort.TIMEOUT_WRITE_BLOCKING, 0, 0);
 
@@ -69,7 +69,7 @@ public class BonController extends BaseController {
                 }
                 comPort.closePort();
 
-                System.out.println("kanker test kanker hoer");
+
                 switchToSimulatie();
                 change = true;
 

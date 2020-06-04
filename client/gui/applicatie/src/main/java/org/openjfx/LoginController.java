@@ -12,7 +12,7 @@ import org.json.JSONObject;
 
 public class LoginController extends BaseController {
 
-    //    private String cardId = reader.getLastCardNumber();
+//        private String cardId = reader.getLastCardNumber();
 
     public void initialize() {
         enterPin.setText(LanguageSystem.getString("enterPin"));
