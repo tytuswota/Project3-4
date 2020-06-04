@@ -9,6 +9,7 @@ const COUNTRY_CODE = 'SO';
 // Your bank code
 const BANK_CODE = process.argv[2] || "DASB";
 
+const HTTP_SERVER_PORT = 8080;
 // When disconnect try to reconnect timeout (in ms)
 const RECONNECT_TIMEOUT = 2 * 1000;
 
@@ -29,7 +30,9 @@ function parseAccountParts(account) {
 }
 
 function connectToGosbank(wss) {
-    http.createServer((req, res) => {dasbankRequestHandler(req, res)}).listen(8080); //the server object listens on port 8080
+/*    http.createServer((req, res) => {
+        dasbankRequestHandler(req, res)
+    }).listen(8080); //the server object listens on port 8080*/
     const ws = new WebSocket(LOCAL_DEBUG_MODE ? 'ws://localhost:8080' : 'wss://ws.gosbank.ml/');
     const pendingCallbacks = [];
 
@@ -119,7 +122,7 @@ function connectToGosbank(wss) {
             }
         }
         ws.send(JSON.stringify(toSent));
-
+        httpServer();
     });
 
     ws.on('message', function (message) {
@@ -140,7 +143,7 @@ function connectToGosbank(wss) {
 
     function requestToDasbank(id, type, data) {
         let account = data.body.account;
-        if (account === undefined){
+        if (account === undefined) {
             account = data.body.fromAccount;
         }
         let pin = data.body.pin;
@@ -215,6 +218,33 @@ function connectToGosbank(wss) {
                 res.end('ok');
             });
         }
+    }
+
+    function httpServer() {
+        // Create local HTTP API for the Banq website API
+        httpServer = http.createServer(function (req, res) {
+            const {pathname, query} = url.parse(req.url, true);
+
+            if (pathname === '/') {
+                res.writeHead(200, {'Content-Type': 'text/html'});
+                res.end('<h1>Banq Gosbank Client Local API</h1>');
+            } else if (pathname.startsWith('/api/gosbank/accounts/')) {
+                const account = pathname.replace('/api/gosbank/accounts/', '');
+                requestBalance(account, query.pin, function ({body}) {
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    res.end(JSON.stringify(body));
+                });
+            } else if (pathname === '/api/gosbank/transactions/create') {
+                requestPayment(query.from, query.to, query.pin, query.amount, function ({body}) {
+                    res.writeHead(200, {'Content-Type': 'application/json'});
+                    res.end(JSON.stringify(body));
+                });
+            } else {
+                res.writeHead(200, {'Content-Type': 'text/html'});
+                res.end('<h1>404 Not Found</h1>');
+            }
+        });
+        httpServer.listen(HTTP_SERVER_PORT);
     }
 }
 
