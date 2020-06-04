@@ -71,11 +71,13 @@ if($jwt){
 
         echo json_encode(
             array(
-                "data" => array(
-                    "bank_account_id" => $inputData->account_id
-                ),
+                "bank_account_id" => $inputData->account_id,
                 "status" => $response->code,
-                "account_balance" => $response->balance
+                "account_balance" => $response->balance,
+                "user_id" => $inputData->account_id,
+                "start_date" => "",
+                "end_date" => "",
+                "type" => "1",
             )
         );
     }
