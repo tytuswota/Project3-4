@@ -11,7 +11,7 @@
          <font>
             <Font size="40.0" />
          </font></Label>
-      <Button id="button" fx:id="getReceipt" layoutX="1485.0" layoutY="700.0" mnemonicParsing="false" onAction="#printBon" styleClass="knop" stylesheets="@../../style/Main.css" text="#">
+      <Button id="button" fx:id="getReceipt" layoutX="1485.0" layoutY="700.0" mnemonicParsing="false" onAction="#printReceipt" styleClass="knop" stylesheets="@../../style/Main.css" text="#">
          <font>
             <Font size="60.0" />
          </font>

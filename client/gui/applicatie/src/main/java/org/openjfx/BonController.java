@@ -20,7 +20,7 @@ public class BonController extends BaseController {
     public void KeyPressEventHandler(char key) {
         try {
             if (key == '#') {
-                printBon();
+                printReceipt();
 
             } else if (key == '*') {
                 switchToSimulatie();
@@ -30,8 +30,8 @@ public class BonController extends BaseController {
         }
     }
 
-   public void printBon() throws IOException {
-        Thread bon = new Thread();
+   public void printReceipt() throws IOException {
+        Thread receipt = new Thread();
 
         boolean change = false;
         while (!change) {
@@ -65,7 +65,7 @@ public class BonController extends BaseController {
                     String string = new String(stringByteArray);
                     System.out.println(string);
                     comPort.writeBytes(stringByteArray, stringByteArray.length);
-                    bon.sleep(2000);
+                    receipt.sleep(2000);
                 }
                 comPort.closePort();
 
@@ -78,7 +78,7 @@ public class BonController extends BaseController {
             }
 
         }
-        bon.start();
+        receipt.start();
     }
 
 
