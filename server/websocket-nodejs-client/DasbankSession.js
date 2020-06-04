@@ -29,7 +29,7 @@ class DasbankSession {
         console.log(data);
 
         const req = http.request(options, res => {
-
+            console.log(`statusCode http createTransaction: ${res.statusCode}`);
             res.on('data', d => {
                     // TODO Add all status codes.
                     console.log("reaction = " + d);
@@ -66,7 +66,7 @@ class DasbankSession {
         }
 
         const req = http.request(options, res => {
-            //console.log(`statusCode: ${res.statusCode}`);
+            console.log(`statusCode http getbalance: ${res.statusCode}`);
 
             res.on('data', d => {
                 data = JSON.parse(d)
@@ -91,6 +91,8 @@ class DasbankSession {
         console.log(cardId);
         console.log(pincode);
         let data = JSON.stringify({"card_id": cardId, "pin": pincode});
+        console.log("login request " + data);
+
         // todo change port and protecol to https
         const options = {
             hostname: 'dasbank.ml',
@@ -105,7 +107,7 @@ class DasbankSession {
 
         const req = http.request(options, res => {
             console.log("===in the login function");
-            console.log(`statusCode: ${res.statusCode}`);
+            console.log(`statusCode http login: ${res.statusCode}`);
 
             res.on('data', d => {
                 try {
