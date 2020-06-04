@@ -249,12 +249,14 @@ function connectToGosbank(wss) {
                             json.dataType = "balance";
                             json.account = account;
                             json.balance = data.body.balance;
-                            wss.send(JSON.stringify(json));
+                            console.log(json);
+                            wsServer.send(JSON.stringify(json));
                         } else {
                             var json = new Object();
                             json.status = data.body.code;
                             json.dataType = "balance error"
-                            wss.send(JSON.stringify(json));
+                            console.log(json);
+                            wsServer.send(JSON.stringify(json));
                         }
                     });
                 }
@@ -269,12 +271,14 @@ function connectToGosbank(wss) {
                             console.log('Payment accepted');
                             json.status = data.body.code;
                             json.message = "payment accepted";
-                            wss.send(JSON.stringify(json));
+                            console.log(json);
+                            wsServer.send(JSON.stringify(json));
                         } else {
                             console.log('Payment error: ' + data.body.code);
                             json.status = data.body.code;
                             json.message = "payment error";
-                            wss.send(JSON.stringify(json));
+                            console.log(json);
+                            wsServer.send(JSON.stringify(json));
                         }
                     });
                 }
