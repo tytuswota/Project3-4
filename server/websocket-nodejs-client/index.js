@@ -196,7 +196,8 @@ function connectToGosbank(wss) {
                                 },
                                 body: {
                                     code: 200,
-                                    balance: parseFloat(parseInt(balance).toFixed(2))
+                                    balance: parseFloat(parseFloat("89.76").toFixed(2));
+
                                 }
                             }
                         );
