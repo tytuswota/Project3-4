@@ -16,11 +16,9 @@ const RECONNECT_TIMEOUT = 2 * 1000;
 
 const WebSocket = require('ws');
 const DasbankSession = require('./DasbankSession.js')
-
-const wsServer = new WebSocket.Server({port: process.env.Port || 3000});
+var http = require('http');
 
 var dataFromPhp = "";
-
 
 function parseAccountParts(account) {
     return {
@@ -31,16 +29,9 @@ function parseAccountParts(account) {
 }
 
 function connectToGosbank(wss) {
+    http.createServer((req, res) => {dasbankRequestHandler(req, res)}).listen(8080); //the server object listens on port 8080
     const ws = new WebSocket(LOCAL_DEBUG_MODE ? 'ws://localhost:8080' : 'wss://ws.gosbank.ml/');
     const pendingCallbacks = [];
-
-    wsServer.on('connection', function (wss) {
-        wss.on('message', function (message) {
-            console.log(message)
-            dataFromPhp = message;
-            dasbankRequestHandler();
-        });
-    });
 
     function requestMessage(type, data, callback) {
         console.log("in request message");
@@ -113,7 +104,6 @@ function connectToGosbank(wss) {
         }
     }
 
-
     ws.on('open', function () {
         let toSent = {
             "id": 1586944886509,
@@ -146,17 +136,7 @@ function connectToGosbank(wss) {
         if (data.body.account != undefined || data.body.toAccount) {
             requestToDasbank(id, type, data);
         }
-
-        /*ws.on('close', function () {
-            console.log('Disconnected, try to reconnect in ' + (RECONNECT_TIMEOUT / 1000).toFixed(0) + ' seconds!');
-            setTimeout(connectToGosbank, RECONNECT_TIMEOUT);
-        });
-
-        // Ingnore connecting errors reconnect in the close handler
-        ws.on('error', function (error) {
-        });*/
     });
-
 
     function requestToDasbank(id, type, data) {
         let account = data.body.account;
@@ -221,76 +201,20 @@ function connectToGosbank(wss) {
             });
     }
 
-    function dasbankRequestHandler() {
+    function dasbankRequestHandler(req, res) {
         console.log("in the open ws function");
-        const {type, account, fromAccount, toAccount, pin, amount} = JSON.parse(dataFromPhp);
 
-        console.log("type: " + type);
-        console.log("accountId: " + account);
-        console.log("pin: " + pin);
-
-/*        requestMessage('register', {
-            header: {
-                originCountry: COUNTRY_CODE,
-                originBank: BANK_CODE,
-                receiveCountry: COUNTRY_CODE,
-                receiveBank: 'GOSB'
-            },
-            body: {}
-        }, function (data) {
-            if (data.body.code === 200) {
-                console.log('Connected with Gosbank with bank code: ' + BANK_CODE);*/
-
-                if (type === 'balance') {
-                    requestBalance(account, pin, function (data) {
-                        if (data.body.code === 200) {
-                            var json = new Object();
-                            json.status = data.body.code;
-                            json.dataType = "balance";
-                            json.account = account;
-                            json.balance = data.body.balance;
-                            console.log(json);
-
-
-
-                            wsServer.send(JSON.stringify(json));
-                        } else {
-                            var json = new Object();
-                            json.status = data.body.code;
-                            json.dataType = "balance error"
-                            console.log(json);
-                            wsServer.send(JSON.stringify(json));
-                        }
-                    });
-                }
-
-                //receiver acount id = to_acount
-                //causer account id = from_account
-
-                if (type == 'payment') {
-                    requestPayment(fromAccount, toAccount, pin, amount, function (data) {
-                        var json = new Object();
-                        if (data.body.code == 200) {
-                            console.log('Payment accepted');
-                            json.status = data.body.code;
-                            json.message = "payment accepted";
-                            console.log(json);
-
-                            wsServer.send(JSON.stringify(json));
-                        } else {
-                            console.log('Payment error: ' + data.body.code);
-                            json.status = data.body.code;
-                            json.message = "payment error";
-                            console.log(json);
-                            wsServer.send(JSON.stringify(json));
-                        }
-                    });
-                }
-
-/*            } else {
-                console.log('Error with connecting to Gosbank, reason: ' + data.body.code);
-            }
-        });*/
+        if (req.method === 'POST') {
+            let body = '';
+            req.on('data', chunk => {
+                body += chunk.toString(); // convert Buffer to string
+            });
+            req.on('end', () => {
+                console.log(body);
+                ws.send(body);
+                res.end('ok');
+            });
+        }
     }
 }
 

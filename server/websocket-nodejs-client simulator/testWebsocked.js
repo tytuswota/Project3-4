@@ -1,5 +1,5 @@
 const WebSocket = require('ws');
-const LOCAL_DEBUG_MODE = true;
+const LOCAL_DEBUG_MODE = false;
 const ws = new WebSocket(LOCAL_DEBUG_MODE ? 'ws://localhost:8080' : 'wss://ws.gosbank.ml/');
 
 function sleep(ms) {
@@ -32,13 +32,14 @@ ws.on('open', function () {
                 "receiveBank": "DASB"
             },
             "body": {
-                "account": "SO-DASB-00000001",
+                "account": "SO-BANQ-00000005",
                 "pin": "1234"
             }
         }
     }
 
     ws.send(JSON.stringify(toSent));
+/*
 
     toSent = {
         "id": 1586944886559,
@@ -61,6 +62,7 @@ ws.on('open', function () {
 
     ws.send(JSON.stringify(toSent));
 
+*/
 
 });
 
