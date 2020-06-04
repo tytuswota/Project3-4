@@ -100,14 +100,14 @@ class LoginController
                echo GOSBANK_CLIENT_API_URL . "/gosbank/accounts/" . $loginData->card_id . "?pin=" . $loginData->pin;
                $response = json_decode(file_get_contents(GOSBANK_CLIENT_API_URL . "/gosbank/accounts/" . $loginData->card_id . "?pin=" . $loginData->pin));
                print_r($response);
-               if($response->status !== 400){
+               if($response->code === 200){
                    $token = array(
                        "iss" => $iss,
                        "iat" => $iat,
                        "nbf" => $nbf,
                        "data" => array(
-                           "id" => $response->account,
-                           "user_id" => $response->account
+                           "id" => $loginData->card_id,
+                           "user_id" => $loginData->card_id
                        )
                    );
 
@@ -116,9 +116,9 @@ class LoginController
                    echo json_encode(
                        array(
                            "data" => array(
-                               "bank_account_id" => $response->account
+                               "bank_account_id" =>  $loginData->card_id
                            ),
-                           "status" => $response->status,
+                           "status" => $response->code,
                            "jwt" => $jwt
                        )
                    );
