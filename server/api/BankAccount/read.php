@@ -67,7 +67,7 @@ if($jwt){
 
         $response = $webSocketClient->sendToclient($jsonForGos);*/
 
-        $response = json_decode(file_get_contents(GOSBANK_CLIENT_API_URL + '/api/gosbank/accounts/' . $inputData->card_id . '?pin=' . $inputData->pin));
+        $response = json_decode(file_get_contents(GOSBANK_CLIENT_API_URL + '/api/gosbank/accounts/' . $inputData->account_id . '?pin=' . $inputData->pin));
 
         echo json_encode(
             array(
