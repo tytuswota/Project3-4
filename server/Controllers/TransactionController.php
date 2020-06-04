@@ -1,7 +1,7 @@
 <?php
 include_once '../../Models/Accounts.php';
 include_once '../../Core/WebsocketClient/Websocket.php';
-
+const GOSBANK_CLIENT_API_URL = "http://localhost:8080";
 const BankCode = "DASB";
 
 class TransactionController extends BaseController
@@ -40,7 +40,7 @@ class TransactionController extends BaseController
 
             $response = $webSocketClient->sendToclient($jsonForGos);*/
 
-            $response = json_decode(file_get_contents(GOSBANK_CLIENT_API_URL . '/gosbank/transactions/create?from=' . $causer_account_id . '&to=' . $receiver_account_id . '&pin=' . $pin . '&amount=' . $amount));
+            $response = json_decode(file_get_contents(GOSBANK_CLIENT_API_URL . '/api/gosbank/transactions/create?from=' . $causer_account_id . '&to=' . $receiver_account_id . '&pin=' . $pin . '&amount=' . $amount));
             echo $response;
         }
 
