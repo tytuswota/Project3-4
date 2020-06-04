@@ -72,7 +72,7 @@ if($jwt){
         echo json_encode(
             array(
                 "data" => array(
-                    "bank_account_id" => $inputData->card_id
+                    "bank_account_id" => $inputData->account_id
                 ),
                 "status" => $response->code,
                 "account_balance" => $response->balance
