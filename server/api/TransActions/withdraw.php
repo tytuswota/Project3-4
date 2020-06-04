@@ -32,8 +32,8 @@ if($jwt){
         $val = [
             "date_time"=>$date_time,
             "amount"=>$amount,
-            "causer_account_id"=>$inputData->receiver_account_id,
-            "receiver_account_id"=>$inputData->causer_account_id
+            "receiver_account_id"=>$inputData->receiver_account_id,
+            "causer_account_id"=>$inputData->causer_account_id
         ];
 
         //also put in the thing of gosbank
