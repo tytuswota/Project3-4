@@ -88,13 +88,13 @@ class LoginController
                        ));
                }
            }else{
-               $webSocketClient = new Websocket();
+              /* $webSocketClient = new Websocket();
 
                $jsonForGos = json_encode(array(
                    "type"=>"balance",
                    "account"=>$loginData->card_id,
                    "pin"=>$loginData->pin
-               ));
+               ));*/
 
                //$response = $webSocketClient->sendToclient($jsonForGos);
                $response = json_decode(file_get_contents(GOSBANK_CLIENT_API_URL + '/gosbank/accounts/' . $loginData->card_id . '?pin=' . $loginData->pin));
