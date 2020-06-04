@@ -140,7 +140,7 @@ function connectToGosbank(wss) {
 
     function requestToDasbank(id, type, data) {
         let account = data.body.account;
-        if (account === undefined) {
+        if (account === undefined){
             account = data.body.fromAccount;
         }
         let pin = data.body.pin;
