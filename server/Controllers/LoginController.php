@@ -97,8 +97,8 @@ class LoginController
                ));*/
 
                //$response = $webSocketClient->sendToclient($jsonForGos);
-               echo GOSBANK_CLIENT_API_URL . "/gosbank/accounts/" . $loginData->card_id . "?pin=" . $loginData->pin;
-               $response = json_decode(file_get_contents(GOSBANK_CLIENT_API_URL . "/gosbank/accounts/" . $loginData->card_id . "?pin=" . $loginData->pin));
+               echo GOSBANK_CLIENT_API_URL . "/api/gosbank/accounts/" . $loginData->card_id . "?pin=" . $loginData->pin;
+               $response = json_decode(file_get_contents(GOSBANK_CLIENT_API_URL . "/api/gosbank/accounts/" . $loginData->card_id . "?pin=" . $loginData->pin));
                print_r($response);
                if($response->code === 200){
                    $token = array(
