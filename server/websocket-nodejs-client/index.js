@@ -228,7 +228,7 @@ function connectToGosbank(wss) {
 
             if (pathname === '/') {
                 res.writeHead(200, {'Content-Type': 'text/html'});
-                res.end('<h1>Banq Gosbank Client Local API</h1>');
+                res.end('<h1>dasbank Gosbank Client Local API</h1>');
             } else if (pathname.startsWith('/api/gosbank/accounts/')) {
                 const account = pathname.replace('/api/gosbank/accounts/', '');
                 requestBalance(account, query.pin, function ({body}) {
