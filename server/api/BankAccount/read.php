@@ -73,7 +73,7 @@ if($jwt){
             array(
                 "bank_account_id" => $inputData->account_id,
                 "status" => $response->code,
-                "account_balance" => "'" . $response->balance . "'",
+                "account_balance" => strval($response->balance),
                 "user_id" => $inputData->account_id,
                 "start_date" => "",
                 "end_date" => "",
