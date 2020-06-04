@@ -1,7 +1,7 @@
 // ########### CLIENT CONFIG ###########
 
 // Connect to local running Gosbank server
-const LOCAL_DEBUG_MODE = true;
+const LOCAL_DEBUG_MODE = false;
 
 // Your country code always 'SO'
 const COUNTRY_CODE = 'SO';
@@ -20,7 +20,6 @@ const DasbankSession = require('./DasbankSession.js')
 const wsServer = new WebSocket.Server({port: process.env.Port || 3000});
 
 var dataFromPhp = "";
-
 
 
 function parseAccountParts(account) {
@@ -230,7 +229,7 @@ function connectToGosbank(wss) {
         console.log("accountId: " + account);
         console.log("pin: " + pin);
 
-        requestMessage('register', {
+/*        requestMessage('register', {
             header: {
                 originCountry: COUNTRY_CODE,
                 originBank: BANK_CODE,
@@ -240,7 +239,7 @@ function connectToGosbank(wss) {
             body: {}
         }, function (data) {
             if (data.body.code === 200) {
-                console.log('Connected with Gosbank with bank code: ' + BANK_CODE);
+                console.log('Connected with Gosbank with bank code: ' + BANK_CODE);*/
 
                 if (type === 'balance') {
                     requestBalance(account, pin, function (data) {
@@ -280,10 +279,10 @@ function connectToGosbank(wss) {
                     });
                 }
 
-            } else {
+/*            } else {
                 console.log('Error with connecting to Gosbank, reason: ' + data.body.code);
             }
-        });
+        });*/
     }
 }
 
