@@ -75,9 +75,15 @@ class DasbankSession {
         const req = http.request(options, res => {
             console.log(`statusCode http getbalance: ${res.statusCode}`);
 
-            res.on('data', d => {
-                data = JSON.parse(d)
-                //console.log(data)
+            let response = '';
+            res.on('data', data => {
+                response += data;
+            });
+
+            res.on('end', function () {
+                console.log("response getBalance " + response)
+
+                data = JSON.parse(response)
                 if (data !== null) {
                     let balance = parseFloat(data.account_balance);
                     handler(balance);
@@ -116,11 +122,16 @@ class DasbankSession {
             console.log("===in the login function");
             console.log(`statusCode http login: ${res.statusCode}`);
 
-            res.on('data', d => {
+            let response = '';
+            res.on('data', data => {
+                response += data;
+            });
+
+            res.on('end', () =>{
                 try {
-                    console.log("in data" + d.toString())
+                    console.log("in data" + response.toString())
                     if(d.toString() !== "wrong pin") {
-                        data = JSON.parse(d)
+                        data = JSON.parse(response)
                         if (data.data !== null) {
                             this._account_id = data.data.bank_account_id;
                             this._jwtToken = data.jwt;
@@ -133,7 +144,7 @@ class DasbankSession {
                     console.log( "error login " +e)
                     handler('400');
                 }
-            })
+            });
         });
 
         req.on('error', error => {
