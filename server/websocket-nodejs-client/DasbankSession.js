@@ -28,22 +28,25 @@ class DasbankSession {
 
         console.log(data);
 
-        const req = http.request(options, res => {
+         http.request(options, function (res) {
+
             console.log(`statusCode http createTransaction: ${res.statusCode}`);
-            res.on('data', d => {
-                    // TODO Add all status codes.
-                    console.log("reaction = " + d);
-                    if (d.toString().includes("withdraw successful")) {
-                        console.log(d)
-                        handler("200");
-                    } else if(d.toString().includes("could not withdraw")){
-                        handler("401");
-                    }
-                    else {
-                        handler("400");
-                    }
+
+            let response = '';
+            res.on('data', data => {
+                response += data;
             });
+
+            res.on('end', function () {
+                if (response.toString() === "withdraw successful") {
+                    handler(200);
+                } else {
+                    handler(400);
+                }
+            });
+
         });
+
 
         req.on('error', error => {
             console.log(error)
