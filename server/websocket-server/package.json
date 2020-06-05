@@ -17,7 +17,6 @@
   },
   "homepage": "https://gosbank.ml/",
   "dependencies": {
-    "ws": "^7.2.3",
-    "socket.io-client": "^2.3.0"
+    "ws": "^7.2.3"
   }
 }
