@@ -197,7 +197,7 @@ function connectToGosbank() {
                 if (type === 'balance') {
                     console.log('Balance request for: ' + data.body.account);
 
-                    session.getBalance(data.body.pin,function (balance) {
+                    session.getBalance(function (balance) {
                         responseMessage(id, 'balance', {
                                 header: {
                                     originCountry: COUNTRY_CODE,

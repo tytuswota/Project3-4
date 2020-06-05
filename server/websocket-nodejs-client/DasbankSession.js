@@ -57,7 +57,7 @@ class DasbankSession {
         req.end();
     }
 
-    getBalance(pin,handler) {
+    getBalance(handler) {
         let data = JSON.stringify({"jwt": this._jwtToken, "account_id": this._account_id, "pin":pin});
         //console.log(`data to send ${data}`);
         // todo change port and protecol to https
