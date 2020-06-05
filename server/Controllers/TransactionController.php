@@ -28,11 +28,10 @@ class TransactionController extends BaseController
 
     static function withdraw($causer_account_id, $receiver_account_id, $amount, $pin)
     {
-
         $causerAccountParts = parseAccountParts($causer_account_id);
         $receiverAccountParts = parseAccountParts($receiver_account_id);
 
-        if ($causerAccountParts[0] === CountryCode && $causerAccountParts[1] === BankCode) {
+        if ($causerAccountParts['country'] === CountryCode && $causerAccountParts['bank'] === BankCode) {
             $causerAccountBalance = self::getMaxWidthDraw($causer_account_id);
             $resultCauser = $causerAccountBalance - $amount;
             if ($resultCauser >= 0) {
@@ -43,14 +42,13 @@ class TransactionController extends BaseController
             }
         }
 
-        //gets money from foreign bank
-        if (($causerAccountParts[0] === CountryCode && $causerAccountParts[1] === BankCode) && ($receiverAccountParts[0] !== CountryCode && $receiverAccountParts[1] !== BannkCode)) {
+        if (($causerAccountParts['country'] == CountryCode && $causerAccountParts['bank'] == BankCode) && !($receiverAccountParts['country'] == CountryCode && $receiverAccountParts['bank'] == BankCode)) {
             $response = json_decode(file_get_contents(GOSBANK_CLIENT_API_URL . '/api/gosbank/transactions/create?from=' . $causer_account_id . '&to=' . $receiver_account_id . '&pin=' . $pin . '&amount=' . $amount));
             return $response->code;
         }
 
         //gets money from foreign bank
-        if (($causerAccountParts[0] !== CountryCode && $causerAccountParts[1] !== BankCode) && ($receiverAccountParts[0] === CountryCode && $receiverAccountParts[1] === BannkCode)) {
+        if (!($causerAccountParts['country'] == CountryCode && $causerAccountParts['bank'] == BankCode) && ($receiverAccountParts['country'] == CountryCode && $receiverAccountParts['bank'] == BankCode)) {
             $response = json_decode(file_get_contents(GOSBANK_CLIENT_API_URL . '/api/gosbank/transactions/create?from=' . $causer_account_id . '&to=' . $receiver_account_id . '&pin=' . $pin . '&amount=' . $amount));
             $statusCode = $response->code;
             if ($statusCode !== 200) {
@@ -58,7 +56,7 @@ class TransactionController extends BaseController
             }
         }
 
-        if ($receiverAccountParts[0] === CountryCode && $receiverAccountParts[1] === BankCode) {
+        if ($receiverAccountParts['country'] === CountryCode && $receiverAccountParts['bank'] === BankCode) {
             $receiverAccountBalance = self::getMaxWidthDraw($receiver_account_id);
             $resultReceiver = $receiverAccountBalance + $amount;
             if ($resultReceiver >= 0) {

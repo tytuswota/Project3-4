@@ -38,8 +38,8 @@ class DasbankSession {
             });
 
             res.on('end', function () {
-                console.log("create transaction on end" + response);
-                if (response === "withdraw successful") {
+                console.log("create transaction on end" + JSON.parse(response));
+                if (JSON.parse(response).status === 200) {
                     handler(200);
                 } else {
                     handler(400);
