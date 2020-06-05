@@ -31,7 +31,7 @@ class TransactionController extends BaseController
         //gets money from foreign bank
         if(strpos($causer_account_id, BankCode) !== false && strpos($receiver_account_id, BankCode) === false){
             $response = json_decode(file_get_contents(GOSBANK_CLIENT_API_URL . '/api/gosbank/transactions/create?from=' . $causer_account_id . '&to=' . $receiver_account_id . '&pin=' . $pin . '&amount=' . $amount));
-            //return true;
+            return true;
         }
 
         //gets money from foreign bank
