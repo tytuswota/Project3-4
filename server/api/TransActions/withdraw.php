@@ -18,9 +18,6 @@ $inputData = json_decode(file_get_contents("php://input"));
 
 $jwt=isset($inputData->jwt) ? $inputData->jwt : "";
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 if($jwt){
     try{
         $decoded = JWT::decode($jwt, config::$key, array('HS256'));
