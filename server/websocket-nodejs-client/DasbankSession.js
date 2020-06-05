@@ -130,7 +130,7 @@ class DasbankSession {
             res.on('end', () =>{
                 try {
                     console.log("in data" + response.toString())
-                    if(d.toString() !== "wrong pin") {
+                    if(response.toString() !== "wrong pin") {
                         data = JSON.parse(response)
                         if (data.data !== null) {
                             this._account_id = data.data.bank_account_id;
