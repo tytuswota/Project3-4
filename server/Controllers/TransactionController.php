@@ -14,7 +14,7 @@ class TransactionController extends BaseController
         return $accountsValues[0]->account_balance;
     }
     static function withdraw($causer_account_id, $receiver_account_id, $amount, $pin){
-        if(amount < 0){
+        if($amount < 0){
             return false;
         }
         if(strpos($causer_account_id, BankCode) !== false){
