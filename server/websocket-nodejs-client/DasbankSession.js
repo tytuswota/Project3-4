@@ -152,6 +152,7 @@ class DasbankSession {
         });
 
         req.write(data);
+        console.log("data written");
         req.end();
     }
 }
