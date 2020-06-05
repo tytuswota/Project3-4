@@ -9,10 +9,10 @@ class DasbankSession {
         this.login(cardId, pincode, handler)
     }
 
-    createTransAction(amount,toAccount,fromAccount,pin,handler){
+    createTransAction(amount,toAccount,fromAccount,handler){
 
         let data = JSON.stringify(
-            {"jwt": this._jwtToken, "receiver_account_id":toAccount, "causer_account_id":fromAccount,"amount":amount,"pin":pin}
+            {"jwt": this._jwtToken, "receiver_account_id":toAccount, "causer_account_id":fromAccount,"amount":amount}
             );
 
         const options = {
@@ -26,7 +26,7 @@ class DasbankSession {
             }
         }
 
-        console.log(data);
+        console.log("data to sent in createTransaction" + data);
 
         const req = http.request(options, function (res) {
 
@@ -38,7 +38,7 @@ class DasbankSession {
             });
 
             res.on('end', function () {
-                console.log(response);
+                console.log("create transaction on end" + response);
                 if (response === "withdraw successful") {
                     handler(200);
                 } else {
@@ -59,7 +59,7 @@ class DasbankSession {
 
     getBalance(handler) {
         let data = JSON.stringify({"jwt": this._jwtToken, "account_id": this._account_id});
-        //console.log(`data to send ${data}`);
+        console.log(`data to send ${data}`);
         // todo change port and protecol to https
         const options = {
             hostname: 'dasbank.ml',
@@ -75,9 +75,15 @@ class DasbankSession {
         const req = http.request(options, res => {
             console.log(`statusCode http getbalance: ${res.statusCode}`);
 
-            res.on('data', d => {
-                data = JSON.parse(d)
-                //console.log(data)
+            let response = '';
+            res.on('data', data => {
+                response += data;
+            });
+
+            res.on('end', function () {
+                console.log("response getBalance " + response)
+
+                data = JSON.parse(response)
                 if (data !== null) {
                     let balance = parseFloat(data.account_balance);
                     handler(balance);
@@ -86,7 +92,7 @@ class DasbankSession {
         });
 
         req.on('error', error => {
-            console.error(error)
+            console.error("error in get balance " + error)
         });
 
         req.write(data);
@@ -95,8 +101,8 @@ class DasbankSession {
 
     login(cardId, pincode, handler) {
         console.log("===in the start login function");
-        console.log(cardId);
-        console.log(pincode);
+/*        console.log(cardId);
+        console.log(pincode);*/
         let data = JSON.stringify({"card_id": cardId, "pin": pincode});
         console.log("login request " + data);
 
@@ -116,11 +122,16 @@ class DasbankSession {
             console.log("===in the login function");
             console.log(`statusCode http login: ${res.statusCode}`);
 
-            res.on('data', d => {
+            let response = '';
+            res.on('data', data => {
+                response += data;
+            });
+
+            res.on('end', () =>{
                 try {
-                    console.log(d.toString())
-                    if(d.toString() !== "wrong pin") {
-                        data = JSON.parse(d)
+                    console.log("in data" + response.toString())
+                    if(response.toString() !== "wrong pin") {
+                        data = JSON.parse(response)
                         if (data.data !== null) {
                             this._account_id = data.data.bank_account_id;
                             this._jwtToken = data.jwt;
@@ -130,17 +141,18 @@ class DasbankSession {
                         handler('400');
                     }
                 }catch (e) {
-                    console.log(e)
+                    console.log( "error login " +e)
                     handler('400');
                 }
-            })
+            });
         });
 
         req.on('error', error => {
-            console.error(error)
+            console.error("error login "+ error)
         });
 
         req.write(data);
+        console.log("data written");
         req.end();
     }
 }
