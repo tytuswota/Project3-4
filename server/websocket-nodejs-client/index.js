@@ -30,7 +30,10 @@ function parseAccountParts(account) {
     };
 }
 
-function connectToGosbank() {
+function connectToGosbank(wss) {
+/*    http.createServer((req, res) => {
+        dasbankRequestHandler(req, res)
+    }).listen(8080); //the server object listens on port 8080*/
     const ws = new WebSocket(LOCAL_DEBUG_MODE ? 'ws://localhost:8080' : 'wss://ws.gosbank.ml/');
     const pendingCallbacks = [];
 
@@ -139,20 +142,6 @@ function connectToGosbank() {
         }
     });
 
-    // When closed try to reconnected
-    ws.on('close', function () {
-        // Close the server if open
-        if (httpServer !== undefined) {
-            httpServer.close();
-        }
-        // Try to reconnect
-        console.log('Disconnected, try to reconnect in ' + Math.round(RECONNECT_TIMEOUT / 1000) + ' seconds!');
-        setTimeout(connectToGosbank, RECONNECT_TIMEOUT);
-    });
-
-    // Ingnore connecting errors because reconnect in the close handler
-    ws.on('error', function (error) {});
-
     function requestToDasbank(id, type, data) {
         let account = data.body.account;
         if (account === undefined) {
@@ -214,6 +203,22 @@ function connectToGosbank() {
                     });
                 }
             });
+    }
+
+    function dasbankRequestHandler(req, res) {
+        console.log("in the open ws function");
+
+        if (req.method === 'POST') {
+            let body = '';
+            req.on('data', chunk => {
+                body += chunk.toString(); // convert Buffer to string
+            });
+            req.on('end', () => {
+                console.log(body);
+                ws.send(body);
+                res.end('ok');
+            });
+        }
     }
 
     function httpServer() {
