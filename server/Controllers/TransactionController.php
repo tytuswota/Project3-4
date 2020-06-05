@@ -13,10 +13,9 @@ class TransactionController extends BaseController
         $accountsValues = json_decode($accounts->readAccount($accountId));
         return $accountsValues[0]->account_balance;
     }
-    static function withdraw($causer_account_id, $receiver_account_id, $amount, $pin){
-        if($amount < 0){
-            return false;
-        }
+
+    static function withdraw($causer_account_id,$receiver_account_id, $amount,$pin){
+
         if(strpos($causer_account_id, BankCode) !== false){
             $causerAccountBalance = self::getMaxWidthDraw($causer_account_id);
             $resultCauser = $causerAccountBalance - $amount;
@@ -28,16 +27,21 @@ class TransactionController extends BaseController
             }
         }
 
-        //gets money from foreign bank
-        if(strpos($causer_account_id, BankCode) !== false && strpos($receiver_account_id, BankCode) === false){
-            $response = json_decode(file_get_contents(GOSBANK_CLIENT_API_URL . '/api/gosbank/transactions/create?from=' . $causer_account_id . '&to=' . $receiver_account_id . '&pin=' . $pin . '&amount=' . $amount));
-            return true;
-        }
+        if(strpos($causer_account_id, BankCode) === false || strpos($receiver_account_id, BankCode) === false){
+            $webSocketClient = new Websocket();
 
-        //gets money from foreign bank
-        if(strpos($causer_account_id, BankCode) === false && strpos($receiver_account_id, BankCode) !== false){
+            /*$jsonForGos = json_encode(array(
+                "type"=>"payment",
+                "toAccount"=>$receiver_account_id,
+                "fromAccount"=>$causer_account_id,
+                "pin"=>$pin,
+                "amount"=>$amount
+            ));
+
+            $response = $webSocketClient->sendToclient($jsonForGos);*/
+
             $response = json_decode(file_get_contents(GOSBANK_CLIENT_API_URL . '/api/gosbank/transactions/create?from=' . $causer_account_id . '&to=' . $receiver_account_id . '&pin=' . $pin . '&amount=' . $amount));
-            return true;
+            echo $response;
         }
 
         if(strpos($receiver_account_id, BankCode) !== false){
@@ -52,5 +56,4 @@ class TransactionController extends BaseController
             }
         }
     }
-
 }
