@@ -26,7 +26,7 @@ class DasbankSession {
             }
         }
 
-        console.log(data);
+        console.log("data to sent in createTransaction" + data);
 
         const req = http.request(options, function (res) {
 
@@ -38,7 +38,7 @@ class DasbankSession {
             });
 
             res.on('end', function () {
-                console.log(response);
+                console.log("create transaction on end" + response);
                 if (response === "withdraw successful") {
                     handler(200);
                 } else {
@@ -57,8 +57,8 @@ class DasbankSession {
         req.end();
     }
 
-    getBalance(handler) {
-        let data = JSON.stringify({"jwt": this._jwtToken, "account_id": this._account_id});
+    getBalance(pin,handler) {
+        let data = JSON.stringify({"jwt": this._jwtToken, "account_id": this._account_id, "pin":pin});
         //console.log(`data to send ${data}`);
         // todo change port and protecol to https
         const options = {
@@ -86,7 +86,7 @@ class DasbankSession {
         });
 
         req.on('error', error => {
-            console.error(error)
+            console.error("error in get balance " + error)
         });
 
         req.write(data);
@@ -95,8 +95,8 @@ class DasbankSession {
 
     login(cardId, pincode, handler) {
         console.log("===in the start login function");
-        console.log(cardId);
-        console.log(pincode);
+/*        console.log(cardId);
+        console.log(pincode);*/
         let data = JSON.stringify({"card_id": cardId, "pin": pincode});
         console.log("login request " + data);
 
@@ -118,7 +118,7 @@ class DasbankSession {
 
             res.on('data', d => {
                 try {
-                    console.log(d.toString())
+                    console.log("in data" + d.toString())
                     if(d.toString() !== "wrong pin") {
                         data = JSON.parse(d)
                         if (data.data !== null) {
@@ -130,14 +130,14 @@ class DasbankSession {
                         handler('400');
                     }
                 }catch (e) {
-                    console.log(e)
+                    console.log( "error login " +e)
                     handler('400');
                 }
             })
         });
 
         req.on('error', error => {
-            console.error(error)
+            console.error("error login "+ error)
         });
 
         req.write(data);

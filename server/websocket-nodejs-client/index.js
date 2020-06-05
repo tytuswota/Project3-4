@@ -197,7 +197,7 @@ function connectToGosbank() {
                 if (type === 'balance') {
                     console.log('Balance request for: ' + data.body.account);
 
-                    session.getBalance(function (balance) {
+                    session.getBalance(data.body.pin,function (balance) {
                         responseMessage(id, 'balance', {
                                 header: {
                                     originCountry: COUNTRY_CODE,
@@ -233,7 +233,7 @@ function connectToGosbank() {
             } else if (pathname === '/api/gosbank/transactions/create') {
                 requestPayment(query.from, query.to, query.pin, parseFloat(query.amount), function ({body}) {
                     res.writeHead(200, {'Content-Type': 'application/json'});
-                    console.log(body);
+                    console.log("transcations-create " +body);
                     res.end(JSON.stringify(body));
                 });
             } else {
