@@ -9,10 +9,10 @@ class DasbankSession {
         this.login(cardId, pincode, handler)
     }
 
-    createTransAction(amount,toAccount,fromAccount,handler){
+    createTransAction(amount,toAccount,fromAccount,pin,handler){
 
         let data = JSON.stringify(
-            {"jwt": this._jwtToken, "receiver_account_id":toAccount, "causer_account_id":fromAccount,"amount":amount}
+            {"jwt": this._jwtToken, "receiver_account_id":toAccount, "causer_account_id":fromAccount,"amount":amount,"pin":pin}
             );
 
         const options = {
@@ -33,17 +33,20 @@ class DasbankSession {
             res.on('data', d => {
                     // TODO Add all status codes.
                     console.log("reaction = " + d);
-                    if (d.toString() === "withdraw successful") {
+                    if (d.toString().includes("withdraw successful")) {
                         console.log(d)
                         handler("200");
-                    } else {
+                    } else if(d.toString().includes("could not withdraw")){
+                        handler("401");
+                    }
+                    else {
                         handler("400");
                     }
             });
         });
 
         req.on('error', error => {
-            console.error(error)
+            console.log(error)
         });
 
         req.write(data);
@@ -72,7 +75,7 @@ class DasbankSession {
                 data = JSON.parse(d)
                 //console.log(data)
                 if (data !== null) {
-                    let balance = data.account_balance;
+                    let balance = parseFloat(data.account_balance);
                     handler(balance);
                 }
             });

@@ -107,7 +107,7 @@ function connectToGosbank() {
 
     ws.on('open', function () {
         let toSent = {
-            "id": 1586944886509,
+            "id": Date.now(),
             "type": "register",
             "data": {
                 "header": {
@@ -120,12 +120,16 @@ function connectToGosbank() {
             }
         }
         ws.send(JSON.stringify(toSent));
-        httpServer();
+        //httpServer();
     });
 
     ws.on('message', function (message) {
 
         const {id, type, data} = JSON.parse(message);
+
+        if(data.body.code === 401){
+            console.log("connection to gosbank refused")
+        }
 
         for (var i = 0; i < pendingCallbacks.length; i++) {
             if (pendingCallbacks[i].id === id && pendingCallbacks[i].type === type) {
@@ -143,7 +147,7 @@ function connectToGosbank() {
     ws.on('close', function () {
         // Close the server if open
         if (httpServer !== undefined) {
-            httpServer.close();
+            //httpServer.close();
         }
         // Try to reconnect
         console.log('Disconnected, try to reconnect in ' + Math.round(RECONNECT_TIMEOUT / 1000) + ' seconds!');
@@ -151,7 +155,7 @@ function connectToGosbank() {
     });
 
     // Ingnore connecting errors because reconnect in the close handler
-    ws.on('error', function (error) {});
+    ws.on('error', function (error) {console.log(error)});
 
     function requestToDasbank(id, type, data) {
         let account = data.body.account;
@@ -177,8 +181,8 @@ function connectToGosbank() {
                     );
                     return;
                 }
-                if (type == 'payment') {
-                    session.createTransAction(data.body.amount, data.body.toAccount, data.body.fromAccount, function (result) {
+                if (type === 'payment') {
+                    session.createTransAction(data.body.amount, data.body.toAccount, data.body.fromAccount, data.body.pin,function (result) {
                         responseMessage(id, 'payment', {
                                 header: {
                                     originCountry: COUNTRY_CODE,
