@@ -8,20 +8,21 @@ function sleep(ms) {
 
 ws.on('open', function () {
     let toSent = {
-        "id": 1586944886599,
+        "id": Date.now(),
         "type": "register",
         "data": {
             "header": {
                 "originCountry": "SO",
-                "originBank": "BANQ",
+                "originBank": "BANW",
                 "receiveCountry": "SO",
                 "receiveBank": "GOSB"
             },
             "body": {}
         }
     }
+
     ws.send(JSON.stringify(toSent));
-    toSent = {
+/*    toSent = {
         "id": 1586944886593,
         "type": "balance",
         "data": {
@@ -38,22 +39,21 @@ ws.on('open', function () {
         }
     }
 
-    ws.send(JSON.stringify(toSent));
-/*
+    ws.send(JSON.stringify(toSent));*/
 
     toSent = {
-        "id": 1586944886559,
+        "id": Date.now(),
         "type": "payment",
         "data": {
             "header": {
                 "originCountry": "SO",
-                "originBank": "BANQ",
+                "originBank": "BANW",
                 "receiveCountry": "SO",
                 "receiveBank": "DASB"
             },
             "body": {
-                "fromAccount": "SO-DASB-00000001",
-                "toAccount": "SO-BANQ-00000002",
+                "fromAccount": "SO-DASB-00000002",
+                "toAccount": "SO-DASW-00000002",
                 "pin": "1234",
                 "amount": 4.56
             }
@@ -61,8 +61,6 @@ ws.on('open', function () {
     }
 
     ws.send(JSON.stringify(toSent));
-
-*/
 
 });
 
