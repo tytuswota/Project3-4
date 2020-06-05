@@ -27,22 +27,16 @@ class TransactionController extends BaseController
             }
         }
 
-        if(strpos($causer_account_id, BankCode) === false || strpos($receiver_account_id, BankCode) === false){
-            $webSocketClient = new Websocket();
+            //gets money from foreign bank
+            if(strpos($causer_account_id, BankCode) !== false && strpos($receiver_account_id, BankCode) === false){
+                $response = json_decode(file_get_contents(GOSBANK_CLIENT_API_URL . '/api/gosbank/transactions/create?from=' . $causer_account_id . '&to=' . $receiver_account_id . '&pin=' . $pin . '&amount=' . $amount));
+            }
 
-            /*$jsonForGos = json_encode(array(
-                "type"=>"payment",
-                "toAccount"=>$receiver_account_id,
-                "fromAccount"=>$causer_account_id,
-                "pin"=>$pin,
-                "amount"=>$amount
-            ));
-
-            $response = $webSocketClient->sendToclient($jsonForGos);*/
-
-            $response = json_decode(file_get_contents(GOSBANK_CLIENT_API_URL . '/api/gosbank/transactions/create?from=' . $causer_account_id . '&to=' . $receiver_account_id . '&pin=' . $pin . '&amount=' . $amount));
-            echo $response;
-        }
+            //gets money from foreign bank
+            if(strpos($causer_account_id, BankCode) === false && strpos($receiver_account_id, BankCode) !== false){
+                $response = json_decode(file_get_contents(GOSBANK_CLIENT_API_URL . '/api/gosbank/transactions/create?from=' . $causer_account_id . '&to=' . $receiver_account_id . '&pin=' . $pin . '&amount=' . $amount));
+                return true;
+            }
 
         if(strpos($receiver_account_id, BankCode) !== false){
             $receiverAccountBalance = self::getMaxWidthDraw($receiver_account_id);
