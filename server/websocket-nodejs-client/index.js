@@ -69,7 +69,6 @@ function connectToGosbank() {
         const formAccountParts = parseAccountParts(fromAccount);
         const toAccountParts = parseAccountParts(toAccount);
 
-
         if (formAccountParts.bank !== BANK_CODE) {
             requestMessage('payment', {
                 header: {

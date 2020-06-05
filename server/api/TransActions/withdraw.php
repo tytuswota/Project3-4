@@ -16,10 +16,10 @@ use \Firebase\JWT\JWT;
 
 $inputData = json_decode(file_get_contents("php://input"));
 
-$jwt=isset($inputData->jwt) ? $inputData->jwt : "";
+$jwt = isset($inputData->jwt) ? $inputData->jwt : "";
 
-if($jwt){
-    try{
+if ($jwt) {
+    try {
         $decoded = JWT::decode($jwt, config::$key, array('HS256'));
 
         $amount = $inputData->amount;
@@ -27,30 +27,30 @@ if($jwt){
         $date_time = date("y/m/d G.i:s");
 
         $val = [
-            "date_time"=>$date_time,
-            "amount"=>$amount,
-            "receiver_account_id"=>$inputData->receiver_account_id,
-            "causer_account_id"=>$inputData->causer_account_id
+            "date_time" => $date_time,
+            "amount" => $amount,
+            "receiver_account_id" => $inputData->receiver_account_id,
+            "causer_account_id" => $inputData->causer_account_id
         ];
 
-        //also put in the thing of gosbank
         $trans = new Transactions();
         $trans->createTransaction($val);
-        //========================================
 
-        if(TransactionController::withdraw($inputData->causer_account_id, $inputData->receiver_account_id, $amount,$inputData->pin)){
-            echo "withdraw successful";
-        }else{
-            echo "could not withdraw";
-        }
-    }catch (Exception $e){
+        $statusCode = TransactionController::withdraw($inputData->causer_account_id, $inputData->receiver_account_id, $amount, $inputData->pin);
+        echo json_encode(array(
+            "status" => $statusCode
+        ));
+    } catch (Exception $e) {
         echo json_encode(array(
             "message" => "Access denied.",
             "error" => $e->getMessage()
         ));
     }
-}else{
-    echo "error no token";
+} else {
+    echo json_encode(array(
+        "message" => "Access denied.",
+        "error" => "no token"
+    ));
 }
 
 

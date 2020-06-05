@@ -3,15 +3,17 @@ include_once "BaseModel.php";
 
 class Accounts extends BaseModel
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->tableName = "BankAccount";
     }
 
-    public function readAccount($bankId = 0){
-        $stmt = $this->read("bank_account_id",$bankId);
+    public function readAccount($bankId = 0)
+    {
+        $stmt = $this->read("bank_account_id", $bankId);
         $bankAccountArray = array();
 
-        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
             $bankAccountItem = array(
                 "bank_account_id" => $row['bank_account_id'],
@@ -29,23 +31,25 @@ class Accounts extends BaseModel
         return json_encode($bankAccountArray);
     }
 
-    public function blockCard($bankAccountId){
+    public function blockCard($bankAccountId)
+    {
         $this->tableName = "Card";
         $name = "bank_account_id";
         $values = [
-            "active"=>0
+            "active" => 0
         ];
-        $val = $this->update($name,$bankAccountId,$values);
+        $val = $this->update($name, $bankAccountId, $values);
         $this->tableName = "BankAccount";
         return $val;
     }
 
-    public function readCard($cardId = 0){
+    public function readCard($cardId = 0)
+    {
         $this->tableName = "Card";
-        $stmt = $this->read("card_id",$cardId);
+        $stmt = $this->read("card_id", $cardId);
         $cardArray = array();
 
-        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
             $cardItem = array(
                 "card_id" => $row['card_id'],
@@ -60,25 +64,29 @@ class Accounts extends BaseModel
         return json_encode($cardArray);
     }
 
-    public function createAccount($values){
+    public function createAccount($values)
+    {
 
         return $this->create($values);
     }
 
-    public function getLastBankAccountId(){
+    public function getLastBankAccountId()
+    {
         return $this->getLastRecord('bank_account_id');
     }
 
-    public function updateAccountBalance($id,$newBalance){
+    public function updateAccountBalance($id, $newBalance)
+    {
 
         $name = "bank_account_id";
         $values = [
-            "account_balance"=>$newBalance
+            "account_balance" => $newBalance
         ];
-        $this->update($name,$id,$values);
+        $this->update($name, $id, $values);
     }
 
-    public function deleteAccount(){
+    public function deleteAccount()
+    {
 
     }
 
