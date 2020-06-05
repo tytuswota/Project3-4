@@ -4,6 +4,15 @@ include_once '../../Core/WebsocketClient/Websocket.php';
 const GOSBANK_CLIENT_API_URL = "http://localhost:8080";
 const BankCode = "DASB";
 
+function parseAccountParts($account) {
+    $parts = explode('-', $account);
+    return [
+        'country' => $parts[0],
+        'bank' => $parts[1],
+        'account' => (int)$parts[2]
+    ];
+}
+
 class TransactionController extends BaseController
 {
     public $accountId;

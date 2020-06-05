@@ -17,18 +17,18 @@ class DasbankSession {
 
         const options = {
             hostname: 'dasbank.ml',
-            port: 80,
-            path: '/api/TransActions/withdraw.php',
-            method: 'POST',
-            headers: {
+                port: 80,
+                path: '/api/TransActions/withdraw.php',
+                method: 'POST',
+                headers: {
                 'Content-Type': 'application/json',
-                'Content-Length': data.length
+                    'Content-Length': data.length
             }
         }
 
         console.log(data);
 
-         http.request(options, function (res) {
+        const req = http.request(options, function (res) {
 
             console.log(`statusCode http createTransaction: ${res.statusCode}`);
 
@@ -38,19 +38,20 @@ class DasbankSession {
             });
 
             res.on('end', function () {
-                if (response.toString() === "withdraw successful") {
+                console.log(response);
+                if (response === "withdraw successful") {
                     handler(200);
                 } else {
                     handler(400);
                 }
             });
 
+            /*res.on('error', error => {
+                console.error(error)
+            });*/
+
         });
 
-
-        req.on('error', error => {
-            console.log(error)
-        });
 
         req.write(data);
         req.end();
