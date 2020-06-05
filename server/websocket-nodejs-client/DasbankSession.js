@@ -9,7 +9,7 @@ class DasbankSession {
         this.login(cardId, pincode, handler)
     }
 
-    createTransAction(amount,toAccount,fromAccount,pin,handler){
+    createTransAction(amount,toAccount,fromAccount,handler){
 
         let data = JSON.stringify(
             {"jwt": this._jwtToken, "receiver_account_id":toAccount, "causer_account_id":fromAccount,"amount":amount,"pin":pin}
