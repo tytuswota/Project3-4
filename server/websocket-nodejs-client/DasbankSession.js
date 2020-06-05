@@ -12,7 +12,7 @@ class DasbankSession {
     createTransAction(amount,toAccount,fromAccount,handler){
 
         let data = JSON.stringify(
-            {"jwt": this._jwtToken, "receiver_account_id":toAccount, "causer_account_id":fromAccount,"amount":amount,"pin":pin}
+            {"jwt": this._jwtToken, "receiver_account_id":toAccount, "causer_account_id":fromAccount,"amount":amount}
             );
 
         const options = {
@@ -58,7 +58,7 @@ class DasbankSession {
     }
 
     getBalance(handler) {
-        let data = JSON.stringify({"jwt": this._jwtToken, "account_id": this._account_id, "pin":pin});
+        let data = JSON.stringify({"jwt": this._jwtToken, "account_id": this._account_id});
         //console.log(`data to send ${data}`);
         // todo change port and protecol to https
         const options = {
