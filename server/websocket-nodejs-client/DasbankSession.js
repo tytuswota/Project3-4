@@ -59,7 +59,7 @@ class DasbankSession {
 
     getBalance(handler) {
         let data = JSON.stringify({"jwt": this._jwtToken, "account_id": this._account_id});
-        //console.log(`data to send ${data}`);
+        console.log(`data to send ${data}`);
         // todo change port and protecol to https
         const options = {
             hostname: 'dasbank.ml',
