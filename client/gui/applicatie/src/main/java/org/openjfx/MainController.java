@@ -65,6 +65,7 @@ public class MainController extends BaseController {
         withdraw(banknotes,0);
     }
 
+    // Handles the keypress event.
     public void KeyPressEventHandler(char key) {
         try {
             if (key == 'A') {

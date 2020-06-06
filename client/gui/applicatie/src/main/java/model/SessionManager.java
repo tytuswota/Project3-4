@@ -49,8 +49,6 @@ public class SessionManager extends ConnectionManager{
             JSONObject jsonObj = loadData("Login/login.php", jsonCardData);  // TODO use https connection
             System.out.println(jsonObj);
 
-
-
             session = new SessionManager(jsonObj.getJSONObject("data").getString("bank_account_id"), jsonObj.getString("jwt"), jsonObj.getInt("status"));
             return session;
 

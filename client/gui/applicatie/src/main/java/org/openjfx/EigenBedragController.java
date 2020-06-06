@@ -55,32 +55,21 @@ public class EigenBedragController extends BaseController {
         saldoText.setText(text);
     }
 
-
-
-
     double balance = Double.parseDouble(SessionManager.getSession().getBalance());
 
-
     public void commitTransActions() throws IOException {
-
-        System.out.println("in the commit transaction methode");
-
         int amount = Integer.parseInt(saldoText.getText());
-
         int[][] bankNoteOptions = getBanknoteOptions(amount);
-
-
         BanknoteSelection.banknoteArray = bankNoteOptions;
-
 
         if (amount > balance || amount < 10) {
             App.setRoot("saldoLaag");
         } else {
             App.setRoot("banknoteSelection");
         }
-
     }
 
+    // Handles the keypress event.
     public void KeyPressEventHandler(char key) {
         try {
 

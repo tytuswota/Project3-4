@@ -72,10 +72,7 @@ public class BedragController extends BaseController {
         App.setRoot("banknoteSelection");
     }
 
-    public void calculateNotes() {
-
-    }
-
+    // Handles the keypress event
     @Override
     public void KeyPressEventHandler(char key) {
         try {

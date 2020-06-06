@@ -43,6 +43,7 @@ public class SaldoController extends BaseController {
         }
     }
 
+    // Handles the keypress event.
     @Override
     public void KeyPressEventHandler(char key) {
         try {

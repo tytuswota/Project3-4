@@ -49,6 +49,7 @@ public class ErrorController extends BaseController {
         App.restoreLast();
     }
 
+    // Handles the keypress event.
     @Override
     public void KeyPressEventHandler(char key) {
         try {

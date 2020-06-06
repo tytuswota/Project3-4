@@ -46,6 +46,8 @@ public class SimulatieController extends BaseController{
     public void switchToPasUit() throws IOException {
         App.setRoot("pasUit");
     }
+
+    // Go to pass uit after a given time.
     @FXML
     public void switchMethode() {
         Thread switchMethode = new Thread() {

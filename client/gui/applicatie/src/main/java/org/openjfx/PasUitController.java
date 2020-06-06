@@ -35,7 +35,7 @@ public class PasUitController extends BaseController {
         App.setRoot("pasIn");
     }
 
-
+    // Return to pass in after a given time.
     @FXML
     public void switchMethode() {
         Thread switchMethode = new Thread() {
