@@ -44,7 +44,6 @@ public class BaseController extends Thread {
             RFIDEventHandler(x);
         });
         clock();
-
     }
 
     private void baseKeyPressEventHandler(String key) {
@@ -185,20 +184,14 @@ public class BaseController extends Thread {
         return options;
     }
 
-    @FXML
     public void clock() {
         Thread clock = new Thread() {
 
-
             @Override
             public void run() {
-
-
                 while (true) {
-
-
-
                     try {
+                        Thread.sleep(100);
                         Platform.runLater(new Runnable() {
                             @Override
                             public void run() {
@@ -206,14 +199,9 @@ public class BaseController extends Thread {
                                 SimpleDateFormat date = new SimpleDateFormat(clock);
                                 dateString = date.format(new Date());
 
-
                             clockLabel.setText(dateString);
-
                             }
-
-
                         });
-                        Thread.sleep(1);
                     } catch (InterruptedException | NullPointerException  e) {
                         e.printStackTrace();
                     }
