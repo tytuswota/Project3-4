@@ -7,6 +7,13 @@ import model.LanguageSystem;
 
 import java.io.IOException;
 
+/**
+ *
+ * ErrorController
+ *
+ * Produced by Tymek, Shabir, Robin and Jaco.
+ */
+
 public class ErrorController extends BaseController {
 
     @FXML

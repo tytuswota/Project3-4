@@ -4,12 +4,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import model.BankNoteCombo;
 import model.LanguageSystem;
 import model.SessionManager;
-import model.SetOfBanknotes;
-
 import java.io.IOException;
+
+/**
+ *
+ * EigenBedragController
+ *
+ * Produced by Tymek, Shabir, Robin and Jaco.
+ */
 
 public class EigenBedragController extends BaseController {
 

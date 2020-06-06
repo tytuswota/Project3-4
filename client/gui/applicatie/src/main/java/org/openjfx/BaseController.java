@@ -16,7 +16,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 /*
-Contains the shared features of the controllers.
+ * BaseController
+ *
+ * Contains the shared features of the controllers.
+ * produced by Tymek, Shabir, Robin and Jaco.
  */
 
 public class BaseController extends Thread {

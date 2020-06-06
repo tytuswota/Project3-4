@@ -6,15 +6,19 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import model.LanguageSystem;
-
 import java.io.IOException;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
+
+/**
+ *
+ * PasInController
+ *
+ * Produced by Tymek, Shabir, Robin and Jaco.
+ */
 
 public class PasInController extends BaseController {
 
     @FXML
-    void initialize() {
+    public void initialize() {
         cardIn.setText(LanguageSystem.getString("cardIn"));
     }
 
@@ -28,7 +32,6 @@ public class PasInController extends BaseController {
     public void switchToLogin() throws IOException {
         App.setRoot("login");
     }
-
 
     // Handles the keypress events
     public void KeyPressEventHandler(char key) {

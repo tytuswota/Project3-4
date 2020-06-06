@@ -9,6 +9,12 @@ import model.SetOfBanknotes;
 
 import java.io.IOException;
 
+/**
+ *  BanknoteSelection.
+ *
+ *  Produced by Tymek, Shabir, Robin and Jaco.
+ */
+
 public class BanknoteSelection extends BaseController {
     public static int BNote;
     public static int banknote1;
@@ -18,8 +24,6 @@ public class BanknoteSelection extends BaseController {
     public static String bankN2;
     public static String bankN3;
     public static int[][] banknoteArray = null;
-
-
 
     public static String getBankN1(){
         bankN1 = Integer.toString(banknote1);

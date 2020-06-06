@@ -14,6 +14,10 @@ import java.io.IOException;
 
 /**
  * JavaFX App
+ *
+ * Main class for the application.
+ *
+ * Produced by Tymek, Shabir, Robin and Jaco.
  */
 
 public class App extends Application {

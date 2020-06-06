@@ -8,11 +8,17 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import model.LanguageSystem;
 import model.SessionManager;
-import org.json.JSONObject;
+
+/**
+ *
+ * LoginController
+ *
+ * Produced by Tymek, Shabir, Robin and Jaco.
+ */
 
 public class LoginController extends BaseController {
 
-//        private String cardId = reader.getLastCardNumber();
+    private String cardId = reader.getLastCardNumber();
 
     public void initialize() {
         enterPin.setText(LanguageSystem.getString("enterPin"));
@@ -55,9 +61,6 @@ public class LoginController extends BaseController {
 
     @FXML
     public void switchToMainMenu() throws IOException {
-
-        //        //"SU-DASB-00000002";
-        String cardId = "SO-BANQ-00000005";//TODO veranderen naar SO
 
         int status = login(cardId);
 

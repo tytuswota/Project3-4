@@ -6,6 +6,13 @@ import javafx.scene.control.Label;
 import model.LanguageSystem;
 import model.SessionManager;
 
+/**
+ *
+ * SaldoController
+ *
+ * Produced by Tymek, Shabir, Robin and Jaco.
+ */
+
 public class SaldoController extends BaseController {
 
     @FXML

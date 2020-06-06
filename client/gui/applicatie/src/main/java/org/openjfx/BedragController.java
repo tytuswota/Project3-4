@@ -8,6 +8,13 @@ import model.SetOfBanknotes;
 
 import java.io.IOException;
 
+/**
+ *
+ * BedragController
+ *
+ * Produced by Tymek, Shabir, Robin and Jaco.
+ */
+
 public class BedragController extends BaseController {
 
     @FXML
