@@ -1,13 +1,19 @@
 package model;
+
 /*
-Represents a set of banknotes
+ * SetOfBankNotes
+ *
+ * Represents a set of banknotes.
+ * produced by Tymek, Shabir, Robin and Jaco.
  */
+
 public class SetOfBanknotes {
 
     private int tens;
     private int twenties;
     private int fifties;
 
+    // Constructor
     public SetOfBanknotes(int tens, int twenties, int fifties){
         this.tens = tens;
         this.twenties = twenties;

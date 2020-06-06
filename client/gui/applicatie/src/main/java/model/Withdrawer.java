@@ -1,8 +1,11 @@
 package model;
 
 /*
-This class manages the withdraw action.
-It connects to the server to do the transaction.
+ * WithDrawer
+ *
+ * This class manages the withdraw action.
+ * It connects to the server to do the transaction.
+ * produced by Tymek, Shabir, Robin and Jaco.
  */
 public class Withdrawer {
 
@@ -29,6 +32,7 @@ public class Withdrawer {
         return false;
     }
 
+    // Checks whether the users balance is enough.
     public boolean isBalanceEnough(int amount){
         try{
             return Double.parseDouble(SessionManager.getSession().getBalance()) >= (double)amount;

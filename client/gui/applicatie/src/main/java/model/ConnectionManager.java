@@ -9,6 +9,13 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * ConnectionManager
+ *
+ * Creates a http-connection with the dasbank API.
+ * Produced by Tymek, Shabir, Robin and Jaco.
+ */
+
 public class ConnectionManager {
 
     // Loads JSONobjest with a post request from the given url

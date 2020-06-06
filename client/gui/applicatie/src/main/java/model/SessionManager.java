@@ -11,7 +11,9 @@ import java.io.*;
  * ConnectionManager
  * <p>
  * Manages the connection to the JSON API.
+ * produced by Tymek, Shabir, Robin and Jaco.
  */
+
 public class SessionManager extends ConnectionManager{
 
     private static SessionManager session;

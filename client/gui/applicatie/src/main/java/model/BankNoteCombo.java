@@ -1,7 +1,11 @@
 package model;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+/**
+ * BankNoteCombo
+ *
+ * Calculates the available banknotes options for each amount.
+ * produced by Tymek, Shabir, Robin and Jaco.
+ */
 
 public class BankNoteCombo {
     private int amount;
