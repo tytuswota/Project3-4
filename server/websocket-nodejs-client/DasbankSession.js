@@ -38,7 +38,8 @@ class DasbankSession {
             });
 
             res.on('end', function () {
-                console.log("create transaction on end" + JSON.parse(response));
+                console.log("create transaction on end parse" + JSON.parse(response));
+                console.log("create transaction on end stringify" + JSON.stringify(response));
                 if (JSON.parse(response).status === 200) {
                     handler(200);
                 } else {

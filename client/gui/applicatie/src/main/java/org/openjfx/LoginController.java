@@ -58,7 +58,7 @@ public class LoginController extends BaseController {
 
         //        //"SU-DASB-00000002";
         String cardId = "SO-BANQ-00000005";//TODO veranderen naar SO
-
+        //String cardId = "SO-DASB-00000002";
         int status = login(cardId);
 
         if (status != 403) {
