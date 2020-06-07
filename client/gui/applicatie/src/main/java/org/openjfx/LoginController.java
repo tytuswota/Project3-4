@@ -20,6 +20,7 @@ public class LoginController extends BaseController {
 
     private String cardId = reader.getLastCardNumber();
 
+//    private String cardId = "SO-DASB-00000002";
     public void initialize() {
         enterPin.setText(LanguageSystem.getString("enterPin"));
         abort.setText(LanguageSystem.getString("abort"));

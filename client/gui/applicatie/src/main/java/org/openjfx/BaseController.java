@@ -102,7 +102,6 @@ public class BaseController extends Thread {
         } else {
             if (withdrawer.withdraw(banknotes)) {
                 totBedrag= banknotes.getTotalAmount();
-                System.out.println(totBedrag);
                 App.setRoot("bon");
             } else {
                 App.showErrorScreen("Opnemen mislukt.");
@@ -127,7 +126,7 @@ public class BaseController extends Thread {
         } else {
             if (withdrawer.withdraw(banknotes)) {
                 totBedrag= banknotes.getTotalAmount();
-                App.setRoot("pasUit");
+                App.setRoot("simulatie");
             } else {
                 App.showErrorScreen("Opnemen mislukt.");
                 System.out.println("Withdrawing failed.");

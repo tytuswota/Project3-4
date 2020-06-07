@@ -17,6 +17,24 @@ import model.Withdrawer;
  */
 
 public class MainController extends BaseController {
+
+    public static int getBanknote1() {
+        return banknote1;
+    }
+
+    public static int getBanknote2() {
+        return banknote2;
+    }
+
+    public static int getBanknote3() {
+        return banknote3;
+    }
+
+    public static int banknote1;
+    public static int banknote2;
+    public static int banknote3;
+
+
     @FXML
     public void initialize() {
         balance.setText(LanguageSystem.getString("balance"));
@@ -62,6 +80,11 @@ public class MainController extends BaseController {
     @FXML
     private void PinZeventig() throws IOException {
         SetOfBanknotes banknotes = new SetOfBanknotes(0, 1, 1);
+
+        banknote1 = banknotes.getTens();
+        banknote2 = banknotes.getTwenties();
+        banknote3 = banknotes.getFifties();
+
         withdraw(banknotes,0);
     }
 
