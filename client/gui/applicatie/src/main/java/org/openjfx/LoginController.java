@@ -62,7 +62,7 @@ public class LoginController extends BaseController {
     @FXML
     public void switchToMainMenu() throws IOException {
 
-        int status = login("SO-DASB-00000002");
+        int status = login(cardId);
 
         if (status != 403) {
             if (this.efforts != 3) {
