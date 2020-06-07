@@ -85,7 +85,6 @@ public class BanknoteSelection extends BaseController {
     @FXML
     public void initialize() {
         for (int combo = 0; combo < 20; combo++) {
-            System.out.println("===============================");
             for (int bill = 0; bill < 3; bill++) {
                 System.out.println(banknoteArray[bill][combo]);
                 if (banknoteArray[bill][combo] != 0) {

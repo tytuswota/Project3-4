@@ -13,22 +13,7 @@ import java.io.IOException;
  */
 
 public class SimulatieController extends BaseController {
-    @FXML
-    public void initialize() {
-        simulatie.setText("er is ₽" + iets + " gepint.");
-        if (brief1.equals("0") && brief2.equals("0") && brief3.equals("0") ) {
-            simulatie1.setText("₽10 is: " + MainController.getBanknote1() + "x uitgeworpen");
-            simulatie2.setText("₽20 is: " + MainController.getBanknote2() + "x uitgeworpen");
-            simulatie3.setText("₽50 is: " + MainController.getBanknote3() + "x uitgeworpen");
-            System.out.println("ik zit goed gast");
-        } else {
-            System.out.println("ik zit verkeerd g");
-            simulatie1.setText("₽10 is: " + brief1 + "x uitgeworpen");
-            simulatie2.setText("₽20 is: " + brief2 + "x uitgeworpen");
-            simulatie3.setText("₽50 is: " + brief3 + "x uitgeworpen");
-        }
-        switchMethode();
-    }
+
 
     @FXML
     Label simulatie;
@@ -43,10 +28,22 @@ public class SimulatieController extends BaseController {
     Label simulatie3;
 
 
-    String iets = (BaseController.getTBedrag());
+    String total = (BaseController.getTBedrag());
     String brief1 = (BanknoteSelection.getBankN1());
     String brief2 = (BanknoteSelection.getBankN2());
     String brief3 = (BanknoteSelection.getBankN3());
+
+
+    @FXML
+    public void initialize() {
+        simulatie.setText("er is ₽" + total + " gepint.");
+
+        simulatie1.setText("₽10 is: " + brief1 + "x uitgeworpen");
+        simulatie2.setText("₽20 is: " + brief2 + "x uitgeworpen");
+        simulatie3.setText("₽50 is: " + brief3 + "x uitgeworpen");
+
+        switchMethode();
+    }
 
 
     @FXML

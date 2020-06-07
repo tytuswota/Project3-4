@@ -85,6 +85,11 @@ public class MainController extends BaseController {
         banknote2 = banknotes.getTwenties();
         banknote3 = banknotes.getFifties();
 
+        BanknoteSelection.banknote1 = banknote1;
+        BanknoteSelection.banknote2 = banknote2;
+        BanknoteSelection.banknote3 = banknote3;
+
+
         withdraw(banknotes,0);
     }
 
