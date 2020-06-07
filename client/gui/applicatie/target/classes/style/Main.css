@@ -46,8 +46,8 @@
 }
 
 #simulatie.bg {
-    -fx-background-image: url("../fotos");
-}
+     -fx-background-image: url("../fotos/simulatie.jpg");
+ }
 
 #button.knop {
     -fx-background-radius: 15px;

@@ -35,7 +35,7 @@ MFRC522::MIFARE_Key key;          //create a MIFARE_Key struct named 'key', whic
 //this is the block number we will write into and then read.
 int block = 1;
 
-byte blockcontent[16] = {"SU-DASB-00000001"}; //an array with 16 bytes to be written into one of the 64 card blocks is defined
+byte blockcontent[16] = {"SO-DASB-00000002"}; //an array with 16 bytes to be written into one of the 64 card blocks is defined
 
 //This array is used for reading out a block.
 byte readbackblock[18];
@@ -80,7 +80,7 @@ void loop()
   Serial.println("card selected");
 #endif
   //  the blockcontent array is written into the card block
-  //  writeBlock(block, blockcontent);
+//    writeBlock(block, blockcontent);
 
   //read the block back
   readBlock(block, readbackblock);

@@ -32,7 +32,7 @@ public class SaldoController extends BaseController {
     @FXML
     public void initialize() {
         abort.setText(LanguageSystem.getString("abort"));
-        mainMenu.setText(LanguageSystem.getString("mainMenu"));
+        mainMenu.setText(LanguageSystem.getString("menu"));
         yourBalance.setText(LanguageSystem.getString("yourBalance"));
         try {
             String balance = SessionManager.getSession().getBalance();
