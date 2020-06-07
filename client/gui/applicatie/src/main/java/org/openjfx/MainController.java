@@ -9,6 +9,13 @@ import model.LanguageSystem;
 import model.SetOfBanknotes;
 import model.Withdrawer;
 
+/**
+ *
+ * MainController
+ *
+ * Produced by Tymek, Shabir, Robin and Jaco.
+ */
+
 public class MainController extends BaseController {
     @FXML
     public void initialize() {
@@ -58,6 +65,7 @@ public class MainController extends BaseController {
         withdraw(banknotes,0);
     }
 
+    // Handles the keypress event.
     public void KeyPressEventHandler(char key) {
         try {
             if (key == 'A') {

@@ -8,6 +8,13 @@ import model.SetOfBanknotes;
 
 import java.io.IOException;
 
+/**
+ *
+ * BedragController
+ *
+ * Produced by Tymek, Shabir, Robin and Jaco.
+ */
+
 public class BedragController extends BaseController {
 
     @FXML
@@ -65,10 +72,7 @@ public class BedragController extends BaseController {
         App.setRoot("banknoteSelection");
     }
 
-    public void calculateNotes() {
-
-    }
-
+    // Handles the keypress event
     @Override
     public void KeyPressEventHandler(char key) {
         try {

@@ -16,7 +16,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 /*
-Contains the shared features of the controllers.
+ * BaseController
+ *
+ * Contains the shared features of the controllers.
+ * produced by Tymek, Shabir, Robin and Jaco.
  */
 
 public class BaseController extends Thread {
@@ -46,6 +49,7 @@ public class BaseController extends Thread {
         clock();
     }
 
+    // Handels a keypress fired by SerialReader.
     private void baseKeyPressEventHandler(String key) {
         Platform.runLater(new Runnable() {
             @Override
@@ -56,9 +60,11 @@ public class BaseController extends Thread {
         });
     }
 
+    // Method to be overridden.
     public void KeyPressEventHandler(char key) {
     }
 
+    // Method to be overridden.
     protected void RFIDEventHandler(String uid) {
     }
 
@@ -80,6 +86,7 @@ public class BaseController extends Thread {
     @FXML
     Label clockLabel;
 
+    // Withdraw some banknotes.
     public void withdraw(SetOfBanknotes banknotes) throws IOException {
         Withdrawer withdrawer = new Withdrawer();
 
@@ -104,6 +111,7 @@ public class BaseController extends Thread {
         }
     }
 
+    // Withdraw some banknotes.
     public void withdraw(SetOfBanknotes banknotes, int A) throws IOException {
         Withdrawer withdrawer = new Withdrawer();
 
@@ -127,6 +135,7 @@ public class BaseController extends Thread {
         }
     }
 
+    // Get the the available banknote options.
     public int[][] getBanknoteOptions(int amount) throws IOException {
         BankNoteCombo bankNoteCombo = new BankNoteCombo();
 
@@ -184,6 +193,7 @@ public class BaseController extends Thread {
         return options;
     }
 
+    // Start the thread for the clock.
     public void clock() {
         Thread clock = new Thread() {
 

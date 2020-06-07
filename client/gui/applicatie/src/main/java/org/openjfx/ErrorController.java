@@ -7,6 +7,13 @@ import model.LanguageSystem;
 
 import java.io.IOException;
 
+/**
+ *
+ * ErrorController
+ *
+ * Produced by Tymek, Shabir, Robin and Jaco.
+ */
+
 public class ErrorController extends BaseController {
 
     @FXML
@@ -42,6 +49,7 @@ public class ErrorController extends BaseController {
         App.restoreLast();
     }
 
+    // Handles the keypress event.
     @Override
     public void KeyPressEventHandler(char key) {
         try {

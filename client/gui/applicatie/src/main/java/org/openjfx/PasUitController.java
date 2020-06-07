@@ -10,10 +10,17 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ *
+ * PasUitController
+ *
+ * Produced by Tymek, Shabir, Robin and Jaco.
+ */
+
 public class PasUitController extends BaseController {
 
     @FXML
-    void initialize() {
+    public void initialize() {
         cardOut.setText(LanguageSystem.getString("cardOut"));
         SessionManager.deleteSession();
         switchMethode();
@@ -28,7 +35,7 @@ public class PasUitController extends BaseController {
         App.setRoot("pasIn");
     }
 
-
+    // Return to pass in after a given time.
     @FXML
     public void switchMethode() {
         Thread switchMethode = new Thread() {

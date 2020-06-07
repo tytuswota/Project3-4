@@ -1,14 +1,16 @@
 package Seeder;
 
-/*
-the seederEngine fills the database with data from the json files.
 
-lacking functionality:
-    adding cards
+/**
+ * SimulatieController
+ *
+ * the seederEngine fills the database with data from the json files.
+ *
+ * Produced by Tymek, Shabir, Robin and Jaco.
  */
 
 import org.json.JSONArray;
-import model.SessionManager;
+import model.ConnectionManager;
 import org.json.JSONObject;
 
 import java.io.FileReader;
@@ -16,11 +18,9 @@ import java.util.function.Function;
 
 public class SeederEngine {
     public static void main(String[] args) {
-        //createFromFile(ConnectionManager::createUser, "Users.json");
-        //createFromFile(ConnectionManager::createBankAccount, "BankAccounts.json");
-        createFromFile(SessionManager::createTransaction, "Transactions.json");
-        //createFromFile(ConnectionManager::, ".json");
-
+/*        createFromFile(ConnectionManager::createUser, "Users.json");
+        createFromFile(ConnectionManager::createBankAccount, "BankAccounts.json");
+        createFromFile(ConnectionManager::createTransaction, "Transactions.json");*/
     }
 
     private static void createFromFile(Function<JSONObject, JSONObject> myfunction, String file) {

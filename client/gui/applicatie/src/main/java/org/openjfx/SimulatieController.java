@@ -1,11 +1,17 @@
 package org.openjfx;
 
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
+
+/**
+ *
+ * SimulatieController
+ *
+ * Produced by Tymek, Shabir, Robin and Jaco.
+ */
 
 public class SimulatieController extends BaseController{
     @FXML
@@ -40,6 +46,8 @@ public class SimulatieController extends BaseController{
     public void switchToPasUit() throws IOException {
         App.setRoot("pasUit");
     }
+
+    // Go to pass uit after a given time.
     @FXML
     public void switchMethode() {
         Thread switchMethode = new Thread() {
