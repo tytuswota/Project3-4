@@ -53,6 +53,12 @@ public class BanknoteSelection extends BaseController {
     Label lbl_optie_1_10;
 
     @FXML
+    Label lbl_optie_1_20;
+
+    @FXML
+    Label lbl_optie_1_50;
+
+    @FXML
     Label lbl_optie_2_10;
 
     @FXML
@@ -79,26 +85,84 @@ public class BanknoteSelection extends BaseController {
     @FXML
     public void initialize() {
         for (int combo = 0; combo < 20; combo++) {
+            System.out.println("===============================");
             for (int bill = 0; bill < 3; bill++) {
+                System.out.println(banknoteArray[bill][combo]);
                 if (banknoteArray[bill][combo] != 0) {
 
                     if (combo == 0) {
-                        if (banknoteArray[0][combo] != 0) {
-                            lbl_optie_1_10.setText("₽10 X " + (banknoteArray[0][combo]));
+                        if(banknoteArray[2][combo] == 0 && banknoteArray[1][combo] == 0 && banknoteArray[0][combo] != 0){
+                            lbl_optie_1_50.setText("₽10 X " + (banknoteArray[0][combo]));
+                        }
+                        else if(banknoteArray[2][combo] == 0 && banknoteArray[1][combo] != 0 && banknoteArray[0][combo] == 0){
+                            lbl_optie_1_50.setText("₽20 X " + (banknoteArray[1][combo]));
+                        }else if(banknoteArray[2][combo] == 0 && banknoteArray[1][combo] != 0 && banknoteArray[0][combo] != 0){
+                            lbl_optie_1_20.setText("₽10 X " + (banknoteArray[0][combo]));
+                            lbl_optie_1_50.setText("₽20 X " + (banknoteArray[1][combo]));
+                        } else if(banknoteArray[2][combo] != 0 && banknoteArray[1][combo] == 0 && banknoteArray[0][combo] != 0){
+                            lbl_optie_1_20.setText("₽10 X " + (banknoteArray[0][combo]));
+                            lbl_optie_1_50.setText("₽50 X " + (banknoteArray[2][combo]));
+                        }
+                        else{
+                            if(banknoteArray[0][combo] != 0){
+                                lbl_optie_1_10.setText("₽10 X " + (banknoteArray[0][combo]));
+                            }
+                            if(banknoteArray[1][combo] != 0){
+                                lbl_optie_1_20.setText("₽20 X " + (banknoteArray[1][combo]));
+                            }
+                            if(banknoteArray[2][combo] != 0){
+                                lbl_optie_1_50.setText("₽50 X " + (banknoteArray[2][combo]));
+                            }
                         }
                     }
                     if (combo == 1) {
-                        if (banknoteArray[0][combo] != 0) {
-                            lbl_optie_2_10.setText("₽10 X " + (banknoteArray[0][combo]));
-                            lbl_optie_2_20.setText("₽20 X " + (banknoteArray[1][combo]));
+                        if(banknoteArray[2][combo] == 0 && banknoteArray[1][combo] == 0 && banknoteArray[0][combo] != 0){
+                            lbl_optie_2_50.setText("₽10 X " + (banknoteArray[0][combo]));
+                        }
+                        else if(banknoteArray[2][combo] == 0 && banknoteArray[1][combo] != 0 && banknoteArray[0][combo] == 0){
+                            lbl_optie_2_50.setText("₽20 X " + (banknoteArray[1][combo]));
+                        }else if(banknoteArray[2][combo] == 0 && banknoteArray[1][combo] != 0 && banknoteArray[0][combo] != 0){
+                            lbl_optie_2_20.setText("₽10 X " + (banknoteArray[0][combo]));
+                            lbl_optie_2_50.setText("₽20 X " + (banknoteArray[1][combo]));
+                        }else if(banknoteArray[2][combo] != 0 && banknoteArray[1][combo] == 0 && banknoteArray[0][combo] != 0){
+                            lbl_optie_2_20.setText("₽10 X " + (banknoteArray[0][combo]));
                             lbl_optie_2_50.setText("₽50 X " + (banknoteArray[2][combo]));
+                        }
+                        else{
+                            if(banknoteArray[0][combo] != 0){
+                                lbl_optie_2_10.setText("₽10 X " + (banknoteArray[0][combo]));
+                            }
+                            if(banknoteArray[1][combo] != 0){
+                                lbl_optie_2_20.setText("₽20 X " + (banknoteArray[1][combo]));
+                            }
+                            if(banknoteArray[2][combo] != 0){
+                                lbl_optie_2_50.setText("₽50 X " + (banknoteArray[2][combo]));
+                            }
                         }
                     }
                     if (combo == 2) {
-                        if (banknoteArray[0][combo] != 0) {
-                            lbl_optie_3_10.setText("₽10 X " + (banknoteArray[0][combo]));
-                            lbl_optie_3_20.setText("₽20 X " + (banknoteArray[1][combo]));
+                        if(banknoteArray[2][combo] == 0 && banknoteArray[1][combo] == 0 && banknoteArray[0][combo] != 0){
+                            lbl_optie_3_50.setText("₽10 X " + (banknoteArray[0][combo]));
+                        }
+                        else if(banknoteArray[2][combo] == 0 && banknoteArray[1][combo] != 0 && banknoteArray[0][combo] == 0){
+                            lbl_optie_3_50.setText("₽20 X " + (banknoteArray[1][combo]));
+                        }else if(banknoteArray[2][combo] == 0 && banknoteArray[1][combo] != 0 && banknoteArray[0][combo] != 0){
+                            lbl_optie_2_20.setText("₽10 X " + (banknoteArray[0][combo]));
+                            lbl_optie_2_50.setText("₽20 X " + (banknoteArray[1][combo]));
+                        }else if(banknoteArray[2][combo] != 0 && banknoteArray[1][combo] == 0 && banknoteArray[0][combo] != 0){
+                            lbl_optie_3_20.setText("₽10 X " + (banknoteArray[0][combo]));
                             lbl_optie_3_50.setText("₽50 X " + (banknoteArray[2][combo]));
+                        }
+                        else{
+                            if(banknoteArray[0][combo] != 0){
+                                lbl_optie_3_10.setText("₽10 X " + (banknoteArray[0][combo]));
+                            }
+                            if(banknoteArray[1][combo] != 0){
+                                lbl_optie_3_20.setText("₽20 X " + (banknoteArray[1][combo]));
+                            }
+                            if(banknoteArray[2][combo] != 0){
+                                lbl_optie_3_50.setText("₽50 X " + (banknoteArray[2][combo]));
+                            }
                         }
                     }
                     lbl_menu.setText(LanguageSystem.getString("menu"));

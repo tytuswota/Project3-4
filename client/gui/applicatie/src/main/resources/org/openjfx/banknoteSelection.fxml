@@ -38,7 +38,7 @@
             </font>
         </Label>
 
-        <Label fx:id="lbl_optie_1_10" alignment="CENTER" layoutX="283.0" layoutY="287.0" prefHeight="62.0" prefWidth="290.0" textAlignment="CENTER" textFill="WHITE">
+        <Label fx:id="lbl_optie_1_50" alignment="CENTER" layoutX="283.0" layoutY="287.0" prefHeight="62.0" prefWidth="290.0" textAlignment="CENTER" textFill="WHITE">
             <font>
                 <Font size="40.0" />
             </font>
@@ -75,6 +75,16 @@
          </font>
       </Label>
       <Label fx:id="lbl_optie_3_50" alignment="CENTER" layoutX="283.0" layoutY="488.0" prefHeight="60.0" prefWidth="290.0" textFill="WHITE">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_optie_1_20" alignment="CENTER" layoutX="283.0" layoutY="228.0" prefHeight="62.0" prefWidth="290.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbl_optie_1_10" alignment="CENTER" layoutX="289.0" layoutY="182.0" prefHeight="62.0" prefWidth="290.0" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="40.0" />
          </font>
