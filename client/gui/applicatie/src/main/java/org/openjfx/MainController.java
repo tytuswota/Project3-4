@@ -89,7 +89,6 @@ public class MainController extends BaseController {
         BanknoteSelection.banknote2 = banknote2;
         BanknoteSelection.banknote3 = banknote3;
 
-
         withdraw(banknotes,0);
     }
 
