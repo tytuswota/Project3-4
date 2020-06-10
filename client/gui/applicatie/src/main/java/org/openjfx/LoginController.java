@@ -63,7 +63,6 @@ public class LoginController extends BaseController {
     private int efforts = 0;
 
     @FXML
-    @Override
     public void LoginToMainMenu() throws IOException {
 
         int status = login(cardId);
