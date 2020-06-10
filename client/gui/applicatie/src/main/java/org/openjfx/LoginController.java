@@ -96,8 +96,9 @@ public class LoginController extends BaseController {
         if (sessionManager != null) {
             App.pin = pin;
             App.accountId = sessionManager.getAccountname();
+            return sessionManager.getStatus();
         }
-        return sessionManager.getStatus();
+        return 400;
     }
 
     // Handles the keypress events
