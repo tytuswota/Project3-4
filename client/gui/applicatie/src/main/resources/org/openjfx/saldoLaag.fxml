@@ -12,11 +12,6 @@
                 <Font size="40.0" />
             </font>
         </Label>
-        <Label id="saldoLaagId" alignment="CENTER" layoutX="648.0" layoutY="489.0" prefHeight="108.0" prefWidth="619.0" styleClass="field" stylesheets="@../../style/Main.css" text="message" textAlignment="JUSTIFY">
-            <font>
-                <Font size="45.0" />
-            </font>
-        </Label>
         <Label fx:id="abort" alignment="CENTER" layoutX="1365.0" layoutY="800.0" prefHeight="36.0" prefWidth="297.0" text="abort" textAlignment="JUSTIFY" textFill="WHITE">
             <font>
                 <Font size="40.0" />
@@ -47,5 +42,10 @@
                 <Font size="40.0" />
             </font>
         </Label>
+      <Label id="lowBalanceId" alignment="CENTER" layoutX="648.0" layoutY="489.0" prefHeight="105.0" prefWidth="620.0" styleClass="field" stylesheets="@../../style/Main.css" text="SaldoLaag">
+         <font>
+            <Font size="45.0" />
+         </font>
+      </Label>
     </children>
 </AnchorPane>

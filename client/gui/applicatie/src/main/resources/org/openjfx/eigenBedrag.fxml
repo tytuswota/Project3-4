@@ -17,12 +17,12 @@
                 <Insets />
             </opaqueInsets>
         </TextField>
-        <Button id="button" fx:id="corrigeren" contentDisplay="CENTER" layoutX="890.0" layoutY="870.0" mnemonicParsing="false" onAction="#removeCharacter" styleClass="knop" stylesheets="@../../style/Main.css" text="B" textAlignment="CENTER">
+        <Button id="button" fx:id="corrigeren" contentDisplay="CENTER" layoutX="890.0" layoutY="870.0" mnemonicParsing="false" onAction="#removeCharacter" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="B" textAlignment="CENTER">
             <font>
                 <Font size="60.0" />
             </font>
         </Button>
-        <Button id="button" fx:id="bevestigen" layoutX="1440.0" layoutY="870.0" mnemonicParsing="false" onAction="#commitTransActions" styleClass="knop" stylesheets="@../../style/Main.css" text="#">
+        <Button id="button" fx:id="bevestigen" layoutX="1440.0" layoutY="870.0" mnemonicParsing="false" onAction="#commitTransActions" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="#">
             <font>
                 <Font size="60.0" />
             </font>
@@ -42,7 +42,7 @@
                 <Font size="40.0" />
             </font>
         </Label>
-        <Button id="button" fx:id="eigenBedragToMenu" layoutX="330.0" layoutY="870.0" mnemonicParsing="false" onAction="#switchToMainMenu" styleClass="knop" stylesheets="@../../style/Main.css" text="*" textAlignment="CENTER">
+        <Button id="button" fx:id="eigenBedragToMenu" layoutX="330.0" layoutY="870.0" mnemonicParsing="false" onAction="#switchToMainMenu" prefHeight="108.0" prefWidth="185.0" styleClass="knop" stylesheets="@../../style/Main.css" text="*" textAlignment="CENTER">
             <font>
                 <Font size="60.0" />
             </font>
