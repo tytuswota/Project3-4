@@ -47,9 +47,12 @@ public class App extends Application {
 
     static void setRoot(String fxml) throws IOException {
         FXMLLoader loader = loadFXML(fxml);
-        lastRoot = loader.load();
-        lastController = loader.getController();
-        scene.setRoot(lastRoot);
+        Parent root = loader.load();
+        scene.setRoot(root);
+        if (fxml != "pinFout" && fxml != "saldoLaag"){
+            lastController = loader.getController();
+            lastRoot = root;
+        }
     }
 
     //
