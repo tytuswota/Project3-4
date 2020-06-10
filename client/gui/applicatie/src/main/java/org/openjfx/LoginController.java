@@ -63,6 +63,7 @@ public class LoginController extends BaseController {
     private int efforts = 0;
 
     @FXML
+    @Override
     public void LoginToMainMenu() throws IOException {
 
         int status = login(cardId);
@@ -77,8 +78,6 @@ public class LoginController extends BaseController {
                     efforts++;
                     App.showErrorScreenPin("pinWrong");
 
-                    //
-                    //
                 }
             } else {
                 SessionManager.blockCard(cardId);

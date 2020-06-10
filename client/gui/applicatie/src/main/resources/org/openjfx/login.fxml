@@ -14,7 +14,7 @@
                 <Font size="45.0" />
             </font></PasswordField>
 
-        <Button id="button" fx:id="bevestigen" layoutX="1420.0" layoutY="870.0" mnemonicParsing="false" onAction="#switchToMainMenu" prefHeight="114.0" prefWidth="194.0" styleClass="knop" stylesheets="@../../style/Main.css" text="#">
+        <Button id="button" fx:id="bevestigen" layoutX="1420.0" layoutY="870.0" mnemonicParsing="false" onAction="#LoginToMainMenu" prefHeight="114.0" prefWidth="194.0" styleClass="knop" stylesheets="@../../style/Main.css" text="#">
             <font>
                 <Font size="60.0" />
             </font>

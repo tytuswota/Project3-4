@@ -22,7 +22,7 @@ import java.util.GregorianCalendar;
  * produced by Tymek, Shabir, Robin and Jaco.
  */
 
-public class BaseController extends Thread {
+public abstract class BaseController extends Thread {
 
     protected static SerialReader reader = SerialReader.GetReader();
     private static int totBedrag;
@@ -65,6 +65,9 @@ public class BaseController extends Thread {
             }
         });
     }
+
+    @FXML
+    public abstract void LoginToMainMenu() throws IOException;
 
     // Method to be overridden.
     public void KeyPressEventHandler(char key) {
@@ -214,7 +217,7 @@ public class BaseController extends Thread {
                                 SimpleDateFormat date = new SimpleDateFormat(clock);
                                 dateString = date.format(new Date());
 
-                            clockLabel.setText(dateString);
+                                //clockLabel.setText(dateString);
                             }
                         });
                     } catch (InterruptedException | NullPointerException  e) {

@@ -55,18 +55,23 @@ public class EigenBedragController extends BaseController {
         saldoText.setText(text);
     }
 
-    double balance = Double.parseDouble(SessionManager.getSession().getBalance());
 
     public void commitTransActions() throws IOException {
-        int amount = Integer.parseInt(saldoText.getText());
-        int[][] bankNoteOptions = getBanknoteOptions(amount);
-        BanknoteSelection.banknoteArray = bankNoteOptions;
+        SessionManager session = SessionManager.getSession();
+        if(session != null) {
+            double balance = Double.parseDouble(session.getBalance());
 
-        if (amount > balance || amount < 10) {
-            App.showErrorScreen("saldoLaag");// .setRoot("saldoLaag");
-        } else {
-            App.setRoot("banknoteSelection");
+            int amount = Integer.parseInt(saldoText.getText());
+            int[][] bankNoteOptions = getBanknoteOptions(amount);
+            BanknoteSelection.banknoteArray = bankNoteOptions;
+
+            if (amount > balance || amount < 10) {
+                App.showErrorScreen("saldoLaag");// .setRoot("saldoLaag");
+            } else {
+                App.setRoot("banknoteSelection");
+            }
         }
+        App.showErrorScreen("Error in initialising connection");
     }
 
     // Handles the keypress event.
