@@ -18,6 +18,11 @@ import model.Withdrawer;
 
 public class MainController extends BaseController {
 
+    public static int banknote1;
+
+    public static int banknote2;
+    public static int banknote3;
+
     public static int getBanknote1() {
         return banknote1;
     }
@@ -29,11 +34,6 @@ public class MainController extends BaseController {
     public static int getBanknote3() {
         return banknote3;
     }
-
-    public static int banknote1;
-    public static int banknote2;
-    public static int banknote3;
-
 
     @FXML
     public void initialize() {

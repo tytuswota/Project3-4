@@ -18,7 +18,7 @@ import model.SessionManager;
 
 public class LoginController extends BaseController {
 
-    private String cardId = reader.getLastCardNumber();
+     private String cardId = reader.getLastCardNumber();
 
 //    private String cardId = "SO-DASB-00000002";
     public void initialize() {
@@ -26,6 +26,7 @@ public class LoginController extends BaseController {
         abort.setText(LanguageSystem.getString("abort"));
         confirm.setText(LanguageSystem.getString("confirm"));
         backspace.setText(LanguageSystem.getString("backspace"));
+        System.out.println("iets");
     }
 
     @FXML
@@ -56,14 +57,15 @@ public class LoginController extends BaseController {
         pin.setText(text);
     }
 
+
     @FXML
     Label abort;
     private int efforts = 0;
 
     @FXML
-    public void switchToMainMenu() throws IOException {
+    public void LoginToMainMenu() throws IOException {
 
-        int status = login("SO-DASB-00000002");
+        int status = login(cardId);
 
         if (status != 403) {
             if (this.efforts != 3) {
@@ -71,17 +73,21 @@ public class LoginController extends BaseController {
                     efforts = 0;
                     App.setRoot("mainMenu");
                 } else {
+                    pin.setText("");
                     efforts++;
                     App.showErrorScreenPin("pinWrong");
+
                     //
                     //
                 }
             } else {
                 SessionManager.blockCard(cardId);
                 App.showErrorScreenPin("cardBlocked");
+
             }
         } else {
             App.showErrorScreenPin("cardBlocked");
+
         }
 
     }
@@ -105,7 +111,7 @@ public class LoginController extends BaseController {
     public void KeyPressEventHandler(char key) {
         try {
             if (key == '#' ) {
-                switchToMainMenu();
+                LoginToMainMenu();
             }
             if (key == '*') {
                 switchToPasUit();

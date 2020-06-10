@@ -36,8 +36,7 @@ public class SimulatieController extends BaseController {
 
     @FXML
     public void initialize() {
-        simulatie.setText("er is ₽" + total + " gepint.");
-
+        simulatie.setText("Er is ₽" + total + " gepint.");
         simulatie1.setText("₽10 is: " + brief1 + "x uitgeworpen");
         simulatie2.setText("₽20 is: " + brief2 + "x uitgeworpen");
         simulatie3.setText("₽50 is: " + brief3 + "x uitgeworpen");
@@ -63,7 +62,7 @@ public class SimulatieController extends BaseController {
                 boolean change = false;
                 while (!change) {
                     try {
-                        Thread.sleep(5000);
+                        Thread.sleep(15000);
                         switchToPasUit();
                         change = true;
 

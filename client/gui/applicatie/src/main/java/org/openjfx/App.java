@@ -49,7 +49,7 @@ public class App extends Application {
         FXMLLoader loader = loadFXML(fxml);
         Parent root = loader.load();
         scene.setRoot(root);
-        if (fxml != "pinFout" && fxml != "saldoLaag"){
+        if (!fxml.equals("pinFout") && !fxml.equals("saldoLaag")){
             lastController = loader.getController();
             lastRoot = root;
         }
@@ -63,7 +63,7 @@ public class App extends Application {
             if(node instanceof Label){
                 Label label = (Label)node;
                 String id = label.getId();
-                if(id != null && id.compareTo("saldoLaagId") == 0){
+                if(id != null && id.compareTo("lowBalanceId") == 0){// label with saldolaagId  as id
                     label.setText(LanguageSystem.getString(message));
                 }
             }
