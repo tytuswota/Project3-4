@@ -63,7 +63,7 @@ public class EigenBedragController extends BaseController {
         BanknoteSelection.banknoteArray = bankNoteOptions;
 
         if (amount > balance || amount < 10) {
-            App.setRoot("saldoLaag");
+            App.showErrorScreen("saldoLaag");// .setRoot("saldoLaag");
         } else {
             App.setRoot("banknoteSelection");
         }
