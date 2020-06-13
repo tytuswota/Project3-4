@@ -43,6 +43,40 @@ class Accounts extends BaseModel
         return $val;
     }
 
+    public function failedAttempt($cardId, $attempt){
+
+        $this->tableName = "Card";
+        $stmt = $this->read("card_id", $cardId);
+        $cardArray = array();
+        $name = "card_id";
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $cardArray = array(
+                "card_id" => $row['card_id'],
+                "active" => $row['active'],
+                "expiration_data" => $row['expiration_data'],
+                "bank_account_id" => $row['bank_account_id'],
+                "attempts" => $row['attempts']
+                );
+        }
+
+        $currentAttempt = 0;
+
+        if($attempt === 0){
+            $currentAttempt = $cardArray["attempts"] + 1;
+        }
+
+
+        $values = [
+            "attempts" => $currentAttempt
+        ];
+
+        $val = $this->update($name, $cardId, $values);
+
+        $this->tableName = "BankAccount";
+        return $val;
+    }
+
     public function readCard($cardId = 0)
     {
         $this->tableName = "Card";
@@ -54,8 +88,8 @@ class Accounts extends BaseModel
             $cardItem = array(
                 "card_id" => $row['card_id'],
                 "active" => $row['active'],
-                "expiration_data" => $row['expiration_data'],
                 "bank_account_id" => $row['bank_account_id'],
+                "attempts" => $row['attempts']
             );
             array_push($cardArray, $cardItem);
         }
