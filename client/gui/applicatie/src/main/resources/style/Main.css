@@ -87,7 +87,7 @@
     -fx-font-size: 60;
 }
 
-#saldoLaagId.field {
+#lowBalanceId.field {
     -fx-background-color: white;
     -fx-background-radius: 10px;
     -fx-border-width: 5px;

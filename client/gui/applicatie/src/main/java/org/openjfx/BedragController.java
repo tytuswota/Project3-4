@@ -83,20 +83,22 @@ public class BedragController extends BaseController {
                 // "menu"
                 switchToMainMenu();
             } else if (key == 'A') {
-                SetOfBanknotes banknotes = new SetOfBanknotes(1, 0, 0);
-                withdraw(banknotes);
+                withdrawTen();
                 // withdraw 10
             } else if (key == 'B') {
-                SetOfBanknotes banknotes = new SetOfBanknotes(0, 0, 1);
-                withdraw(banknotes);
+                withdrawFifty();
+//                SetOfBanknotes banknotes = new SetOfBanknotes(0, 0, 1);
+//                withdraw(banknotes);
                 // withdraw 50
             } else if (key == 'C') {
-                SetOfBanknotes banknotes = new SetOfBanknotes(0, 1, 0);
-                withdraw(banknotes);
+                withdrawTwenty();
+//                SetOfBanknotes banknotes = new SetOfBanknotes(0, 1, 0);
+//                withdraw(banknotes);
                 // withdraw 20
             } else if (key == 'D') {
-                SetOfBanknotes banknotes = new SetOfBanknotes(0, 0, 2);
-                withdraw(banknotes);
+                withdrawHundred();
+                //                SetOfBanknotes banknotes = new SetOfBanknotes(0, 0, 2);
+//                withdraw(banknotes);
                 // withdraw 100
             }
 

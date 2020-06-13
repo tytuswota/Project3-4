@@ -40,16 +40,22 @@ public class BaseController extends Thread {
 
     // Constructor
     public BaseController() {
+        AddSerialHandlers();
+        clock();
+    }
+
+    public void AddSerialHandlers() {
+        // remove listeners to prevent from unexpected behaviour.
+        reader.removeListeners();
         reader.addKeyPadListener((x) -> {
             baseKeyPressEventHandler(x);
         });
         reader.addRFIDListener((x) -> {
             RFIDEventHandler(x);
         });
-        clock();
     }
 
-    // Handels a keypress fired by SerialReader.
+    // Handles a keypress fired by SerialReader.
     private void baseKeyPressEventHandler(String key) {
         Platform.runLater(new Runnable() {
             @Override
@@ -208,7 +214,7 @@ public class BaseController extends Thread {
                                 SimpleDateFormat date = new SimpleDateFormat(clock);
                                 dateString = date.format(new Date());
 
-                            clockLabel.setText(dateString);
+                                clockLabel.setText(dateString);
                             }
                         });
                     } catch (InterruptedException | NullPointerException  e) {

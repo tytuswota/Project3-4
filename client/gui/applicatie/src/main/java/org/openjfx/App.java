@@ -25,6 +25,7 @@ public class App extends Application {
     // Saves the lastRoot except it is a error message.
     private static Parent lastRoot;
     private static Scene scene;
+    private static BaseController lastController;
     public static String accountId;
     public static String pin;//bad work around for gos bank
 
@@ -35,9 +36,9 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("pasIn"));
+        scene = new Scene(loadFXML("pasIn").load());
         //sets the stage to full screen
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         // remove the buttons
         //stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
@@ -45,23 +46,24 @@ public class App extends Application {
     }
 
     static void setRoot(String fxml) throws IOException {
-        // remove listeners to prevent from unexpected behaviour.
-        SerialReader.GetReader().removeListeners();
-        lastRoot = loadFXML(fxml);
-        scene.setRoot(lastRoot);
+        FXMLLoader loader = loadFXML(fxml);
+        Parent root = loader.load();
+        scene.setRoot(root);
+        if (!fxml.equals("pinFout") && !fxml.equals("saldoLaag")){
+            lastController = loader.getController();
+            lastRoot = root;
+        }
     }
 
     //
     static void showErrorScreen(String message ) throws IOException {
-        // remove listeners to prevent from unexpected behaviour.
-        SerialReader.GetReader().removeListeners();
-        Parent root = loadFXML("saldoLaag");
+        Parent root = loadFXML("saldoLaag").load();
         var ch = root.getChildrenUnmodifiable();
         for (Node node : ch){
             if(node instanceof Label){
                 Label label = (Label)node;
                 String id = label.getId();
-                if(id != null && id.compareTo("saldoLaagId") == 0){
+                if(id != null && id.compareTo("lowBalanceId") == 0){// label with saldolaagId  as id
                     label.setText(LanguageSystem.getString(message));
                 }
             }
@@ -71,9 +73,7 @@ public class App extends Application {
     }
 
     static void showErrorScreenPin(String message) throws IOException {
-        // remove listeners to prevent from unexpected behaviour.
-        SerialReader.GetReader().removeListeners();
-        Parent root = loadFXML("pinFout");
+        Parent root = loadFXML("pinFout").load();
         var ch = root.getChildrenUnmodifiable();
         for (Node node : ch) {
             if (node instanceof Label) {
@@ -88,14 +88,18 @@ public class App extends Application {
 
     }
 
-    static Parent loadFXML(String fxml) throws IOException {
+    static FXMLLoader loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
+        return fxmlLoader;
     }
 
     static public void restoreLast(){
-        if(lastRoot != null)
+        if(lastRoot != null) {
             scene.setRoot(lastRoot);
+        }
+        if(lastController != null){
+            lastController.AddSerialHandlers();
+        }
     }
 
 }
