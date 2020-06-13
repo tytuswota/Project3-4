@@ -62,17 +62,12 @@ public class SessionManager extends ConnectionManager{
     public static void blockCard(String bankAccountId){
         JSONObject jsonData = new JSONObject();
         jsonData.put("bank_account_id", bankAccountId);
-        System.out.println("===============");
-        System.out.println(jsonData);
-        System.out.println("===============");
         loadData("BankAccount/block.php", jsonData);
     }
 
     public static JSONObject getCard(String cardId){
         JSONObject cardData = new JSONObject();
         cardData.put("card_id", cardId);
-        System.out.println("in the read card");
-        System.out.println(cardData);
         JSONObject jsonObj = loadData("BankAccount/readCard.php", cardData);
         return jsonObj;
     }
