@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import model.LanguageSystem;
 import model.SessionManager;
+import org.json.JSONObject;
 
 /**
  *
@@ -18,9 +19,9 @@ import model.SessionManager;
 
 public class LoginController extends BaseController {
 
-    private String cardId = reader.getLastCardNumber();
+    //private String cardId = reader.getLastCardNumber();
 
-//    private String cardId = "SO-DASB-00000002";
+    private String cardId = "SO-DASB-00000002";
     public void initialize() {
         enterPin.setText(LanguageSystem.getString("enterPin"));
         abort.setText(LanguageSystem.getString("abort"));
@@ -71,7 +72,7 @@ public class LoginController extends BaseController {
         if (status != 403) {
             if (this.efforts != 3) {
                 if (status == 200) {
-                    efforts = 0;
+                    SessionManager.sendFailedAttempt(1, cardId);
                     App.setRoot("mainMenu");
                 } else {
                     pin.setText("");

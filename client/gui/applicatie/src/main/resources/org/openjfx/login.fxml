@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="login" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#switchToMainMenu" onMouseClicked="#switchToMainMenu" prefHeight="1080.0" prefWidth="1920.0" styleClass="bg" stylesheets="@../../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.LoginController">
+<AnchorPane id="login" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" styleClass="bg" stylesheets="@../../style/Main.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.LoginController">
     <children>
 
         <PasswordField id="pin" fx:id="pin" layoutX="740.0" layoutY="577.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="114.0" prefWidth="353.0" styleClass="field" stylesheets="@../../style/Main.css">
@@ -14,7 +14,7 @@
                 <Font size="45.0" />
             </font></PasswordField>
 
-        <Button id="button" fx:id="bevestigen" layoutX="1420.0" layoutY="870.0" mnemonicParsing="false" onAction="#LoginToMainMenu" prefHeight="114.0" prefWidth="194.0" styleClass="knop" stylesheets="@../../style/Main.css" text="#">
+        <Button id="button" fx:id="bevestigen" layoutX="1420.0" layoutY="870.0" mnemonicParsing="false" onAction="#switchToMainMenu" prefHeight="114.0" prefWidth="194.0" styleClass="knop" stylesheets="@../../style/Main.css" text="#">
             <font>
                 <Font size="60.0" />
             </font>
